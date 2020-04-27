@@ -136,7 +136,9 @@
 		69B04755245754F2002A696D /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				69B047582457554D002A696D /* CDManager.swift */,
+				69B0475F24575993002A696D /* Bean */,
+				69B0475D245756BE002A696D /* BO */,
+				69B0475E245756CA002A696D /* DAO */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -153,9 +155,7 @@
 		69B04757245754FE002A696D /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				69B0475C245756B3002A696D /* ViewController */,
-				69B0475D245756BE002A696D /* BO */,
-				69B0475E245756CA002A696D /* DAO */,
+				69B04726245754D5002A696D /* ViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -176,14 +176,6 @@
 			path = AppDelegate;
 			sourceTree = "<group>";
 		};
-		69B0475C245756B3002A696D /* ViewController */ = {
-			isa = PBXGroup;
-			children = (
-				69B04726245754D5002A696D /* ViewController.swift */,
-			);
-			path = ViewController;
-			sourceTree = "<group>";
-		};
 		69B0475D245756BE002A696D /* BO */ = {
 			isa = PBXGroup;
 			children = (
@@ -194,8 +186,16 @@
 		69B0475E245756CA002A696D /* DAO */ = {
 			isa = PBXGroup;
 			children = (
+				69B047582457554D002A696D /* CDManager.swift */,
 			);
 			path = DAO;
+			sourceTree = "<group>";
+		};
+		69B0475F24575993002A696D /* Bean */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Bean;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
