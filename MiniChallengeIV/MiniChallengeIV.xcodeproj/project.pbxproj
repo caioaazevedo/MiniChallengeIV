@@ -18,6 +18,9 @@
 		69B0473D245754D9002A696D /* MiniChallengeIVTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69B0473C245754D9002A696D /* MiniChallengeIVTests.swift */; };
 		69B04748245754D9002A696D /* MiniChallengeIVUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69B04747245754D9002A696D /* MiniChallengeIVUITests.swift */; };
 		69B047592457554D002A696D /* CDManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69B047582457554D002A696D /* CDManager.swift */; };
+		69B172902458CAB800D0F31E /* ProjectBean.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69B1728F2458CAB800D0F31E /* ProjectBean.swift */; };
+		69B172922458CAC000D0F31E /* ProjectBO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69B172912458CAC000D0F31E /* ProjectBO.swift */; };
+		69B172942458CACA00D0F31E /* ProjectDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69B172932458CACA00D0F31E /* ProjectDAO.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +58,9 @@
 		69B04747245754D9002A696D /* MiniChallengeIVUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiniChallengeIVUITests.swift; sourceTree = "<group>"; };
 		69B04749245754D9002A696D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		69B047582457554D002A696D /* CDManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CDManager.swift; sourceTree = "<group>"; };
+		69B1728F2458CAB800D0F31E /* ProjectBean.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectBean.swift; sourceTree = "<group>"; };
+		69B172912458CAC000D0F31E /* ProjectBO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectBO.swift; sourceTree = "<group>"; };
+		69B172932458CACA00D0F31E /* ProjectDAO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectDAO.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -190,6 +196,7 @@
 		69B0475D245756BE002A696D /* BO */ = {
 			isa = PBXGroup;
 			children = (
+				69B172912458CAC000D0F31E /* ProjectBO.swift */,
 			);
 			path = BO;
 			sourceTree = "<group>";
@@ -198,6 +205,7 @@
 			isa = PBXGroup;
 			children = (
 				69B047582457554D002A696D /* CDManager.swift */,
+				69B172932458CACA00D0F31E /* ProjectDAO.swift */,
 			);
 			path = DAO;
 			sourceTree = "<group>";
@@ -205,6 +213,7 @@
 		69B0475F24575993002A696D /* Bean */ = {
 			isa = PBXGroup;
 			children = (
+				69B1728F2458CAB800D0F31E /* ProjectBean.swift */,
 			);
 			path = Bean;
 			sourceTree = "<group>";
@@ -341,9 +350,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				4027D68024589D2D0046DE58 /* DatabaseService.swift in Sources */,
+				69B172902458CAB800D0F31E /* ProjectBean.swift in Sources */,
+				69B172922458CAC000D0F31E /* ProjectBO.swift in Sources */,
 				69B04727245754D5002A696D /* ViewController.swift in Sources */,
 				69B047592457554D002A696D /* CDManager.swift in Sources */,
 				69B04723245754D5002A696D /* AppDelegate.swift in Sources */,
+				69B172942458CACA00D0F31E /* ProjectDAO.swift in Sources */,
 				69B04725245754D5002A696D /* SceneDelegate.swift in Sources */,
 				69B0472D245754D5002A696D /* MiniChallengeIV.xcdatamodeld in Sources */,
 			);
