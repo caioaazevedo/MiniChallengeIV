@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4027D68024589D2D0046DE58 /* DatabaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4027D67F24589D2D0046DE58 /* DatabaseService.swift */; };
 		69B04723245754D5002A696D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69B04722245754D5002A696D /* AppDelegate.swift */; };
 		69B04725245754D5002A696D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69B04724245754D5002A696D /* SceneDelegate.swift */; };
 		69B04727245754D5002A696D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69B04726245754D5002A696D /* ViewController.swift */; };
@@ -37,6 +38,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4027D67F24589D2D0046DE58 /* DatabaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseService.swift; sourceTree = "<group>"; };
 		69B0471F245754D5002A696D /* MiniChallengeIV.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MiniChallengeIV.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		69B04722245754D5002A696D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		69B04724245754D5002A696D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -80,6 +82,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4027D6822458C7840046DE58 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				4027D67F24589D2D0046DE58 /* DatabaseService.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
 		69B04716245754D5002A696D = {
 			isa = PBXGroup;
 			children = (
@@ -103,6 +113,7 @@
 		69B04721245754D5002A696D /* MiniChallengeIV */ = {
 			isa = PBXGroup;
 			children = (
+				4027D6822458C7840046DE58 /* Protocols */,
 				69B04755245754F2002A696D /* Model */,
 				69B04756245754F8002A696D /* View */,
 				69B04757245754FE002A696D /* Controller */,
@@ -329,6 +340,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4027D68024589D2D0046DE58 /* DatabaseService.swift in Sources */,
 				69B04727245754D5002A696D /* ViewController.swift in Sources */,
 				69B047592457554D002A696D /* CDManager.swift in Sources */,
 				69B04723245754D5002A696D /* AppDelegate.swift in Sources */,
