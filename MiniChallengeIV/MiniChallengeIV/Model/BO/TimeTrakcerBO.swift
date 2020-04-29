@@ -21,12 +21,12 @@ class TimeTracker {
      
      If another countDown has already started, a new one won't start.The initial value must be greater than 0
      
-        - Parameter time: the initial value in which the countDown will start from.
+        - Parameter minutes: the initial value in minutes which the countDown will start from.
         - Parameter updateView: a closure called each time the timer is updated for handling view updates.
      */
-    func startTimer(countDownFrom time: Int, updateView: @escaping (String) -> Void){
+    func startTimer(countDownFrom minutes: Int, updateView: @escaping (String) -> Void){
         if isTrackingTime {return}
-        var countDown = time
+        var countDown = minutes * 60
         isTrackingTime = true
         
         timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: { (_) in
