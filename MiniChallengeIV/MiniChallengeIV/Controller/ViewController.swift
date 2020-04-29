@@ -14,11 +14,10 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
     }
-    
     override func viewDidAppear(_ animated: Bool) {
-        performSegue(withIdentifier: "timerSegue", sender: nil)
+        super.viewDidAppear(animated)
+        performSegue(withIdentifier: "projectStoryBoard", sender: nil)
     }
-
 
 }
 
