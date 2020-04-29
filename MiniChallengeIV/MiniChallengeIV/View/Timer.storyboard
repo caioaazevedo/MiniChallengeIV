@@ -30,12 +30,30 @@
                                     <action selector="runTimer:" destination="MQ5-HC-hTW" eventType="touchUpInside" id="zZh-pu-NU1"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aAe-4c-qCx">
+                                <rect key="frame" x="32" y="236" width="21" height="22"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button" image="chevron.down" catalog="system"/>
+                                <connections>
+                                    <action selector="decrementTimer:" destination="MQ5-HC-hTW" eventType="touchUpInside" id="E7R-ea-a8b"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IT7-us-O4n">
+                                <rect key="frame" x="360" y="236" width="28" height="22"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button" image="chevron.up" catalog="system"/>
+                                <connections>
+                                    <action selector="incrementTimer:" destination="MQ5-HC-hTW" eventType="touchUpInside" id="eYs-dU-QaW"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="Mmk-am-1eE"/>
                     </view>
                     <connections>
                         <outlet property="timerLabel" destination="6WX-cv-OHG" id="qEp-Dh-gAf"/>
+                        <outletCollection property="timeConfigButtons" destination="IT7-us-O4n" collectionClass="NSMutableArray" id="zTu-Bb-4fi"/>
+                        <outletCollection property="timeConfigButtons" destination="aAe-4c-qCx" collectionClass="NSMutableArray" id="r3b-Gx-dTk"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="X5W-1a-YQK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -43,4 +61,8 @@
             <point key="canvasLocation" x="86.956521739130437" y="28.794642857142854"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="chevron.down" catalog="system" width="128" height="72"/>
+        <image name="chevron.up" catalog="system" width="128" height="72"/>
+    </resources>
 </document>
