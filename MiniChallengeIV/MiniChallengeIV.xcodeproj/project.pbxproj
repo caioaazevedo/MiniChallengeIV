@@ -21,6 +21,9 @@
 		69B172902458CAB800D0F31E /* ProjectBean.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69B1728F2458CAB800D0F31E /* ProjectBean.swift */; };
 		69B172922458CAC000D0F31E /* ProjectBO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69B172912458CAC000D0F31E /* ProjectBO.swift */; };
 		69B172942458CACA00D0F31E /* ProjectDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69B172932458CACA00D0F31E /* ProjectDAO.swift */; };
+		69ECFA2F2459FD5A00D4F205 /* Projects.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 69ECFA2E2459FD5A00D4F205 /* Projects.storyboard */; };
+		69ECFA31245A017800D4F205 /* ProjectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69ECFA30245A017800D4F205 /* ProjectViewController.swift */; };
+		69ECFA33245A056800D4F205 /* ProjectCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69ECFA32245A056800D4F205 /* ProjectCollectionViewCell.swift */; };
 		E29B1E112458C89C00EA9B48 /* StatisticBean.swift in Sources */ = {isa = PBXBuildFile; fileRef = E29B1E102458C89C00EA9B48 /* StatisticBean.swift */; };
 		E29B1E132458CA7D00EA9B48 /* StatisticBO.swift in Sources */ = {isa = PBXBuildFile; fileRef = E29B1E122458CA7D00EA9B48 /* StatisticBO.swift */; };
 		E29B1E152458CA9B00EA9B48 /* StatisticDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = E29B1E142458CA9B00EA9B48 /* StatisticDAO.swift */; };
@@ -64,6 +67,9 @@
 		69B1728F2458CAB800D0F31E /* ProjectBean.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectBean.swift; sourceTree = "<group>"; };
 		69B172912458CAC000D0F31E /* ProjectBO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectBO.swift; sourceTree = "<group>"; };
 		69B172932458CACA00D0F31E /* ProjectDAO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectDAO.swift; sourceTree = "<group>"; };
+		69ECFA2E2459FD5A00D4F205 /* Projects.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Projects.storyboard; sourceTree = "<group>"; };
+		69ECFA30245A017800D4F205 /* ProjectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectViewController.swift; sourceTree = "<group>"; };
+		69ECFA32245A056800D4F205 /* ProjectCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectCollectionViewCell.swift; sourceTree = "<group>"; };
 		E29B1E102458C89C00EA9B48 /* StatisticBean.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticBean.swift; sourceTree = SOURCE_ROOT; };
 		E29B1E122458CA7D00EA9B48 /* StatisticBO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticBO.swift; sourceTree = SOURCE_ROOT; };
 		E29B1E142458CA9B00EA9B48 /* StatisticDAO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticDAO.swift; sourceTree = "<group>"; };
@@ -171,6 +177,7 @@
 			children = (
 				69B04730245754D8002A696D /* LaunchScreen.storyboard */,
 				69B04728245754D5002A696D /* Main.storyboard */,
+				69ECFA2E2459FD5A00D4F205 /* Projects.storyboard */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -179,6 +186,8 @@
 			isa = PBXGroup;
 			children = (
 				69B04726245754D5002A696D /* ViewController.swift */,
+				69ECFA30245A017800D4F205 /* ProjectViewController.swift */,
+				69ECFA32245A056800D4F205 /* ProjectCollectionViewCell.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -331,6 +340,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				69ECFA2F2459FD5A00D4F205 /* Projects.storyboard in Resources */,
 				69B04732245754D8002A696D /* LaunchScreen.storyboard in Resources */,
 				69B0472F245754D8002A696D /* Assets.xcassets in Resources */,
 				69B0472A245754D5002A696D /* Main.storyboard in Resources */,
@@ -358,9 +368,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				69ECFA33245A056800D4F205 /* ProjectCollectionViewCell.swift in Sources */,
 				4027D68024589D2D0046DE58 /* DatabaseService.swift in Sources */,
 				69B172902458CAB800D0F31E /* ProjectBean.swift in Sources */,
 				69B172922458CAC000D0F31E /* ProjectBO.swift in Sources */,
+				69ECFA31245A017800D4F205 /* ProjectViewController.swift in Sources */,
 				69B04727245754D5002A696D /* ViewController.swift in Sources */,
 				69B047592457554D002A696D /* CDManager.swift in Sources */,
 				E29B1E132458CA7D00EA9B48 /* StatisticBO.swift in Sources */,
