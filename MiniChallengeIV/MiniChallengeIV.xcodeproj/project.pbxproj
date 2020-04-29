@@ -21,6 +21,9 @@
 		69B172902458CAB800D0F31E /* ProjectBean.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69B1728F2458CAB800D0F31E /* ProjectBean.swift */; };
 		69B172922458CAC000D0F31E /* ProjectBO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69B172912458CAC000D0F31E /* ProjectBO.swift */; };
 		69B172942458CACA00D0F31E /* ProjectDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69B172932458CACA00D0F31E /* ProjectDAO.swift */; };
+		796C3E36245A0079004488D1 /* TimeTrakcerBO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 796C3E35245A0079004488D1 /* TimeTrakcerBO.swift */; };
+		796C3E38245A00DF004488D1 /* TimerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 796C3E37245A00DF004488D1 /* TimerViewController.swift */; };
+		796C3E3A245A02C2004488D1 /* Timer.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 796C3E39245A02C2004488D1 /* Timer.storyboard */; };
 		E29B1E112458C89C00EA9B48 /* StatisticBean.swift in Sources */ = {isa = PBXBuildFile; fileRef = E29B1E102458C89C00EA9B48 /* StatisticBean.swift */; };
 		E29B1E132458CA7D00EA9B48 /* StatisticBO.swift in Sources */ = {isa = PBXBuildFile; fileRef = E29B1E122458CA7D00EA9B48 /* StatisticBO.swift */; };
 		E29B1E152458CA9B00EA9B48 /* StatisticDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = E29B1E142458CA9B00EA9B48 /* StatisticDAO.swift */; };
@@ -64,6 +67,9 @@
 		69B1728F2458CAB800D0F31E /* ProjectBean.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectBean.swift; sourceTree = "<group>"; };
 		69B172912458CAC000D0F31E /* ProjectBO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectBO.swift; sourceTree = "<group>"; };
 		69B172932458CACA00D0F31E /* ProjectDAO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectDAO.swift; sourceTree = "<group>"; };
+		796C3E35245A0079004488D1 /* TimeTrakcerBO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeTrakcerBO.swift; sourceTree = "<group>"; };
+		796C3E37245A00DF004488D1 /* TimerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerViewController.swift; sourceTree = "<group>"; };
+		796C3E39245A02C2004488D1 /* Timer.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Timer.storyboard; sourceTree = "<group>"; };
 		E29B1E102458C89C00EA9B48 /* StatisticBean.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticBean.swift; sourceTree = SOURCE_ROOT; };
 		E29B1E122458CA7D00EA9B48 /* StatisticBO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticBO.swift; sourceTree = SOURCE_ROOT; };
 		E29B1E142458CA9B00EA9B48 /* StatisticDAO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticDAO.swift; sourceTree = "<group>"; };
@@ -171,6 +177,7 @@
 			children = (
 				69B04730245754D8002A696D /* LaunchScreen.storyboard */,
 				69B04728245754D5002A696D /* Main.storyboard */,
+				796C3E39245A02C2004488D1 /* Timer.storyboard */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -179,6 +186,7 @@
 			isa = PBXGroup;
 			children = (
 				69B04726245754D5002A696D /* ViewController.swift */,
+				796C3E37245A00DF004488D1 /* TimerViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -204,6 +212,7 @@
 			children = (
 				69B172912458CAC000D0F31E /* ProjectBO.swift */,
 				E29B1E122458CA7D00EA9B48 /* StatisticBO.swift */,
+				796C3E35245A0079004488D1 /* TimeTrakcerBO.swift */,
 			);
 			path = BO;
 			sourceTree = "<group>";
@@ -334,6 +343,7 @@
 				69B04732245754D8002A696D /* LaunchScreen.storyboard in Resources */,
 				69B0472F245754D8002A696D /* Assets.xcassets in Resources */,
 				69B0472A245754D5002A696D /* Main.storyboard in Resources */,
+				796C3E3A245A02C2004488D1 /* Timer.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -365,8 +375,10 @@
 				69B047592457554D002A696D /* CDManager.swift in Sources */,
 				E29B1E132458CA7D00EA9B48 /* StatisticBO.swift in Sources */,
 				69B04723245754D5002A696D /* AppDelegate.swift in Sources */,
+				796C3E36245A0079004488D1 /* TimeTrakcerBO.swift in Sources */,
 				69B172942458CACA00D0F31E /* ProjectDAO.swift in Sources */,
 				69B04725245754D5002A696D /* SceneDelegate.swift in Sources */,
+				796C3E38245A00DF004488D1 /* TimerViewController.swift in Sources */,
 				E29B1E152458CA9B00EA9B48 /* StatisticDAO.swift in Sources */,
 				E29B1E112458C89C00EA9B48 /* StatisticBean.swift in Sources */,
 				69B0472D245754D5002A696D /* MiniChallengeIV.xcdatamodeld in Sources */,
@@ -543,7 +555,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = KFC8C5H4A6;
+				DEVELOPMENT_TEAM = BY575KUK4V;
 				INFOPLIST_FILE = MiniChallengeIV/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -561,7 +573,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = KFC8C5H4A6;
+				DEVELOPMENT_TEAM = BY575KUK4V;
 				INFOPLIST_FILE = MiniChallengeIV/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
