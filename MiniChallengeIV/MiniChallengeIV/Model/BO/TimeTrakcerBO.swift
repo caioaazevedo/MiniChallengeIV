@@ -8,14 +8,37 @@
 
 import Foundation
 
+enum TimeTrackerState: String{
+    case focus
+    case running
+    case pause
+}
+
 ///Class created for handling the count down
 class TimeTracker {
-    
+    //MARK:Atributes
     private var timer = Timer()
     let date = DateComponents()
-
-    var isTrackingTime = false
+    var timeValue = 5
     
+    //MARK:Properties
+    private var convertedTimeValue: Int{
+        if state == .pause{
+            return (timeValue / 5) * 60
+        }
+        return timeValue * 60
+    }
+    //MARK:States
+    var state = TimeTrackerState.focus{
+        didSet{
+            lastState = oldValue
+        }
+    }
+    private var lastState = TimeTrackerState.focus
+    private var changeCicle: TimeTrackerState{
+        return lastState == .focus ? .pause : .focus
+    }
+    //MARK: Methods
     /**
      Method for starting the count down from an initial value, and also handling view updates.
      
@@ -24,18 +47,21 @@ class TimeTracker {
         - Parameter minutes: the initial value in minutes which the countDown will start from.
         - Parameter updateView: a closure called each time the timer is updated for handling view updates.
      */
-    func startTimer(countDownFrom minutes: Int, updateView: @escaping (String) -> Void){
-        if isTrackingTime {return}
-        var countDown = minutes * 60
-        isTrackingTime = true
+    func startTimer(updateView: @escaping (String, Bool) -> Void){
+        if state == .running {return}
+        var countDown = convertedTimeValue
+        state = .running
         
         timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: { (_) in
             countDown -= 1
-            let convertedTime = self.secondsToString(with: countDown)
-            updateView(convertedTime)
+            let convertedTimeText = self.secondsToString(with: countDown)
             if countDown == 0{
-                self.isTrackingTime = false
+                self.state = self.changeCicle
                 self.timer.invalidate()
+                let defaultTimeText = self.secondsToString(with: self.convertedTimeValue)
+                updateView(defaultTimeText ,true)
+            }else{
+                updateView(convertedTimeText,false)
             }
         })
     }
@@ -46,11 +72,9 @@ class TimeTracker {
      if the count down was running it pop up a message to the user.
      */
     func stopTimer(updateView: @escaping () -> Void){
-        if isTrackingTime{
-            updateView()
-        }
         timer.invalidate()
-        isTrackingTime = false
+        state = .focus
+        updateView()
     }
     
     /**
