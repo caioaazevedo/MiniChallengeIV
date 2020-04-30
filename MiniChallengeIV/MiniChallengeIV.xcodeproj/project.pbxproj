@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		4027D68024589D2D0046DE58 /* DatabaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4027D67F24589D2D0046DE58 /* DatabaseService.swift */; };
+		409D5030245B4D80006D66AC /* TaskBean.swift in Sources */ = {isa = PBXBuildFile; fileRef = 409D502F245B4D80006D66AC /* TaskBean.swift */; };
+		409D5032245B4E35006D66AC /* TaskBO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 409D5031245B4E35006D66AC /* TaskBO.swift */; };
+		409D5034245B4EC5006D66AC /* TaskDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 409D5033245B4EC5006D66AC /* TaskDAO.swift */; };
 		69B04723245754D5002A696D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69B04722245754D5002A696D /* AppDelegate.swift */; };
 		69B04725245754D5002A696D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69B04724245754D5002A696D /* SceneDelegate.swift */; };
 		69B04727245754D5002A696D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69B04726245754D5002A696D /* ViewController.swift */; };
@@ -55,6 +58,9 @@
 
 /* Begin PBXFileReference section */
 		4027D67F24589D2D0046DE58 /* DatabaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseService.swift; sourceTree = "<group>"; };
+		409D502F245B4D80006D66AC /* TaskBean.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskBean.swift; sourceTree = "<group>"; };
+		409D5031245B4E35006D66AC /* TaskBO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskBO.swift; sourceTree = "<group>"; };
+		409D5033245B4EC5006D66AC /* TaskDAO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskDAO.swift; sourceTree = "<group>"; };
 		69B0471F245754D5002A696D /* MiniChallengeIV.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MiniChallengeIV.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		69B04722245754D5002A696D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		69B04724245754D5002A696D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -230,6 +236,7 @@
 			children = (
 				69B172912458CAC000D0F31E /* ProjectBO.swift */,
 				E29B1E122458CA7D00EA9B48 /* StatisticBO.swift */,
+				409D5031245B4E35006D66AC /* TaskBO.swift */,
 				E2E86FE0245AD6520006712A /* TimerSimulationBO.swift */,
 				796C3E35245A0079004488D1 /* TimeTrakcerBO.swift */,
 				E2428B77245B4DFC001585BF /* LostTimeFocusBO.swift */,
@@ -243,6 +250,7 @@
 				69B047582457554D002A696D /* CDManager.swift */,
 				69B172932458CACA00D0F31E /* ProjectDAO.swift */,
 				E29B1E142458CA9B00EA9B48 /* StatisticDAO.swift */,
+				409D5033245B4EC5006D66AC /* TaskDAO.swift */,
 			);
 			path = DAO;
 			sourceTree = "<group>";
@@ -253,6 +261,7 @@
 				E2E86FDE245AD3E50006712A /* TimerSimulationBean.swift */,
 				69B1728F2458CAB800D0F31E /* ProjectBean.swift */,
 				E29B1E102458C89C00EA9B48 /* StatisticBean.swift */,
+				409D502F245B4D80006D66AC /* TaskBean.swift */,
 			);
 			path = Bean;
 			sourceTree = "<group>";
@@ -397,8 +406,10 @@
 				69B172922458CAC000D0F31E /* ProjectBO.swift in Sources */,
 				69ECFA31245A017800D4F205 /* ProjectViewController.swift in Sources */,
 				69B04727245754D5002A696D /* ViewController.swift in Sources */,
+				409D5034245B4EC5006D66AC /* TaskDAO.swift in Sources */,
 				69B047592457554D002A696D /* CDManager.swift in Sources */,
 				E2E86FDD245AD3D20006712A /* TimerDataManager.swift in Sources */,
+				409D5032245B4E35006D66AC /* TaskBO.swift in Sources */,
 				E2E86FDF245AD3E50006712A /* TimerSimulationBean.swift in Sources */,
 				E2428B78245B4DFC001585BF /* LostTimeFocusBO.swift in Sources */,
 				E29B1E132458CA7D00EA9B48 /* StatisticBO.swift in Sources */,
@@ -409,6 +420,7 @@
 				796C3E38245A00DF004488D1 /* TimerViewController.swift in Sources */,
 				E29B1E152458CA9B00EA9B48 /* StatisticDAO.swift in Sources */,
 				E29B1E112458C89C00EA9B48 /* StatisticBean.swift in Sources */,
+				409D5030245B4D80006D66AC /* TaskBean.swift in Sources */,
 				69B0472D245754D5002A696D /* MiniChallengeIV.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
