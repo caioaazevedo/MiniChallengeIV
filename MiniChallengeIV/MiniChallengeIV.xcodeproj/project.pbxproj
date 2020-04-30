@@ -21,6 +21,9 @@
 		E29B1E112458C89C00EA9B48 /* StatisticBean.swift in Sources */ = {isa = PBXBuildFile; fileRef = E29B1E102458C89C00EA9B48 /* StatisticBean.swift */; };
 		E29B1E132458CA7D00EA9B48 /* StatisticBO.swift in Sources */ = {isa = PBXBuildFile; fileRef = E29B1E122458CA7D00EA9B48 /* StatisticBO.swift */; };
 		E29B1E152458CA9B00EA9B48 /* StatisticDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = E29B1E142458CA9B00EA9B48 /* StatisticDAO.swift */; };
+		E2E86FDD245AD3D20006712A /* TimerDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2E86FDC245AD3D20006712A /* TimerDataManager.swift */; };
+		E2E86FDF245AD3E50006712A /* TimerSimulationBean.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2E86FDE245AD3E50006712A /* TimerSimulationBean.swift */; };
+		E2E86FE1245AD6520006712A /* TimerSimulationBO.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2E86FE0245AD6520006712A /* TimerSimulationBO.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +64,9 @@
 		E29B1E102458C89C00EA9B48 /* StatisticBean.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticBean.swift; sourceTree = SOURCE_ROOT; };
 		E29B1E122458CA7D00EA9B48 /* StatisticBO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticBO.swift; sourceTree = SOURCE_ROOT; };
 		E29B1E142458CA9B00EA9B48 /* StatisticDAO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticDAO.swift; sourceTree = "<group>"; };
+		E2E86FDC245AD3D20006712A /* TimerDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerDataManager.swift; sourceTree = "<group>"; };
+		E2E86FDE245AD3E50006712A /* TimerSimulationBean.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TimerSimulationBean.swift; path = MiniChallengeIV/Model/Bean/TimerSimulationBean.swift; sourceTree = SOURCE_ROOT; };
+		E2E86FE0245AD6520006712A /* TimerSimulationBO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerSimulationBO.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,6 +98,7 @@
 			isa = PBXGroup;
 			children = (
 				4027D67F24589D2D0046DE58 /* DatabaseService.swift */,
+				E2E86FDC245AD3D20006712A /* TimerDataManager.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -197,6 +204,7 @@
 			isa = PBXGroup;
 			children = (
 				E29B1E122458CA7D00EA9B48 /* StatisticBO.swift */,
+				E2E86FE0245AD6520006712A /* TimerSimulationBO.swift */,
 			);
 			path = BO;
 			sourceTree = "<group>";
@@ -213,6 +221,7 @@
 		69B0475F24575993002A696D /* Bean */ = {
 			isa = PBXGroup;
 			children = (
+				E2E86FDE245AD3E50006712A /* TimerSimulationBean.swift */,
 				E29B1E102458C89C00EA9B48 /* StatisticBean.swift */,
 			);
 			path = Bean;
@@ -350,8 +359,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				4027D68024589D2D0046DE58 /* DatabaseService.swift in Sources */,
+				E2E86FE1245AD6520006712A /* TimerSimulationBO.swift in Sources */,
 				69B04727245754D5002A696D /* ViewController.swift in Sources */,
 				69B047592457554D002A696D /* CDManager.swift in Sources */,
+				E2E86FDD245AD3D20006712A /* TimerDataManager.swift in Sources */,
+				E2E86FDF245AD3E50006712A /* TimerSimulationBean.swift in Sources */,
 				E29B1E132458CA7D00EA9B48 /* StatisticBO.swift in Sources */,
 				69B04723245754D5002A696D /* AppDelegate.swift in Sources */,
 				69B04725245754D5002A696D /* SceneDelegate.swift in Sources */,
