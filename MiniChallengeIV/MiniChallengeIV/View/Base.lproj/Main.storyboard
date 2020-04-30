@@ -18,12 +18,26 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <segue destination="WsS-SQ-Jog" kind="show" identifier="timerSegue" id="bk2-fw-Yqu"/>
+                    </connections>
+                    <connections>
                         <segue destination="j0d-1n-Usk" kind="show" identifier="projectStoryBoard" id="89g-JN-Goq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="46" y="117"/>
             <point key="canvasLocation" x="132" y="129"/>
+        </scene>
+        <!--Timer-->
+        <scene sceneID="5qE-Sc-aUU">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Timer" id="WsS-SQ-Jog" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="n7o-Fn-09J"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="OWW-Uc-T5k" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="873" y="-99"/>
         </scene>
         <!--Projects-->
         <scene sceneID="yVC-fz-H7Q">
