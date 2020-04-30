@@ -9,33 +9,58 @@
 import UIKit
 
 class ProjectViewController: UIViewController {
-
+    
     @IBOutlet weak var collectionView: UICollectionView!
-    
-    var items = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"]
-    
+    var selectedProjectId: Int?
+            
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        collectionView.reloadData()
+    }
+    
     @IBAction func addProjectButtonAction(_ sender: Any) {
-        let newProjectVC = UIStoryboard.loadView(from: .NewProject, identifier: .NewProjectID)
-        newProjectVC.modalTransitionStyle = .crossDissolve
-        newProjectVC.modalPresentationStyle = .overCurrentContext
+        goToNewProjectViewController()
+    }
+    
+    /// Go to NewProjectViewController
+    private func goToNewProjectViewController() {
+        if let newProjectVC = UIStoryboard.loadView(from: .NewProject, identifier: .NewProjectID) as? NewProjectViewController {
+            newProjectVC.modalTransitionStyle = .crossDissolve
+            newProjectVC.modalPresentationStyle = .overCurrentContext
+            newProjectVC.delegate = self
+            
+            if let selectedProjectId = selectedProjectId {
+                newProjectVC.projectBean = ProjectDAO.list[selectedProjectId]
+                self.selectedProjectId = nil
+            }
+            
+            self.present(newProjectVC, animated: true)
+        }
+    }
+}
 
-        self.present(newProjectVC, animated: true)
+extension ProjectViewController: NewProjectViewControllerDelegate {
+    func reloadList() {
+        collectionView.reloadData()
     }
 }
 
 extension ProjectViewController: UICollectionViewDelegate {
-    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        selectedProjectId = indexPath.item
+        goToNewProjectViewController()
+    }
 }
 
 extension ProjectViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return items.count
+        return ProjectDAO.list.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -43,7 +68,7 @@ extension ProjectViewController: UICollectionViewDataSource {
             return ProjectCollectionViewCell()
         }
         
-        cell.label.text = "Projeto \(items[indexPath.row])"
+        cell.label.text = ProjectDAO.list[indexPath.row].name
         
         return cell
     }

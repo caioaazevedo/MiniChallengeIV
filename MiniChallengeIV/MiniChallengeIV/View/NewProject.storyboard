@@ -129,6 +129,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="Wop-kz-WkL"/>
                     <connections>
+                        <outlet property="deleteButton" destination="jWc-dI-e5l" id="NQx-fa-VcL"/>
                         <outlet property="projectNameLabel" destination="MjK-57-UMU" id="Y25-p0-U1J"/>
                     </connections>
                 </viewController>

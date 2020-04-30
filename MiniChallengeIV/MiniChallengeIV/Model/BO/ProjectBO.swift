@@ -18,20 +18,21 @@ class ProjectBO {
     ///   - name: Name of project
     ///   - color: Color of project
     /// - Returns: Boolean if the project was saved
-    func create(name: String, color: UIColor) -> Bool {
+    func create(name: String, color: UIColor?, completion: (Bool, String?) -> Void) {
         guard name.count > 0  else {
-            print("Name empty.")
-            return false
+            completion(false, "ProjectBO: Name empty.")
+            return
         }
-        
+                
         let projectBean = ProjectBean(uuid: UUID(), name: name, color: color, totalTime: 0)
-        
-        return projectDAO.create(project: projectBean)
+        projectDAO.create(project: projectBean) { success, error in
+            completion(success, error)
+        }
     }
     
     /// Performs the search for projects at DAO
     /// - Returns: List of projects
-    func read() -> [ProjectBean] {
+    func retrieve() -> [ProjectBean] {
         
         return [ProjectBean]()
     }
@@ -39,16 +40,24 @@ class ProjectBO {
     /// Updates a project in the database with DAO
     /// - Parameter project: Project to update
     /// - Returns: Boolean if the project was updated
-    func update(project: ProjectBean) -> Bool {
+    func update(project: ProjectBean, completion: (Bool, String?) -> Void) {
+        guard project.name.count > 0  else {
+            completion(false, "ProjectBO: Name empty.")
+            return
+        }
         
-        return false
+        projectDAO.update(project: project) { success, error in
+            completion(success, error)
+        }
+        
     }
     
     /// Updates a project in the database with DAO
     /// - Parameter uuid: UUID that identifies the project
     /// - Returns: Boolean if the project was deleted
-    func delete(uuid: UUID) -> Bool {
-        
-        return false
+    func delete(uuid: UUID, completion: (Bool, String?) -> Void) {
+        projectDAO.delete(uuid: uuid) { success, error in
+            completion(success, "ProjectBO: Error deleting project.")
+        }
     }
 }

@@ -8,30 +8,95 @@
 
 import UIKit
 
+protocol NewProjectViewControllerDelegate: AnyObject {
+    func reloadList()
+}
+
 class NewProjectViewController: UIViewController {
 
     @IBOutlet weak var projectNameLabel: UITextField!
+    @IBOutlet weak var deleteButton: UIButton!
+
+    let projectBO = ProjectBO()
+    
+    var projectBean: ProjectBean?
+    var projectName = String()
+    var projectColor: UIColor?
+    
+    weak var delegate: NewProjectViewControllerDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        if let projectBean = projectBean {
+            projectNameLabel.text = projectBean.name
+            deleteButton.isHidden = false
+        }
+        else {
+            deleteButton.isHidden = true
+        }
     }
     
     @IBAction func onClickColor(_ sender: UIButton) {
-        print(sender.backgroundColor!)
+        if let color = sender.backgroundColor {
+            projectColor = color
+        }
     }
     
     @IBAction func onClickDelete(_ sender: Any) {
-        dismiss(animated: true)
+        projectBO.delete(uuid: projectBean!.uuid) { success, error in
+            if success {
+                delegate?.reloadList()
+                dismiss(animated: true)
+            }
+            else {
+                showOkAlert(title: "Error", message: error ?? "")
+            }
+        }
+        
     }
     
     @IBAction func onClickSave(_ sender: Any) {
-        print(projectNameLabel.text ?? "")
-        dismiss(animated: true)
+        delegate?.reloadList()
+        saveProject()
     }
     
     @IBAction func cancelButtonAction(_ sender: Any) {
         dismiss(animated: true)
+    }
+    
+    private func saveProject() {
+        
+        guard projectBean == nil else {
+            projectBean?.name = projectNameLabel.text ?? ""
+            projectBean?.color = projectColor
+            projectBO.update(project: projectBean!) { success, error in
+                if success {
+                    dismiss(animated: true)
+                }
+                else {
+                    self.showOkAlert(title: "Error", message: error ?? "")
+                }
+            }
+            return
+        }
+        
+        projectBO.create(name: projectNameLabel.text ?? "", color: projectColor) { success, error in
+            if success {
+                dismiss(animated: true)
+            }
+            else {
+                self.showOkAlert(title: "Error", message: error ?? "")
+                
+            }
+        }
+        
+    }
+    
+    func showOkAlert(title: String, message: String) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let action = UIAlertAction(title: "Ok", style: .default, handler: nil)
+        alert.addAction(action)
+        present(alert, animated: true)
     }
 }

@@ -182,8 +182,8 @@
 			isa = PBXGroup;
 			children = (
 				69B0475F24575993002A696D /* Bean */,
-				69B0475D245756BE002A696D /* BO */,
 				69B0475E245756CA002A696D /* DAO */,
+				69B0475D245756BE002A696D /* BO */,
 			);
 			path = Model;
 			sourceTree = "<group>";
