@@ -14,6 +14,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
     
     var enterBackgroundInstant: Date?
+    var timer: TimerSimulationBO?
     
     /// Variables that came from Timer
     var focusConfig: Int?
@@ -64,13 +65,14 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Save changes in the application's managed object context when the application transitions to the background.
         CDManager.shared.saveContext()
         
+        timer = TimerSimulationBO()
         
-        if self.startTimer {
+        if timer?.timerSimulationBean.timerStatus == TimerStatus.started {
             /// Save the moment that enterBackground
             enterBackgroundInstant = Date()
             print("EnterBackground Instant: \(enterBackgroundInstant!)")
             
-        } else if self.restTime{
+        } else if timer?.timerSimulationBean.timerStatus == TimerStatus.resting{
             /// Local Notification with rest Time as delay
         }
         
@@ -84,16 +86,23 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         print("Came Back after : \(lostFocusTime)")
         
-        /// Simulation of values (Int type) from Timer
-        focusConfig = (30 * 60)
-        focusedTime = (10 * 60)
+        let timeDifference = Int(lostFocusTime) - (timer?.timerSimulationBean.configTime)!
         
-        if (Int(lostFocusTime) > focusConfig!) {
-            /// Update Estatistics on Database
-
-        } else {
-            /// Update Timer - focusedTime, lostFocusTime
+        if (timeDifference > 0) {
+            /// Update Timer - Lost Focus Time
+            timer?.timerSimulationBean.lostFocusTime = (timer?.timerSimulationBean.configTime)! - (timer?.timerSimulationBean.focusTime)!
             
+            ///Stop Timer
+            timer?.timerSimulationBean.timerStatus = .paused
+            
+            /// Update Estatistics on Database
+            timer?.updateStatistics()
+        } else if timeDifference < (timer?.timerSimulationBean.restTime)! {
+            /// Timer to rest
+            timer?.timerSimulationBean.timerStatus = .resting
+        } else {
+            /// Update lost focus time from timer with the value calculate when returns from background and the configured Time isnt over
+            timer?.timerSimulationBean.lostFocusTime = (Int(lostFocusTime))
         }
     }
 
