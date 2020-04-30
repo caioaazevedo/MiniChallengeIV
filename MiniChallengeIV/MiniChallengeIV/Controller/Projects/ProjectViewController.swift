@@ -20,17 +20,13 @@ class ProjectViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
+    @IBAction func addProjectButtonAction(_ sender: Any) {
+        let newProjectVC = UIStoryboard.loadView(from: .NewProject, identifier: .NewProjectID)
+        newProjectVC.modalTransitionStyle = .crossDissolve
+        newProjectVC.modalPresentationStyle = .overCurrentContext
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        self.present(newProjectVC, animated: true)
     }
-    */
-
 }
 
 extension ProjectViewController: UICollectionViewDelegate {
@@ -39,7 +35,7 @@ extension ProjectViewController: UICollectionViewDelegate {
 
 extension ProjectViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        items.count
+        return items.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -55,12 +51,12 @@ extension ProjectViewController: UICollectionViewDataSource {
 
 extension ProjectViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsets(top: 20, left: 0, bottom: 10, right: 0)
+        return UIEdgeInsets(top: 20, left: 8, bottom: 10, right: 8)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let collectionViewWidth = collectionView.bounds.width
-        return CGSize(width: collectionViewWidth * 0.48, height: collectionViewWidth * 0.45)
+        return CGSize(width: collectionViewWidth * 0.475, height: collectionViewWidth * 0.45)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
@@ -68,6 +64,6 @@ extension ProjectViewController: UICollectionViewDelegateFlowLayout {
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return 10
+        return 8
     }
 }

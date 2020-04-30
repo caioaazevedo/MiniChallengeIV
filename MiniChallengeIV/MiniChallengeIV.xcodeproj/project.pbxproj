@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		4027D68024589D2D0046DE58 /* DatabaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4027D67F24589D2D0046DE58 /* DatabaseService.swift */; };
+		691033A0245A15F6009D5D58 /* UIStoryboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6910339F245A15F6009D5D58 /* UIStoryboard.swift */; };
+		691033A4245A250A009D5D58 /* NewProjectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 691033A3245A250A009D5D58 /* NewProjectViewController.swift */; };
+		696E92E5245A499800E7F3DF /* NewProject.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 696E92E4245A499800E7F3DF /* NewProject.storyboard */; };
 		69B04723245754D5002A696D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69B04722245754D5002A696D /* AppDelegate.swift */; };
 		69B04725245754D5002A696D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69B04724245754D5002A696D /* SceneDelegate.swift */; };
 		69B04727245754D5002A696D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69B04726245754D5002A696D /* ViewController.swift */; };
@@ -48,6 +51,9 @@
 
 /* Begin PBXFileReference section */
 		4027D67F24589D2D0046DE58 /* DatabaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseService.swift; sourceTree = "<group>"; };
+		6910339F245A15F6009D5D58 /* UIStoryboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIStoryboard.swift; sourceTree = "<group>"; };
+		691033A3245A250A009D5D58 /* NewProjectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewProjectViewController.swift; sourceTree = "<group>"; };
+		696E92E4245A499800E7F3DF /* NewProject.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = NewProject.storyboard; sourceTree = "<group>"; };
 		69B0471F245754D5002A696D /* MiniChallengeIV.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MiniChallengeIV.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		69B04722245754D5002A696D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		69B04724245754D5002A696D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -106,6 +112,16 @@
 				4027D67F24589D2D0046DE58 /* DatabaseService.swift */,
 			);
 			path = Protocols;
+			sourceTree = "<group>";
+		};
+		6910339A245A11DC009D5D58 /* Projects */ = {
+			isa = PBXGroup;
+			children = (
+				69ECFA30245A017800D4F205 /* ProjectViewController.swift */,
+				69ECFA32245A056800D4F205 /* ProjectCollectionViewCell.swift */,
+				691033A3245A250A009D5D58 /* NewProjectViewController.swift */,
+			);
+			path = Projects;
 			sourceTree = "<group>";
 		};
 		69B04716245754D5002A696D = {
@@ -178,6 +194,7 @@
 				69B04730245754D8002A696D /* LaunchScreen.storyboard */,
 				69B04728245754D5002A696D /* Main.storyboard */,
 				69ECFA2E2459FD5A00D4F205 /* Projects.storyboard */,
+				696E92E4245A499800E7F3DF /* NewProject.storyboard */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -185,9 +202,8 @@
 		69B04757245754FE002A696D /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				6910339A245A11DC009D5D58 /* Projects */,
 				69B04726245754D5002A696D /* ViewController.swift */,
-				69ECFA30245A017800D4F205 /* ProjectViewController.swift */,
-				69ECFA32245A056800D4F205 /* ProjectCollectionViewCell.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -195,6 +211,7 @@
 		69B0475A24575645002A696D /* Extension */ = {
 			isa = PBXGroup;
 			children = (
+				6910339F245A15F6009D5D58 /* UIStoryboard.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -341,6 +358,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				69ECFA2F2459FD5A00D4F205 /* Projects.storyboard in Resources */,
+				696E92E5245A499800E7F3DF /* NewProject.storyboard in Resources */,
 				69B04732245754D8002A696D /* LaunchScreen.storyboard in Resources */,
 				69B0472F245754D8002A696D /* Assets.xcassets in Resources */,
 				69B0472A245754D5002A696D /* Main.storyboard in Resources */,
@@ -372,10 +390,12 @@
 				4027D68024589D2D0046DE58 /* DatabaseService.swift in Sources */,
 				69B172902458CAB800D0F31E /* ProjectBean.swift in Sources */,
 				69B172922458CAC000D0F31E /* ProjectBO.swift in Sources */,
+				691033A0245A15F6009D5D58 /* UIStoryboard.swift in Sources */,
 				69ECFA31245A017800D4F205 /* ProjectViewController.swift in Sources */,
 				69B04727245754D5002A696D /* ViewController.swift in Sources */,
 				69B047592457554D002A696D /* CDManager.swift in Sources */,
 				E29B1E132458CA7D00EA9B48 /* StatisticBO.swift in Sources */,
+				691033A4245A250A009D5D58 /* NewProjectViewController.swift in Sources */,
 				69B04723245754D5002A696D /* AppDelegate.swift in Sources */,
 				69B172942458CACA00D0F31E /* ProjectDAO.swift in Sources */,
 				69B04725245754D5002A696D /* SceneDelegate.swift in Sources */,
