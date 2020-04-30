@@ -68,7 +68,7 @@ extension ProjectViewController: UICollectionViewDataSource {
             return ProjectCollectionViewCell()
         }
         
-        cell.projectNameLabel.text = ProjectDAO.list[indexPath.row].name
+        cell.label.text = ProjectDAO.list[indexPath.row].name
         
         return cell
     }
