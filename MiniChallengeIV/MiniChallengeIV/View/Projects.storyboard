@@ -91,11 +91,22 @@
                     </view>
                     <connections>
                         <outlet property="collectionView" destination="BgH-RO-QqS" id="vzu-Vm-1sg"/>
+                        <segue destination="2jN-OJ-S7b" kind="show" identifier="GoToTimer" id="RGR-9c-bpq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8Ia-8H-4We" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-10.144927536231885" y="-27.455357142857142"/>
+        </scene>
+        <!--Timer-->
+        <scene sceneID="qlE-Lg-h0T">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Timer" id="2jN-OJ-S7b" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="vsg-ie-fMO"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FQk-Uv-c8T" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="585" y="-27"/>
         </scene>
     </scenes>
     <resources>

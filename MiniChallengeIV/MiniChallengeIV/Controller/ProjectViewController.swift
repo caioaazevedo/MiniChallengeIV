@@ -54,7 +54,8 @@ extension ProjectViewController: NewProjectViewControllerDelegate {
 extension ProjectViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         selectedProjectId = indexPath.item
-        goToNewProjectViewController()
+//        goToNewProjectViewController()
+        performSegue(withIdentifier: "GoToTimer", sender: self)
     }
 }
 
