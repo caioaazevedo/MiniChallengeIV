@@ -12,6 +12,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
     
+    var timer: TimeTracker?
     
     var lostTimeFocus = LosttTimeFocusBO()
 
@@ -59,6 +60,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         self.lostTimeFocus.enterBackgroundInstant = Date()
         
         self.lostTimeFocus.enterbackground()
+        
+        print("\(timer!.isTrackingTime)")
     }
 }
 

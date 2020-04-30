@@ -37,6 +37,11 @@ class TimerViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         timerLabel.text = String(format: "%02i:00", timeTracker.timeValue)
+        ///Remove
+        let scene = UIApplication.shared.connectedScenes.first
+        if let sd : SceneDelegate = (scene?.delegate as? SceneDelegate) {
+            sd.timer = self.timeTracker
+        }
     }
     
     
