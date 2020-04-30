@@ -13,17 +13,17 @@ class TimerViewController: UIViewController {
     
     //Atributes
     let timeTracker = TimeTracker()
-    
+    var lostTimeFocus: LostTimeFocusBO?
     //Properties
     ///the validation for the minimum value
     var minimumDecrement: Int{
         //TODO: switch 0 for a generic number
-        return timeTracker.timeValue - 5  < 15 ? 15 : timeTracker.timeValue - 5
+        return timeTracker.configTime - 5  < 15 ? 15 : timeTracker.configTime - 5
     }
     ///the validation for the maximum value
     var maximumDecrement: Int{
         //TODO: switch 60 for a generic number
-        return timeTracker.timeValue + 5  > 60 ? 60 : timeTracker.timeValue + 5
+        return timeTracker.configTime + 5  > 60 ? 60 : timeTracker.configTime + 5
     }
     
     //Buttons, Labels
@@ -36,11 +36,15 @@ class TimerViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        timerLabel.text = String(format: "%02i:00", timeTracker.timeValue)
-        ///Remove
+        timerLabel.text = String(format: "%02i:00", timeTracker.configTime)
+        
+        self.lostTimeFocus = LostTimeFocusBO(timer: timeTracker)
+        
+        /// Get Scene Deleegate
         let scene = UIApplication.shared.connectedScenes.first
         if let sd : SceneDelegate = (scene?.delegate as? SceneDelegate) {
             sd.timer = self.timeTracker
+            sd.lostTimeFocus = self.lostTimeFocus
         }
     }
     
@@ -62,7 +66,7 @@ class TimerViewController: UIViewController {
             timeTracker.stopTimer(){
                 //TODO: Message for when the user gives up
                 self.stateLabel.text = self.timeTracker.state.rawValue
-                self.timerLabel.text = String(format: "%02i:00", self.timeTracker.timeValue)
+                self.timerLabel.text = String(format: "%02i:00", self.timeTracker.configTime)
             }
         }
         setConfigurationButtons()
@@ -70,13 +74,13 @@ class TimerViewController: UIViewController {
     
     ///Increment timer for the count down
     @IBAction func incrementTimer(_ sender: Any) {
-        timeTracker.timeValue = maximumDecrement
-        timerLabel.text = String(format: "%02i:00", timeTracker.timeValue)
+        timeTracker.configTime = maximumDecrement
+        timerLabel.text = String(format: "%02i:00", timeTracker.configTime)
     }
     ///Decrement timer for the count down
     @IBAction func decrementTimer(_ sender: Any) {
-        timeTracker.timeValue = minimumDecrement
-        timerLabel.text = String(format: "%02i:00", timeTracker.timeValue)
+        timeTracker.configTime = minimumDecrement
+        timerLabel.text = String(format: "%02i:00", timeTracker.configTime)
     }
     
     ///Method for disabling the buttons that are configuring the Timer

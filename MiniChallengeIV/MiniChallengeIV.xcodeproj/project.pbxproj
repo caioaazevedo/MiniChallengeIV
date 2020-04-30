@@ -38,8 +38,6 @@
 		E29B1E132458CA7D00EA9B48 /* StatisticBO.swift in Sources */ = {isa = PBXBuildFile; fileRef = E29B1E122458CA7D00EA9B48 /* StatisticBO.swift */; };
 		E29B1E152458CA9B00EA9B48 /* StatisticDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = E29B1E142458CA9B00EA9B48 /* StatisticDAO.swift */; };
 		E2E86FDD245AD3D20006712A /* TimerDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2E86FDC245AD3D20006712A /* TimerDataManager.swift */; };
-		E2E86FDF245AD3E50006712A /* TimerSimulationBean.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2E86FDE245AD3E50006712A /* TimerSimulationBean.swift */; };
-		E2E86FE1245AD6520006712A /* TimerSimulationBO.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2E86FE0245AD6520006712A /* TimerSimulationBO.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -97,8 +95,6 @@
 		E29B1E122458CA7D00EA9B48 /* StatisticBO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticBO.swift; sourceTree = SOURCE_ROOT; };
 		E29B1E142458CA9B00EA9B48 /* StatisticDAO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticDAO.swift; sourceTree = "<group>"; };
 		E2E86FDC245AD3D20006712A /* TimerDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerDataManager.swift; sourceTree = "<group>"; };
-		E2E86FDE245AD3E50006712A /* TimerSimulationBean.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TimerSimulationBean.swift; path = MiniChallengeIV/Model/Bean/TimerSimulationBean.swift; sourceTree = SOURCE_ROOT; };
-		E2E86FE0245AD6520006712A /* TimerSimulationBO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerSimulationBO.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -254,7 +250,6 @@
 				69B172912458CAC000D0F31E /* ProjectBO.swift */,
 				E29B1E122458CA7D00EA9B48 /* StatisticBO.swift */,
 				409D5031245B4E35006D66AC /* TaskBO.swift */,
-				E2E86FE0245AD6520006712A /* TimerSimulationBO.swift */,
 				796C3E35245A0079004488D1 /* TimeTrakcerBO.swift */,
 				E2428B77245B4DFC001585BF /* LostTimeFocusBO.swift */,
 			);
@@ -275,7 +270,6 @@
 		69B0475F24575993002A696D /* Bean */ = {
 			isa = PBXGroup;
 			children = (
-				E2E86FDE245AD3E50006712A /* TimerSimulationBean.swift */,
 				69B1728F2458CAB800D0F31E /* ProjectBean.swift */,
 				E29B1E102458C89C00EA9B48 /* StatisticBean.swift */,
 				409D502F245B4D80006D66AC /* TaskBean.swift */,
@@ -419,7 +413,6 @@
 			files = (
 				69F56222245B6DAE00EB2AF1 /* ProjectViewController.swift in Sources */,
 				4027D68024589D2D0046DE58 /* DatabaseService.swift in Sources */,
-				E2E86FE1245AD6520006712A /* TimerSimulationBO.swift in Sources */,
 				69B172902458CAB800D0F31E /* ProjectBean.swift in Sources */,
 				69B172922458CAC000D0F31E /* ProjectBO.swift in Sources */,
 				691033A0245A15F6009D5D58 /* UIStoryboard.swift in Sources */,
@@ -429,7 +422,6 @@
 				E2E86FDD245AD3D20006712A /* TimerDataManager.swift in Sources */,
 				69F56228245B6E1D00EB2AF1 /* ProjectCollectionViewCell.swift in Sources */,
 				409D5032245B4E35006D66AC /* TaskBO.swift in Sources */,
-				E2E86FDF245AD3E50006712A /* TimerSimulationBean.swift in Sources */,
 				E2428B78245B4DFC001585BF /* LostTimeFocusBO.swift in Sources */,
 				E29B1E132458CA7D00EA9B48 /* StatisticBO.swift in Sources */,
 				691033A4245A250A009D5D58 /* NewProjectViewController.swift in Sources */,

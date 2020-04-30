@@ -19,11 +19,12 @@
                     </view>
                     <connections>
                         <segue destination="j0d-1n-Usk" kind="show" identifier="segue" id="0AO-Fl-v3P"/>
+                        <segue destination="WsS-SQ-Jog" kind="show" identifier="timer" id="qAO-9o-sXd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="46" y="117"/>
+            <point key="canvasLocation" x="-148" y="117"/>
         </scene>
         <!--Timer-->
         <scene sceneID="5qE-Sc-aUU">
@@ -33,7 +34,7 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OWW-Uc-T5k" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="873" y="-99"/>
+            <point key="canvasLocation" x="652" y="-24"/>
         </scene>
         <!--Projects-->
         <scene sceneID="yVC-fz-H7Q">

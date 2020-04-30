@@ -16,7 +16,8 @@ class ViewController: UIViewController {
     }
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        performSegue(withIdentifier: "segue", sender: nil)
+//        performSegue(withIdentifier: "segue", sender: nil)
+        performSegue(withIdentifier: "timer", sender: nil)
     }
 
 }
