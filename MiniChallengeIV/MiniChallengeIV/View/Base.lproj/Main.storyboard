@@ -18,16 +18,12 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
-                        <segue destination="WsS-SQ-Jog" kind="show" identifier="timerSegue" id="bk2-fw-Yqu"/>
-                    </connections>
-                    <connections>
-                        <segue destination="j0d-1n-Usk" kind="show" identifier="projectStoryBoard" id="89g-JN-Goq"/>
+                        <segue destination="j0d-1n-Usk" kind="show" identifier="segue" id="0AO-Fl-v3P"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="46" y="117"/>
-            <point key="canvasLocation" x="132" y="129"/>
         </scene>
         <!--Timer-->
         <scene sceneID="5qE-Sc-aUU">
@@ -47,7 +43,7 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1dC-zR-7Mk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="662" y="129"/>
+            <point key="canvasLocation" x="652" y="117"/>
         </scene>
     </scenes>
 </document>
