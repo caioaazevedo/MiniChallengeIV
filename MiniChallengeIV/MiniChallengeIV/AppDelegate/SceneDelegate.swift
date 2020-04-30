@@ -13,14 +13,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     var window: UIWindow?
     
     
-    var enterBackgroundInstant: Date?
-    var timer: TimerSimulationBO?
-    
-    /// Variables that came from Timer
-    var focusConfig: Int?
-    var focusedTime: Int?
-    var startTimer = false
-    var restTime = false
+    var lostTimeFocus = LosttTimeFocusBO()
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
@@ -50,11 +43,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Called as the scene transitions from the background to the foreground.
         // Use this method to undo the changes made on entering the background.
         
-        if self.startTimer {
-            backgroundTimeRecover()
-        }
-        self.startTimer = true
-        print("Voltou")
+        self.lostTimeFocus.returnFromBackgroundInstant = Date()
+        
+        self.lostTimeFocus.backgroundTimeRecover()
     }
 
     func sceneDidEnterBackground(_ scene: UIScene) {
@@ -65,46 +56,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Save changes in the application's managed object context when the application transitions to the background.
         CDManager.shared.saveContext()
         
-        timer = TimerSimulationBO()
+        self.lostTimeFocus.enterBackgroundInstant = Date()
         
-        if timer?.timerSimulationBean.timerStatus == TimerStatus.started {
-            /// Save the moment that enterBackground
-            enterBackgroundInstant = Date()
-            print("EnterBackground Instant: \(enterBackgroundInstant!)")
-            
-        } else if timer?.timerSimulationBean.timerStatus == TimerStatus.resting{
-            /// Local Notification with rest Time as delay
-        }
-        
-        print("Foi pra background")
+        self.lostTimeFocus.enterbackground()
     }
-    
-    /// Description: Function to recover and update the timer or the esttistics
-    func backgroundTimeRecover(){
-        /// The difereence
-        let lostFocusTime = enterBackgroundInstant!.distance(to: Date())
-        
-        print("Came Back after : \(lostFocusTime)")
-        
-        let timeDifference = Int(lostFocusTime) - (timer?.timerSimulationBean.configTime)!
-        
-        if (timeDifference > 0) {
-            /// Update Timer - Lost Focus Time
-            timer?.timerSimulationBean.lostFocusTime = (timer?.timerSimulationBean.configTime)! - (timer?.timerSimulationBean.focusTime)!
-            
-            ///Stop Timer
-            timer?.timerSimulationBean.timerStatus = .paused
-            
-            /// Update Estatistics on Database
-            timer?.updateStatistics()
-        } else if timeDifference < (timer?.timerSimulationBean.restTime)! {
-            /// Timer to rest
-            timer?.timerSimulationBean.timerStatus = .resting
-        } else {
-            /// Update lost focus time from timer with the value calculate when returns from background and the configured Time isnt over
-            timer?.timerSimulationBean.lostFocusTime = (Int(lostFocusTime))
-        }
-    }
-
 }
 
