@@ -46,11 +46,19 @@
                                     <action selector="incrementTimer:" destination="MQ5-HC-hTW" eventType="touchUpInside" id="eYs-dU-QaW"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Focus" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9EU-pq-g7r">
+                                <rect key="frame" x="186" y="98" width="47" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="Mmk-am-1eE"/>
                     </view>
                     <connections>
+                        <outlet property="stateLabel" destination="9EU-pq-g7r" id="f2O-oA-FwZ"/>
                         <outlet property="timerLabel" destination="6WX-cv-OHG" id="qEp-Dh-gAf"/>
                         <outletCollection property="timeConfigButtons" destination="IT7-us-O4n" collectionClass="NSMutableArray" id="zTu-Bb-4fi"/>
                         <outletCollection property="timeConfigButtons" destination="aAe-4c-qCx" collectionClass="NSMutableArray" id="r3b-Gx-dTk"/>

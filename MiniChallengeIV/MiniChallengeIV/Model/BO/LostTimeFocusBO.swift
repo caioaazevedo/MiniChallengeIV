@@ -8,22 +8,24 @@
 
 import Foundation
 
-class LosttTimeFocusBO {
+class LostTimeFocusBO {
     var enterBackgroundInstant: Date?
     var returnFromBackgroundInstant: Date?
     
-    let timer = TimerSimulationBO()
+    let timer: TimeTracker
     
-    init() { }
+    init(timer: TimeTracker) {
+        self.timer = timer
+    }
     
     func enterbackground(){
-        if timer.timerSimulationBean.timerStatus == TimerStatus.started {
+        if timer.runningState == TimeTrackerState.focus {
             /// Save the moment that enterBackground
             self.enterBackgroundInstant = Date()
             
             print("EnterBackground Instant: \(enterBackgroundInstant)")
             
-        } else if timer.timerSimulationBean.timerStatus == TimerStatus.resting{
+        } else if timer.runningState == TimeTrackerState.pause {
             /// Local Notification with rest Time as delay
         }
     }
@@ -39,24 +41,42 @@ class LosttTimeFocusBO {
         print("Came Back after : \(lostFocusTime)")
         
         /// If the user has been out more than the time he configured, update database
-        let timeDifference = Int(lostFocusTime) - timer.timerSimulationBean.configTime
+        let currentTime = Int(lostFocusTime) + timer.lostFocusTime + timer.focusTime
+        let currentRestTime = Int(lostFocusTime) + timer.restTime
         
-        if (timeDifference > 0) {
-            /// Update Timer - Lost Focus Time
-            timer.timerSimulationBean.lostFocusTime = timer.timerSimulationBean.configTime - timer.timerSimulationBean.focusTime
-            
+        if (timer.runningState == .focus && currentTime < timer.convertedTimeValue) {
+            /// Update lost focus time from timer with the value calculate when returns from background and the configured Time isnt over
+            timer.lostFocusTime += (Int(lostFocusTime))
+            timer.countDown -= Int(lostFocusTime)
+        } else if  (timer.runningState == .pause && currentRestTime < timer.convertedTimeValue){
+            /// Update Atributes
+            timer.restTime += (Int(lostFocusTime))
+            timer.countDown -= Int(lostFocusTime)
+        }else {
+            if timer.runningState == .pause {
+                /// Update Timer - Lost Focus Time
+                timer.restTime = timer.convertedTimeValue - timer.restTime
+            } else {
+                /// Update Timer - Lost Focus Time
+                timer.lostFocusTime = timer.convertedTimeValue - timer.focusTime
+            }
             ///Stop Timer
-            timer.timerSimulationBean.timerStatus = .paused
+            timer.state = timer.changeCicle
+            
+            timer.countDown = 0
             
             /// Update Estatistics on Database
             timer.updateStatistics()
-        } else if timeDifference < timer.timerSimulationBean.restTime {
-            /// Timer to rest
-            timer.timerSimulationBean.timerStatus = .resting
-        } else {
-            /// Update lost focus time from timer with the value calculate when returns from background and the configured Time isnt over
-            timer.timerSimulationBean.lostFocusTime = (Int(lostFocusTime))
         }
+            
+            
+            
+            
+            
+            
+            
+            
+         
         
     }
 }

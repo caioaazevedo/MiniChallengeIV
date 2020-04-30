@@ -12,8 +12,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
     
+    var timer: TimeTracker?
     
-    var lostTimeFocus = LosttTimeFocusBO()
+    var lostTimeFocus: LostTimeFocusBO?
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
@@ -43,9 +44,13 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Called as the scene transitions from the background to the foreground.
         // Use this method to undo the changes made on entering the background.
         
-        self.lostTimeFocus.returnFromBackgroundInstant = Date()
+        guard let lostTime = self.lostTimeFocus else {
+            return
+        }
         
-        self.lostTimeFocus.backgroundTimeRecover()
+        lostTime.returnFromBackgroundInstant = Date()
+        
+        lostTime.backgroundTimeRecover()
     }
 
     func sceneDidEnterBackground(_ scene: UIScene) {
@@ -56,9 +61,13 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Save changes in the application's managed object context when the application transitions to the background.
         CDManager.shared.saveContext()
         
-        self.lostTimeFocus.enterBackgroundInstant = Date()
+        guard let lostTime = self.lostTimeFocus else {
+            return
+        }
         
-        self.lostTimeFocus.enterbackground()
+        lostTime.enterBackgroundInstant = Date()
+        
+        lostTime.enterbackground()
     }
 }
 

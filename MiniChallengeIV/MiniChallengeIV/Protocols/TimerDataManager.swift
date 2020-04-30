@@ -13,9 +13,5 @@ protocol TimerDataProtocol {
     var focusTime: Int { get set }
     var lostFocusTime: Int { get set }
     var restTime: Int { get set }
-    var timerStatus: TimerStatus { get set }
-}
-
-protocol TimerUpdates {
-    func updateStatistics()
+    var state: TimeTrackerState { get set }
 }

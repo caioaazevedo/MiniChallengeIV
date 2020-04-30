@@ -12,6 +12,6 @@ import UIKit
 struct ProjectBean {
     var uuid: UUID
     var name: String
-    var color: UIColor
+    var color: UIColor?
     var totalTime: Int
 }
