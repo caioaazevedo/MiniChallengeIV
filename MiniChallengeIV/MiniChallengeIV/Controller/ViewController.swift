@@ -16,7 +16,7 @@ class ViewController: UIViewController {
     }
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        performSegue(withIdentifier: "projectStoryBoard", sender: nil)
+        performSegue(withIdentifier: "timerStoryBoard", sender: nil)
     }
 
 }
