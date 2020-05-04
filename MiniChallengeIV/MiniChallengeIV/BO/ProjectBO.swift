@@ -18,13 +18,13 @@ class ProjectBO {
     ///   - name: Name of project
     ///   - color: Color of project
     /// - Returns: Boolean if the project was saved
-    func create(name: String, color: UIColor?, completion: (Bool, String?) -> Void) {
+    func create(name: String, color: UIColor, completion: (Bool, String?) -> Void) {
         guard name.count > 0  else {
             completion(false, "ProjectBO: Name empty.")
             return
         }
                 
-        let project = Project(uuid: UUID(), name: name, color: color, totalTime: 0)
+        let project = Project(id: UUID(), name: name, color: color, time: 0)
         projectDAO.create(project: project) { success, error in
             completion(success, error)
         }
@@ -32,9 +32,10 @@ class ProjectBO {
     
     /// Performs the search for projects at DAO
     /// - Returns: List of projects
-    func retrieve() -> [Project] {
-        
-        return [Project]()
+    func retrieve(completion: ([Project]?) -> Void){
+        projectDAO.retrieve(completion: { results, _ in
+            completion(results)
+        })
     }
     
     /// Updates a project in the database with DAO

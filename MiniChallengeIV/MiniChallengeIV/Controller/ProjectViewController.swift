@@ -12,9 +12,14 @@ class ProjectViewController: UIViewController {
     
     @IBOutlet weak var collectionView: UICollectionView!
     var selectedProjectId: Int?
+    var projectBO = ProjectBO()
+    var projects: [Project] = []
+    
+    
             
     override func viewDidLoad() {
         super.viewDidLoad()
+        reloadList()
 
         // Do any additional setup after loading the view.
     }
@@ -36,7 +41,7 @@ class ProjectViewController: UIViewController {
             newProjectVC.delegate = self
             
             if let selectedProjectId = selectedProjectId {
-                newProjectVC.project = ProjectDAO.list[selectedProjectId]
+                newProjectVC.project = projects[selectedProjectId]
                 self.selectedProjectId = nil
             }
             
@@ -46,22 +51,27 @@ class ProjectViewController: UIViewController {
 }
 
 extension ProjectViewController: NewProjectViewControllerDelegate {
-    func reloadList() {
-        collectionView.reloadData()
+    func reloadList(){
+         projectBO.retrieve(completion: { projects in
+            guard let validateProjects = projects else { return }
+            self.projects = validateProjects
+            collectionView.reloadData()
+        })
     }
 }
 
 extension ProjectViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         selectedProjectId = indexPath.item
-//        goToNewProjectViewController()
-        performSegue(withIdentifier: "GoToTimer", sender: self)
+        goToNewProjectViewController()
+//        performSegue(withIdentifier: "GoToTimer", sender: self)
     }
 }
 
 extension ProjectViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return ProjectDAO.list.count
+//        return ProjectDAO.list.count
+        return projects.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -69,7 +79,8 @@ extension ProjectViewController: UICollectionViewDataSource {
             return ProjectCollectionViewCell()
         }
         
-        cell.projectNameLabel.text = ProjectDAO.list[indexPath.row].name
+        cell.projectNameLabel.text = projects[indexPath.row].name
+        cell.backgroundColor = projects[indexPath.row].color
         
         return cell
     }

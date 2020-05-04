@@ -8,7 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		4027D68024589D2D0046DE58 /* DatabaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4027D67F24589D2D0046DE58 /* DatabaseService.swift */; };
-		409D5030245B4D80006D66AC /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 409D502F245B4D80006D66AC /* Task.swift */; };
+		4061B394245B74220027775C /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4061B393245B74220027775C /* Color.swift */; };
+		406EA9D22460A56E00903350 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 406EA9D12460A56E00903350 /* Task.swift */; };
+		406EA9D62460A5FD00903350 /* CDManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 406EA9D52460A5FD00903350 /* CDManager.swift */; };
 		409D5032245B4E35006D66AC /* TaskBO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 409D5031245B4E35006D66AC /* TaskBO.swift */; };
 		409D5034245B4EC5006D66AC /* TaskDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 409D5033245B4EC5006D66AC /* TaskDAO.swift */; };
 		691033A0245A15F6009D5D58 /* UIStoryboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6910339F245A15F6009D5D58 /* UIStoryboard.swift */; };
@@ -23,7 +25,6 @@
 		69B04732245754D8002A696D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 69B04730245754D8002A696D /* LaunchScreen.storyboard */; };
 		69B0473D245754D9002A696D /* MiniChallengeIVTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69B0473C245754D9002A696D /* MiniChallengeIVTests.swift */; };
 		69B04748245754D9002A696D /* MiniChallengeIVUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69B04747245754D9002A696D /* MiniChallengeIVUITests.swift */; };
-		69B047592457554D002A696D /* CDManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69B047582457554D002A696D /* CDManager.swift */; };
 		69B172902458CAB800D0F31E /* Project.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69B1728F2458CAB800D0F31E /* Project.swift */; };
 		69B172922458CAC000D0F31E /* ProjectBO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69B172912458CAC000D0F31E /* ProjectBO.swift */; };
 		69B172942458CACA00D0F31E /* ProjectDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69B172932458CACA00D0F31E /* ProjectDAO.swift */; };
@@ -59,7 +60,9 @@
 
 /* Begin PBXFileReference section */
 		4027D67F24589D2D0046DE58 /* DatabaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseService.swift; sourceTree = "<group>"; };
-		409D502F245B4D80006D66AC /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
+		4061B393245B74220027775C /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Color.swift; path = MiniChallengeIV/Model/DAO/Color.swift; sourceTree = SOURCE_ROOT; };
+		406EA9D12460A56E00903350 /* Task.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
+		406EA9D52460A5FD00903350 /* CDManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CDManager.swift; sourceTree = "<group>"; };
 		409D5031245B4E35006D66AC /* TaskBO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskBO.swift; sourceTree = "<group>"; };
 		409D5033245B4EC5006D66AC /* TaskDAO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskDAO.swift; sourceTree = "<group>"; };
 		6910339F245A15F6009D5D58 /* UIStoryboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIStoryboard.swift; sourceTree = "<group>"; };
@@ -80,7 +83,6 @@
 		69B04743245754D9002A696D /* MiniChallengeIVUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MiniChallengeIVUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		69B04747245754D9002A696D /* MiniChallengeIVUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiniChallengeIVUITests.swift; sourceTree = "<group>"; };
 		69B04749245754D9002A696D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		69B047582457554D002A696D /* CDManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CDManager.swift; sourceTree = "<group>"; };
 		69B1728F2458CAB800D0F31E /* Project.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Project.swift; sourceTree = "<group>"; };
 		69B172912458CAC000D0F31E /* ProjectBO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectBO.swift; sourceTree = "<group>"; };
 		69B172932458CACA00D0F31E /* ProjectDAO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectDAO.swift; sourceTree = "<group>"; };
@@ -202,7 +204,7 @@
 			children = (
 				69B1728F2458CAB800D0F31E /* Project.swift */,
 				E29B1E102458C89C00EA9B48 /* Statistic.swift */,
-				409D502F245B4D80006D66AC /* Task.swift */,
+				406EA9D12460A56E00903350 /* Task.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -232,6 +234,7 @@
 		69B0475A24575645002A696D /* Extension */ = {
 			isa = PBXGroup;
 			children = (
+				4061B393245B74220027775C /* Color.swift */,
 				6910339F245A15F6009D5D58 /* UIStoryboard.swift */,
 			);
 			path = Extension;
@@ -261,10 +264,10 @@
 		69B0475E245756CA002A696D /* DAO */ = {
 			isa = PBXGroup;
 			children = (
-				69B047582457554D002A696D /* CDManager.swift */,
 				69B172932458CACA00D0F31E /* ProjectDAO.swift */,
 				E29B1E142458CA9B00EA9B48 /* StatisticDAO.swift */,
 				409D5033245B4EC5006D66AC /* TaskDAO.swift */,
+				406EA9D52460A5FD00903350 /* CDManager.swift */,
 			);
 			path = DAO;
 			sourceTree = "<group>";
@@ -405,15 +408,17 @@
 			files = (
 				69F56222245B6DAE00EB2AF1 /* ProjectViewController.swift in Sources */,
 				4027D68024589D2D0046DE58 /* DatabaseService.swift in Sources */,
+				4061B394245B74220027775C /* Color.swift in Sources */,
 				69B172902458CAB800D0F31E /* Project.swift in Sources */,
+				406EA9D62460A5FD00903350 /* CDManager.swift in Sources */,
 				69B172922458CAC000D0F31E /* ProjectBO.swift in Sources */,
 				691033A0245A15F6009D5D58 /* UIStoryboard.swift in Sources */,
 				69B04727245754D5002A696D /* ViewController.swift in Sources */,
 				409D5034245B4EC5006D66AC /* TaskDAO.swift in Sources */,
-				69B047592457554D002A696D /* CDManager.swift in Sources */,
 				E2E86FDD245AD3D20006712A /* TimerDataManager.swift in Sources */,
 				69F56228245B6E1D00EB2AF1 /* ProjectCollectionViewCell.swift in Sources */,
 				409D5032245B4E35006D66AC /* TaskBO.swift in Sources */,
+				406EA9D22460A56E00903350 /* Task.swift in Sources */,
 				E2428B78245B4DFC001585BF /* LostTimeFocusBO.swift in Sources */,
 				E29B1E132458CA7D00EA9B48 /* StatisticBO.swift in Sources */,
 				691033A4245A250A009D5D58 /* NewProjectViewController.swift in Sources */,
@@ -424,7 +429,6 @@
 				796C3E38245A00DF004488D1 /* TimerViewController.swift in Sources */,
 				E29B1E152458CA9B00EA9B48 /* StatisticDAO.swift in Sources */,
 				E29B1E112458C89C00EA9B48 /* Statistic.swift in Sources */,
-				409D5030245B4D80006D66AC /* Task.swift in Sources */,
 				69B0472D245754D5002A696D /* MiniChallengeIV.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -599,7 +603,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = KFC8C5H4A6;
+				DEVELOPMENT_TEAM = 55A535V42Q;
 				INFOPLIST_FILE = MiniChallengeIV/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -617,7 +621,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = KFC8C5H4A6;
+				DEVELOPMENT_TEAM = 55A535V42Q;
 				INFOPLIST_FILE = MiniChallengeIV/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

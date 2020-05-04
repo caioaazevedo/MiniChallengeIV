@@ -21,7 +21,7 @@ class NewProjectViewController: UIViewController {
     
     var project: Project?
     var projectName = String()
-    var projectColor: UIColor?
+    var projectColor = UIColor()
     
     weak var delegate: NewProjectViewControllerDelegate?
     
@@ -44,7 +44,7 @@ class NewProjectViewController: UIViewController {
     }
     
     @IBAction func onClickDelete(_ sender: Any) {
-        projectBO.delete(uuid: project!.uuid) { success, error in
+        projectBO.delete(uuid: project!.id) { success, error in
             if success {
                 delegate?.reloadList()
                 dismiss(animated: true)
@@ -57,8 +57,8 @@ class NewProjectViewController: UIViewController {
     }
     
     @IBAction func onClickSave(_ sender: Any) {
-        delegate?.reloadList()
         saveProject()
+
     }
     
     @IBAction func cancelButtonAction(_ sender: Any) {
@@ -67,12 +67,16 @@ class NewProjectViewController: UIViewController {
     
     private func saveProject() {
         
+
+    
         guard project == nil else {
             project?.name = projectNameLabel.text ?? ""
             project?.color = projectColor
             projectBO.update(project: project!) { success, error in
                 if success {
                     dismiss(animated: true)
+                    delegate?.reloadList()
+
                 }
                 else {
                     self.showOkAlert(title: "Error", message: error ?? "")
@@ -80,16 +84,19 @@ class NewProjectViewController: UIViewController {
             }
             return
         }
-        
-        projectBO.create(name: projectNameLabel.text ?? "", color: projectColor) { success, error in
+
+        projectBO.create(name: projectNameLabel.text ?? "MurilloTrouxa", color: UIColor(red: 0.00, green: 0.30, blue: 0.81, alpha: 1.00), completion: { success, error in
             if success {
                 dismiss(animated: true)
+                delegate?.reloadList()
+
             }
             else {
                 self.showOkAlert(title: "Error", message: error ?? "")
-                
+
             }
-        }
+        })
+   
         
     }
     

@@ -9,11 +9,11 @@
 import Foundation
 
 /// Representation structure of database entities
-struct Statistic {
-    var id: UUID
-    var focusTime: Int
-    var lostFocusTime: Int
-    var restTime: Int
-    var qtdLostFocus: Int
+struct StatisticBean {
+    var uuid: UUID
+    var focusTime: Int // seconds
+    var lostFocusTime: Int // seconds
+    var restTime: Int // seconds
+    var qtdLostFocus: Int // seconds
     var statisticCD: StatisticCD? = nil
 }

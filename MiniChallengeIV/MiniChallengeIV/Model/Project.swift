@@ -10,8 +10,10 @@ import UIKit
 
 /// Model of a project
 struct Project {
-    var uuid: UUID
+    var id: UUID
     var name: String
-    var color: UIColor?
-    var totalTime: Int
+    var color: UIColor
+    var time: Int
+    var projectCD: ProjectCD? = nil
+    var tasks: [Task]? = nil
 }

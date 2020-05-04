@@ -19,43 +19,31 @@ class StatisticBO {
     
     /// Description: function conform and create statistics in the database
     /// - Parameter statistics: the model of statistic to save
-    func createStatistic(statistics: Statistic) {
+    func createStatistic(id: UUID, focusTime: Int, lostFocusTime: Int, restTime: Int, qtdLostFocus: Int, completion: (Bool) -> Void) {
         
         /// Call cration function of statisticDAO to communicate with database
-        let  success = statisticDAO.createStatistic(statistics: statistics)
-        
-        if success {
-            
-        } else {
-            /// Handle Error
-        }
-        
+        let statistic = Statistic(id: id, focusTime: focusTime, lostFocusTime: lostFocusTime, restTime: restTime, qtdLostFocus: qtdLostFocus)
+        statisticDAO.createStatistic(statistics: statistic, completion: { result, _ in
+            completion(result)
+        })
     }
     
     /// Description: function conform and update statistics in the database
     /// - Parameter statistics: the model of statistic to update
-    func updateStatistic(statistics: Statistic) {
+    func updateStatistic(statistics: Statistic, completion: (Bool) -> Void) {
         
         /// Call update function of statisticDAO to communicate with database
-        let  success = statisticDAO.updateStatistic(statistics: statistics)
-        
-        if success {
-            
-        } else {
-            /// Handle Error
-        }
+        statisticDAO.updateStatistic(statistics: statistics, completion: { result,_ in
+            completion(result)
+        })
     }
     
     /// Description: function fetch statistic from database
-    func readStatistic() -> Statistic? {
+    func retrieveStatistic(completion: ([Statistic]?) -> Void) {
         
         /// Call cration function of statisticDAO to communicate with database
-        if let statistic = statisticDAO.readStatistic() {
-            return statistic
-        } else {
-            /// Handle Error
-            
-            return nil
-        }
+        statisticDAO.retrieveStatistic(completion: {result,_ in
+            completion(result)
+        })
     }
 }
