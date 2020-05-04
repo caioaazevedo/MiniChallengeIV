@@ -9,7 +9,7 @@
 import Foundation
 
 /// Representation structure of database entities
-struct TaskBean {
+struct Task {
     var uuid: UUID
     var description: String
     var state: Bool

@@ -36,7 +36,7 @@ class ProjectViewController: UIViewController {
             newProjectVC.delegate = self
             
             if let selectedProjectId = selectedProjectId {
-                newProjectVC.projectBean = ProjectDAO.list[selectedProjectId]
+                newProjectVC.project = ProjectDAO.list[selectedProjectId]
                 self.selectedProjectId = nil
             }
             

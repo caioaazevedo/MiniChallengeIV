@@ -14,19 +14,19 @@ class TaskDAO {
     /// Create a task on CoreData
     /// - Parameter taskBean: A object of type TaskBean
     /// - Returns: Boolean if the project was saved
-    func createTask(taskBean: TaskBean) -> Bool{
+    func createTask(task: Task) -> Bool{
         return false
     }
     /// Retrieves a list of tasks
     /// - Returns:  List of tasks
-    func retrieve() -> [TaskBean]? {
+    func retrieve() -> [Task]? {
         return nil
     }
     
     /// Updates a task in database with DAO
     /// - Parameter taskBean: Task to update
     /// - Returns: Boolean if the project was updated
-    func updateTask(taskBean: TaskBean) -> Bool {
+    func updateTask(task: Task) -> Bool {
         return false
     }
     
