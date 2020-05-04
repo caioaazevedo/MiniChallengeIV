@@ -9,7 +9,7 @@
 import Foundation
 
 /// Representation structure of database entities
-struct StatisticBean {
+struct Statistic {
     var id: UUID
     var focusTime: Timer
     var lostFocusTime: Timer

@@ -20,20 +20,20 @@ class StatisticDAO {
     
     /// Description: function conform and create statistics in the database
     /// - Parameter statisticsBean: the model of statistic to save
-    func createStatistic(statisticsBean: StatisticBean) -> Bool{
+    func createStatistic(statistics: Statistic) -> Bool{
         
         return false
     }
     
     /// Description: function conform and update statistics in the database
     /// - Parameter statisticsBean: the model of statistic to update
-    func updateStatistic(statisticsBean: StatisticBean) -> Bool{
+    func updateStatistic(statistics: Statistic) -> Bool{
         
         return false
     }
     
     /// Description: function fetch statistic to return
-    func readStatistic() -> StatisticBean?{
+    func readStatistic() -> Statistic?{
         
         return nil
     }

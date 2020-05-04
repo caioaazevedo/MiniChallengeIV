@@ -18,11 +18,11 @@ class StatisticBO {
     /// Bisiness Object
     
     /// Description: function conform and create statistics in the database
-    /// - Parameter statisticsBean: the model of statistic to save
-    func createStatistic(statisticsBean: StatisticBean) {
+    /// - Parameter statistics: the model of statistic to save
+    func createStatistic(statistics: Statistic) {
         
         /// Call cration function of statisticDAO to communicate with database
-        let  success = statisticDAO.createStatistic(statisticsBean: statisticsBean)
+        let  success = statisticDAO.createStatistic(statistics: statistics)
         
         if success {
             
@@ -33,11 +33,11 @@ class StatisticBO {
     }
     
     /// Description: function conform and update statistics in the database
-    /// - Parameter statisticsBean: the model of statistic to update
-    func updateStatistic(statisticsBean: StatisticBean) {
+    /// - Parameter statistics: the model of statistic to update
+    func updateStatistic(statistics: Statistic) {
         
         /// Call update function of statisticDAO to communicate with database
-        let  success = statisticDAO.updateStatistic(statisticsBean: statisticsBean)
+        let  success = statisticDAO.updateStatistic(statistics: statistics)
         
         if success {
             
@@ -47,7 +47,7 @@ class StatisticBO {
     }
     
     /// Description: function fetch statistic from database
-    func readStatistic() -> StatisticBean? {
+    func readStatistic() -> Statistic? {
         
         /// Call cration function of statisticDAO to communicate with database
         if let statistic = statisticDAO.readStatistic() {

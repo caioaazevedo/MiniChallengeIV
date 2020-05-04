@@ -19,7 +19,7 @@ class NewProjectViewController: UIViewController {
 
     let projectBO = ProjectBO()
     
-    var projectBean: ProjectBean?
+    var project: Project?
     var projectName = String()
     var projectColor: UIColor?
     
@@ -28,8 +28,8 @@ class NewProjectViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        if let projectBean = projectBean {
-            projectNameLabel.text = projectBean.name
+        if let project = project {
+            projectNameLabel.text = project.name
             deleteButton.isHidden = false
         }
         else {
@@ -44,7 +44,7 @@ class NewProjectViewController: UIViewController {
     }
     
     @IBAction func onClickDelete(_ sender: Any) {
-        projectBO.delete(uuid: projectBean!.uuid) { success, error in
+        projectBO.delete(uuid: project!.uuid) { success, error in
             if success {
                 delegate?.reloadList()
                 dismiss(animated: true)
@@ -67,10 +67,10 @@ class NewProjectViewController: UIViewController {
     
     private func saveProject() {
         
-        guard projectBean == nil else {
-            projectBean?.name = projectNameLabel.text ?? ""
-            projectBean?.color = projectColor
-            projectBO.update(project: projectBean!) { success, error in
+        guard project == nil else {
+            project?.name = projectNameLabel.text ?? ""
+            project?.color = projectColor
+            projectBO.update(project: project!) { success, error in
                 if success {
                     dismiss(animated: true)
                 }

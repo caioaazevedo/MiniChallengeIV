@@ -9,7 +9,7 @@
 import UIKit
 
 /// Model of a project
-struct ProjectBean {
+struct Project {
     var uuid: UUID
     var name: String
     var color: UIColor?

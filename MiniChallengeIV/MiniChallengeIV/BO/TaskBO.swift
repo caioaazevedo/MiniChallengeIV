@@ -15,27 +15,27 @@ class TaskBO {
     
     //MARK:- Functions
     
-    /// Create a task of type TaskBean with DAO
+    /// Create a task of type Task with DAO
     /// - Parameter description: Description of task
     /// - Returns: Boolean if the task was saved
     func create(description: String) -> Bool{
         
-        let taskBean = TaskBean(uuid: UUID(), description: description, state: false)
-        return taskDAO.createTask(taskBean: taskBean)
+        let task = Task(uuid: UUID(), description: description, state: false)
+        return taskDAO.createTask(task: task)
     }
     
     /// Retrieves a list of tasks
     /// - Returns: List of tasks
-    func retrieve() -> [TaskBean]? {
+    func retrieve() -> [Task]? {
         
         let tasks = taskDAO.retrieve()
         return tasks
     }
     
     /// Updates a task in database with DAO
-    /// - Parameter taskBean: Task to update
+    /// - Parameter task: Task to update
     /// - Returns: Boolean if the project was updated
-    func update(taskBean: TaskBean) -> Bool {
+    func update(task: Task) -> Bool {
         return false
     }
     

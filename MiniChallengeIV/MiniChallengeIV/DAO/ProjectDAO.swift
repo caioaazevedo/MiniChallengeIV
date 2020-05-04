@@ -10,28 +10,28 @@ import Foundation
 
 class ProjectDAO {
     
-    /// List of ProjectBean
-    static var list = [ProjectBean]()
+    /// List of Project
+    static var list = [Project]()
         
-    /// Create an object of type ProjectBean in CoreData
+    /// Create an object of type Project in CoreData
     /// - Parameter project: An project
     /// - Returns: Boolean if the project was created in the data base
-    func create(project: ProjectBean, completion: (Bool, String?) -> Void) {
+    func create(project: Project, completion: (Bool, String?) -> Void) {
         ProjectDAO.list.append(project)
         completion(true, nil)
     }
     
     /// Performs the search for projects at CoreData
     /// - Returns: List of projects
-    func retrieve() -> [ProjectBean]? {
+    func retrieve() -> [Project]? {
         
-        return [ProjectBean]()
+        return [Project]()
     }
     
     /// Updates a project in the CoreData
     /// - Parameter project: Project to update in the CoreData
     /// - Returns: Boolean if the project was updated
-    func update(project: ProjectBean, completion: (Bool, String?) -> Void) {
+    func update(project: Project, completion: (Bool, String?) -> Void) {
         
         if let index = ProjectDAO.list.firstIndex(where: { $0.uuid == project.uuid }) {
             ProjectDAO.list.remove(at: index)
