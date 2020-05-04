@@ -12,5 +12,20 @@ import Foundation
 struct TaskBean {
     var uuid: UUID
     var description: String
-    var state: Bool
+    var state: Bool = false
+    var taskCD: TaskCD? = nil
+//    var project: ProjectBean
+    
+//    init(uuid: UUID, description: String, state: Bool) {
+//        self.uuid = uuid
+//        self.description = description
+//        self.state = state
+//    }
+//    
+//    init(uuid: UUID, description: String, state: Bool, taskCD: TaskCD) {
+//        self.uuid = uuid
+//        self.description = description
+//        self.state = state
+//        self.taskCD = taskCD
+//    }
 }
