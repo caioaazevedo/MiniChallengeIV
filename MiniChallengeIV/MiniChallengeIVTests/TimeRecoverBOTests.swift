@@ -41,5 +41,34 @@ class TimeRecoverBOTests: XCTestCase {
         }
     }
     
+    func testEnterBackground_enterBackgroundInstantNotNil(){
+        /// Timer Status - Focus
+        timer.runningState = TimeTrackerState.focus
+        
+        sut.enterbackground()
+        
+        XCTAssertNotNil(sut.enterBackgroundInstant)
+    }
+
+    func testEnterBackground_sendNotification(){
+        /// Timer Status - Pause
+        timer.runningState = TimeTrackerState.pause
+        
+        sut.enterbackground()
+        
+        /// Ensure notification
+    }
+
+    ///when TimerState is Focus and return before Time Stops
+    func testBackgroundTimeRecover_recoverDifferenceBetweenDates(){
+        let backgroundInstant = Date()
+        
+        let returnValue = sut.backgroundTimeRecover(backgroundInstant: backgroundInstant)
+        
+        XCTAssertNotNil(sut.returnFromBackgroundInstant)
+        
+        XCTAssertTrue(returnValue >= 0)
+    }
+
     
 }
