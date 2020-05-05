@@ -69,6 +69,4 @@ class TimeRecoverBOTests: XCTestCase {
         
         XCTAssertTrue(returnValue >= 0)
     }
-
-    
 }
