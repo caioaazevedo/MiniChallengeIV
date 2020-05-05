@@ -11,14 +11,14 @@ import XCTest
 
 class TimeRecoverBOTests: XCTestCase {
     
-    var timer: TimeTracker!
+    var timer: TimeTrackerBO!
     var sut: TimeRecoverBO!
     var enterBackgroundInstant: Date!
 
     override func setUp(){
         // Put setup code here. This method is called before the invocation of each test method in the class.
         super.setUp()
-        timer = TimeTracker()
+        timer = TimeTrackerBO()
         sut = TimeRecoverBO(timer: timer)
     }
 
@@ -42,7 +42,7 @@ class TimeRecoverBOTests: XCTestCase {
     }
     
     func testReturnFromBackground_WhenTimerStatusIsFocus_DoNotChangeCicle() {
-        timer.runningState = .focus
+        timer.state = .focus
         sut.enterBackgroundInstant = Date()
         timer.lostFocusTime = 2 * 60 // 2 min
         timer.focusTime = 10 * 60 // 10 min
@@ -56,7 +56,7 @@ class TimeRecoverBOTests: XCTestCase {
     }
     
     func testReturnFromBackground_WhenTimerStatusIsFocus_ChangeCicle() {
-        timer.runningState = .focus
+        timer.state = .focus
         let minComp = DateComponents(minute: -11)
         let date = Calendar.current.date(byAdding: minComp, to: Date())
         
@@ -73,7 +73,7 @@ class TimeRecoverBOTests: XCTestCase {
     }
     
     func testReturnFromBackground_WhenTimerStatusIsPause_DoNotChangeCicle() {
-        timer.runningState = .pause
+        timer.state = .pause
         sut.enterBackgroundInstant = Date()
         timer.restTime = 2 * 60 // 2 min
         timer.configTime = 5 // 5 min
@@ -86,7 +86,7 @@ class TimeRecoverBOTests: XCTestCase {
     }
     
     func testReturnFromBackground_WhenTimerStatusIsPause_ChangeCicle() {
-        timer.runningState = .pause
+        timer.state = .pause
         let minComp = DateComponents(minute: -5)
         let date = Calendar.current.date(byAdding: minComp, to: Date())
 
@@ -103,7 +103,7 @@ class TimeRecoverBOTests: XCTestCase {
     
     func testEnterBackground_enterBackgroundInstantNotNil(){
         /// Timer Status - Focus
-        timer.runningState = TimeTrackerState.focus
+        timer.state = TimeTrackerState.focus
         
         sut.enterbackground()
         
@@ -112,7 +112,7 @@ class TimeRecoverBOTests: XCTestCase {
 
     func testEnterBackground_sendNotification(){
         /// Timer Status - Pause
-        timer.runningState = TimeTrackerState.pause
+        timer.state = TimeTrackerState.pause
         
         sut.enterbackground()
         
@@ -134,7 +134,7 @@ class TimeRecoverBOTests: XCTestCase {
         /// When Time Isnt Over
         
         // Timer Simulation
-        timer.runningState = .focus
+        timer.state = .focus
         let lostFocusTime = 10 * 60 // 10 min
         timer.lostFocusTime = 2 * 60 // 2 min
         timer.focusTime = 10 * 60 // 10 min
@@ -156,7 +156,7 @@ class TimeRecoverBOTests: XCTestCase {
         /// When Time Is Over
 
         // Timer Simulation
-        timer.runningState = .focus
+        timer.state = .focus
         let lostFocusTime = 10 * 60 // 10 min
         timer.lostFocusTime = 6 * 60 // 6 min
         timer.focusTime = 10 * 60 // 10 min
@@ -174,7 +174,7 @@ class TimeRecoverBOTests: XCTestCase {
         /// When Time Isnt Over
         
         // Timer Simulation
-        timer.runningState = .focus
+        timer.state = .focus
         let restInBackgrund = 4 * 60 // 4 min
         timer.restTime = 0
         timer.configTime = 5 // 5 min
@@ -195,7 +195,7 @@ class TimeRecoverBOTests: XCTestCase {
         /// When Time Is Over
         
         // Timer Simulation
-        timer.runningState = .pause
+        timer.state = .pause
         let restInBackgrund = 10 * 60 // 10 min
         timer.restTime = 5 * 60 // 5 min
         timer.configTime = 5 // 5 min
@@ -208,7 +208,7 @@ class TimeRecoverBOTests: XCTestCase {
     }
     
     func testChangeCicleTimer_changeStatusToFocus(){
-        timer.runningState = .pause
+        timer.state = .pause
         
         sut.changeCicleTimer()
         
@@ -217,7 +217,7 @@ class TimeRecoverBOTests: XCTestCase {
     }
     
     func testChangeCicleTimer_changeStatusToPause(){
-        timer.runningState = .focus
+        timer.state = .focus
         print("=-=-=-=>>> \(timer.state)")
         
         sut.changeCicleTimer()

@@ -12,20 +12,20 @@ class TimeRecoverBO {
     var enterBackgroundInstant: Date?
     var returnFromBackgroundInstant: Date!
 
-    var timer: TimeTracker
+    var timer: TimeTrackerBO
 
-    init(timer: TimeTracker) {
+    init(timer: TimeTrackerBO) {
         self.timer = timer
     }
 
     func enterbackground(){
-        if timer.runningState == TimeTrackerState.focus {
+        if timer.state == TimeTrackerState.focus {
             /// Save the moment that enterBackground
             self.enterBackgroundInstant = Date()
             
-            print("EnterBackground Instant: \(enterBackgroundInstant)")
+            print("EnterBackground Instant: \(enterBackgroundInstant!)")
             
-        } else if timer.runningState == TimeTrackerState.pause {
+        } else if timer.state == TimeTrackerState.pause {
             /// Local Notification with rest Time as delay
         }
     }
@@ -36,14 +36,14 @@ class TimeRecoverBO {
         let timeInBackground = backgroundTimeRecover(backgroundInstant: backgroundInstant)
         
         /// Handle Timer State
-        if timer.runningState == .focus{
+        if timer.state == .focus{
             let changeCicle =  updateTimerAtributesWhenFocus(lostFocusTime: timeInBackground)
             
             if changeCicle {
                 changeCicleTimer()
             }
            
-        } else if timer.runningState == .pause{
+        } else if timer.state == .pause{
             let changeCicle = updateTimerAtributesWhenPause(restInBackgrund: timeInBackground)
             
             if changeCicle {

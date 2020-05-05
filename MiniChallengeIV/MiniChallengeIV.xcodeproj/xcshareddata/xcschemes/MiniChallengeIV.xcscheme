@@ -33,7 +33,27 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "69B04737245754D9002A696D"
+               BlueprintIdentifier = "795642422461F28D000A621F"
+               BuildableName = "TimeTrackerBOTests.xctest"
+               BlueprintName = "TimeTrackerBOTests"
+               ReferencedContainer = "container:MiniChallengeIV.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "795642522461F68C000A621F"
+               BuildableName = "MiniChallengeIVTests.xctest"
+               BlueprintName = "MiniChallengeIVTests"
+               ReferencedContainer = "container:MiniChallengeIV.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "795642522461F68C000A621F"
                BuildableName = "MiniChallengeIVTests.xctest"
                BlueprintName = "MiniChallengeIVTests"
                ReferencedContainer = "container:MiniChallengeIV.xcodeproj">
