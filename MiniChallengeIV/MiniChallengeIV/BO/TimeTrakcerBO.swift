@@ -118,6 +118,7 @@ class TimeTrackerBO{
         - Returns: formatted string of the current time in minutes and seconds
      */
     func secondsToString(with seconds: Int) -> String{
+        if seconds < 0 {return ""} //TODO: send error
         let min = (seconds / 60) % 60
         let sec = seconds % 60
         return String(format:"%02i:%02i", min, sec)
@@ -129,6 +130,7 @@ class TimeTrackerBO{
         - Returns: the amount of seconds for the count down
      */
     func stringToSeconds(with text: String) -> Int{
+        if text.contains("-") { return 0}
         let numbers = text.split(separator: ":")
         guard let firstNumbers = numbers.first else {return 0}
         guard let min = Int(firstNumbers) else {return 0}

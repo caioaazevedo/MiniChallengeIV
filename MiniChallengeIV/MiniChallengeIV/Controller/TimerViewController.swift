@@ -50,7 +50,7 @@ class TimerViewController: UIViewController {
     
     //MARK: START TIMER
     @IBAction func startTimer(_ sender: UIButton) {
-        if timeTracker.state == .running { // If it's running it stops instead
+        if timeTracker.timer.isValid { // If it's running it stops instead
             stopTimer(sender)
             return
         }
