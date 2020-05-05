@@ -11,7 +11,7 @@ import XCTest
 
 class TimeTrackerBOTests: XCTestCase{
     
-    let t = TimeTracker()
+    let t = TimeTrackerBO()
     
     func testStringToSecond(){
         XCTAssertEqual(t.stringToSeconds(with: "15:00"), 900)
@@ -36,8 +36,38 @@ class TimeTrackerBOTests: XCTestCase{
     }
     
     func testStartTimer(){
-        let startTimer = t.startTimer { (_,_) in}
-        
+        t.configTime = 5
+        let startTimer = t.startTimer { (_,hasEnded) in
+            if hasEnded{
+                XCTAssertEqual(t.state, .pause)
+                XCTAssertEqual(t.convertedTimeValue, 1)
+            }
+        }
+        XCTAssertEqual(t.state, .running)
     }
     
+    func testUpdateValues(){
+        t.focusTime = 0
+        t.restTime = 0
+        t.state = .focus
+        t.updateStatistics()
+        t.state = .pause
+        t.updateStatistics()
+        XCTAssertEqual(t.focusTime, 1)
+        XCTAssertEqual(t.restTime, 1)
+    }
+    
+    func testChangeCicle(){
+        t.state = .focus
+        XCTAssertEqual(t.changeCicle, .pause)
+        XCTAssertEqual(t.changeCicle, .focus)
+    }
+    
+    func testConvertedTime(){
+        t.configTime = 5
+        t.state = .focus
+        XCTAssertEqual(t.convertedTimeValue, 300)
+        t.state = .pause
+        XCTAssertEqual(t.convertedTimeValue, 60)
+    }
 }

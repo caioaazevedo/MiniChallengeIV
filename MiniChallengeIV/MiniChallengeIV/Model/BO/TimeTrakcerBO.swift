@@ -69,7 +69,6 @@ class TimeTrackerBO{
         - Parameter updateView: a closure called each time the timer is updated for handling view updates.
      */
     func startTimer(updateView: @escaping (String, Bool) -> Void){
-        if state == .running {return}
         countDown = convertedTimeValue
         state = .running
         
@@ -94,7 +93,7 @@ class TimeTrackerBO{
     /**
      Method for updating the tracked values which will be stored in the Data Base
      */
-    private func updateTrackedValues(){
+    func updateTrackedValues(){
         if runningState == .focus{
             self.focusTime += 1
         }else if runningState == .pause{

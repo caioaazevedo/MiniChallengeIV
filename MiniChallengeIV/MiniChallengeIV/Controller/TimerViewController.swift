@@ -48,29 +48,37 @@ class TimerViewController: UIViewController {
         }
     }
     
-    
-    ///Method for starting the timer or stopping it when active. It's called by input and it updates the view.
-    @IBAction func runTimer(_ sender: UIButton) {
-        if timeTracker.state != .running{
-            sender.setTitle("Stop", for: .normal)
-            timeTracker.startTimer {time, ended in
-                self.timerLabel.text = time
-                if ended{
-                    sender.setTitle("Start", for: .normal)
-                    self.stateLabel.text = self.timeTracker.state.rawValue
-                    self.setConfigurationButtons()
-                }
-            }
-        }else{
-            sender.setTitle("Start", for: .normal)
-            timeTracker.stopTimer(){
-                //TODO: Message for when the user gives up
+    //MARK: START TIMER
+    @IBAction func startTimer(_ sender: UIButton) {
+        if timeTracker.state == .running { // If it's running it stops instead
+            stopTimer(sender)
+            return
+        }
+        sender.setTitle("Stop", for: .normal)
+        
+        timeTracker.startTimer {time, hasEnded in
+            self.timerLabel.text = time
+            if hasEnded{ // Focus timer ended
+                sender.setTitle("Start", for: .normal)
                 self.stateLabel.text = self.timeTracker.state.rawValue
-                self.timerLabel.text = String(format: "%02i:00", self.timeTracker.configTime)
+                self.setConfigurationButtons()
             }
         }
         setConfigurationButtons()
     }
+    
+    //MARK: STOP TIMER
+    func stopTimer(_ sender: UIButton) {
+        sender.setTitle("Start", for: .normal)
+        
+        timeTracker.stopTimer(){
+            //TODO: Message for when the user gives up
+            self.stateLabel.text = self.timeTracker.state.rawValue
+            self.timerLabel.text = String(format: "%02i:00", self.timeTracker.configTime)
+        }
+        setConfigurationButtons()
+    }
+    
     
     ///Increment timer for the count down
     @IBAction func incrementTimer(_ sender: Any) {
