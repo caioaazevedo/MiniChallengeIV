@@ -11,63 +11,61 @@ import XCTest
 
 class TimeTrackerBOTests: XCTestCase{
     
-    let t = TimeTrackerBO()
+    let sut = TimeTrackerBO()
     
-    func testStringToSecond(){
-        XCTAssertEqual(t.stringToSeconds(with: "15:00"), 900)
-        XCTAssertEqual(t.stringToSeconds(with: "100:00"), 0)
-        XCTAssertEqual(t.stringToSeconds(with: "-5:00"), 0)
-        XCTAssertEqual(t.stringToSeconds(with: "err"), 0)
-        XCTAssertEqual(t.stringToSeconds(with: "1:00"), 0)
-        XCTAssertEqual(t.stringToSeconds(with: "20:00"), 1200)
+    func testStringToSecond_WhenValidTextProvided_ConvertToSeconds(){
+        XCTAssertEqual(sut.stringToSeconds(with: "15:00"), 900)
+        XCTAssertEqual(sut.stringToSeconds(with: "-5:00"), 0)
+        XCTAssertEqual(sut.stringToSeconds(with: "err"), 0)
     }
     
-    func testSecondsToString(){
-        XCTAssertEqual(t.secondsToString(with: 60), "01:00")
-        XCTAssertEqual(t.secondsToString(with: 300), "05:00")
-        XCTAssertEqual(t.secondsToString(with: -5), "")
-        XCTAssertEqual(t.secondsToString(with: 6060), "")
+    func testSecondsToString_WhenValidValueProvided_ConvertToText(){
+        XCTAssertEqual(sut.secondsToString(with: 60), "01:00")
+        XCTAssertEqual(sut.secondsToString(with: -5), "")
     }
     
-    func testStopTimer(){
-        let stopTimer = t.stopTimer {}
-        XCTAssertEqual(t.state, .focus)
+    func testStopTimer_WhenRunning_StopTimerAndChangeStatusToFocus(){
+        sut.startTimer { (_, _) in}
+        let stopTimer = sut.stopTimer {}
+        XCTAssertEqual(sut.state, .focus)
+        XCTAssertNil(sut.timer)
         XCTAssertNil(stopTimer)
     }
     
-    func testStartTimer(){
-        t.configTime = 5
-        let startTimer = t.startTimer { (_,hasEnded) in
+    func testStartTimer_WhenNotRunning_StartsTimerAndChangeToRunning(){
+        sut.configTime = 5
+        sut.countDown = 1
+        let startTimer = sut.startTimer { (_,hasEnded) in
             if hasEnded{
-                XCTAssertEqual(t.state, .pause)
-                XCTAssertEqual(t.convertedTimeValue, 1)
+                XCTAssertEqual(sut.state, .pause)
+                XCTAssertEqual(sut.convertedTimeValue, 1)
             }
         }
-        XCTAssertEqual(t.state, .running)
+        XCTAssertEqual(sut.state, .running)
     }
     
-    func testUpdateValues(){
-        t.focusTime = 0
-        t.restTime = 0
-        t.state = .focus
-        t.updateStatistics()
-        t.state = .pause
-        t.updateStatistics()
-        XCTAssertEqual(t.focusTime, 1)
-        XCTAssertEqual(t.restTime, 1)
+    func testUpdateValues_WhenStatusProvided_IncrementStatisticsValues(){
+        sut.focusTime = 0
+        sut.restTime = 0
+        sut.state = .focus
+        sut.updateStatistics()
+        sut.state = .pause
+        sut.updateStatistics()
+        XCTAssertEqual(sut.focusTime, 1)
+        XCTAssertEqual(sut.restTime, 1)
     }
     
-    func testChangeCicle(){
-        t.state = .focus
-        XCTAssertEqual(t.changeCicle, .pause)
-        XCTAssertEqual(t.changeCicle, .focus)
+    func testChangeCicle_WhenStatusProvided_ChangeToNextStatus(){
+        sut.state = .focus
+        XCTAssertEqual(sut.changeCicle, .pause)
+        XCTAssertEqual(sut.changeCicle, .focus)
     }
     
-    func testConvertedTime(){
-        t.configTime = 5
-        t.state = .focus
-        XCTAssertEqual(t.convertedTimeValue, 300)
-        t.state = .pause
-        XCTAssertEqual(t.convertedTimeValue, 60)
+    func testConvertedTime_WhenTimeSet_ConvertToSecondsOrPauseTime(){
+        sut.configTime = 5
+        sut.state = .focus
+        XCTAssertEqual(sut.convertedTimeValue, 300)
+        sut.state = .pause
+        XCTAssertEqual(sut.convertedTimeValue, 60)
     }
 }

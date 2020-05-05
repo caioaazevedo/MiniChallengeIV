@@ -18,7 +18,7 @@ enum TimeTrackerState: String{
 class TimeTrackerBO{
     
     //MARK:Atributes
-    private var timer = Timer()
+    var timer = Timer()
     var configTime = 25
     private var hasEnded = false
     
