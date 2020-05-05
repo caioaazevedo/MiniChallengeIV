@@ -18,44 +18,32 @@ class StatisticBO {
     /// Bisiness Object
     
     /// Description: function conform and create statistics in the database
-    /// - Parameter statisticsBean: the model of statistic to save
-    func createStatistic(statisticsBean: StatisticBean) {
+    /// - Parameter statistics: the model of statistic to save
+    func createStatistic(id: UUID, focusTime: Int, lostFocusTime: Int, restTime: Int, qtdLostFocus: Int, completion: (Bool) -> Void) {
         
         /// Call cration function of statisticDAO to communicate with database
-        let  success = statisticDAO.createStatistic(statisticsBean: statisticsBean)
-        
-        if success {
-            
-        } else {
-            /// Handle Error
-        }
-        
+        let statistic = Statistic(id: id, focusTime: focusTime, lostFocusTime: lostFocusTime, restTime: restTime, qtdLostFocus: qtdLostFocus)
+        statisticDAO.createStatistic(statistics: statistic, completion: { result, _ in
+            completion(result)
+        })
     }
     
     /// Description: function conform and update statistics in the database
-    /// - Parameter statisticsBean: the model of statistic to update
-    func updateStatistic(statisticsBean: StatisticBean) {
+    /// - Parameter statistics: the model of statistic to update
+    func updateStatistic(statistics: Statistic, completion: (Bool) -> Void) {
         
         /// Call update function of statisticDAO to communicate with database
-        let  success = statisticDAO.updateStatistic(statisticsBean: statisticsBean)
-        
-        if success {
-            
-        } else {
-            /// Handle Error
-        }
+        statisticDAO.updateStatistic(statistics: statistics, completion: { result,_ in
+            completion(result)
+        })
     }
     
     /// Description: function fetch statistic from database
-    func readStatistic() -> StatisticBean? {
+    func retrieveStatistic(completion: ([Statistic]?) -> Void) {
         
         /// Call cration function of statisticDAO to communicate with database
-        if let statistic = statisticDAO.readStatistic() {
-            return statistic
-        } else {
-            /// Handle Error
-            
-            return nil
-        }
+        statisticDAO.retrieveStatistic(completion: {result,_ in
+            completion(result)
+        })
     }
 }

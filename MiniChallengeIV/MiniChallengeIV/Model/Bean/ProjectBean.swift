@@ -12,6 +12,25 @@ import UIKit
 struct ProjectBean {
     var uuid: UUID
     var name: String
-    var color: UIColor?
-    var totalTime: Int
+    var color: UIColor
+    var time: Int
+    var projectCD: ProjectCD? = nil
+    var tasks: [TaskBean] = []
+    
+//    init(uuid: UUID, name: String, color: UIColor, time: Int){
+//        self.uuid = uuid
+//        self.name = name
+//        self.color = color
+//        self.time = time
+//    }
+//    
+//    init(uuid: UUID, name: String, color: UIColor, time: Int, projectCD: ProjectCD, tasks: [TaskBean]){
+//        self.uuid = uuid
+//        self.name = name
+//        self.color = color
+//        self.time = time
+//        self.projectCD = projectCD
+//        self.tasks = tasks
+//    }
+    
 }

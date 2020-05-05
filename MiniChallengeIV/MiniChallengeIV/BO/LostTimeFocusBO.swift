@@ -23,7 +23,7 @@ class LostTimeFocusBO {
             /// Save the moment that enterBackground
             self.enterBackgroundInstant = Date()
             
-            print("EnterBackground Instant: \(enterBackgroundInstant)")
+            print("EnterBackground Instant: \(String(describing: enterBackgroundInstant))")
             
         } else if timer.runningState == TimeTrackerState.pause {
             /// Local Notification with rest Time as delay
