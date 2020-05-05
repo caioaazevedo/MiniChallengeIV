@@ -9,7 +9,7 @@
 import Foundation
 
 enum TimeTrackerState: String{
-    case focus // startedFocus  // notWorking // startedRest
+    case focus
     case running
     case pause
 }
@@ -20,7 +20,7 @@ class TimeTracker : TimerDataProtocol{
     var focusTime = 0
     
     /// Track lostFocusTime
-    var lostFocusTime = 0
+    var lostFocusTime:Int = 0
     
     /// Track restTime
     var restTime = 0

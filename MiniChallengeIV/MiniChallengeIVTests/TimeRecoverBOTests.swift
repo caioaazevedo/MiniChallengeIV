@@ -24,9 +24,9 @@ class TimeRecoverBOTests: XCTestCase {
 
     override func tearDown(){
         // Put teardown code here. This method is called after the invocation of each test method in the class.
+        super.tearDown()
         timer = nil
         sut = nil
-        super.tearDown()
     }
 
     func testExample() throws {
@@ -39,6 +39,66 @@ class TimeRecoverBOTests: XCTestCase {
         self.measure {
             // Put the code you want to measure the time of here.
         }
+    }
+    
+    func testReturnFromBackground_WhenTimerStatusIsFocus_DoNotChangeCicle() {
+        timer.runningState = .focus
+        sut.enterBackgroundInstant = Date()
+        timer.lostFocusTime = 2 * 60 // 2 min
+        timer.focusTime = 10 * 60 // 10 min
+        timer.configTime = 25 // 25 min
+        timer.countDown = 5 * 60 // 5 min remain
+        
+        sut.returnFromBackground()
+        
+        XCTAssertTrue(timer.countDown > 0)
+        
+    }
+    
+    func testReturnFromBackground_WhenTimerStatusIsFocus_ChangeCicle() {
+        timer.runningState = .focus
+        let minComp = DateComponents(minute: -11)
+        let date = Calendar.current.date(byAdding: minComp, to: Date())
+        
+        sut.enterBackgroundInstant = date
+        timer.lostFocusTime = 5 * 60 // 5 min
+        timer.focusTime = 10 * 60 // 10 min
+        timer.configTime = 25 // 25 min
+        timer.countDown = 5 * 60 // 5 min remain
+        
+        sut.returnFromBackground()
+        
+        XCTAssertTrue(timer.countDown == 0)
+        
+    }
+    
+    func testReturnFromBackground_WhenTimerStatusIsPause_DoNotChangeCicle() {
+        timer.runningState = .pause
+        sut.enterBackgroundInstant = Date()
+        timer.restTime = 2 * 60 // 2 min
+        timer.configTime = 5 // 5 min
+        timer.countDown = 3 * 60 // 5 min remain
+        
+        sut.returnFromBackground()
+        
+        XCTAssertTrue(timer.countDown > 0)
+        
+    }
+    
+    func testReturnFromBackground_WhenTimerStatusIsPause_ChangeCicle() {
+        timer.runningState = .pause
+        let minComp = DateComponents(minute: -5)
+        let date = Calendar.current.date(byAdding: minComp, to: Date())
+
+        sut.enterBackgroundInstant = date
+        timer.restTime = 2 * 60 // 2 min
+        timer.configTime = 5 // 5 min
+        timer.countDown = 3 * 60 // 5 min remain
+
+        sut.returnFromBackground()
+
+        XCTAssertTrue(timer.countDown == 0)
+        
     }
     
     func testEnterBackground_enterBackgroundInstantNotNil(){
@@ -68,5 +128,102 @@ class TimeRecoverBOTests: XCTestCase {
         XCTAssertNotNil(sut.returnFromBackgroundInstant)
         
         XCTAssertTrue(returnValue >= 0)
+    }
+    
+    func testUpdateTimerAtributesWhenFocus_DecreaseCountdown(){
+        /// When Time Isnt Over
+        
+        // Timer Simulation
+        timer.runningState = .focus
+        let lostFocusTime = 10 * 60 // 10 min
+        timer.lostFocusTime = 2 * 60 // 2 min
+        timer.focusTime = 10 * 60 // 10 min
+        timer.configTime = 25 // 25 min
+        timer.countDown = 5 * 60 // 5 min remain
+        
+        // Comparison constants
+        let lostFocus = timer.lostFocusTime
+        let timeRemain = timer.countDown
+        
+        let returnValue = sut.updateTimerAtributesWhenFocus(lostFocusTime: lostFocusTime)
+        
+        XCTAssertTrue(timer.lostFocusTime >= lostFocus)
+        XCTAssertTrue(timer.countDown <= timeRemain)
+        XCTAssertFalse(returnValue)
+    }
+    
+    func testUpdateTimerAtributesWhenFocus_LostFocusGetsTimeLeftToRestartTimer(){
+        /// When Time Is Over
+
+        // Timer Simulation
+        timer.runningState = .focus
+        let lostFocusTime = 10 * 60 // 10 min
+        timer.lostFocusTime = 6 * 60 // 6 min
+        timer.focusTime = 10 * 60 // 10 min
+        timer.configTime = 25 // 25 min
+
+        let returnValue = sut.updateTimerAtributesWhenFocus(lostFocusTime: lostFocusTime)
+
+        let totalTimeTrack = timer.lostFocusTime + timer.focusTime
+
+        XCTAssertTrue(totalTimeTrack == timer.configTime * 60)
+        XCTAssertTrue(returnValue)
+    }
+    
+    func testUpdateTimerAtributesWhenPause_DecreaseCountdown(){
+        /// When Time Isnt Over
+        
+        // Timer Simulation
+        timer.runningState = .focus
+        let restInBackgrund = 4 * 60 // 4 min
+        timer.restTime = 0
+        timer.configTime = 5 // 5 min
+        timer.countDown = 5 * 60 // 5 min remain
+        
+        // Comparison constants
+        let restTime = timer.restTime
+        let timeRemain = timer.countDown
+        
+        let returnValue = sut.updateTimerAtributesWhenPause(restInBackgrund: restInBackgrund)
+        
+        XCTAssertTrue(timer.restTime >= restTime)
+        XCTAssertTrue(timer.countDown <= timeRemain)
+        XCTAssertFalse(returnValue)
+    }
+    
+    func testUpdateTimerAtributesWhenPause_RestTimeGetsTimeLeftToRestartTimer(){
+        /// When Time Is Over
+        
+        // Timer Simulation
+        timer.runningState = .pause
+        let restInBackgrund = 10 * 60 // 10 min
+        timer.restTime = 5 * 60 // 5 min
+        timer.configTime = 5 // 5 min
+        timer.countDown = 5 * 60 // 5 min remain
+
+        let returnValue = sut.updateTimerAtributesWhenPause(restInBackgrund: restInBackgrund)
+        
+        XCTAssertTrue(timer.restTime == timer.configTime * 60)
+        XCTAssertTrue(returnValue)
+    }
+    
+    func testChangeCicleTimer_changeStatusToFocus(){
+        timer.runningState = .pause
+        
+        sut.changeCicleTimer()
+        
+        XCTAssertTrue(timer.state == .focus)
+        XCTAssertTrue(timer.countDown == 0)
+    }
+    
+    func testChangeCicleTimer_changeStatusToPause(){
+        timer.runningState = .focus
+        print("=-=-=-=>>> \(timer.state)")
+        
+        sut.changeCicleTimer()
+        print("=-=-=-=>>> \(timer.state)")
+        
+        XCTAssertTrue(timer.state == .pause)
+        XCTAssertTrue(timer.countDown == 0)
     }
 }

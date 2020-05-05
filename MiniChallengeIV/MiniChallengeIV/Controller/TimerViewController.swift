@@ -38,6 +38,8 @@ class TimerViewController: UIViewController {
         // Do any additional setup after loading the view.
         timerLabel.text = String(format: "%02i:00", timeTracker.configTime)
         
+        timeTracker.runningState = .focus
+        
         self.lostTimeFocus = TimeRecoverBO(timer: timeTracker)
         
         /// Get Scene Deleegate

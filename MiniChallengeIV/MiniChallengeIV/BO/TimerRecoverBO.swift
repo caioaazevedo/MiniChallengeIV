@@ -37,9 +37,18 @@ class TimeRecoverBO {
         
         /// Handle Timer State
         if timer.runningState == .focus{
-            updateTimerAtributesWhenFocus(lostFocusTime: timeInBackground)
+            let changeCicle =  updateTimerAtributesWhenFocus(lostFocusTime: timeInBackground)
+            
+            if changeCicle {
+                changeCicleTimer()
+            }
+           
         } else if timer.runningState == .pause{
-            updateTimerAtributesWhenPause(restInBackgrund: timeInBackground)
+            let changeCicle = updateTimerAtributesWhenPause(restInBackgrund: timeInBackground)
+            
+            if changeCicle {
+                changeCicleTimer()
+            }
         }
     }
 
@@ -55,43 +64,52 @@ class TimeRecoverBO {
         return timeInBackground
     }
 
-    func updateTimerAtributesWhenFocus(lostFocusTime: Int) {
+    func updateTimerAtributesWhenFocus(lostFocusTime: Int) -> Bool{
         let currentTime = lostFocusTime + timer.lostFocusTime + timer.focusTime
         
         /// If the user has been out more than the time he configured, change cicle of Timer
-        if currentTime < timer.convertedTimeValue {
+        if currentTime < timer.configTime * 60 {
             /// Update lost focus time from timer with the value calculate when returns from background and the configured Time isnt over
             timer.lostFocusTime += (lostFocusTime)
             timer.countDown -= lostFocusTime
+            
+            return false
         } else {
             /// Update Timer - Lost Focus Time
-            timer.lostFocusTime = timer.convertedTimeValue - timer.focusTime
-            changeCicleTimer()
+            timer.lostFocusTime = timer.configTime * 60 - timer.focusTime
+            /// Update Estatistics on Database
+            timer.updateStatistics()
+            
+            /// Change Timer Cicle
+            return true
         }
     }
 
-    func updateTimerAtributesWhenPause(restInBackgrund: Int) {
+    func updateTimerAtributesWhenPause(restInBackgrund: Int) -> Bool{
         let currentRestTime = restInBackgrund + timer.restTime
         
         /// If the user has been out more than the time he configured, change cicle of Timer
-        if currentRestTime < timer.convertedTimeValue {
+        if currentRestTime < timer.configTime * 60 {
             /// Update Atributes
             timer.restTime += restInBackgrund
             timer.countDown -= restInBackgrund
+            
+            return false
         } else {
-            timer.restTime = timer.convertedTimeValue
-            changeCicleTimer()
+            timer.restTime = timer.configTime * 60
+            /// Update Estatistics on Database
+            timer.updateStatistics()
+            
+            /// Change Timer Cicle
+            return true
         }
     }
 
     func changeCicleTimer() {
-        ///Stop Timer
+        ///Reset Timer
         timer.state = timer.changeCicle
         
         /// Restar timer
         timer.countDown = 0
-        
-        /// Update Estatistics on Database
-        timer.updateStatistics()
     }
 }
