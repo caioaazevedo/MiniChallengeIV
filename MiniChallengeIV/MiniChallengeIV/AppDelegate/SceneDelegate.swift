@@ -14,7 +14,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
     var timer: TimeTracker?
     
-    var lostTimeFocus: LostTimeFocusBO?
+    var lostTimeFocus: TimeRecoverBO?
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
@@ -48,9 +48,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             return
         }
         
-        lostTime.returnFromBackgroundInstant = Date()
-        
-        lostTime.backgroundTimeRecover()
+        lostTime.returnFromBackground()
     }
 
     func sceneDidEnterBackground(_ scene: UIScene) {
@@ -64,8 +62,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let lostTime = self.lostTimeFocus else {
             return
         }
-        
-        lostTime.enterBackgroundInstant = Date()
         
         lostTime.enterbackground()
     }

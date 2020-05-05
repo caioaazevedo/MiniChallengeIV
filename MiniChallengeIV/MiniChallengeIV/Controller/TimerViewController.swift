@@ -13,7 +13,7 @@ class TimerViewController: UIViewController {
     
     //Atributes
     let timeTracker = TimeTracker()
-    var lostTimeFocus: LostTimeFocusBO?
+    var lostTimeFocus: TimeRecoverBO?
     //Properties
     ///the validation for the minimum value
     var minimumDecrement: Int{
@@ -38,7 +38,7 @@ class TimerViewController: UIViewController {
         // Do any additional setup after loading the view.
         timerLabel.text = String(format: "%02i:00", timeTracker.configTime)
         
-        self.lostTimeFocus = LostTimeFocusBO(timer: timeTracker)
+        self.lostTimeFocus = TimeRecoverBO(timer: timeTracker)
         
         /// Get Scene Deleegate
         let scene = UIApplication.shared.connectedScenes.first
