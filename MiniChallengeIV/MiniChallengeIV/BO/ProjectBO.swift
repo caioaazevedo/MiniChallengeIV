@@ -13,34 +13,35 @@ class ProjectBO {
     /// Project data access object
     private var projectDAO = ProjectDAO()
     
-    /// Create an object of type ProjectBean with DAO
+    /// Create an object of type Project with DAO
     /// - Parameters:
     ///   - name: Name of project
     ///   - color: Color of project
     /// - Returns: Boolean if the project was saved
-    func create(name: String, color: UIColor?, completion: (Bool, String?) -> Void) {
+    func create(name: String, color: UIColor, completion: (Bool, String?) -> Void) {
         guard name.count > 0  else {
             completion(false, "ProjectBO: Name empty.")
             return
         }
                 
-        let projectBean = ProjectBean(uuid: UUID(), name: name, color: color, totalTime: 0)
-        projectDAO.create(project: projectBean) { success, error in
+        let project = Project(id: UUID(), name: name, color: color, time: 0)
+        projectDAO.create(project: project) { success, error in
             completion(success, error)
         }
     }
     
     /// Performs the search for projects at DAO
     /// - Returns: List of projects
-    func retrieve() -> [ProjectBean] {
-        
-        return [ProjectBean]()
+    func retrieve(completion: ([Project]?) -> Void){
+        projectDAO.retrieve(completion: { results, _ in
+            completion(results)
+        })
     }
     
     /// Updates a project in the database with DAO
     /// - Parameter project: Project to update
     /// - Returns: Boolean if the project was updated
-    func update(project: ProjectBean, completion: (Bool, String?) -> Void) {
+    func update(project: Project, completion: (Bool, String?) -> Void) {
         guard project.name.count > 0  else {
             completion(false, "ProjectBO: Name empty.")
             return
