@@ -12,7 +12,7 @@ import UIKit
 class TimerViewController: UIViewController {
     
     //Atributes
-    let timeTracker = TimeTracker()
+    let timeTracker = TimeTrackerBO()
     var lostTimeFocus: LostTimeFocusBO?
     //Properties
     ///the validation for the minimum value

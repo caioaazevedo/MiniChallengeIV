@@ -33,6 +33,7 @@
 		796C3E36245A0079004488D1 /* TimeTrakcerBO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 796C3E35245A0079004488D1 /* TimeTrakcerBO.swift */; };
 		796C3E38245A00DF004488D1 /* TimerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 796C3E37245A00DF004488D1 /* TimerViewController.swift */; };
 		796C3E3A245A02C2004488D1 /* Timer.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 796C3E39245A02C2004488D1 /* Timer.storyboard */; };
+		797D843B2460B1A100C89131 /* TimeTrackerBOTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 797D843A2460B1A100C89131 /* TimeTrackerBOTests.swift */; };
 		E2428B78245B4DFC001585BF /* LostTimeFocusBO.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2428B77245B4DFC001585BF /* LostTimeFocusBO.swift */; };
 		E29B1E112458C89C00EA9B48 /* StatisticBean.swift in Sources */ = {isa = PBXBuildFile; fileRef = E29B1E102458C89C00EA9B48 /* StatisticBean.swift */; };
 		E29B1E132458CA7D00EA9B48 /* StatisticBO.swift in Sources */ = {isa = PBXBuildFile; fileRef = E29B1E122458CA7D00EA9B48 /* StatisticBO.swift */; };
@@ -90,6 +91,7 @@
 		796C3E35245A0079004488D1 /* TimeTrakcerBO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeTrakcerBO.swift; sourceTree = "<group>"; };
 		796C3E37245A00DF004488D1 /* TimerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerViewController.swift; sourceTree = "<group>"; };
 		796C3E39245A02C2004488D1 /* Timer.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Timer.storyboard; sourceTree = "<group>"; };
+		797D843A2460B1A100C89131 /* TimeTrackerBOTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeTrackerBOTests.swift; sourceTree = "<group>"; };
 		E2428B77245B4DFC001585BF /* LostTimeFocusBO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LostTimeFocusBO.swift; sourceTree = "<group>"; };
 		E29B1E102458C89C00EA9B48 /* StatisticBean.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticBean.swift; sourceTree = SOURCE_ROOT; };
 		E29B1E122458CA7D00EA9B48 /* StatisticBO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticBO.swift; sourceTree = SOURCE_ROOT; };
@@ -182,6 +184,7 @@
 			children = (
 				69B0473C245754D9002A696D /* MiniChallengeIVTests.swift */,
 				69B0473E245754D9002A696D /* Info.plist */,
+				797D843A2460B1A100C89131 /* TimeTrackerBOTests.swift */,
 			);
 			path = MiniChallengeIVTests;
 			sourceTree = "<group>";
@@ -441,6 +444,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				797D843B2460B1A100C89131 /* TimeTrackerBOTests.swift in Sources */,
 				69B0473D245754D9002A696D /* MiniChallengeIVTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -607,7 +611,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = KFC8C5H4A6;
+				DEVELOPMENT_TEAM = BY575KUK4V;
 				INFOPLIST_FILE = MiniChallengeIV/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -625,7 +629,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = KFC8C5H4A6;
+				DEVELOPMENT_TEAM = BY575KUK4V;
 				INFOPLIST_FILE = MiniChallengeIV/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

@@ -9,30 +9,34 @@
 import Foundation
 
 enum TimeTrackerState: String{
-    case focus // startedFocus  // notWorking // startedRest
+    case focus
     case running
     case pause
 }
 
 ///Class created for handling the count down
-class TimeTracker : TimerDataProtocol{
-    /// Track focusTime
-    var focusTime = 0
-    
-    /// Track lostFocusTime
-    var lostFocusTime = 0
-    
-    /// Track restTime
-    var restTime = 0
+class TimeTrackerBO{
     
     //MARK:Atributes
     private var timer = Timer()
-    let date = DateComponents()
     var configTime = 25
+    private var hasEnded = false
     
-    var countDown = 0
+    var focusTime = 0
+    var lostFocusTime = 0
+    var restTime = 0
+    ///Ends when value gets to zero
+    var countDown = 0{
+        willSet{
+            if newValue <= 0{
+                hasEnded = true
+            }
+        }
+    }
     
     //MARK:Properties
+    ///Converted minutes to seconds
+    ///If the state is pause, it calculates the pause time
     var convertedTimeValue: Int{
         if state == .pause{
             return (configTime / 5) * 60
@@ -40,12 +44,15 @@ class TimeTracker : TimerDataProtocol{
         return configTime * 60
     }
     //MARK:States
+    ///State according to view
     var state = TimeTrackerState.focus{
         didSet{
             runningState = oldValue
         }
     }
+    ///State acording to focus logic
     var runningState = TimeTrackerState.focus
+    ///Reset values and change to next state
     var changeCicle: TimeTrackerState{
         self.focusTime = 0
         self.lostFocusTime = 0
@@ -66,31 +73,32 @@ class TimeTracker : TimerDataProtocol{
         countDown = convertedTimeValue
         state = .running
         
+        //Runs timer and updates each second
         timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: { (_) in
-            self.countDown -= 1
+            self.countDown -= 1 //Decreases time
+            var convertedTimeText = self.secondsToString(with: self.countDown)
+            self.updateTrackedValues()
             
-            let convertedTimeText = self.secondsToString(with: self.countDown)
-            if self.countDown == 0{
+            if self.hasEnded{ //It changes state, cancels timer and updates view with default value
                 self.state = self.changeCicle
                 self.timer.invalidate()
+                //TODO: update statistics
                 let defaultTimeText = self.secondsToString(with: self.convertedTimeValue)
-                updateView(defaultTimeText ,true)
-            }else{
-                updateView(convertedTimeText,false)
+                convertedTimeText = defaultTimeText
             }
+            
+            updateView(convertedTimeText,self.hasEnded)
         })
     }
     
-    func updateTimeProperties(_ countDown: Int){
-        switch self.runningState {
-            case TimeTrackerState.focus:
-                self.focusTime += 1
-                break
-            case .pause:
-                self.restTime += 1
-                break
-            case .running:
-                break
+    /**
+     Method for updating the tracked values which will be stored in the Data Base
+     */
+    private func updateTrackedValues(){
+        if runningState == .focus{
+            self.focusTime += 1
+        }else if runningState == .pause{
+            self.restTime += 1
         }
     }
     
