@@ -29,36 +29,36 @@ class TimeTrackerBOTests: XCTestCase {
         sut.startTimer { (_, _) in}
         sut.stopTimer {}
         XCTAssertEqual(sut.state, .focus)
-        XCTAssertEqual(sut.timer.isValid, false)
+        XCTAssertFalse(sut.timer.isValid)
     }
     
     func testStartTimer_WhenNotRunning_StartsTimerAndChangeToRunning(){
-        sut.configTime = 5
-        sut.countDown = 1
-        sut.startTimer { (_,hasEnded) in
-            if hasEnded{
-                XCTAssertEqual(self.sut.state, .pause)
-                XCTAssertEqual(self.sut.convertedTimeValue, 1)
-            }
+        sut.stopTimer {}
+        sut.configTime = 0
+        sut.timeInterval = 0
+        sut.startTimer { (time, hasEnded) in
+            XCTAssertTrue(hasEnded)
+            XCTAssertEqual(time, "00:00")
         }
-        XCTAssertEqual(sut.timer.isValid, true)
+        XCTAssertTrue(sut.timer.isValid)
+        XCTAssertEqual(sut.countDown, 0)
     }
 
     func testUpdateTrackedValues_WhenStatusProvided_IncrementStatisticsValues(){
         sut.focusTime = 0
         sut.restTime = 0
-        sut.runningState = .focus
+        sut.state = .focus
         sut.updateTrackedValues()
-        sut.runningState = .pause
+        sut.state = .pause
         sut.updateTrackedValues()
         XCTAssertEqual(sut.focusTime, 1)
         XCTAssertEqual(sut.restTime, 1)
     }
 
     func testChangeCicle_WhenStatusProvided_ChangeToNextStatus(){
-        sut.runningState = .focus
+        sut.state = .focus
         XCTAssertEqual(sut.changeCicle, .pause)
-        sut.runningState = .pause
+        sut.state = .pause
         XCTAssertEqual(sut.changeCicle, .focus)
     }
 
@@ -70,4 +70,9 @@ class TimeTrackerBOTests: XCTestCase {
         XCTAssertEqual(sut.convertedTimeValue, 60)
     }
 
+    func testCountDown_WhenFinished_ChangeBooleanValue(){
+        sut.hasEnded = false
+        sut.countDown = 0
+        XCTAssertTrue(sut.hasEnded)
+    }
 }

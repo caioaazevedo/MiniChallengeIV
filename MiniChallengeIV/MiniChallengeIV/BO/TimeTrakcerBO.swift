@@ -10,7 +10,6 @@ import Foundation
 
 enum TimeTrackerState: String{
     case focus
-    case running
     case pause
 }
 
@@ -20,7 +19,8 @@ class TimeTrackerBO{
     //MARK:Atributes
     var timer = Timer()
     var configTime = 25
-    private var hasEnded = false
+    var hasEnded = false
+    var timeInterval : TimeInterval = 1 //seconds at a time
     
     var focusTime = 0
     var lostFocusTime = 0
@@ -45,19 +45,12 @@ class TimeTrackerBO{
     }
     //MARK:States
     ///State according to view
-    var state = TimeTrackerState.focus{
-        didSet{
-            runningState = oldValue
-        }
-    }
-    ///State acording to focus logic
-    var runningState = TimeTrackerState.focus
-    ///Reset values and change to next state
+    var state = TimeTrackerState.focus
     var changeCicle: TimeTrackerState{
         self.focusTime = 0
         self.lostFocusTime = 0
         self.restTime = 0
-        return runningState == .focus ? .pause : .focus
+        return state == .focus ? .pause : .focus
     }
     //MARK: Methods
     /**
@@ -70,10 +63,10 @@ class TimeTrackerBO{
      */
     func startTimer(updateView: @escaping (String, Bool) -> Void){
         countDown = convertedTimeValue
-        state = .running
+        hasEnded = false
         
         //Runs timer and updates each second
-        timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: { (_) in
+        timer = Timer.scheduledTimer(withTimeInterval: timeInterval, repeats: true, block: { (_) in
             self.countDown -= 1 //Decreases time
             var convertedTimeText = self.secondsToString(with: self.countDown)
             self.updateTrackedValues()
@@ -94,9 +87,9 @@ class TimeTrackerBO{
      Method for updating the tracked values which will be stored in the Data Base
      */
     func updateTrackedValues(){
-        if runningState == .focus{
+        if state == .focus{
             self.focusTime += 1
-        }else if runningState == .pause{
+        }else if state == .pause{
             self.restTime += 1
         }
     }
@@ -138,6 +131,7 @@ class TimeTrackerBO{
         return sec
     }
     
+    //TODO
     func updateStatistics() {
         /// Updates on Databsse
     }
