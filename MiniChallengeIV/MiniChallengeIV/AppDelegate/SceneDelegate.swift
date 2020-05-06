@@ -12,7 +12,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
     
-    var timer: TimeTracker?
+    var timer: TimeTrackerBO?
     
     var lostTimeFocus: TimeRecoverBO?
 
