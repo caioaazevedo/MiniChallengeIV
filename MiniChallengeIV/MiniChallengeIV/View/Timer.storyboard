@@ -27,7 +27,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Start"/>
                                 <connections>
-                                    <action selector="runTimer:" destination="MQ5-HC-hTW" eventType="touchUpInside" id="zZh-pu-NU1"/>
+                                    <action selector="startTimer:" destination="MQ5-HC-hTW" eventType="touchUpInside" id="5XT-iU-C7a"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aAe-4c-qCx">

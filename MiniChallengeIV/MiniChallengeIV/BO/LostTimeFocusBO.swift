@@ -12,9 +12,9 @@ class LostTimeFocusBO {
     var enterBackgroundInstant: Date?
     var returnFromBackgroundInstant: Date?
     
-    let timer: TimeTracker
+    let timer: TimeTrackerBO
     
-    init(timer: TimeTracker) {
+    init(timer: TimeTrackerBO) {
         self.timer = timer
     }
     

@@ -24,33 +24,35 @@
 		69B0472D245754D5002A696D /* MiniChallengeIV.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 69B0472B245754D5002A696D /* MiniChallengeIV.xcdatamodeld */; };
 		69B0472F245754D8002A696D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 69B0472E245754D8002A696D /* Assets.xcassets */; };
 		69B04732245754D8002A696D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 69B04730245754D8002A696D /* LaunchScreen.storyboard */; };
-		69B0473D245754D9002A696D /* MiniChallengeIVTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69B0473C245754D9002A696D /* MiniChallengeIVTests.swift */; };
-		69B04748245754D9002A696D /* MiniChallengeIVUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69B04747245754D9002A696D /* MiniChallengeIVUITests.swift */; };
 		69B172902458CAB800D0F31E /* Project.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69B1728F2458CAB800D0F31E /* Project.swift */; };
 		69B172922458CAC000D0F31E /* ProjectBO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69B172912458CAC000D0F31E /* ProjectBO.swift */; };
 		69B172942458CACA00D0F31E /* ProjectDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69B172932458CACA00D0F31E /* ProjectDAO.swift */; };
 		69ECFA2F2459FD5A00D4F205 /* Projects.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 69ECFA2E2459FD5A00D4F205 /* Projects.storyboard */; };
 		69F56222245B6DAE00EB2AF1 /* ProjectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69F56221245B6DAE00EB2AF1 /* ProjectViewController.swift */; };
 		69F56228245B6E1D00EB2AF1 /* ProjectCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69F56227245B6E1D00EB2AF1 /* ProjectCollectionViewCell.swift */; };
+		795642562461F68C000A621F /* MiniChallengeIVTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 795642552461F68C000A621F /* MiniChallengeIVTests.swift */; };
+		7956425E2461F718000A621F /* TimeTrackerBOTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7956425D2461F718000A621F /* TimeTrackerBOTests.swift */; };
+		795642622462146F000A621F /* TimeRecoverBOTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 795642612462146F000A621F /* TimeRecoverBOTests.swift */; };
 		796C3E36245A0079004488D1 /* TimeTrakcerBO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 796C3E35245A0079004488D1 /* TimeTrakcerBO.swift */; };
 		796C3E38245A00DF004488D1 /* TimerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 796C3E37245A00DF004488D1 /* TimerViewController.swift */; };
 		796C3E3A245A02C2004488D1 /* Timer.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 796C3E39245A02C2004488D1 /* Timer.storyboard */; };
-		E2428B78245B4DFC001585BF /* LostTimeFocusBO.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2428B77245B4DFC001585BF /* LostTimeFocusBO.swift */; };
 		E29B1E112458C89C00EA9B48 /* Statistic.swift in Sources */ = {isa = PBXBuildFile; fileRef = E29B1E102458C89C00EA9B48 /* Statistic.swift */; };
 		E29B1E132458CA7D00EA9B48 /* StatisticBO.swift in Sources */ = {isa = PBXBuildFile; fileRef = E29B1E122458CA7D00EA9B48 /* StatisticBO.swift */; };
 		E29B1E152458CA9B00EA9B48 /* StatisticDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = E29B1E142458CA9B00EA9B48 /* StatisticDAO.swift */; };
+		E2CAB78B2460A0FB00822073 /* TimeRecoverBOTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2CAB78A2460A0FB00822073 /* TimeRecoverBOTests.swift */; };
 		E2E86FDD245AD3D20006712A /* TimerDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2E86FDC245AD3D20006712A /* TimerDataManager.swift */; };
+		E2F4DCF32461B15600AC83AA /* TimerRecoverBO.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F4DCF22461B15600AC83AA /* TimerRecoverBO.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		69B04739245754D9002A696D /* PBXContainerItemProxy */ = {
+		69B04744245754D9002A696D /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 69B04717245754D5002A696D /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 69B0471E245754D5002A696D;
 			remoteInfo = MiniChallengeIV;
 		};
-		69B04744245754D9002A696D /* PBXContainerItemProxy */ = {
+		795642582461F68C000A621F /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 69B04717245754D5002A696D /* Project object */;
 			proxyType = 1;
@@ -79,9 +81,6 @@
 		69B0472E245754D8002A696D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		69B04731245754D8002A696D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		69B04733245754D8002A696D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		69B04738245754D9002A696D /* MiniChallengeIVTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MiniChallengeIVTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		69B0473C245754D9002A696D /* MiniChallengeIVTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiniChallengeIVTests.swift; sourceTree = "<group>"; };
-		69B0473E245754D9002A696D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		69B04743245754D9002A696D /* MiniChallengeIVUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MiniChallengeIVUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		69B04747245754D9002A696D /* MiniChallengeIVUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiniChallengeIVUITests.swift; sourceTree = "<group>"; };
 		69B04749245754D9002A696D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -91,14 +90,20 @@
 		69ECFA2E2459FD5A00D4F205 /* Projects.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Projects.storyboard; sourceTree = "<group>"; };
 		69F56221245B6DAE00EB2AF1 /* ProjectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ProjectViewController.swift; path = ../ProjectViewController.swift; sourceTree = "<group>"; };
 		69F56227245B6E1D00EB2AF1 /* ProjectCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ProjectCollectionViewCell.swift; path = ../ProjectCollectionViewCell.swift; sourceTree = "<group>"; };
+		795642532461F68C000A621F /* MiniChallengeIVTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MiniChallengeIVTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		795642552461F68C000A621F /* MiniChallengeIVTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiniChallengeIVTests.swift; sourceTree = "<group>"; };
+		795642572461F68C000A621F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7956425D2461F718000A621F /* TimeTrackerBOTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeTrackerBOTests.swift; sourceTree = "<group>"; };
+		795642612462146F000A621F /* TimeRecoverBOTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeRecoverBOTests.swift; sourceTree = "<group>"; };
 		796C3E35245A0079004488D1 /* TimeTrakcerBO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeTrakcerBO.swift; sourceTree = "<group>"; };
 		796C3E37245A00DF004488D1 /* TimerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerViewController.swift; sourceTree = "<group>"; };
 		796C3E39245A02C2004488D1 /* Timer.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Timer.storyboard; sourceTree = "<group>"; };
-		E2428B77245B4DFC001585BF /* LostTimeFocusBO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LostTimeFocusBO.swift; sourceTree = "<group>"; };
 		E29B1E102458C89C00EA9B48 /* Statistic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Statistic.swift; path = MiniChallengeIV/Model/Statistic.swift; sourceTree = SOURCE_ROOT; };
 		E29B1E122458CA7D00EA9B48 /* StatisticBO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticBO.swift; sourceTree = SOURCE_ROOT; };
 		E29B1E142458CA9B00EA9B48 /* StatisticDAO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticDAO.swift; sourceTree = "<group>"; };
+		E2CAB78A2460A0FB00822073 /* TimeRecoverBOTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeRecoverBOTests.swift; sourceTree = "<group>"; };
 		E2E86FDC245AD3D20006712A /* TimerDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerDataManager.swift; sourceTree = "<group>"; };
+		E2F4DCF22461B15600AC83AA /* TimerRecoverBO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerRecoverBO.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,14 +114,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		69B04735245754D9002A696D /* Frameworks */ = {
+		69B04740245754D9002A696D /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		69B04740245754D9002A696D /* Frameworks */ = {
+		795642502461F68C000A621F /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -159,9 +164,10 @@
 			isa = PBXGroup;
 			children = (
 				69B04721245754D5002A696D /* MiniChallengeIV */,
-				69B0473B245754D9002A696D /* MiniChallengeIVTests */,
+				795642542461F68C000A621F /* MiniChallengeIVTests */,
 				69B04746245754D9002A696D /* MiniChallengeIVUITests */,
 				69B04720245754D5002A696D /* Products */,
+				7956426024621440000A621F /* Recovered References */,
 			);
 			sourceTree = "<group>";
 		};
@@ -169,8 +175,8 @@
 			isa = PBXGroup;
 			children = (
 				69B0471F245754D5002A696D /* MiniChallengeIV.app */,
-				69B04738245754D9002A696D /* MiniChallengeIVTests.xctest */,
 				69B04743245754D9002A696D /* MiniChallengeIVUITests.xctest */,
+				795642532461F68C000A621F /* MiniChallengeIVTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -190,15 +196,6 @@
 				69B0472B245754D5002A696D /* MiniChallengeIV.xcdatamodeld */,
 			);
 			path = MiniChallengeIV;
-			sourceTree = "<group>";
-		};
-		69B0473B245754D9002A696D /* MiniChallengeIVTests */ = {
-			isa = PBXGroup;
-			children = (
-				69B0473C245754D9002A696D /* MiniChallengeIVTests.swift */,
-				69B0473E245754D9002A696D /* Info.plist */,
-			);
-			path = MiniChallengeIVTests;
 			sourceTree = "<group>";
 		};
 		69B04746245754D9002A696D /* MiniChallengeIVUITests */ = {
@@ -267,7 +264,7 @@
 				E29B1E122458CA7D00EA9B48 /* StatisticBO.swift */,
 				409D5031245B4E35006D66AC /* TaskBO.swift */,
 				796C3E35245A0079004488D1 /* TimeTrakcerBO.swift */,
-				E2428B77245B4DFC001585BF /* LostTimeFocusBO.swift */,
+				E2F4DCF22461B15600AC83AA /* TimerRecoverBO.swift */,
 			);
 			path = BO;
 			sourceTree = "<group>";
@@ -281,6 +278,25 @@
 				406EA9D52460A5FD00903350 /* CDManager.swift */,
 			);
 			path = DAO;
+			sourceTree = "<group>";
+		};
+		795642542461F68C000A621F /* MiniChallengeIVTests */ = {
+			isa = PBXGroup;
+			children = (
+				795642612462146F000A621F /* TimeRecoverBOTests.swift */,
+				7956425D2461F718000A621F /* TimeTrackerBOTests.swift */,
+				795642552461F68C000A621F /* MiniChallengeIVTests.swift */,
+				795642572461F68C000A621F /* Info.plist */,
+			);
+			path = MiniChallengeIVTests;
+			sourceTree = "<group>";
+		};
+		7956426024621440000A621F /* Recovered References */ = {
+			isa = PBXGroup;
+			children = (
+				E2CAB78A2460A0FB00822073 /* TimeRecoverBOTests.swift */,
+			);
+			name = "Recovered References";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -303,24 +319,6 @@
 			productReference = 69B0471F245754D5002A696D /* MiniChallengeIV.app */;
 			productType = "com.apple.product-type.application";
 		};
-		69B04737245754D9002A696D /* MiniChallengeIVTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 69B0474F245754D9002A696D /* Build configuration list for PBXNativeTarget "MiniChallengeIVTests" */;
-			buildPhases = (
-				69B04734245754D9002A696D /* Sources */,
-				69B04735245754D9002A696D /* Frameworks */,
-				69B04736245754D9002A696D /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				69B0473A245754D9002A696D /* PBXTargetDependency */,
-			);
-			name = MiniChallengeIVTests;
-			productName = MiniChallengeIVTests;
-			productReference = 69B04738245754D9002A696D /* MiniChallengeIVTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 		69B04742245754D9002A696D /* MiniChallengeIVUITests */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 69B04752245754D9002A696D /* Build configuration list for PBXNativeTarget "MiniChallengeIVUITests" */;
@@ -339,6 +337,24 @@
 			productReference = 69B04743245754D9002A696D /* MiniChallengeIVUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
+		795642522461F68C000A621F /* MiniChallengeIVTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7956425A2461F68C000A621F /* Build configuration list for PBXNativeTarget "MiniChallengeIVTests" */;
+			buildPhases = (
+				7956424F2461F68C000A621F /* Sources */,
+				795642502461F68C000A621F /* Frameworks */,
+				795642512461F68C000A621F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				795642592461F68C000A621F /* PBXTargetDependency */,
+			);
+			name = MiniChallengeIVTests;
+			productName = MiniChallengeIVTests;
+			productReference = 795642532461F68C000A621F /* MiniChallengeIVTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -352,11 +368,11 @@
 					69B0471E245754D5002A696D = {
 						CreatedOnToolsVersion = 11.4.1;
 					};
-					69B04737245754D9002A696D = {
+					69B04742245754D9002A696D = {
 						CreatedOnToolsVersion = 11.4.1;
 						TestTargetID = 69B0471E245754D5002A696D;
 					};
-					69B04742245754D9002A696D = {
+					795642522461F68C000A621F = {
 						CreatedOnToolsVersion = 11.4.1;
 						TestTargetID = 69B0471E245754D5002A696D;
 					};
@@ -376,8 +392,8 @@
 			projectRoot = "";
 			targets = (
 				69B0471E245754D5002A696D /* MiniChallengeIV */,
-				69B04737245754D9002A696D /* MiniChallengeIVTests */,
 				69B04742245754D9002A696D /* MiniChallengeIVUITests */,
+				795642522461F68C000A621F /* MiniChallengeIVTests */,
 			);
 		};
 /* End PBXProject section */
@@ -396,14 +412,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		69B04736245754D9002A696D /* Resources */ = {
+		69B04741245754D9002A696D /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		69B04741245754D9002A696D /* Resources */ = {
+		795642512461F68C000A621F /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -424,13 +440,13 @@
 				406EA9D62460A5FD00903350 /* CDManager.swift in Sources */,
 				69B172922458CAC000D0F31E /* ProjectBO.swift in Sources */,
 				691033A0245A15F6009D5D58 /* UIStoryboard.swift in Sources */,
+				E2F4DCF32461B15600AC83AA /* TimerRecoverBO.swift in Sources */,
 				69B04727245754D5002A696D /* ViewController.swift in Sources */,
 				409D5034245B4EC5006D66AC /* TaskDAO.swift in Sources */,
 				E2E86FDD245AD3D20006712A /* TimerDataManager.swift in Sources */,
 				69F56228245B6E1D00EB2AF1 /* ProjectCollectionViewCell.swift in Sources */,
 				409D5032245B4E35006D66AC /* TaskBO.swift in Sources */,
 				406EA9D22460A56E00903350 /* Task.swift in Sources */,
-				E2428B78245B4DFC001585BF /* LostTimeFocusBO.swift in Sources */,
 				E29B1E132458CA7D00EA9B48 /* StatisticBO.swift in Sources */,
 				691033A4245A250A009D5D58 /* NewProjectViewController.swift in Sources */,
 				69B04723245754D5002A696D /* AppDelegate.swift in Sources */,
@@ -445,34 +461,36 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		69B04734245754D9002A696D /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				69B0473D245754D9002A696D /* MiniChallengeIVTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		69B0473F245754D9002A696D /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				69B04748245754D9002A696D /* MiniChallengeIVUITests.swift in Sources */,
+				E2CAB78B2460A0FB00822073 /* TimeRecoverBOTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7956424F2461F68C000A621F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7956425E2461F718000A621F /* TimeTrackerBOTests.swift in Sources */,
+				795642622462146F000A621F /* TimeRecoverBOTests.swift in Sources */,
+				795642562461F68C000A621F /* MiniChallengeIVTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		69B0473A245754D9002A696D /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 69B0471E245754D5002A696D /* MiniChallengeIV */;
-			targetProxy = 69B04739245754D9002A696D /* PBXContainerItemProxy */;
-		};
 		69B04745245754D9002A696D /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 69B0471E245754D5002A696D /* MiniChallengeIV */;
 			targetProxy = 69B04744245754D9002A696D /* PBXContainerItemProxy */;
+		};
+		795642592461F68C000A621F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 69B0471E245754D5002A696D /* MiniChallengeIV */;
+			targetProxy = 795642582461F68C000A621F /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -615,7 +633,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 55A535V42Q;
+				DEVELOPMENT_TEAM = BY575KUK4V;
 				INFOPLIST_FILE = MiniChallengeIV/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -633,7 +651,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 55A535V42Q;
+				DEVELOPMENT_TEAM = BY575KUK4V;
 				INFOPLIST_FILE = MiniChallengeIV/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -646,56 +664,12 @@
 			};
 			name = Release;
 		};
-		69B04750245754D9002A696D /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 6R4QWP27L3;
-				INFOPLIST_FILE = MiniChallengeIVTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.teixeira.murilo.MiniChallengeIVTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MiniChallengeIV.app/MiniChallengeIV";
-			};
-			name = Debug;
-		};
-		69B04751245754D9002A696D /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 6R4QWP27L3;
-				INFOPLIST_FILE = MiniChallengeIVTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.teixeira.murilo.MiniChallengeIVTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MiniChallengeIV.app/MiniChallengeIV";
-			};
-			name = Release;
-		};
 		69B04753245754D9002A696D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 6R4QWP27L3;
+				DEVELOPMENT_TEAM = BY575KUK4V;
 				INFOPLIST_FILE = MiniChallengeIVUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -715,7 +689,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 6R4QWP27L3;
+				DEVELOPMENT_TEAM = BY575KUK4V;
 				INFOPLIST_FILE = MiniChallengeIVUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -727,6 +701,46 @@
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = MiniChallengeIV;
+			};
+			name = Release;
+		};
+		7956425B2461F68C000A621F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = BY575KUK4V;
+				INFOPLIST_FILE = MiniChallengeIVTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = fabio.MiniChallengeIVTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MiniChallengeIV.app/MiniChallengeIV";
+			};
+			name = Debug;
+		};
+		7956425C2461F68C000A621F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = BY575KUK4V;
+				INFOPLIST_FILE = MiniChallengeIVTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = fabio.MiniChallengeIVTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MiniChallengeIV.app/MiniChallengeIV";
 			};
 			name = Release;
 		};
@@ -751,20 +765,20 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		69B0474F245754D9002A696D /* Build configuration list for PBXNativeTarget "MiniChallengeIVTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				69B04750245754D9002A696D /* Debug */,
-				69B04751245754D9002A696D /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		69B04752245754D9002A696D /* Build configuration list for PBXNativeTarget "MiniChallengeIVUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				69B04753245754D9002A696D /* Debug */,
 				69B04754245754D9002A696D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7956425A2461F68C000A621F /* Build configuration list for PBXNativeTarget "MiniChallengeIVTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7956425B2461F68C000A621F /* Debug */,
+				7956425C2461F68C000A621F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

@@ -9,30 +9,34 @@
 import Foundation
 
 enum TimeTrackerState: String{
-    case focus // startedFocus  // notWorking // startedRest
-    case running
+    case focus
     case pause
 }
 
 ///Class created for handling the count down
-class TimeTracker : TimerDataProtocol{
-    /// Track focusTime
-    var focusTime = 0
-    
-    /// Track lostFocusTime
-    var lostFocusTime = 0
-    
-    /// Track restTime
-    var restTime = 0
+class TimeTrackerBO{
     
     //MARK:Atributes
-    private var timer = Timer()
-    let date = DateComponents()
+    var timer = Timer()
     var configTime = 25
+    var hasEnded = false
+    var timeInterval : TimeInterval = 1 //seconds at a time
     
-    var countDown = 0
+    var focusTime = 0
+    var lostFocusTime = 0
+    var restTime = 0
+    ///Ends when value gets to zero
+    var countDown = 0{
+        willSet{
+            if newValue <= 0{
+                hasEnded = true
+            }
+        }
+    }
     
     //MARK:Properties
+    ///Converted minutes to seconds
+    ///If the state is pause, it calculates the pause time
     var convertedTimeValue: Int{
         if state == .pause{
             return (configTime / 5) * 60
@@ -40,17 +44,13 @@ class TimeTracker : TimerDataProtocol{
         return configTime * 60
     }
     //MARK:States
-    var state = TimeTrackerState.focus{
-        didSet{
-            runningState = oldValue
-        }
-    }
-    var runningState = TimeTrackerState.focus
+    ///State according to view
+    var state = TimeTrackerState.focus
     var changeCicle: TimeTrackerState{
         self.focusTime = 0
         self.lostFocusTime = 0
         self.restTime = 0
-        return runningState == .focus ? .pause : .focus
+        return state == .focus ? .pause : .focus
     }
     //MARK: Methods
     /**
@@ -62,35 +62,35 @@ class TimeTracker : TimerDataProtocol{
         - Parameter updateView: a closure called each time the timer is updated for handling view updates.
      */
     func startTimer(updateView: @escaping (String, Bool) -> Void){
-        if state == .running {return}
         countDown = convertedTimeValue
-        state = .running
+        hasEnded = false
         
-        timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: { (_) in
-            self.countDown -= 1
+        //Runs timer and updates each second
+        timer = Timer.scheduledTimer(withTimeInterval: timeInterval, repeats: true, block: { (_) in
+            self.countDown -= 1 //Decreases time
+            var convertedTimeText = self.secondsToString(with: self.countDown)
+            self.updateTrackedValues()
             
-            let convertedTimeText = self.secondsToString(with: self.countDown)
-            if self.countDown == 0{
+            if self.hasEnded{ //It changes state, cancels timer and updates view with default value
                 self.state = self.changeCicle
                 self.timer.invalidate()
+                //TODO: update statistics
                 let defaultTimeText = self.secondsToString(with: self.convertedTimeValue)
-                updateView(defaultTimeText ,true)
-            }else{
-                updateView(convertedTimeText,false)
+                convertedTimeText = defaultTimeText
             }
+            
+            updateView(convertedTimeText,self.hasEnded)
         })
     }
     
-    func updateTimeProperties(_ countDown: Int){
-        switch self.runningState {
-            case TimeTrackerState.focus:
-                self.focusTime += 1
-                break
-            case .pause:
-                self.restTime += 1
-                break
-            case .running:
-                break
+    /**
+     Method for updating the tracked values which will be stored in the Data Base
+     */
+    func updateTrackedValues(){
+        if state == .focus{
+            self.focusTime += 1
+        }else if state == .pause{
+            self.restTime += 1
         }
     }
     
@@ -111,6 +111,7 @@ class TimeTracker : TimerDataProtocol{
         - Returns: formatted string of the current time in minutes and seconds
      */
     func secondsToString(with seconds: Int) -> String{
+        if seconds < 0 {return ""} //TODO: send error
         let min = (seconds / 60) % 60
         let sec = seconds % 60
         return String(format:"%02i:%02i", min, sec)
@@ -122,6 +123,7 @@ class TimeTracker : TimerDataProtocol{
         - Returns: the amount of seconds for the count down
      */
     func stringToSeconds(with text: String) -> Int{
+        if text.contains("-") { return 0}
         let numbers = text.split(separator: ":")
         guard let firstNumbers = numbers.first else {return 0}
         guard let min = Int(firstNumbers) else {return 0}
@@ -129,6 +131,7 @@ class TimeTracker : TimerDataProtocol{
         return sec
     }
     
+    //TODO
     func updateStatistics() {
         /// Updates on Databsse
     }
