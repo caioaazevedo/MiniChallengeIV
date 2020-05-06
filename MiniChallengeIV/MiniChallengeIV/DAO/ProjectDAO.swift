@@ -16,55 +16,64 @@ class ProjectDAO {
     /// Create an object of type Project in CoreData
     /// - Parameter project: An project
     /// - Returns: Boolean if the project was created in the data base
-    func create(project: Project, completion: (Bool, String?) -> Void){
+    func create(project: Project, completion: (Result<Bool, ValidationError>)  -> Void){
         let projectCD = ProjectCD(context: self.context)
         projectCD.name = project.name
         projectCD.id = project.id
         projectCD.time = Int32(project.time)
-        guard let color = project.color.toHex else { return completion(false, "Error in projectDAO create function")}
+        
+        guard let color = project.color.toHex else {
+            return completion(.failure(.errorToCreate("Project")))
+        }
+        
         projectCD.color = color
         
         do {
             try context.save()
-            completion(true, nil)
+            completion(.success(true))
         }catch{
-            completion(false, "Error in ProjectDAO create function")
+            completion(.failure(.errorToCreate("Project")))
         }
     }
     
     /// Performs the search for projects at CoreData
     /// - Returns: List of projects
-    func retrieve(completion: ([Project]?, String?) -> Void){
+    func retrieve(completion: (Result<[Project], ValidationError>) -> Void){
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "ProjectCD")
         var projects: [Project] = []
         do {
             let fechedObjects = try context.fetch(fetchRequest)
             guard let projectsCD = fechedObjects as? [NSManagedObject] else {
-                return completion(nil, "Error in Retrieve function projectDAO")
+                return completion(.failure(.errorToRetrieve("Project")))
             }
             
             for project in projectsCD {
                 projects.append(convert(project: project))
             }
-            completion(projects, nil)
+            completion(.success(projects))
         }catch {
-            completion(nil, "Error in Retrieve function projectDAO")
+            completion(.failure(.errorToRetrieve("Project")))
         }
     }
     
     /// Updates a project in the CoreData
     /// - Parameter project: Project to update in the CoreData
     /// - Returns: Boolean if the project was updated
-    func update(project: Project, completion: (Bool, String?) -> Void){
+    func update(project: Project, completion: (Result<Void, ValidationError>) -> Void){
         project.projectCD?.name = project.name
         project.projectCD?.time = Int32(project.time)
-        guard let color = project.color.toHex else { return completion(false, "Error in projectDAO create function")}
+        
+        guard let color = project.color.toHex else {
+            return completion(.failure(.errorToUpdate("Project")))
+        }
+        
         project.projectCD?.color = color
+        
         do {
             try context.save()
-            completion(true, nil)
+            completion(.success(()))
         }catch {
-            completion(false, "Error in Update function projectDAO")
+            completion(.failure(.errorToUpdate("Project")))
         }
 
     }
@@ -72,7 +81,7 @@ class ProjectDAO {
     /// Updates a project in the CoreData
     /// - Parameter uuid: UUID that identifies the project
     /// - Returns: Boolean if the project was deleted
-    func delete(uuid: UUID, completion: (Bool, String?) -> Void){
+    func delete(uuid: UUID, completion: (Result<Void, ValidationError>) -> Void){
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "ProjectCD")
         fetchRequest.predicate = NSPredicate(format: "id == %@", uuid.uuidString)
         
@@ -80,28 +89,27 @@ class ProjectDAO {
             let objects = try self.context.fetch(fetchRequest)
             
             guard let object = objects as? [NSManagedObject], objects.count > 0 else{
-                completion(false, "Object to delete not found")
-                return
+                return completion(.failure(.errorToDelete("Project")))
             }
             
             context.delete(object[0])
             
             try context.save()
             
-            completion(true, nil)
+            completion(.success(()))
         }catch{
-            completion(false, "Error in delete function ProjectDAO")
+            completion(.failure(.errorToDelete("Project")))
         }
 
     }
     
-    func addTask(taskCD: TaskCD, projectCD: ProjectCD, completion: (Bool, String?) -> Void){
+    func addTask(taskCD: TaskCD, projectCD: ProjectCD, completion: (Result<Void, ValidationError>) -> Void){
         projectCD.tasks = NSSet.init(array: [taskCD])
         do {
             try context.save()
-            completion(true, nil)
+            completion(.success(()))
         }catch{
-            completion(false, "Error in addTask function ProjectDAO")
+            completion(.failure(.errorToAdd("Task")))
         }
     }
     

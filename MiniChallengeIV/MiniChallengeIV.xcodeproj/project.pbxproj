@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		402779552461F3190076BE24 /* HandleErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 402779542461F3190076BE24 /* HandleErrors.swift */; };
 		4027D68024589D2D0046DE58 /* DatabaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4027D67F24589D2D0046DE58 /* DatabaseService.swift */; };
 		4061B394245B74220027775C /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4061B393245B74220027775C /* Color.swift */; };
 		406EA9D22460A56E00903350 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 406EA9D12460A56E00903350 /* Task.swift */; };
@@ -59,6 +60,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		402779542461F3190076BE24 /* HandleErrors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HandleErrors.swift; sourceTree = "<group>"; };
 		4027D67F24589D2D0046DE58 /* DatabaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseService.swift; sourceTree = "<group>"; };
 		4061B393245B74220027775C /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Color.swift; path = MiniChallengeIV/Model/DAO/Color.swift; sourceTree = SOURCE_ROOT; };
 		406EA9D12460A56E00903350 /* Task.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
@@ -124,6 +126,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		402779532461F2C10076BE24 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				69B0475A24575645002A696D /* Extension */,
+				4027D6822458C7840046DE58 /* Protocols */,
+				402779542461F3190076BE24 /* HandleErrors.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
 		4027D6822458C7840046DE58 /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
@@ -166,13 +178,12 @@
 		69B04721245754D5002A696D /* MiniChallengeIV */ = {
 			isa = PBXGroup;
 			children = (
-				4027D6822458C7840046DE58 /* Protocols */,
+				402779532461F2C10076BE24 /* Helpers */,
 				69B04755245754F2002A696D /* Model */,
 				69B0475E245756CA002A696D /* DAO */,
 				69B0475D245756BE002A696D /* BO */,
 				69B04756245754F8002A696D /* View */,
 				69B04757245754FE002A696D /* Controller */,
-				69B0475A24575645002A696D /* Extension */,
 				69B0475B24575675002A696D /* AppDelegate */,
 				69B0472E245754D8002A696D /* Assets.xcassets */,
 				69B04733245754D8002A696D /* Info.plist */,
@@ -424,6 +435,7 @@
 				691033A4245A250A009D5D58 /* NewProjectViewController.swift in Sources */,
 				69B04723245754D5002A696D /* AppDelegate.swift in Sources */,
 				796C3E36245A0079004488D1 /* TimeTrakcerBO.swift in Sources */,
+				402779552461F3190076BE24 /* HandleErrors.swift in Sources */,
 				69B172942458CACA00D0F31E /* ProjectDAO.swift in Sources */,
 				69B04725245754D5002A696D /* SceneDelegate.swift in Sources */,
 				796C3E38245A00DF004488D1 /* TimerViewController.swift in Sources */,
