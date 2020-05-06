@@ -33,6 +33,10 @@ class ProjectViewController: UIViewController {
         goToNewProjectViewController()
     }
     
+    @IBAction func showStatistics(_ sender: Any) {
+        performSegue(withIdentifier: "statistics", sender: nil)
+    }
+    
     /// Go to NewProjectViewController
     private func goToNewProjectViewController() {
         if let newProjectVC = UIStoryboard.loadView(from: .NewProject, identifier: .NewProjectID) as? NewProjectViewController {
