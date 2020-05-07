@@ -22,7 +22,7 @@ class StatisticDAO {
     
     /// Description: function conform and create statistics in the database
     /// - Parameter statistics: the model of statistic to save
-    func createStatistic(statistics: Statistic, completion: (Bool, String?) -> Void){
+    func createStatistic(statistics: Statistic, completion: (Result<Bool, ValidationError>) -> Void){
         let statisticCD = StatisticCD(context: self.context)
         statisticCD.id = statistics.id
         statisticCD.focusTime = Int32(statistics.focusTime)
@@ -32,17 +32,17 @@ class StatisticDAO {
         
         do {
             try context.save()
-            completion(true, nil)
+            completion(.success(true))
         }catch{
-            completion(false, "Error in Create function on StatisticDAO")
+            completion(.failure(.errorToCreate("Statistic")))
         }
     }
     
     /// Description: function conform and update statistics in the database
     /// - Parameter statistics: the model of statistic to update
-    func updateStatistic(statistics: Statistic, completion: (Bool, String?) -> Void){
+    func updateStatistic(statistics: Statistic, completion: (Result<Void, ValidationError>) -> Void){
         guard let staticCD = statistics.statisticCD else {
-            return completion(false, "Error in Update function on StatisticDAO")
+            return completion(.failure(.errorToUpdate("Statistic")))
         }
         staticCD.focusTime = Int32(statistics.focusTime)
         staticCD.lostFocusTime = Int32(statistics.lostFocusTime)
@@ -51,30 +51,30 @@ class StatisticDAO {
         
         do {
             try context.save()
-            completion(true, nil)
-        }catch {
-            completion(false, "Error in Update function on StatisticDAO")
+            completion(.success(()))
+        }catch{
+            completion(.failure(.errorToUpdate("Statistic")))
         }
     }
     
     /// Description: function fetch statistic to return
-    func retrieveStatistic(completion: ([Statistic]?, String?) -> Void){
+    func retrieveStatistic(completion: (Result<[Statistic]?, ValidationError>) -> Void){
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "StatisticCD")
         var statistics: [Statistic] = []
         do {
             let fechedObjects = try context.fetch(fetchRequest)
             
             guard let statisticCD = fechedObjects as? [NSManagedObject] else {
-                return completion(nil, "Error in Retrieve function on StatisticDAO")
+                return completion(.failure(.errorToRetrieve("Statistic")))
             }
             
             for statistic in statisticCD {
                 statistics.append(convert(statistic: statistic))
             }
-            completion(statistics, nil)
-        }catch {
-            completion(nil, "Error in Retrieve function projectDAO")
-        }
+            completion(.success(statistics))
+            }catch {
+                completion(.failure(.errorToRetrieve("Statistic")))
+            }
     }
     
     func convert(statistic: NSManagedObject) -> Statistic{

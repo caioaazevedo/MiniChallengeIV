@@ -18,12 +18,18 @@ class TimeTrackerBO{
     
     //MARK:Atributes
     var timer = Timer()
+    private var statisticBO = StatisticBO()
     var configTime = 25
     var hasEnded = false
     var timeInterval : TimeInterval = 1 //seconds at a time
     
+    var lostFocusTimeCount = 0
     var focusTime = 0
-    var lostFocusTime = 0
+    var lostFocusTime = 0{
+        willSet{
+            lostFocusTimeCount += 1
+        }
+    }
     var restTime = 0
     ///Ends when value gets to zero
     var countDown = 0{
@@ -45,11 +51,14 @@ class TimeTrackerBO{
     }
     //MARK:States
     ///State according to view
-    var state = TimeTrackerState.focus
+    var state = TimeTrackerState.focus{
+        didSet{
+            self.focusTime = 0
+            self.lostFocusTime = 0
+            self.restTime = 0
+        }
+    }
     var changeCicle: TimeTrackerState{
-        self.focusTime = 0
-        self.lostFocusTime = 0
-        self.restTime = 0
         return state == .focus ? .pause : .focus
     }
     //MARK: Methods
@@ -74,7 +83,7 @@ class TimeTrackerBO{
             if self.hasEnded{ //It changes state, cancels timer and updates view with default value
                 self.state = self.changeCicle
                 self.timer.invalidate()
-                //TODO: update statistics
+                self.updateStatistics()
                 let defaultTimeText = self.secondsToString(with: self.convertedTimeValue)
                 convertedTimeText = defaultTimeText
             }
@@ -103,6 +112,7 @@ class TimeTrackerBO{
         timer.invalidate()
         state = .focus
         updateView()
+        updateStatistics()
     }
     
     /**
@@ -131,9 +141,31 @@ class TimeTrackerBO{
         return sec
     }
     
-    //TODO
+    ///Method for updating statistics based on timer atributes
     func updateStatistics() {
         /// Updates on Databsse
+        var statistic = Statistic(id: UUID(), focusTime: focusTime, lostFocusTime: lostFocusTime, restTime: restTime, qtdLostFocus: lostFocusTimeCount)
+        statisticBO.retrieveStatistic { (result) in
+            
+            switch result {
+            case .success(let statistics):
+                guard let dbStatistic = statistics?.first else {return}
+                statistic.id = dbStatistic.id
+                statistic.focusTime += dbStatistic.focusTime
+                statistic.lostFocusTime += dbStatistic.lostFocusTime
+                statistic.qtdLostFocus += dbStatistic.qtdLostFocus
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+            
+        }
+        statisticBO.updateStatistic(statistics: statistic) { (result) in
+            switch result {
+            case .success(_): break
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
     }
     
 }
