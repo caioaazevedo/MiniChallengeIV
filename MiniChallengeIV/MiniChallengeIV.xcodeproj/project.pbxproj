@@ -27,6 +27,7 @@
 		69B172902458CAB800D0F31E /* Project.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69B1728F2458CAB800D0F31E /* Project.swift */; };
 		69B172922458CAC000D0F31E /* ProjectBO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69B172912458CAC000D0F31E /* ProjectBO.swift */; };
 		69B172942458CACA00D0F31E /* ProjectDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69B172932458CACA00D0F31E /* ProjectDAO.swift */; };
+		69C6438C24609D8D00CE475F /* AppNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69C6438B24609D8D00CE475F /* AppNotification.swift */; };
 		69ECFA2F2459FD5A00D4F205 /* Projects.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 69ECFA2E2459FD5A00D4F205 /* Projects.storyboard */; };
 		69F56222245B6DAE00EB2AF1 /* ProjectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69F56221245B6DAE00EB2AF1 /* ProjectViewController.swift */; };
 		69F56228245B6E1D00EB2AF1 /* ProjectCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69F56227245B6E1D00EB2AF1 /* ProjectCollectionViewCell.swift */; };
@@ -87,6 +88,8 @@
 		69B1728F2458CAB800D0F31E /* Project.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Project.swift; sourceTree = "<group>"; };
 		69B172912458CAC000D0F31E /* ProjectBO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectBO.swift; sourceTree = "<group>"; };
 		69B172932458CACA00D0F31E /* ProjectDAO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectDAO.swift; sourceTree = "<group>"; };
+		69C6438B24609D8D00CE475F /* AppNotification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppNotification.swift; sourceTree = "<group>"; };
+		69C7FCAF2460BD000058AF95 /* MiniChallengeIV.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MiniChallengeIV.entitlements; sourceTree = "<group>"; };
 		69ECFA2E2459FD5A00D4F205 /* Projects.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Projects.storyboard; sourceTree = "<group>"; };
 		69F56221245B6DAE00EB2AF1 /* ProjectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ProjectViewController.swift; path = ../ProjectViewController.swift; sourceTree = "<group>"; };
 		69F56227245B6E1D00EB2AF1 /* ProjectCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ProjectCollectionViewCell.swift; path = ../ProjectCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -264,6 +267,7 @@
 				E29B1E122458CA7D00EA9B48 /* StatisticBO.swift */,
 				409D5031245B4E35006D66AC /* TaskBO.swift */,
 				796C3E35245A0079004488D1 /* TimeTrakcerBO.swift */,
+				69C6438B24609D8D00CE475F /* AppNotification.swift */,
 				E2F4DCF22461B15600AC83AA /* TimerRecoverBO.swift */,
 			);
 			path = BO;
@@ -458,6 +462,7 @@
 				E29B1E152458CA9B00EA9B48 /* StatisticDAO.swift in Sources */,
 				E29B1E112458C89C00EA9B48 /* Statistic.swift in Sources */,
 				69B0472D245754D5002A696D /* MiniChallengeIV.xcdatamodeld in Sources */,
+				69C6438C24609D8D00CE475F /* AppNotification.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -632,9 +637,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = MiniChallengeIV/MiniChallengeIV.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = BY575KUK4V;
 				INFOPLIST_FILE = MiniChallengeIV/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -650,9 +657,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = MiniChallengeIV/MiniChallengeIV.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = BY575KUK4V;
 				INFOPLIST_FILE = MiniChallengeIV/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
