@@ -35,6 +35,8 @@ class NewProjectViewController: UIViewController {
         else {
             deleteButton.isHidden = true
         }
+        
+        projectNameLabel.text = "work"
     }
     
     @IBAction func onClickColor(_ sender: UIButton) {
