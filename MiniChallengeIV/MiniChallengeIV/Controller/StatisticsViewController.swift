@@ -10,50 +10,98 @@ import UIKit
 import Charts
 
 class StatisticsViewController: UIViewController {
-    
+
+//MARK:- Atributes
     @IBOutlet weak var circleChart: PieChartView!
     
+    var timeProjects = [Int]()
+    var totalTime = Int()
+    var projectColors = [NSUIColor]()
+
+//MARK:- Life Cicle Functions
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        loadChart()
+    }
+
+//MARK:- Functions
+    
+    /// Description:  Chart appearance configuration
+    func chartConfig(){
         circleChart.holeRadiusPercent = 0.6
         circleChart.transparentCircleColor = UIColor.clear
         circleChart.legend.enabled = false
-        
-        var entries = [PieChartDataEntry]()
-        entries.append(PieChartDataEntry(value: 35.11))
-        entries[0].label = "%"
-        entries.append(PieChartDataEntry(value: 6.17))
-        entries[1].label = "%"
-        entries.append(PieChartDataEntry(value: 5.61))
-        entries[2].label = "%"
-        entries.append(PieChartDataEntry(value: 5.94))
-        entries[3].label = "%"
-        entries.append(PieChartDataEntry(value: 12.89))
-        entries[4].label = "%"
-        entries.append(PieChartDataEntry(value: 34.28))
-        entries[5].label = "%"
-        
-        let colors = [
-            UIColor(red: 0.81, green: 0.62, blue: 0.56, alpha: 1.00),
-            UIColor(red: 0.50, green: 0.50, blue: 0.50, alpha: 1.00),
-            UIColor(red: 0.44, green: 0.71, blue: 0.62, alpha: 1.00),
-            UIColor(red: 0.39, green: 0.65, blue: 0.91, alpha: 1.00),
-            UIColor(red: 0.69, green: 0.46, blue: 0.94, alpha: 1.00),
-            UIColor(red: 0.72, green: 0.74, blue: 0.75, alpha: 1.00)
-        ]
-        
-        let set  = PieChartDataSet(entries: entries)
-        set.colors = colors as! [NSUIColor]
-        set.label = ""
-        let data = PieChartData(dataSet: set)
-        circleChart.data = data
     }
     
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
+    /// Description:  Load the projects to insert data into the  chart
+    func loadChart() {
+        chartConfig()
         
+        /// Get Projects from database
+        ProjectBO().retrieve { (projects) in
+            guard let projects = projects else { return }
+            
+            getTimeStatistics(projects: projects)
+            
+            let projectsPercentage = calculateProjectsPercentage()
+            let entries = createDataEntries(projectsPercentage: projectsPercentage)
+            
+            insertChartData(entries: entries)
+        }
+    }
+    
+    /// Description: Get time statistics like total time and time for each project
+    /// - Parameter projects: The projects to get the time statistics
+    func getTimeStatistics(projects: [Project]){
+        self.projectColors = []
+        self.timeProjects = []
+        self.totalTime = 0
         
+        for proj in projects {
+            let time = proj.time
+            self.projectColors.append(proj.color as NSUIColor)
+            self.timeProjects.append(time)
+            self.totalTime += time
+        }
+    }
+    
+    /// Description: Calculates the percentage of each project in relation to its time
+    /// - Returns: Returns an array of project percentage
+    func calculateProjectsPercentage() -> [Double] {
+        var projectsPercentage = [Double]()
+        
+        for time in timeProjects {
+            let timePercentage = Double(time * 100) / Double(self.totalTime)
+            projectsPercentage.append(timePercentage)
+        }
+        
+        return projectsPercentage
+    }
+    
+    /// Description: Create data entries to insert into the Chart
+    /// - Parameter projectsPercentage: Get each projects percentage
+    /// - Returns:Returns a array of the created Data Entry
+    func createDataEntries(projectsPercentage: [Double]) -> [PieChartDataEntry]{
+        var entries = [PieChartDataEntry]()
+        for projPercentage in projectsPercentage{
+            let entry = PieChartDataEntry(value: projPercentage)
+            entry.label = "%"
+            entries.append(entry)
+        }
+        
+        return entries
+    }
+    
+    /// Description: Insert the data into the Chart with the color of each project
+    /// - Parameter entries: Get the eentries with the project time percentage 
+    func insertChartData(entries: [PieChartDataEntry]){
+        let dataSet  = PieChartDataSet(entries: entries)
+        dataSet.colors = self.projectColors
+        dataSet.label = ""
+        
+        let data = PieChartData(dataSet: dataSet)
+        circleChart.data = data
     }
 
 }
