@@ -10,20 +10,17 @@ import NotificationCenter
 import UserNotifications
 
 enum NotificationType {
-    case didFinishFocus
-    case didFinishBreak
-    case didLoseFocus
-    case comeBackToTheApp
+    case didFinishFocus, didFinishBreak, didLoseFocus, comeBackToTheApp
 }
 
-class AppNotification {
+class AppNotificationBO {
     //MARK:- Singleton setup
-    static let shared = AppNotification()
+    static let shared = AppNotificationBO()
     
     private init() {}
     
-    //MARK:- Class attributes
-    var badgeNumber: Int {
+    //MARK:- Attributes
+    private var badgeNumber: Int {
         get {
             UIApplication.shared.applicationIconBadgeNumber
         }
@@ -34,7 +31,7 @@ class AppNotification {
     
     let notificationCenter = UNUserNotificationCenter.current()
     
-    //MARK:- Class methods
+    //MARK:- Methods
     func requestAuthorazition() {
         let options: UNAuthorizationOptions = [.alert, .sound, .badge]
         
@@ -67,14 +64,23 @@ class AppNotification {
             notificationContent.title = title
             notificationContent.subtitle = subtitle
             notificationContent.body = body
-            notificationContent.badge = NSNumber(value: self.badgeNumber + 1)
             notificationContent.sound = UNNotificationSound.default
+
+            DispatchQueue.main.async {
+                notificationContent.badge = NSNumber(value: self.badgeNumber + 1)
+            }
             
             //            let t = UNCalendarNotificationTrigger(dateMatching: DateComponents, repeats: false) // Agendar notificação para a próxima hora == dateMatching
             let trigger = UNTimeIntervalNotificationTrigger(timeInterval: delay!, repeats: repeats!)
             let request = UNNotificationRequest(identifier: UUID().uuidString, content: notificationContent, trigger: trigger)
             
             self.notificationCenter.add(request)
+        }
+    }
+    
+    func resetBagde() {
+        DispatchQueue.main.async {
+            self.badgeNumber = 0
         }
     }
     

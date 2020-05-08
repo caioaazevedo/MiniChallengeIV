@@ -16,6 +16,8 @@
 		409D5034245B4EC5006D66AC /* TaskDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 409D5033245B4EC5006D66AC /* TaskDAO.swift */; };
 		691033A0245A15F6009D5D58 /* UIStoryboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6910339F245A15F6009D5D58 /* UIStoryboard.swift */; };
 		691033A4245A250A009D5D58 /* NewProjectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 691033A3245A250A009D5D58 /* NewProjectViewController.swift */; };
+		6927A1BF2464AC85005E0154 /* Onboarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6927A1BE2464AC85005E0154 /* Onboarding.storyboard */; };
+		696620382465F034003B3916 /* OnboardingPagerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 696620372465F034003B3916 /* OnboardingPagerViewController.swift */; };
 		696E92E5245A499800E7F3DF /* NewProject.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 696E92E4245A499800E7F3DF /* NewProject.storyboard */; };
 		69B04723245754D5002A696D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69B04722245754D5002A696D /* AppDelegate.swift */; };
 		69B04725245754D5002A696D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69B04724245754D5002A696D /* SceneDelegate.swift */; };
@@ -27,7 +29,8 @@
 		69B172902458CAB800D0F31E /* Project.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69B1728F2458CAB800D0F31E /* Project.swift */; };
 		69B172922458CAC000D0F31E /* ProjectBO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69B172912458CAC000D0F31E /* ProjectBO.swift */; };
 		69B172942458CACA00D0F31E /* ProjectDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69B172932458CACA00D0F31E /* ProjectDAO.swift */; };
-		69C6438C24609D8D00CE475F /* AppNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69C6438B24609D8D00CE475F /* AppNotification.swift */; };
+		69C6438C24609D8D00CE475F /* AppNotificationBO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69C6438B24609D8D00CE475F /* AppNotificationBO.swift */; };
+		69E2DEBC246603E000C109D2 /* StepZeroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69E2DEBB246603E000C109D2 /* StepZeroViewController.swift */; };
 		69ECFA2F2459FD5A00D4F205 /* Projects.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 69ECFA2E2459FD5A00D4F205 /* Projects.storyboard */; };
 		69F56222245B6DAE00EB2AF1 /* ProjectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69F56221245B6DAE00EB2AF1 /* ProjectViewController.swift */; };
 		69F56228245B6E1D00EB2AF1 /* ProjectCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69F56227245B6E1D00EB2AF1 /* ProjectCollectionViewCell.swift */; };
@@ -72,6 +75,8 @@
 		409D5033245B4EC5006D66AC /* TaskDAO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskDAO.swift; sourceTree = "<group>"; };
 		6910339F245A15F6009D5D58 /* UIStoryboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIStoryboard.swift; sourceTree = "<group>"; };
 		691033A3245A250A009D5D58 /* NewProjectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewProjectViewController.swift; sourceTree = "<group>"; };
+		6927A1BE2464AC85005E0154 /* Onboarding.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Onboarding.storyboard; sourceTree = "<group>"; };
+		696620372465F034003B3916 /* OnboardingPagerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingPagerViewController.swift; sourceTree = "<group>"; };
 		696E92E4245A499800E7F3DF /* NewProject.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = NewProject.storyboard; sourceTree = "<group>"; };
 		69B0471F245754D5002A696D /* MiniChallengeIV.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MiniChallengeIV.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		69B04722245754D5002A696D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -88,8 +93,8 @@
 		69B1728F2458CAB800D0F31E /* Project.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Project.swift; sourceTree = "<group>"; };
 		69B172912458CAC000D0F31E /* ProjectBO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectBO.swift; sourceTree = "<group>"; };
 		69B172932458CACA00D0F31E /* ProjectDAO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectDAO.swift; sourceTree = "<group>"; };
-		69C6438B24609D8D00CE475F /* AppNotification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppNotification.swift; sourceTree = "<group>"; };
-		69C7FCAF2460BD000058AF95 /* MiniChallengeIV.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MiniChallengeIV.entitlements; sourceTree = "<group>"; };
+		69C6438B24609D8D00CE475F /* AppNotificationBO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppNotificationBO.swift; sourceTree = "<group>"; };
+		69E2DEBB246603E000C109D2 /* StepZeroViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepZeroViewController.swift; sourceTree = "<group>"; };
 		69ECFA2E2459FD5A00D4F205 /* Projects.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Projects.storyboard; sourceTree = "<group>"; };
 		69F56221245B6DAE00EB2AF1 /* ProjectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ProjectViewController.swift; path = ../ProjectViewController.swift; sourceTree = "<group>"; };
 		69F56227245B6E1D00EB2AF1 /* ProjectCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ProjectCollectionViewCell.swift; path = ../ProjectCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -228,6 +233,7 @@
 				796C3E39245A02C2004488D1 /* Timer.storyboard */,
 				69ECFA2E2459FD5A00D4F205 /* Projects.storyboard */,
 				696E92E4245A499800E7F3DF /* NewProject.storyboard */,
+				6927A1BE2464AC85005E0154 /* Onboarding.storyboard */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -238,6 +244,8 @@
 				6910339A245A11DC009D5D58 /* Projects */,
 				69B04726245754D5002A696D /* ViewController.swift */,
 				796C3E37245A00DF004488D1 /* TimerViewController.swift */,
+				696620372465F034003B3916 /* OnboardingPagerViewController.swift */,
+				69E2DEBB246603E000C109D2 /* StepZeroViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -267,7 +275,7 @@
 				E29B1E122458CA7D00EA9B48 /* StatisticBO.swift */,
 				409D5031245B4E35006D66AC /* TaskBO.swift */,
 				796C3E35245A0079004488D1 /* TimeTrakcerBO.swift */,
-				69C6438B24609D8D00CE475F /* AppNotification.swift */,
+				69C6438B24609D8D00CE475F /* AppNotificationBO.swift */,
 				E2F4DCF22461B15600AC83AA /* TimerRecoverBO.swift */,
 			);
 			path = BO;
@@ -411,6 +419,7 @@
 				696E92E5245A499800E7F3DF /* NewProject.storyboard in Resources */,
 				69B04732245754D8002A696D /* LaunchScreen.storyboard in Resources */,
 				69B0472F245754D8002A696D /* Assets.xcassets in Resources */,
+				6927A1BF2464AC85005E0154 /* Onboarding.storyboard in Resources */,
 				69B0472A245754D5002A696D /* Main.storyboard in Resources */,
 				796C3E3A245A02C2004488D1 /* Timer.storyboard in Resources */,
 			);
@@ -439,6 +448,7 @@
 			files = (
 				69F56222245B6DAE00EB2AF1 /* ProjectViewController.swift in Sources */,
 				4027D68024589D2D0046DE58 /* DatabaseService.swift in Sources */,
+				69E2DEBC246603E000C109D2 /* StepZeroViewController.swift in Sources */,
 				4061B394245B74220027775C /* Color.swift in Sources */,
 				69B172902458CAB800D0F31E /* Project.swift in Sources */,
 				406EA9D62460A5FD00903350 /* CDManager.swift in Sources */,
@@ -449,6 +459,7 @@
 				409D5034245B4EC5006D66AC /* TaskDAO.swift in Sources */,
 				E2E86FDD245AD3D20006712A /* TimerDataManager.swift in Sources */,
 				69F56228245B6E1D00EB2AF1 /* ProjectCollectionViewCell.swift in Sources */,
+				696620382465F034003B3916 /* OnboardingPagerViewController.swift in Sources */,
 				409D5032245B4E35006D66AC /* TaskBO.swift in Sources */,
 				406EA9D22460A56E00903350 /* Task.swift in Sources */,
 				E29B1E132458CA7D00EA9B48 /* StatisticBO.swift in Sources */,
@@ -462,7 +473,7 @@
 				E29B1E152458CA9B00EA9B48 /* StatisticDAO.swift in Sources */,
 				E29B1E112458C89C00EA9B48 /* Statistic.swift in Sources */,
 				69B0472D245754D5002A696D /* MiniChallengeIV.xcdatamodeld in Sources */,
-				69C6438C24609D8D00CE475F /* AppNotification.swift in Sources */,
+				69C6438C24609D8D00CE475F /* AppNotificationBO.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -639,7 +650,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = MiniChallengeIV/MiniChallengeIV.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = BY575KUK4V;
+				DEVELOPMENT_TEAM = 6R4QWP27L3;
 				INFOPLIST_FILE = MiniChallengeIV/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -659,7 +670,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = MiniChallengeIV/MiniChallengeIV.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = BY575KUK4V;
+				DEVELOPMENT_TEAM = 6R4QWP27L3;
 				INFOPLIST_FILE = MiniChallengeIV/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
 				LD_RUNPATH_SEARCH_PATHS = (

@@ -18,8 +18,9 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
-                        <segue destination="j0d-1n-Usk" kind="show" identifier="segue" id="0AO-Fl-v3P"/>
+                        <segue destination="j0d-1n-Usk" kind="show" identifier="projects" id="0AO-Fl-v3P"/>
                         <segue destination="WsS-SQ-Jog" kind="show" identifier="timer" id="qAO-9o-sXd"/>
+                        <segue destination="sCj-1G-jFb" kind="show" identifier="onboarding" id="lsi-aG-5aj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -45,6 +46,16 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1dC-zR-7Mk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="652" y="117"/>
+        </scene>
+        <!--Onboarding-->
+        <scene sceneID="T8V-7y-JLh">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Onboarding" id="sCj-1G-jFb" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="ecp-7l-zGe"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aqU-hr-vDK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="674" y="211"/>
         </scene>
     </scenes>
 </document>
