@@ -19,10 +19,10 @@ class StatisticBO {
     
     /// Description: function conform and create statistics in the database
     /// - Parameter statistics: the model of statistic to save
-    func createStatistic(id: UUID, focusTime: Int, lostFocusTime: Int, restTime: Int, qtdLostFocus: Int, completion: (Result<Bool, ValidationError>) -> Void) {
+    func createStatistic(id: UUID, focusTime: Int, lostFocusTime: Int, restTime: Int, qtdLostFocus: Int, year: Int, month: Int, completion: (Result<Bool, ValidationError>) -> Void) {
         
         /// Call cration function of statisticDAO to communicate with database
-        let statistic = Statistic(id: id, focusTime: focusTime, lostFocusTime: lostFocusTime, restTime: restTime, qtdLostFocus: qtdLostFocus)
+        let statistic = Statistic(id: id, focusTime: focusTime, lostFocusTime: lostFocusTime, restTime: restTime, qtdLostFocus: qtdLostFocus, year: year, month: month)
         statisticDAO.createStatistic(statistics: statistic, completion: { result in
             switch result {
             case .success(_):

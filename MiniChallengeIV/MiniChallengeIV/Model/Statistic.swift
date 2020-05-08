@@ -15,5 +15,19 @@ struct Statistic {
     var lostFocusTime: Int
     var restTime: Int
     var qtdLostFocus: Int
+    var year: Int
+    var month: Int
     var statisticCD: StatisticCD? = nil
+}
+
+extension Statistic: Equatable{
+    static func += (lhs: inout Statistic, rhs: Statistic){
+        lhs.id = rhs.id
+        lhs.focusTime += rhs.focusTime
+        lhs.lostFocusTime += rhs.lostFocusTime
+        lhs.qtdLostFocus += rhs.qtdLostFocus
+        lhs.month = rhs.month
+        lhs.year = rhs.year
+        lhs.statisticCD = rhs.statisticCD
+    }
 }

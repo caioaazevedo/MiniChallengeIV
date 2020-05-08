@@ -29,6 +29,9 @@ class StatisticDAO {
         statisticCD.lostFocusTime = Int32(statistics.lostFocusTime)
         statisticCD.qtdLostFocus = Int32(statistics.qtdLostFocus)
         statisticCD.restTime = Int32(statistics.restTime)
+        statisticCD.year = Int32(statistics.year)
+        statisticCD.month = Int32(statistics.month)
+
         
         do {
             try context.save()
@@ -48,6 +51,8 @@ class StatisticDAO {
         staticCD.lostFocusTime = Int32(statistics.lostFocusTime)
         staticCD.qtdLostFocus = Int32(statistics.qtdLostFocus)
         staticCD.restTime = Int32(statistics.restTime)
+        staticCD.year = Int32(statistics.year)
+        staticCD.month = Int32(statistics.month)
         
         do {
             try context.save()
@@ -83,8 +88,11 @@ class StatisticDAO {
         let lostFocusTime = statistic.value(forKey: "lostFocusTime") as! Int
         let qtdLostFocus = statistic.value(forKey: "qtdLostFocus") as! Int
         let restTime = statistic.value(forKey: "restTime") as! Int
+        let year = statistic.value(forKey: "year") as! Int
+        let month = statistic.value(forKey: "month") as! Int
+
         
-        let statistic = Statistic(id: id, focusTime: focusTime, lostFocusTime: lostFocusTime, restTime: restTime, qtdLostFocus: qtdLostFocus, statisticCD: statistic as? StatisticCD)
+        let statistic = Statistic(id: id, focusTime: focusTime, lostFocusTime: lostFocusTime, restTime: restTime, qtdLostFocus: qtdLostFocus, year: year, month: month, statisticCD: statistic as? StatisticCD)
         return statistic
     }
 }

@@ -141,22 +141,26 @@ class TimeTrackerBO{
     
     ///Method for updating statistics based on timer atributes
     func updateStatistics() {
-        /// Updates on Databsse
-        var statistic = Statistic(id: UUID(), focusTime: focusTime, lostFocusTime: lostFocusTime, restTime: restTime, qtdLostFocus: qtdLostFocus)
+        //create statistics based on Timer
+        var statistic = Statistic(id: UUID(), focusTime: focusTime, lostFocusTime: lostFocusTime, restTime: restTime, qtdLostFocus: qtdLostFocus, year: 0, month: 0)
+        //Retrieve statistic from Data Base
         statisticBO.retrieveStatistic { (result) in
             
             switch result {
             case .success(let statistics):
-                guard let dbStatistic = statistics?.first else {return}
-                statistic.id = dbStatistic.id
-                statistic.focusTime += dbStatistic.focusTime
-                statistic.lostFocusTime += dbStatistic.lostFocusTime
-                statistic.qtdLostFocus += dbStatistic.qtdLostFocus
-                statistic.statisticCD = dbStatistic.statisticCD
+                guard let dbStatistics = statistics else {return}
+                //get current date
+                let components = getDate()
+                guard let year = components.year,
+                    let month = components.month else {return}
+                //Filter statistic from current month
+                let dbStatisticFilter = (dbStatistics.filter{$0.month == month && $0.year == year})
+                //Check if current month has statistic and add Timer statistics to it
+                guard let dbStatistic = dbStatisticFilter.first else {return}
+                statistic += dbStatistic
             case .failure(let error):
                 print(error.localizedDescription)
             }
-            
         }
         statisticBO.updateStatistic(statistics: statistic) { (result) in
             switch result {
@@ -167,4 +171,11 @@ class TimeTrackerBO{
         }
     }
     
+    //TODO: put it in an Utils
+    func getDate() -> DateComponents{
+        let date = Date()
+        let calendar = Calendar.current
+        let components = calendar.dateComponents([.year, .month], from: date)
+        return components
+    }
 }

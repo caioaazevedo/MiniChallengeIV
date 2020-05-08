@@ -9,16 +9,6 @@
 import UIKit
 
 class ViewController: UIViewController {
-    
-    let keyForLaunch = "validateFirstLaunch"
-    var launchedBefore: Bool {
-        get {
-            return UserDefaults.standard.bool(forKey: keyForLaunch)
-        }
-        set {
-            UserDefaults.standard.set(newValue, forKey: keyForLaunch)
-        }
-    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,10 +23,32 @@ class ViewController: UIViewController {
     
     ///Method for creating statistics for the first time in a device
     func createStatistics(){
-        if launchedBefore {return}
+        //get date
+        let date = Date()
+        let formatter = DateFormatter()
+        formatter.dateFormat = "MM.yyyy"
+        let key = formatter.string(from: date)
         
+        var startedNewMonth: Bool {
+            get {
+                return UserDefaults.standard.bool(forKey: key)
+            }
+            set {
+                UserDefaults.standard.set(newValue, forKey: key)
+            }
+        }
+        //Check if the date regard a new month
+        if startedNewMonth {return}
+        
+        //Convert it to int
+        let calendar = Calendar.current
+        let components = calendar.dateComponents([.year, .month], from: date)
+
+        guard let year = components.year,
+            let month = components.month else {return}
+        //implement it in statistics
         let statisticsBO = StatisticBO()
-        statisticsBO.createStatistic(id: UUID(), focusTime: 0, lostFocusTime: 0, restTime: 0, qtdLostFocus: 0) { (result) in
+        statisticsBO.createStatistic(id: UUID(), focusTime: 0, lostFocusTime: 0, restTime: 0, qtdLostFocus: 0, year: year, month: month) { (result) in
             switch result {
                 
             case .success(_): break
@@ -44,7 +56,8 @@ class ViewController: UIViewController {
                 print(error.localizedDescription)
             }
         }
-        launchedBefore = true
+        //set the month to checked
+        startedNewMonth = true
     }
 
 }

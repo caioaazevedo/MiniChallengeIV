@@ -83,12 +83,27 @@ class TimeTrackerBOTests: XCTestCase {
     func testUpdateStatistics_WhenValuesProvided_AddsAndUpdatesToDataBase(){
         sut.focusTime = 0
         sut.restTime = 0
-        sut.lostFocusTimeCount = 0
+        sut.qtdLostFocus = 0
         sut.lostFocusTime = 0
         sut.updateStatistics()
         XCTAssertEqual(sut.focusTime, 0)
         XCTAssertEqual(sut.restTime, 0)
         XCTAssertEqual(sut.lostFocusTime, 0)
-        XCTAssertEqual(sut.lostFocusTimeCount, 0)
+        XCTAssertEqual(sut.qtdLostFocus, 0)
+    }
+    
+    func testGetDate_WhenCalled_ReturnCurrentDate(){
+        let timerComponents = sut.getDate()
+        let date = Date()
+        let calendar = Calendar.current
+        let components = calendar.dateComponents([.year, .month], from: date)
+        
+        if let timerYear = timerComponents.year,
+            let timerMonth = timerComponents.month {
+            XCTAssertEqual(timerYear, components.year)
+            XCTAssertEqual(timerMonth, components.month)
+        }
+        XCTAssertNotNil(timerComponents.year)
+        XCTAssertNotNil(timerComponents.month)
     }
 }
