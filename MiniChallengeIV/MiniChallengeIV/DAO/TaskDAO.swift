@@ -18,7 +18,7 @@ class TaskDAO {
     /// Create a task on CoreData
     /// - Parameter task: A object of type Task
     /// - Returns: Boolean if the project was saved
-    func createTask(task: Task, completion: (TaskCD?, String?) -> Void){
+    func createTask(task: Task, completion: (Result<Void, ValidationError>) -> Void){
         
         let taskCD = TaskCD(context: self.context)
         taskCD.descriptionTask = task.description
@@ -27,51 +27,50 @@ class TaskDAO {
         
         do {
             try context.save()
-            completion(taskCD, nil)
-        }catch let error as NSError {
-            print("Error in ProjectDAO create function: \(error)")
-            completion(nil, "Error in ProjectDAO create function: \(error)")
+            completion(.success(()))
+        }catch {
+            completion(.failure(.errorToCreate("Task")))
         }
     }
+    
     /// Retrieves a list of tasks
     /// - Returns:  List of tasks
-    func retrieve(completion: ([Task]?, String?) -> Void){
+    func retrieve(completion: (Result<[Task], ValidationError>) -> Void){
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "TaskCD")
         var tasks: [Task] = []
         do {
             let fechedTasks = try context.fetch(fetchRequest)
             guard let tasksCD = fechedTasks as? [NSManagedObject] else {
-                return completion(nil, "Error in Retrieve function projectDAO")
+                return completion(.failure(.errorToRetrieve("Task")))
             }
             
             for task in tasksCD {
                 tasks.append(convert(task: task))
             }
-            completion(tasks, nil)
-        }catch let error as NSError {
-            print("Error in CDService read function: \(error)")
-            completion(nil, "Error in Retrieve function projectDAO")
+            completion(.success(tasks))
+        }catch{
+            completion(.failure(.errorToRetrieve("Task")))
         }
     }
     
     /// Updates a task in database with DAO
     /// - Parameter task: Task to update
     /// - Returns: Boolean if the project was updated
-    func updateTask(task: Task, completion: (Bool, String?) -> Void){
+    func updateTask(task: Task, completion: (Result<Void, ValidationError>) -> Void){
         task.taskCD?.descriptionTask = task.description
         task.taskCD?.state = task.state
         do {
             try context.save()
-            completion(true, nil)
+            completion(.success(()))
         }catch {
-            completion(false, "Error in Update function projectDAO")
+            completion(.failure(.errorToUpdate("Task")))
         }
     }
     
     /// Delete a task in database with DAO
     /// - Parameter uuid: UUID that identifies task
     /// - Returns: Boolean if the task was deleted
-    func deleteTask(uuid: UUID, completion: (Bool, String?) -> Void){
+    func deleteTask(uuid: UUID, completion: (Result<Void, ValidationError>) -> Void){
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "TaskCD")
         fetchRequest.predicate = NSPredicate(format: "uuid == %@", uuid.uuidString)
         
@@ -79,16 +78,16 @@ class TaskDAO {
             let objects = try self.context.fetch(fetchRequest)
             
             guard let object = objects as? [NSManagedObject], objects.count > 0 else{
-                completion(false, "Object to delete not found")
+                completion(.failure(.errorToDelete("Task")))
                 return
             }
             
             context.delete(object[0])
             try context.save()
             
-            completion(true, nil)
+            completion(.success(()))
         }catch{
-            completion(false, "Error in delete function ProjectDAO")
+            completion(.failure(.errorToDelete("Task")))
         }
     }
     

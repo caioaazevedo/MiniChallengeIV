@@ -13,10 +13,10 @@ protocol NewProjectViewControllerDelegate: AnyObject {
 }
 
 class NewProjectViewController: UIViewController {
-
+    
     @IBOutlet weak var projectNameLabel: UITextField!
     @IBOutlet weak var deleteButton: UIButton!
-
+    
     let projectBO = ProjectBO()
     
     var project: Project?
@@ -27,7 +27,7 @@ class NewProjectViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         if let project = project {
             projectNameLabel.text = project.name
             deleteButton.isHidden = false
@@ -38,27 +38,37 @@ class NewProjectViewController: UIViewController {
     }
     
     @IBAction func onClickColor(_ sender: UIButton) {
-        if let color = sender.backgroundColor {
-            projectColor = color
-        }
+        var colors: [UIColor] = [
+            UIColor(red: 0.72, green: 0.00, blue: 0.00, alpha: 1.00),
+            UIColor(red: 0.86, green: 0.24, blue: 0.00, alpha: 1.00),
+            UIColor(red: 0.99, green: 0.80, blue: 0.00, alpha: 1.00),
+            UIColor(red: 0.07, green: 0.45, blue: 0.87, alpha: 1.00),
+            UIColor(red: 0.83, green: 0.77, blue: 0.98, alpha: 1.00)
+        ]
+        colors = colors.shuffled()
+        projectColor = colors[0]
+        //        if let color = sender.backgroundColor {
+        //            projectColor = color
+        //        }
     }
     
     @IBAction func onClickDelete(_ sender: Any) {
-        projectBO.delete(uuid: project!.id) { success, error in
-            if success {
+        
+        projectBO.delete(uuid: project!.id, completion: { result in
+            switch result {
+                
+            case .success():
                 delegate?.reloadList()
                 dismiss(animated: true)
+            case .failure(let error):
+                showOkAlert(title: "Error", message: error.localizedDescription)
             }
-            else {
-                showOkAlert(title: "Error", message: error ?? "")
-            }
-        }
+        })
         
     }
     
     @IBAction func onClickSave(_ sender: Any) {
         saveProject()
-
     }
     
     @IBAction func cancelButtonAction(_ sender: Any) {
@@ -67,36 +77,51 @@ class NewProjectViewController: UIViewController {
     
     private func saveProject() {
         
-
-    
+        
+        
         guard project == nil else {
             project?.name = projectNameLabel.text ?? ""
             project?.color = projectColor
-            projectBO.update(project: project!) { success, error in
-                if success {
+            
+            projectBO.update(project: project!, completion: { result in
+                switch result {
+                    
+                case .success():
                     dismiss(animated: true)
                     delegate?.reloadList()
-
+                case .failure(let error):
+                    self.showOkAlert(title: "Error", message: error.localizedDescription )
                 }
-                else {
-                    self.showOkAlert(title: "Error", message: error ?? "")
-                }
-            }
+            })
+            
             return
         }
-
-        projectBO.create(name: projectNameLabel.text ?? "MurilloTrouxa", color: UIColor(red: 0.00, green: 0.30, blue: 0.81, alpha: 1.00), completion: { success, error in
-            if success {
+        
+        
+        projectBO.create(name: projectNameLabel.text ?? "MurilloTiozao", color: projectColor, completion: { result in
+            
+            switch result {
+                
+            case .success(_):
                 dismiss(animated: true)
                 delegate?.reloadList()
-
+            case .failure(let error):
+                self.showOkAlert(title: "Error", message: error.localizedDescription)
             }
-            else {
-                self.showOkAlert(title: "Error", message: error ?? "")
-
-            }
+            
         })
-   
+        //        projectBO.create(name: projectNameLabel.text ?? "MurilloTrouxa", color: UIColor(red: 0.00, green: 0.30, blue: 0.81, alpha: 1.00), completion: { success, error in
+        //            if success {
+        //                dismiss(animated: true)
+        //                delegate?.reloadList()
+        //
+        //            }
+        //            else {
+        //                self.showOkAlert(title: "Error", message: error ?? "")
+        //
+        //            }
+        //        })
+        
         
     }
     

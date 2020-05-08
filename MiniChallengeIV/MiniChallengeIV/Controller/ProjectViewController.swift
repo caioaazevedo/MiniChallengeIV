@@ -16,11 +16,11 @@ class ProjectViewController: UIViewController {
     var projects: [Project] = []
     
     
-            
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         reloadList()
-
+        
         // Do any additional setup after loading the view.
     }
     
@@ -56,55 +56,60 @@ class ProjectViewController: UIViewController {
 
 extension ProjectViewController: NewProjectViewControllerDelegate {
     func reloadList(){
-         projectBO.retrieve(completion: { projects in
-            guard let validateProjects = projects else { return }
-            self.projects = validateProjects
-            collectionView.reloadData()
+        projectBO.retrieve(completion: { result in
+            switch result {
+            case .success(let projects):
+                self.projects = projects
+                collectionView.reloadData()
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
         })
-    }
-}
-
-extension ProjectViewController: UICollectionViewDelegate {
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        selectedProjectId = indexPath.item
-        goToNewProjectViewController()
-//        performSegue(withIdentifier: "GoToTimer", sender: self)
-    }
-}
-
-extension ProjectViewController: UICollectionViewDataSource {
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-//        return ProjectDAO.list.count
-        return projects.count
+            
+        }
     }
     
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as? ProjectCollectionViewCell else {
-            return ProjectCollectionViewCell()
+    extension ProjectViewController: UICollectionViewDelegate {
+        func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+            selectedProjectId = indexPath.item
+            //        goToNewProjectViewController()
+            performSegue(withIdentifier: "GoToTimer", sender: self)
+        }
+    }
+    
+    extension ProjectViewController: UICollectionViewDataSource {
+        func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+            //        return ProjectDAO.list.count
+            return projects.count
         }
         
-        cell.projectNameLabel.text = projects[indexPath.row].name
-        cell.backgroundColor = projects[indexPath.row].color
+        func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as? ProjectCollectionViewCell else {
+                return ProjectCollectionViewCell()
+            }
+            
+            cell.projectNameLabel.text = projects[indexPath.row].name
+            cell.backgroundColor = projects[indexPath.row].color
+            
+            return cell
+        }
+    }
+    
+    extension ProjectViewController: UICollectionViewDelegateFlowLayout {
+        func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+            return UIEdgeInsets(top: 20, left: 8, bottom: 10, right: 8)
+        }
         
-        return cell
-    }
-}
-
-extension ProjectViewController: UICollectionViewDelegateFlowLayout {
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsets(top: 20, left: 8, bottom: 10, right: 8)
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let collectionViewWidth = collectionView.bounds.width
-        return CGSize(width: collectionViewWidth * 0.475, height: collectionViewWidth * 0.45)
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        return 0
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return 8
-    }
+        func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+            let collectionViewWidth = collectionView.bounds.width
+            return CGSize(width: collectionViewWidth * 0.475, height: collectionViewWidth * 0.45)
+        }
+        
+        func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+            return 0
+        }
+        
+        func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+            return 8
+        }
 }
