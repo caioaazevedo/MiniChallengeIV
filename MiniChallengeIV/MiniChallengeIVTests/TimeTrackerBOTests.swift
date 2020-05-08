@@ -15,9 +15,13 @@ class TimeTrackerBOTests: XCTestCase {
     let sut = TimeTrackerBO()
     
     func testStringToSecond_WhenValidTextProvided_ConvertToSeconds(){
-        XCTAssertEqual(sut.stringToSeconds(with: "15:00"), 900)
-        XCTAssertEqual(sut.stringToSeconds(with: "-5:00"), 0)
-        XCTAssertEqual(sut.stringToSeconds(with: "err"), 0)
+        XCTAssertEqual(sut.stringToSeconds(from: "15:00"), 900)
+        XCTAssertEqual(sut.stringToSeconds(from: "-5:00"), 0)
+        XCTAssertEqual(sut.stringToSeconds(from: "err"), 0)
+        XCTAssertEqual(sut.stringToSeconds(from: "1050"), 0)
+        XCTAssertEqual(sut.stringToSeconds(from: "err:00"), 0)
+        XCTAssertEqual(sut.stringToSeconds(from: ":"), 0)
+
     }
 
     func testSecondsToString_WhenValidValueProvided_ConvertToText(){
@@ -49,9 +53,9 @@ class TimeTrackerBOTests: XCTestCase {
         sut.restTime = 0
         sut.state = .focus
         sut.updateTrackedValues()
+        XCTAssertEqual(sut.focusTime, 1)
         sut.state = .pause
         sut.updateTrackedValues()
-        XCTAssertEqual(sut.focusTime, 1)
         XCTAssertEqual(sut.restTime, 1)
     }
 
@@ -74,5 +78,17 @@ class TimeTrackerBOTests: XCTestCase {
         sut.hasEnded = false
         sut.countDown = 0
         XCTAssertTrue(sut.hasEnded)
+    }
+    
+    func testUpdateStatistics_WhenValuesProvided_AddsAndUpdatesToDataBase(){
+        sut.focusTime = 0
+        sut.restTime = 0
+        sut.lostFocusTimeCount = 0
+        sut.lostFocusTime = 0
+        sut.updateStatistics()
+        XCTAssertEqual(sut.focusTime, 0)
+        XCTAssertEqual(sut.restTime, 0)
+        XCTAssertEqual(sut.lostFocusTime, 0)
+        XCTAssertEqual(sut.lostFocusTimeCount, 0)
     }
 }

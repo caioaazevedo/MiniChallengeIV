@@ -23,13 +23,9 @@ class TimeTrackerBO{
     var hasEnded = false
     var timeInterval : TimeInterval = 1 //seconds at a time
     
-    var lostFocusTimeCount = 0
+    var qtdLostFocus = 0
     var focusTime = 0
-    var lostFocusTime = 0{
-        willSet{
-            lostFocusTimeCount += 1
-        }
-    }
+    var lostFocusTime = 0
     var restTime = 0
     ///Ends when value gets to zero
     var countDown = 0{
@@ -56,6 +52,7 @@ class TimeTrackerBO{
             self.focusTime = 0
             self.lostFocusTime = 0
             self.restTime = 0
+            self.qtdLostFocus = 0
         }
     }
     var changeCicle: TimeTrackerState{
@@ -81,9 +78,9 @@ class TimeTrackerBO{
             self.updateTrackedValues()
             
             if self.hasEnded{ //It changes state, cancels timer and updates view with default value
-                self.state = self.changeCicle
                 self.timer.invalidate()
                 self.updateStatistics()
+                self.state = self.changeCicle
                 let defaultTimeText = self.secondsToString(with: self.convertedTimeValue)
                 convertedTimeText = defaultTimeText
             }
@@ -110,9 +107,9 @@ class TimeTrackerBO{
      */
     func stopTimer(updateView: @escaping () -> Void){
         timer.invalidate()
-        state = .focus
         updateView()
         updateStatistics()
+        state = .focus
     }
     
     /**
@@ -132,8 +129,9 @@ class TimeTrackerBO{
         - Parameter text: the text from the label in the view
         - Returns: the amount of seconds for the count down
      */
-    func stringToSeconds(with text: String) -> Int{
+    func stringToSeconds(from text: String) -> Int{
         if text.contains("-") { return 0}
+        if !text.contains(":") { return 0}
         let numbers = text.split(separator: ":")
         guard let firstNumbers = numbers.first else {return 0}
         guard let min = Int(firstNumbers) else {return 0}
@@ -144,7 +142,7 @@ class TimeTrackerBO{
     ///Method for updating statistics based on timer atributes
     func updateStatistics() {
         /// Updates on Databsse
-        var statistic = Statistic(id: UUID(), focusTime: focusTime, lostFocusTime: lostFocusTime, restTime: restTime, qtdLostFocus: lostFocusTimeCount)
+        var statistic = Statistic(id: UUID(), focusTime: focusTime, lostFocusTime: lostFocusTime, restTime: restTime, qtdLostFocus: qtdLostFocus)
         statisticBO.retrieveStatistic { (result) in
             
             switch result {
@@ -154,6 +152,7 @@ class TimeTrackerBO{
                 statistic.focusTime += dbStatistic.focusTime
                 statistic.lostFocusTime += dbStatistic.lostFocusTime
                 statistic.qtdLostFocus += dbStatistic.qtdLostFocus
+                statistic.statisticCD = dbStatistic.statisticCD
             case .failure(let error):
                 print(error.localizedDescription)
             }
