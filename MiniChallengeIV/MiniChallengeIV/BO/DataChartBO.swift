@@ -26,10 +26,13 @@ class DataChartBO {
     /// - Returns: Data to insert into the Chart View
     func loadChartData(completion: @escaping (PieChartData) ->  ()){
         /// Get Projects from database
-        ProjectBO().retrieve { (projects) in
-            guard let projects = projects else { return }
-            
-            self.projects = projects
+        ProjectBO().retrieve { (results) in
+            switch results {
+            case .success(let projects):
+                self.projects = projects
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
             
             getTimeStatistics(projects: self.projects)
             
@@ -49,6 +52,7 @@ class DataChartBO {
             let time = proj.time
             self.projectColors.append(proj.color as NSUIColor)
             self.timeProjects.append(time)
+            print("DaTACHART TIME: \(time)")
             self.totalTime += time
         }
     }

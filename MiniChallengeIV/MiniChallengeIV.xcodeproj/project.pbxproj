@@ -46,6 +46,7 @@
 		E2CAB78B2460A0FB00822073 /* TimeRecoverBOTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2CAB78A2460A0FB00822073 /* TimeRecoverBOTests.swift */; };
 		E2DF45582465CD1F0060FCB7 /* DataChartBO.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2DF45572465CD1F0060FCB7 /* DataChartBO.swift */; };
 		E2DF455A2465D7500060FCB7 /* DataChartBOTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2DF45592465D7500060FCB7 /* DataChartBOTests.swift */; };
+		E2DF455D2465EF7F0060FCB7 /* ProjectStatisticsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2DF455C2465EF7F0060FCB7 /* ProjectStatisticsCell.swift */; };
 		E2E86FDD245AD3D20006712A /* TimerDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2E86FDC245AD3D20006712A /* TimerDataManager.swift */; };
 		E2F4DCF32461B15600AC83AA /* TimerRecoverBO.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F4DCF22461B15600AC83AA /* TimerRecoverBO.swift */; };
 		F67327C5EA6699A800458F26 /* Pods_MiniChallengeIVTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B5FAA7EE1408CAF55BF3CA6 /* Pods_MiniChallengeIVTests.framework */; };
@@ -69,9 +70,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		402779542461F3190076BE24 /* HandleErrors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HandleErrors.swift; sourceTree = "<group>"; };
 		0258BBEA39752887FD7E8DD4 /* Pods-MiniChallengeIV.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MiniChallengeIV.release.xcconfig"; path = "Target Support Files/Pods-MiniChallengeIV/Pods-MiniChallengeIV.release.xcconfig"; sourceTree = "<group>"; };
 		1499B5CF32B9AC252BE6600A /* Pods_MiniChallengeIV.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MiniChallengeIV.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		402779542461F3190076BE24 /* HandleErrors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HandleErrors.swift; sourceTree = "<group>"; };
 		4027D67F24589D2D0046DE58 /* DatabaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseService.swift; sourceTree = "<group>"; };
 		4061B393245B74220027775C /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Color.swift; path = MiniChallengeIV/Model/DAO/Color.swift; sourceTree = SOURCE_ROOT; };
 		406EA9D12460A56E00903350 /* Task.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
@@ -121,6 +122,7 @@
 		E2CAB78A2460A0FB00822073 /* TimeRecoverBOTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeRecoverBOTests.swift; sourceTree = "<group>"; };
 		E2DF45572465CD1F0060FCB7 /* DataChartBO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataChartBO.swift; sourceTree = "<group>"; };
 		E2DF45592465D7500060FCB7 /* DataChartBOTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataChartBOTests.swift; sourceTree = "<group>"; };
+		E2DF455C2465EF7F0060FCB7 /* ProjectStatisticsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectStatisticsCell.swift; sourceTree = "<group>"; };
 		E2E86FDC245AD3D20006712A /* TimerDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerDataManager.swift; sourceTree = "<group>"; };
 		E2F4DCF22461B15600AC83AA /* TimerRecoverBO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerRecoverBO.swift; sourceTree = "<group>"; };
 		ED9EB1C61746D538CEA12650 /* Pods-MiniChallengeIVTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MiniChallengeIVTests.release.xcconfig"; path = "Target Support Files/Pods-MiniChallengeIVTests/Pods-MiniChallengeIVTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -154,16 +156,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		402779532461F2C10076BE24 /* Helpers */ = {
-			isa = PBXGroup;
-			children = (
-				69B0475A24575645002A696D /* Extension */,
-				4027D6822458C7840046DE58 /* Protocols */,
-				402779542461F3190076BE24 /* HandleErrors.swift */,
-			);
-			path = Helpers;
-			sourceTree = "<group>";
-		};
 		14A376F51A6EED707562F554 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -175,6 +167,16 @@
 				ED9EB1C61746D538CEA12650 /* Pods-MiniChallengeIVTests.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		402779532461F2C10076BE24 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				69B0475A24575645002A696D /* Extension */,
+				4027D6822458C7840046DE58 /* Protocols */,
+				402779542461F3190076BE24 /* HandleErrors.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 		4027D6822458C7840046DE58 /* Protocols */ = {
@@ -258,6 +260,7 @@
 		69B04756245754F8002A696D /* View */ = {
 			isa = PBXGroup;
 			children = (
+				E2DF455B2465EF3E0060FCB7 /* TableViewCell */,
 				69B04730245754D8002A696D /* LaunchScreen.storyboard */,
 				69B04728245754D5002A696D /* Main.storyboard */,
 				796C3E39245A02C2004488D1 /* Timer.storyboard */,
@@ -339,6 +342,14 @@
 				E2CAB78A2460A0FB00822073 /* TimeRecoverBOTests.swift */,
 			);
 			name = "Recovered References";
+			sourceTree = "<group>";
+		};
+		E2DF455B2465EF3E0060FCB7 /* TableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				E2DF455C2465EF7F0060FCB7 /* ProjectStatisticsCell.swift */,
+			);
+			path = TableViewCell;
 			sourceTree = "<group>";
 		};
 		ED7B9BA554F1A2A4BE525E1C /* Frameworks */ = {
@@ -614,6 +625,7 @@
 				69B04723245754D5002A696D /* AppDelegate.swift in Sources */,
 				796C3E36245A0079004488D1 /* TimeTrakcerBO.swift in Sources */,
 				402779552461F3190076BE24 /* HandleErrors.swift in Sources */,
+				E2DF455D2465EF7F0060FCB7 /* ProjectStatisticsCell.swift in Sources */,
 				69B172942458CACA00D0F31E /* ProjectDAO.swift in Sources */,
 				69B04725245754D5002A696D /* SceneDelegate.swift in Sources */,
 				796C3E38245A00DF004488D1 /* TimerViewController.swift in Sources */,
