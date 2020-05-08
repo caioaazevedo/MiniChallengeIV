@@ -12,12 +12,14 @@ import Charts
 class DataChartBO {
     var timeProjects: [Int]
     var totalTime: Int
+    var projects: [Project]
     var projectColors = [NSUIColor]()
     
     init() {
         timeProjects = []
         totalTime = 0
         projectColors = []
+        projects = []
     }
     
     /// Description:  Load the projects to insert data into the chart
@@ -27,7 +29,9 @@ class DataChartBO {
         ProjectBO().retrieve { (projects) in
             guard let projects = projects else { return }
             
-            getTimeStatistics(projects: projects)
+            self.projects = projects
+            
+            getTimeStatistics(projects: self.projects)
             
             let projectsPercentage = calculateProjectsPercentage()
             let entries = createDataEntries(projectsPercentage: projectsPercentage)

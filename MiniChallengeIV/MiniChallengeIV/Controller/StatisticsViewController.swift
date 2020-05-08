@@ -13,14 +13,15 @@ class StatisticsViewController: UIViewController {
 
 //MARK:- Atributes
     @IBOutlet weak var circleChart: PieChartView!
-
+    var dataChartBO = DataChartBO()
+    
 //MARK:- Life Cicle Functions
     override func viewDidLoad() {
         super.viewDidLoad()
         chartConfig()
         
         /// Load the pie chart with projects data
-        DataChartBO().loadChartData { (chartData) in
+        dataChartBO.loadChartData { (chartData) in
             self.circleChart.data = chartData
         }
     }

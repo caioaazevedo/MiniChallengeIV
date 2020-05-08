@@ -44,6 +44,7 @@
 		E29B1E152458CA9B00EA9B48 /* StatisticDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = E29B1E142458CA9B00EA9B48 /* StatisticDAO.swift */; };
 		E2CAB78B2460A0FB00822073 /* TimeRecoverBOTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2CAB78A2460A0FB00822073 /* TimeRecoverBOTests.swift */; };
 		E2DF45582465CD1F0060FCB7 /* DataChartBO.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2DF45572465CD1F0060FCB7 /* DataChartBO.swift */; };
+		E2DF455A2465D7500060FCB7 /* DataChartBOTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2DF45592465D7500060FCB7 /* DataChartBOTests.swift */; };
 		E2E86FDD245AD3D20006712A /* TimerDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2E86FDC245AD3D20006712A /* TimerDataManager.swift */; };
 		E2F4DCF32461B15600AC83AA /* TimerRecoverBO.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F4DCF22461B15600AC83AA /* TimerRecoverBO.swift */; };
 		F67327C5EA6699A800458F26 /* Pods_MiniChallengeIVTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B5FAA7EE1408CAF55BF3CA6 /* Pods_MiniChallengeIVTests.framework */; };
@@ -117,6 +118,7 @@
 		E29B1E142458CA9B00EA9B48 /* StatisticDAO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticDAO.swift; sourceTree = "<group>"; };
 		E2CAB78A2460A0FB00822073 /* TimeRecoverBOTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeRecoverBOTests.swift; sourceTree = "<group>"; };
 		E2DF45572465CD1F0060FCB7 /* DataChartBO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataChartBO.swift; sourceTree = "<group>"; };
+		E2DF45592465D7500060FCB7 /* DataChartBOTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataChartBOTests.swift; sourceTree = "<group>"; };
 		E2E86FDC245AD3D20006712A /* TimerDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerDataManager.swift; sourceTree = "<group>"; };
 		E2F4DCF22461B15600AC83AA /* TimerRecoverBO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerRecoverBO.swift; sourceTree = "<group>"; };
 		ED9EB1C61746D538CEA12650 /* Pods-MiniChallengeIVTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MiniChallengeIVTests.release.xcconfig"; path = "Target Support Files/Pods-MiniChallengeIVTests/Pods-MiniChallengeIVTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -315,6 +317,7 @@
 				7956425D2461F718000A621F /* TimeTrackerBOTests.swift */,
 				795642552461F68C000A621F /* MiniChallengeIVTests.swift */,
 				795642572461F68C000A621F /* Info.plist */,
+				E2DF45592465D7500060FCB7 /* DataChartBOTests.swift */,
 			);
 			path = MiniChallengeIVTests;
 			sourceTree = "<group>";
@@ -622,6 +625,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7956425E2461F718000A621F /* TimeTrackerBOTests.swift in Sources */,
+				E2DF455A2465D7500060FCB7 /* DataChartBOTests.swift in Sources */,
 				795642622462146F000A621F /* TimeRecoverBOTests.swift in Sources */,
 				795642562461F68C000A621F /* MiniChallengeIVTests.swift in Sources */,
 			);
