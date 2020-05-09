@@ -18,10 +18,14 @@ class TimeTrackerBO{
     
     //MARK:Atributes
     var timer = Timer()
+    private var statisticBO = StatisticBO()
+    private var projectBO = ProjectBO()
+    var projectUuid = UUID()
     var configTime = 25
     var hasEnded = false
     var timeInterval : TimeInterval = 1 //seconds at a time
     
+    var qtdLostFocus = 0
     var focusTime = 0
     var lostFocusTime = 0
     var restTime = 0
@@ -45,11 +49,15 @@ class TimeTrackerBO{
     }
     //MARK:States
     ///State according to view
-    var state = TimeTrackerState.focus
+    var state = TimeTrackerState.focus{
+        didSet{
+            self.focusTime = 0
+            self.lostFocusTime = 0
+            self.restTime = 0
+            self.qtdLostFocus = 0
+        }
+    }
     var changeCicle: TimeTrackerState{
-        self.focusTime = 0
-        self.lostFocusTime = 0
-        self.restTime = 0
         return state == .focus ? .pause : .focus
     }
     //MARK: Methods
@@ -72,9 +80,9 @@ class TimeTrackerBO{
             self.updateTrackedValues()
             
             if self.hasEnded{ //It changes state, cancels timer and updates view with default value
-                self.state = self.changeCicle
                 self.timer.invalidate()
-                //TODO: update statistics
+                self.updateStatistics()
+                self.state = self.changeCicle
                 let defaultTimeText = self.secondsToString(with: self.convertedTimeValue)
                 convertedTimeText = defaultTimeText
             }
@@ -101,8 +109,9 @@ class TimeTrackerBO{
      */
     func stopTimer(updateView: @escaping () -> Void){
         timer.invalidate()
-        state = .focus
         updateView()
+        updateStatistics()
+        state = .focus
     }
     
     /**
@@ -122,8 +131,9 @@ class TimeTrackerBO{
         - Parameter text: the text from the label in the view
         - Returns: the amount of seconds for the count down
      */
-    func stringToSeconds(with text: String) -> Int{
+    func stringToSeconds(from text: String) -> Int{
         if text.contains("-") { return 0}
+        if !text.contains(":") { return 0}
         let numbers = text.split(separator: ":")
         guard let firstNumbers = numbers.first else {return 0}
         guard let min = Int(firstNumbers) else {return 0}
@@ -131,9 +141,83 @@ class TimeTrackerBO{
         return sec
     }
     
-    //TODO
+    ///Method for updating statistics based on timer atributes
     func updateStatistics() {
-        /// Updates on Databsse
+        //create statistics based on Timer
+        var statistic = Statistic(id: UUID(), focusTime: focusTime, lostFocusTime: lostFocusTime, restTime: restTime, qtdLostFocus: qtdLostFocus, year: 0, month: 0)
+        //update Project
+        if updateProject(statistic: statistic){
+            print("Project Updated")
+        }
+        //Retrieve statistic from Data Base
+        statisticBO.retrieveStatistic { (result) in
+            
+            switch result {
+            case .success(let statistics):
+                guard let dbStatistics = statistics else {return}
+                //get current date
+                let components = getDate()
+                guard let year = components.year,
+                    let month = components.month else {return}
+                //Filter statistic from current month
+                let dbStatisticFilter = (dbStatistics.filter{$0.month == month && $0.year == year})
+                //Check if current month has statistic and add Timer statistics to it
+                guard let dbStatistic = dbStatisticFilter.first else {return}
+                statistic += dbStatistic
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
+        statisticBO.updateStatistic(statistics: statistic) { (result) in
+            switch result {
+            case .success(_): break
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
     }
     
+    /**
+     Method for updating project according to statistics
+        - Parameter statistic: Statistic created with values from time tracker to be added to the total project time
+        - Returns: Boolean value according to the sucess in updating the current project
+     */
+    func updateProject(statistic: Statistic) -> Bool{
+        var success = true
+        var project: Project?
+        projectBO.retrieve { (result) in
+            switch result {
+            case .success(let projects):
+                let filteredProject = projects.filter{$0.id == projectUuid}
+                guard var dbProject = filteredProject.first else {return}
+                dbProject += statistic
+                project = dbProject
+            case .failure(let error):
+                print(error.localizedDescription)
+                success = false
+            }
+        }
+        guard let updatedProj = project else {return false}
+        projectBO.update(project: updatedProj) { (result) in
+            switch result {
+            case .success(_): break
+            case .failure(let error):
+                print(error.localizedDescription)
+                success = false
+            }
+        }
+        return success
+    }
+    
+    //TODO: put it in an Utils
+    /**
+     Method for getting the current date
+        - Returns: Value containing current Year and Month
+     */
+    func getDate() -> DateComponents{
+        let date = Date()
+        let calendar = Calendar.current
+        let components = calendar.dateComponents([.year, .month], from: date)
+        return components
+    }
 }
