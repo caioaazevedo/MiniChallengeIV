@@ -21,13 +21,21 @@ struct Statistic {
 }
 
 extension Statistic: Equatable{
+    ///adding statistics += statistics
     static func += (lhs: inout Statistic, rhs: Statistic){
         lhs.id = rhs.id
         lhs.focusTime += rhs.focusTime
+        lhs.restTime += rhs.restTime
         lhs.lostFocusTime += rhs.lostFocusTime
         lhs.qtdLostFocus += rhs.qtdLostFocus
         lhs.month = rhs.month
         lhs.year = rhs.year
         lhs.statisticCD = rhs.statisticCD
+    }
+    ///adding statistics += projects
+    static func += (lhs: inout Project, rhs: Statistic){
+        lhs.time += rhs.focusTime
+        lhs.time += rhs.lostFocusTime
+        lhs.time += rhs.restTime
     }
 }

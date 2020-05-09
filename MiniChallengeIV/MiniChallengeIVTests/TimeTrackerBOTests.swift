@@ -91,7 +91,7 @@ class TimeTrackerBOTests: XCTestCase {
         XCTAssertEqual(sut.lostFocusTime, 0)
         XCTAssertEqual(sut.qtdLostFocus, 0)
     }
-    
+    //might be removed
     func testGetDate_WhenCalled_ReturnCurrentDate(){
         let timerComponents = sut.getDate()
         let date = Date()
@@ -105,5 +105,28 @@ class TimeTrackerBOTests: XCTestCase {
         }
         XCTAssertNotNil(timerComponents.year)
         XCTAssertNotNil(timerComponents.month)
+    }
+    
+    func testUpdateProject_WhenIdProvided_UpdatesDataBase(){
+        let statistic = Statistic(id: UUID(), focusTime: 0, lostFocusTime: 0, restTime: 0, qtdLostFocus: 0, year: 0, month: 0)
+        ///Its supossed to be false because the project Id hasnt been passed
+        XCTAssertFalse(sut.updateProject(statistic: statistic))
+    }
+    
+    func testAddStatistics_WhenStatisticProvided_AddStatisticValues(){
+        var statisticA = Statistic(id: UUID(), focusTime: 1, lostFocusTime: 1, restTime: 1, qtdLostFocus: 1, year: 1, month: 1)
+        let statisticB = Statistic(id: UUID(), focusTime: 1, lostFocusTime: 1, restTime: 1, qtdLostFocus: 1, year: 1, month: 1)
+        statisticA += statisticB
+        XCTAssertEqual(statisticA.focusTime, 2)
+        XCTAssertEqual(statisticA.restTime, 2)
+        XCTAssertEqual(statisticA.lostFocusTime, 2)
+        XCTAssertEqual(statisticA.qtdLostFocus, 2)
+    }
+    
+    func testAddProjectTime_WhenStatisticProvided_AddStatisticValues(){
+        let statistic = Statistic(id: UUID(), focusTime: 1, lostFocusTime: 1, restTime: 1, qtdLostFocus: 1, year: 1, month: 1)
+        var project = Project(id: UUID(), name: "Academy", color: .blue, time: 1)
+        project += statistic
+        XCTAssertEqual(project.time, 4)
     }
 }

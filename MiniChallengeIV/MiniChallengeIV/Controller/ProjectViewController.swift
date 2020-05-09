@@ -48,6 +48,16 @@ class ProjectViewController: UIViewController {
             self.present(newProjectVC, animated: true)
         }
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "GoToTimer" {
+            if let timerViewController = segue.destination as? TimerViewController {
+                guard let index = selectedProjectId else {return}
+                //pass projects id to timer
+                timerViewController.timeTracker.projectUuid = projects[index].id
+            }
+        }
+    }
 }
 
 extension ProjectViewController: NewProjectViewControllerDelegate {
