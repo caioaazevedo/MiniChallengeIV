@@ -84,6 +84,9 @@
                                 <rect key="frame" x="369" y="111" width="25" height="22"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="chart.bar.fill" catalog="system"/>
+                                <connections>
+                                    <action selector="showStatistics:" destination="9qX-a1-AkN" eventType="touchUpInside" id="YiR-QG-dEk"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -92,11 +95,22 @@
                     <connections>
                         <outlet property="collectionView" destination="BgH-RO-QqS" id="vzu-Vm-1sg"/>
                         <segue destination="2jN-OJ-S7b" kind="show" identifier="GoToTimer" id="RGR-9c-bpq"/>
+                        <segue destination="YuV-Hh-szT" kind="show" identifier="statistics" id="dbG-Gv-aWE"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8Ia-8H-4We" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-10.144927536231885" y="-27.455357142857142"/>
+        </scene>
+        <!--Statistics-->
+        <scene sceneID="OH2-bX-L8T">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Statistics" id="YuV-Hh-szT" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="PvR-KC-HG3"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Vx4-c2-dKt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="506" y="-108"/>
         </scene>
         <!--Timer-->
         <scene sceneID="qlE-Lg-h0T">
