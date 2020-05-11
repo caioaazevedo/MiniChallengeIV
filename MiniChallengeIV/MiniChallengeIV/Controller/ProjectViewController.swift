@@ -9,7 +9,6 @@
 import UIKit
 
 class ProjectViewController: UIViewController {
-    
     @IBOutlet weak var collectionView: UICollectionView!
     var selectedProjectId: Int?
     var projectBO = ProjectBO()
@@ -53,6 +52,21 @@ class ProjectViewController: UIViewController {
         }
     }
     
+    /// Go to NewProjectViewController
+    private func goToUpdateProjectViewController() {
+        if let updateProjectVC = UIStoryboard.loadView(from: .UpdateProject, identifier: .UpdateProjectID) as? UpdateProjectViewController {
+            updateProjectVC.modalTransitionStyle = .crossDissolve
+            updateProjectVC.modalPresentationStyle = .overCurrentContext
+            
+            if let selectedProjectId = selectedProjectId {
+                updateProjectVC.project = projects[selectedProjectId]
+                self.selectedProjectId = nil
+            }
+            
+            self.present(updateProjectVC, animated: true)
+        }
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "GoToTimer" {
             if let timerViewController = segue.destination as? TimerViewController {
@@ -79,47 +93,63 @@ extension ProjectViewController: NewProjectViewControllerDelegate {
         }
     }
     
-    extension ProjectViewController: UICollectionViewDelegate {
-        func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-            selectedProjectId = indexPath.item
-            //        goToNewProjectViewController()
-            performSegue(withIdentifier: "GoToTimer", sender: self)
-        }
+extension ProjectViewController: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        selectedProjectId = indexPath.item
+        //        goToNewProjectViewController()
+        performSegue(withIdentifier: "GoToTimer", sender: self)
     }
     
-    extension ProjectViewController: UICollectionViewDataSource {
-        func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-            //        return ProjectDAO.list.count
-            return projects.count
-        }
+    /// Menu configuration
+    func collectionView(_ collectionView: UICollectionView, contextMenuConfigurationForItemAt indexPath: IndexPath, point: CGPoint) -> UIContextMenuConfiguration? {
         
-        func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as? ProjectCollectionViewCell else {
-                return ProjectCollectionViewCell()
-            }
+        let edit = UIAction(title: "Edit") { (edit) in
+            self.goToUpdateProjectViewController()
+        }
+        let delete = UIAction(title: "Delete") { (delete) in
             
-            cell.projectNameLabel.text = projects[indexPath.row].name
-            cell.backgroundColor = projects[indexPath.row].color
-            
-            return cell
+        }
+
+        return UIContextMenuConfiguration(identifier: nil,
+          previewProvider: nil) { _ in
+          UIMenu(title: "Actions", children: [edit, delete])
         }
     }
+}
     
-    extension ProjectViewController: UICollectionViewDelegateFlowLayout {
-        func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-            return UIEdgeInsets(top: 20, left: 8, bottom: 10, right: 8)
+extension ProjectViewController: UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        //        return ProjectDAO.list.count
+        return projects.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as? ProjectCollectionViewCell else {
+            return ProjectCollectionViewCell()
         }
         
-        func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-            let collectionViewWidth = collectionView.bounds.width
-            return CGSize(width: collectionViewWidth * 0.475, height: collectionViewWidth * 0.45)
-        }
+        cell.projectNameLabel.text = projects[indexPath.row].name
+        cell.backgroundColor = projects[indexPath.row].color
         
-        func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-            return 0
-        }
-        
-        func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-            return 8
-        }
+        return cell
+    }
+}
+    
+extension ProjectViewController: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        return UIEdgeInsets(top: 20, left: 8, bottom: 10, right: 8)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let collectionViewWidth = collectionView.bounds.width
+        return CGSize(width: collectionViewWidth * 0.475, height: collectionViewWidth * 0.45)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        return 0
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 8
+    }
 }
