@@ -1,0 +1,6 @@
+framework module Pods_MiniChallengeIV {
+  umbrella header "Pods-MiniChallengeIV-umbrella.h"
+
+  export *
+  module * { export * }
+}

@@ -12,7 +12,7 @@ protocol NewProjectViewControllerDelegate: AnyObject {
     func reloadList()
 }
 
-class NewProjectViewController: UIViewController {
+class NewProjectViewController: UIViewController{
     
     @IBOutlet weak var projectNameLabel: UITextField!
     @IBOutlet weak var deleteButton: UIButton!
@@ -27,6 +27,8 @@ class NewProjectViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        projectNameLabel.delegate = self
         
         if let project = project {
             projectNameLabel.text = project.name
@@ -132,5 +134,12 @@ class NewProjectViewController: UIViewController {
         let action = UIAlertAction(title: "Ok", style: .default, handler: nil)
         alert.addAction(action)
         present(alert, animated: true)
+    }
+}
+
+extension NewProjectViewController: UITextFieldDelegate{
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        self.view.endEditing(true)
+        return false
     }
 }
