@@ -43,25 +43,17 @@ class ProjectViewController: UIViewController {
             newProjectVC.modalPresentationStyle = .overCurrentContext
             newProjectVC.delegate = self
             
-            if let selectedProjectId = selectedProjectId {
-                newProjectVC.project = projects[selectedProjectId]
-                self.selectedProjectId = nil
-            }
-            
             self.present(newProjectVC, animated: true)
         }
     }
     
-    /// Go to NewProjectViewController
-    private func goToUpdateProjectViewController() {
+    /// Go to UpdateProjectViewController
+    private func goToUpdateProjectViewController(project: Project) {
         if let updateProjectVC = UIStoryboard.loadView(from: .UpdateProject, identifier: .UpdateProjectID) as? UpdateProjectViewController {
             updateProjectVC.modalTransitionStyle = .crossDissolve
             updateProjectVC.modalPresentationStyle = .overCurrentContext
             
-            if let selectedProjectId = selectedProjectId {
-                updateProjectVC.project = projects[selectedProjectId]
-                self.selectedProjectId = nil
-            }
+            updateProjectVC.project = project
             
             self.present(updateProjectVC, animated: true)
         }
@@ -76,9 +68,18 @@ class ProjectViewController: UIViewController {
             }
         }
     }
+    
+    func deleteAlert(){
+        let alert = UIAlertController(title: "Delete", message: "Project has deleted!", preferredStyle: .alert)
+        
+        let alertAction = UIAlertAction(title: "Ok", style: .default, handler: nil)
+        alert.addAction(alertAction)
+        
+        self.present(alert, animated: true)
+    }
 }
 
-extension ProjectViewController: NewProjectViewControllerDelegate {
+extension ProjectViewController: ReloadProjectListDelegate {
     func reloadList(){
         projectBO.retrieve(completion: { result in
             switch result {
@@ -102,13 +103,28 @@ extension ProjectViewController: UICollectionViewDelegate {
     
     /// Menu configuration
     func collectionView(_ collectionView: UICollectionView, contextMenuConfigurationForItemAt indexPath: IndexPath, point: CGPoint) -> UIContextMenuConfiguration? {
+        let proj = self.projects[indexPath.row]
         
-        let edit = UIAction(title: "Edit") { (edit) in
-            self.goToUpdateProjectViewController()
-        }
-        let delete = UIAction(title: "Delete") { (delete) in
+        let edit = UIAction(title: "Edit", image: UIImage(systemName: "square.and.pencil"), handler: { (edit) in
+            self.goToUpdateProjectViewController(project: proj)
+        })
+        
+        let delete = UIAction(title: "Delete", image: UIImage(systemName: "trash"), attributes: .destructive ,handler: { (delete) in
+                
             
-        }
+            self.projectBO.delete(uuid: proj.id) { (result) in
+                    switch result {
+                        case .success():
+                            self.deleteAlert()
+                            self.projects.remove(at: indexPath.row)
+                            collectionView.reloadData()
+                            break
+                        case .failure(let error):
+                            print(error.localizedDescription)
+                            break
+                    }
+                }
+            })
 
         return UIContextMenuConfiguration(identifier: nil,
           previewProvider: nil) { _ in

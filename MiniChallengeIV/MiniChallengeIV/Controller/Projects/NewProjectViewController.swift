@@ -8,10 +8,6 @@
 
 import UIKit
 
-protocol NewProjectViewControllerDelegate: AnyObject {
-    func reloadList()
-}
-
 class NewProjectViewController: UIViewController{
     
     @IBOutlet weak var projectNameLabel: UITextField!
@@ -23,7 +19,7 @@ class NewProjectViewController: UIViewController{
     var projectName = String()
     var projectColor = UIColor()
     
-    weak var delegate: NewProjectViewControllerDelegate?
+    weak var delegate: ReloadProjectListDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -78,28 +74,6 @@ class NewProjectViewController: UIViewController{
     }
     
     private func saveProject() {
-        
-        
-        
-        guard project == nil else {
-            project?.name = projectNameLabel.text ?? ""
-            project?.color = projectColor
-            
-            projectBO.update(project: project!, completion: { result in
-                switch result {
-                    
-                case .success():
-                    dismiss(animated: true)
-                    delegate?.reloadList()
-                case .failure(let error):
-                    self.showOkAlert(title: "Error", message: error.localizedDescription )
-                }
-            })
-            
-            return
-        }
-        
-        
         projectBO.create(name: projectNameLabel.text ?? "MurilloTiozao", color: projectColor, completion: { result in
             
             switch result {

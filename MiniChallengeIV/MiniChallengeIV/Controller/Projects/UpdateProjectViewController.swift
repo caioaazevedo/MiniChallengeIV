@@ -14,13 +14,17 @@ class UpdateProjectViewController: UIViewController {
     
     let projectBO = ProjectBO()
     
-    var project: Project?
+    var project: Project!
     var projectName = String()
     var projectColor = UIColor()
+    
+    weak var delegate: ReloadProjectListDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        projectNameLabel.text = project.name
+        projectColor = project.color
     }
     
     @IBAction func onClickColor(_ sender: UIButton) {
@@ -44,7 +48,18 @@ class UpdateProjectViewController: UIViewController {
     }
     
     private func saveProject() {
-        showOkAlert(title: "Save", message: "Project Updated!")
+        project.name = projectNameLabel.text ?? ""
+        project.color = projectColor
+        
+        projectBO.update(project: project!, completion: { result in
+            switch result {
+            case .success(_):
+                delegate?.reloadList()
+                dismiss(animated: true)
+            case .failure(let error):
+                self.showOkAlert(title: "Error", message: error.localizedDescription )
+            }
+        })
     }
     
     func showOkAlert(title: String, message: String) {

@@ -46,6 +46,7 @@
 		E2CAB78B2460A0FB00822073 /* TimeRecoverBOTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2CAB78A2460A0FB00822073 /* TimeRecoverBOTests.swift */; };
 		E2CB3F092469EC8E008621FB /* UpdateProjectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2CB3F082469EC8E008621FB /* UpdateProjectViewController.swift */; };
 		E2CB3F0B2469ECCC008621FB /* UpdateProject.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E2CB3F0A2469ECCC008621FB /* UpdateProject.storyboard */; };
+		E2CB3F0D2469FFA4008621FB /* ReloadProjects.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2CB3F0C2469FFA4008621FB /* ReloadProjects.swift */; };
 		E2DF45582465CD1F0060FCB7 /* DataChartBO.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2DF45572465CD1F0060FCB7 /* DataChartBO.swift */; };
 		E2DF455A2465D7500060FCB7 /* DataChartBOTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2DF45592465D7500060FCB7 /* DataChartBOTests.swift */; };
 		E2DF455D2465EF7F0060FCB7 /* ProjectStatisticsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2DF455C2465EF7F0060FCB7 /* ProjectStatisticsCell.swift */; };
@@ -124,6 +125,7 @@
 		E2CAB78A2460A0FB00822073 /* TimeRecoverBOTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeRecoverBOTests.swift; sourceTree = "<group>"; };
 		E2CB3F082469EC8E008621FB /* UpdateProjectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateProjectViewController.swift; sourceTree = "<group>"; };
 		E2CB3F0A2469ECCC008621FB /* UpdateProject.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = UpdateProject.storyboard; sourceTree = "<group>"; };
+		E2CB3F0C2469FFA4008621FB /* ReloadProjects.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReloadProjects.swift; sourceTree = "<group>"; };
 		E2DF45572465CD1F0060FCB7 /* DataChartBO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataChartBO.swift; sourceTree = "<group>"; };
 		E2DF45592465D7500060FCB7 /* DataChartBOTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataChartBOTests.swift; sourceTree = "<group>"; };
 		E2DF455C2465EF7F0060FCB7 /* ProjectStatisticsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectStatisticsCell.swift; sourceTree = "<group>"; };
@@ -188,6 +190,7 @@
 			children = (
 				4027D67F24589D2D0046DE58 /* DatabaseService.swift */,
 				E2E86FDC245AD3D20006712A /* TimerDataManager.swift */,
+				E2CB3F0C2469FFA4008621FB /* ReloadProjects.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -612,6 +615,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E2CB3F0D2469FFA4008621FB /* ReloadProjects.swift in Sources */,
 				69F56222245B6DAE00EB2AF1 /* ProjectViewController.swift in Sources */,
 				4027D68024589D2D0046DE58 /* DatabaseService.swift in Sources */,
 				4061B394245B74220027775C /* Color.swift in Sources */,
