@@ -14,9 +14,7 @@ class ProjectViewController: UIViewController {
     var selectedProjectId: Int?
     var projectBO = ProjectBO()
     var projects: [Project] = []
-    
-    
-    
+        
     override func viewDidLoad() {
         super.viewDidLoad()
         reloadList()
