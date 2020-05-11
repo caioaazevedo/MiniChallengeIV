@@ -15,13 +15,13 @@ import UIKit
 class OnboardingPagerViewController: UIViewController {
     
     var vc = [UIViewController]()
-    let viewControllersID = [ "left","middle","right" ]
+    let viewControllersID = [ "step1","step2","step3","step4","step5","step6" ]
     
     var initialContentOffset = CGPoint()  // scrollView initial offset
     var scrollView: UIScrollView!
 //    var delegate: OnboardingPagerViewControllerDelegate?
     
-    @IBOutlet weak var pgControl: UIPageControl!
+    var pgControl = UIPageControl()
     var currentPage = 0 {
         didSet {
             pgControl.currentPage = currentPage
@@ -47,8 +47,8 @@ class OnboardingPagerViewController: UIViewController {
     }
     
     func setupPageControl() {
-        pgControl.pageIndicatorTintColor = .white
-        pgControl.currentPageIndicatorTintColor = .black
+        pgControl.pageIndicatorTintColor = .lightGray
+        pgControl.currentPageIndicatorTintColor = .white
         pgControl.numberOfPages = vc.count
         pgControl.removeFromSuperview()
         view.addSubview(pgControl)

@@ -30,6 +30,7 @@
 		69B172922458CAC000D0F31E /* ProjectBO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69B172912458CAC000D0F31E /* ProjectBO.swift */; };
 		69B172942458CACA00D0F31E /* ProjectDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69B172932458CACA00D0F31E /* ProjectDAO.swift */; };
 		69C6438C24609D8D00CE475F /* AppNotificationBO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69C6438B24609D8D00CE475F /* AppNotificationBO.swift */; };
+		69D4B4FA2469E65400DE4EAB /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69D4B4F92469E65400DE4EAB /* UIView.swift */; };
 		69E2DEBC246603E000C109D2 /* StepZeroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69E2DEBB246603E000C109D2 /* StepZeroViewController.swift */; };
 		69ECFA2F2459FD5A00D4F205 /* Projects.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 69ECFA2E2459FD5A00D4F205 /* Projects.storyboard */; };
 		69F56222245B6DAE00EB2AF1 /* ProjectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69F56221245B6DAE00EB2AF1 /* ProjectViewController.swift */; };
@@ -94,6 +95,7 @@
 		69B172912458CAC000D0F31E /* ProjectBO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectBO.swift; sourceTree = "<group>"; };
 		69B172932458CACA00D0F31E /* ProjectDAO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectDAO.swift; sourceTree = "<group>"; };
 		69C6438B24609D8D00CE475F /* AppNotificationBO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppNotificationBO.swift; sourceTree = "<group>"; };
+		69D4B4F92469E65400DE4EAB /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 		69E2DEBB246603E000C109D2 /* StepZeroViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepZeroViewController.swift; sourceTree = "<group>"; };
 		69ECFA2E2459FD5A00D4F205 /* Projects.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Projects.storyboard; sourceTree = "<group>"; };
 		69F56221245B6DAE00EB2AF1 /* ProjectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ProjectViewController.swift; path = ../ProjectViewController.swift; sourceTree = "<group>"; };
@@ -255,6 +257,7 @@
 			children = (
 				4061B393245B74220027775C /* Color.swift */,
 				6910339F245A15F6009D5D58 /* UIStoryboard.swift */,
+				69D4B4F92469E65400DE4EAB /* UIView.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -450,6 +453,7 @@
 				4027D68024589D2D0046DE58 /* DatabaseService.swift in Sources */,
 				69E2DEBC246603E000C109D2 /* StepZeroViewController.swift in Sources */,
 				4061B394245B74220027775C /* Color.swift in Sources */,
+				69D4B4FA2469E65400DE4EAB /* UIView.swift in Sources */,
 				69B172902458CAB800D0F31E /* Project.swift in Sources */,
 				406EA9D62460A5FD00903350 /* CDManager.swift in Sources */,
 				69B172922458CAC000D0F31E /* ProjectBO.swift in Sources */,
