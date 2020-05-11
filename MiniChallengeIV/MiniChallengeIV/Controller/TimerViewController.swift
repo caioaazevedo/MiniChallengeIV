@@ -12,8 +12,16 @@ import UIKit
 class TimerViewController: UIViewController {
     
     //Atributes
+    @IBOutlet weak var btnStart: UIButton!
+    @IBOutlet weak var tableView: UITableView!
+    
     let timeTracker = TimeTrackerBO()
     var lostTimeFocus: TimeRecoverBO?
+    var id: UUID?
+    var project: Project?
+    let projectBO = ProjectBO()
+    let taskBO = TaskBO()
+    var taskField = ""
     //Properties
     ///the validation for the minimum value
     var minimumDecrement: Int{
@@ -30,11 +38,21 @@ class TimerViewController: UIViewController {
     @IBOutlet weak var timerLabel: UILabel!
     @IBOutlet var timeConfigButtons: [UIButton]!
     @IBOutlet weak var stateLabel: UILabel!
+    @IBOutlet weak var projectColor: UIView!
     
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        //        self.dismissKeyboard()
+        
+        
+        loadProject()
+        self.btnStart.layer.cornerRadius = 25.0
+        self.tableView.separatorColor = .clear
+        //        self.tableView.tableFooterView = UIView()
+        
+        
         // Do any additional setup after loading the view.
         timerLabel.text = String(format: "%02i:00", timeTracker.configTime)
         
@@ -48,7 +66,49 @@ class TimerViewController: UIViewController {
             sd.timer = self.timeTracker
             sd.lostTimeFocus = self.lostTimeFocus
         }
+        
+        self.stateLabel.text = project?.name
+        projectColor.backgroundColor = project?.color
+        projectColor.layer.cornerRadius = 15.0
     }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        UIApplication.shared.sendAction(#selector(UIApplication.resignFirstResponder), to: nil, from: nil, for: nil)
+        view.endEditing(true)
+    }
+    
+    
+    @IBAction func btnAddTask(_ sender: Any) {
+        guard let tasks = self.project?.tasks else { return }
+        let myCell = tableView.cellForRow(at: IndexPath(row: tasks.count, section: 0)) as! TaskTableViewCell
+        
+        guard let projectCD = project?.projectCD else { return }
+        projectBO.addTask(description: myCell.taskTextField.text!, projectCD: projectCD, completion: { result in
+            
+            switch result{
+                
+            case .success():
+                loadProject()
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        })
+        
+    }
+    
+    func loadProject(){
+        guard let id = self.id else { return }
+        projectBO.fetch(id: id, completion: { result in
+            switch result {
+            case .success(let project):
+                self.project = project
+                tableView.reloadData()
+            case .failure(let error):
+                print(error)
+            }
+        })
+    }
+    
     
     //MARK: START TIMER
     @IBAction func startTimer(_ sender: UIButton) {
@@ -100,5 +160,89 @@ class TimerViewController: UIViewController {
             button.isEnabled = value
         }
     }
+    
+}
+
+extension TimerViewController: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if let tasks = self.project?.tasks, tasks.count > 0 {
+            return tasks.count+1
+        }
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "TaskCell", for: indexPath) as! TaskTableViewCell
+        
+        cell.taskTextField.delegate = self
+        
+        if let tasks = project?.tasks, tasks.count <= indexPath.row {
+            let icon = UIImage(named: "btnAdd")
+            cell.btnCheck.setImage(icon, for: .normal)
+            cell.taskTextField.text = "Add task"
+            cell.btnCheck.addTarget(self, action: #selector(addTask), for: .touchUpInside)
+        }
+        
+
+        if let tasks = project?.tasks, tasks.count > 0, tasks.count > indexPath.row {
+            cell.taskTextField.text = tasks[indexPath.row].description
+            cell.taskTextField.tag = indexPath.row
+            cell.btnCheck.addTarget(self, action: #selector(checkMarkBtnClicked(sender:)), for: .touchUpInside)
+            
+            return cell
+        }
+        
+        return cell
+    }
+    
+    @objc func checkMarkBtnClicked(sender: UIButton){
+        if sender.isSelected {
+            sender.isSelected = false
+        }else {
+            sender.isSelected = true
+        }
+        self.tableView.reloadData()
+    }
+    
+    @objc func addTask(){
+        guard let tasks = self.project?.tasks else { return }
+        let myCell = tableView.cellForRow(at: IndexPath(row: tasks.count, section: 0)) as! TaskTableViewCell
+        
+        guard let projectCD = project?.projectCD else { return }
+        projectBO.addTask(description: myCell.taskTextField.text!, projectCD: projectCD, completion: { result in
+            
+            switch result{
+                
+            case .success():
+                loadProject()
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        })
+    }
+    
+}
+
+// Tex field
+
+extension TimerViewController: UITextFieldDelegate {
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        guard let tasks = project?.tasks else { return }
+        if textField.tag != 10000{
+            var actuallyTask = tasks[textField.tag]
+            actuallyTask.description = textField.text!
+            taskBO.update(task: actuallyTask, completion: {result in
+                switch result {
+                    
+                case .success():
+                    loadProject()
+                case .failure(let error):
+                    print(error.localizedDescription)
+                }
+            })
+        }
+    }
+    
     
 }

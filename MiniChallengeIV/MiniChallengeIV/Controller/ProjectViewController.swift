@@ -24,6 +24,11 @@ class ProjectViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        UIApplication.shared.sendAction(#selector(UIApplication.resignFirstResponder), to: nil, from: nil, for: nil)
+        view.endEditing(true)
+    }
+    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         collectionView.reloadData()
@@ -71,7 +76,16 @@ extension ProjectViewController: NewProjectViewControllerDelegate {
             //        goToNewProjectViewController()
             performSegue(withIdentifier: "GoToTimer", sender: self)
         }
+        
+        override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+            let destinationVC = segue.destination as! TimerViewController
+            guard let row = selectedProjectId else {
+                return
+            }
+            destinationVC.id = projects[row].id
+        }
     }
+
     
     extension ProjectViewController: UICollectionViewDataSource {
         func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {

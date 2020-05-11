@@ -27,6 +27,8 @@ class NewProjectViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+//        self.dismissKeyboard()
+
         
         if let project = project {
             projectNameLabel.text = project.name
@@ -35,6 +37,11 @@ class NewProjectViewController: UIViewController {
         else {
             deleteButton.isHidden = true
         }
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        UIApplication.shared.sendAction(#selector(UIApplication.resignFirstResponder), to: nil, from: nil, for: nil)
+        view.endEditing(true)
     }
     
     @IBAction func onClickColor(_ sender: UIButton) {
@@ -77,8 +84,6 @@ class NewProjectViewController: UIViewController {
     
     private func saveProject() {
         
-        
-        
         guard project == nil else {
             project?.name = projectNameLabel.text ?? ""
             project?.color = projectColor
@@ -110,19 +115,6 @@ class NewProjectViewController: UIViewController {
             }
             
         })
-        //        projectBO.create(name: projectNameLabel.text ?? "MurilloTrouxa", color: UIColor(red: 0.00, green: 0.30, blue: 0.81, alpha: 1.00), completion: { success, error in
-        //            if success {
-        //                dismiss(animated: true)
-        //                delegate?.reloadList()
-        //
-        //            }
-        //            else {
-        //                self.showOkAlert(title: "Error", message: error ?? "")
-        //
-        //            }
-        //        })
-        
-        
     }
     
     func showOkAlert(title: String, message: String) {
