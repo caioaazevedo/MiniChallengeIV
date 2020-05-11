@@ -31,6 +31,7 @@ class TimerViewController: UIViewController {
     @IBOutlet var timeConfigButtons: [UIButton]!
     @IBOutlet weak var stateLabel: UILabel!
     
+    @IBOutlet weak var ringView: AnimatedRingView!
     
     
     override func viewDidLoad() {
@@ -57,7 +58,7 @@ class TimerViewController: UIViewController {
             return
         }
         sender.setTitle("Stop", for: .normal)
-        
+        //Start timer
         timeTracker.startTimer {time, hasEnded in
             self.timerLabel.text = time
             if hasEnded{ // Focus timer ended
@@ -66,6 +67,9 @@ class TimerViewController: UIViewController {
                 self.setConfigurationButtons()
             }
         }
+        //Animate progression ring
+        ringView.animateRing(From: 0, To: 1, Duration: CFTimeInterval(timeTracker.convertedTimeValue))
+        //Enable or disable buttons
         setConfigurationButtons()
     }
     
