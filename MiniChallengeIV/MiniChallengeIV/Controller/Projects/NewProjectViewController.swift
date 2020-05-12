@@ -41,6 +41,12 @@ class NewProjectViewController: UIViewController{
         for check in checks {
             check.isHidden = true
         }
+        
+        if let button = buttons.filter({$0.backgroundColor?.description == project?.color.description}).first,
+            let index = buttons.firstIndex(of: button) {
+            checks[index].isHidden = false
+            currentButtonIndex = index
+        }
                 
         UIApplication.shared.sendAction(#selector(UIApplication.resignFirstResponder), to: nil, from: nil, for: nil)
     }
@@ -52,7 +58,7 @@ class NewProjectViewController: UIViewController{
         
         if let index = buttons.firstIndex(of: sender) {
             checks[index].isHidden = false
-            if let currentButtonIndex = currentButtonIndex {
+            if let currentButtonIndex = currentButtonIndex, currentButtonIndex != index {
                 checks[currentButtonIndex].isHidden = true
             }
             currentButtonIndex = index
