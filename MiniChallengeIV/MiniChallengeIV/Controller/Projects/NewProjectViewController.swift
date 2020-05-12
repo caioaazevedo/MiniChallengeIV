@@ -8,14 +8,11 @@
 
 import UIKit
 
-protocol NewProjectViewControllerDelegate: AnyObject {
-    func reloadList()
-}
-
 class NewProjectViewController: UIViewController{
     
     @IBOutlet weak var projectNameLabel: UITextField!
     @IBOutlet weak var deleteButton: UIButton!
+    @IBOutlet weak var titleLabel: UILabel!
     
     let projectBO = ProjectBO()
     
@@ -23,7 +20,7 @@ class NewProjectViewController: UIViewController{
     var projectName = String()
     var projectColor = UIColor()
     
-    weak var delegate: NewProjectViewControllerDelegate?
+    weak var delegate: ReloadProjectListDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,10 +29,10 @@ class NewProjectViewController: UIViewController{
         
         if let project = project {
             projectNameLabel.text = project.name
-            deleteButton.isHidden = false
-        }
-        else {
-            deleteButton.isHidden = true
+            projectColor = project.color
+            titleLabel.text = "Edit Project"
+        } else {
+            titleLabel.text = "Add Project"
         }
         
         projectNameLabel.text = "work"
@@ -56,20 +53,6 @@ class NewProjectViewController: UIViewController{
         //        }
     }
     
-    @IBAction func onClickDelete(_ sender: Any) {
-        
-        projectBO.delete(uuid: project!.id, completion: { result in
-            switch result {
-                
-            case .success():
-                delegate?.reloadList()
-                dismiss(animated: true)
-            case .failure(let error):
-                showOkAlert(title: "Error", message: error.localizedDescription)
-            }
-        })
-        
-    }
     
     @IBAction func onClickSave(_ sender: Any) {
         saveProject()
@@ -80,16 +63,12 @@ class NewProjectViewController: UIViewController{
     }
     
     private func saveProject() {
-        
-        
-        
         guard project == nil else {
             project?.name = projectNameLabel.text ?? ""
             project?.color = projectColor
             
             projectBO.update(project: project!, completion: { result in
                 switch result {
-                    
                 case .success():
                     dismiss(animated: true)
                     delegate?.reloadList()
@@ -114,19 +93,6 @@ class NewProjectViewController: UIViewController{
             }
             
         })
-        //        projectBO.create(name: projectNameLabel.text ?? "MurilloTrouxa", color: UIColor(red: 0.00, green: 0.30, blue: 0.81, alpha: 1.00), completion: { success, error in
-        //            if success {
-        //                dismiss(animated: true)
-        //                delegate?.reloadList()
-        //
-        //            }
-        //            else {
-        //                self.showOkAlert(title: "Error", message: error ?? "")
-        //
-        //            }
-        //        })
-        
-        
     }
     
     func showOkAlert(title: String, message: String) {
