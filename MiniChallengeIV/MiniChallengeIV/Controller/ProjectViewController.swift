@@ -19,6 +19,7 @@ class ProjectViewController: UIViewController {
         super.viewDidLoad()
         reloadList()
         
+        
         // Do any additional setup after loading the view.
     }
     
@@ -79,8 +80,6 @@ extension ProjectViewController: NewProjectViewControllerDelegate {
     
     extension ProjectViewController: UICollectionViewDelegate {
         func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-            selectedProjectId = indexPath.item
-            //        goToNewProjectViewController()
             performSegue(withIdentifier: "GoToTimer", sender: self)
         }
     }
