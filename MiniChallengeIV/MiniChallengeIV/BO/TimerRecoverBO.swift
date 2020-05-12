@@ -105,8 +105,6 @@ class TimeRecoverBO {
     }
 
     func changeCicleTimer() {
-        ///Reset Timer
-        timer.state = timer.changeCicle
         
         /// Restar timer
         timer.countDown = 0

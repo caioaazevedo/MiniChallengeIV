@@ -64,11 +64,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let t = timer else{return}
         if !view.isRunning{return}
         
-        let startValue = view.calculateStroke(With: CGFloat(t.countDown), ToStart: true)
-        let endValue = view.calculateStroke(With: CGFloat(t.countDown), ToStart: false)
-        let startAngle = view.calculateAngle(With: CGFloat(t.countDown))
-        view.proportion = endValue
-        view.animateRing(From: endValue, FromAngle: startAngle, To: 1, Duration: CFTimeInterval(t.countDown))
+        let startValue = view.calculateStartingPoint(With: CGFloat(t.countDown), And: 1)
+        let startAngle = view.calculateStartingPoint(With: CGFloat(t.countDown), And: (2 * CGFloat.pi))
+        view.animateRing(From: startValue, FromAngle: startAngle, To: 1, Duration: CFTimeInterval(t.countDown))
     }
 
     func sceneDidEnterBackground(_ scene: UIScene) {
