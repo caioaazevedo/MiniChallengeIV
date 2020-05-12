@@ -51,6 +51,7 @@
 		E29B1E132458CA7D00EA9B48 /* StatisticBO.swift in Sources */ = {isa = PBXBuildFile; fileRef = E29B1E122458CA7D00EA9B48 /* StatisticBO.swift */; };
 		E29B1E152458CA9B00EA9B48 /* StatisticDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = E29B1E142458CA9B00EA9B48 /* StatisticDAO.swift */; };
 		E2CAB78B2460A0FB00822073 /* TimeRecoverBOTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2CAB78A2460A0FB00822073 /* TimeRecoverBOTests.swift */; };
+		E2CB3F0D2469FFA4008621FB /* ReloadProjects.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2CB3F0C2469FFA4008621FB /* ReloadProjects.swift */; };
 		E2DF45582465CD1F0060FCB7 /* DataChartBO.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2DF45572465CD1F0060FCB7 /* DataChartBO.swift */; };
 		E2DF455A2465D7500060FCB7 /* DataChartBOTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2DF45592465D7500060FCB7 /* DataChartBOTests.swift */; };
 		E2DF455D2465EF7F0060FCB7 /* ProjectStatisticsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2DF455C2465EF7F0060FCB7 /* ProjectStatisticsCell.swift */; };
@@ -134,6 +135,7 @@
 		E29B1E122458CA7D00EA9B48 /* StatisticBO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticBO.swift; sourceTree = SOURCE_ROOT; };
 		E29B1E142458CA9B00EA9B48 /* StatisticDAO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticDAO.swift; sourceTree = "<group>"; };
 		E2CAB78A2460A0FB00822073 /* TimeRecoverBOTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeRecoverBOTests.swift; sourceTree = "<group>"; };
+		E2CB3F0C2469FFA4008621FB /* ReloadProjects.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReloadProjects.swift; sourceTree = "<group>"; };
 		E2DF45572465CD1F0060FCB7 /* DataChartBO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataChartBO.swift; sourceTree = "<group>"; };
 		E2DF45592465D7500060FCB7 /* DataChartBOTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataChartBOTests.swift; sourceTree = "<group>"; };
 		E2DF455C2465EF7F0060FCB7 /* ProjectStatisticsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectStatisticsCell.swift; sourceTree = "<group>"; };
@@ -198,6 +200,7 @@
 			children = (
 				4027D67F24589D2D0046DE58 /* DatabaseService.swift */,
 				E2E86FDC245AD3D20006712A /* TimerDataManager.swift */,
+				E2CB3F0C2469FFA4008621FB /* ReloadProjects.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -644,6 +647,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				796706852469E1CA00C35A43 /* AnimatedRingView.swift in Sources */,
+				E2CB3F0D2469FFA4008621FB /* ReloadProjects.swift in Sources */,
 				69F56222245B6DAE00EB2AF1 /* ProjectViewController.swift in Sources */,
 				4027D68024589D2D0046DE58 /* DatabaseService.swift in Sources */,
 				69E2DEBC246603E000C109D2 /* StepZeroViewController.swift in Sources */,
