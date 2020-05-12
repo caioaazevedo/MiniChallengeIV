@@ -8,14 +8,14 @@
 
 import UIKit
 
-protocol NewProjectViewControllerDelegate: AnyObject {
-    func reloadList()
-}
-
 class NewProjectViewController: UIViewController{
     
     @IBOutlet weak var projectNameLabel: UITextField!
-    @IBOutlet weak var deleteButton: UIButton!
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet var buttons: [UIButton]!
+    @IBOutlet var checks: [UIImageView]!
+    
+    var currentButtonIndex: Int?
     
     let projectBO = ProjectBO()
     
@@ -23,7 +23,7 @@ class NewProjectViewController: UIViewController{
     var projectName = String()
     var projectColor = UIColor(red: 0.77, green: 0.87, blue: 0.96, alpha: 1.00)
     
-    weak var delegate: NewProjectViewControllerDelegate?
+    weak var delegate: ReloadProjectListDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,11 +34,23 @@ class NewProjectViewController: UIViewController{
         
         if let project = project {
             projectNameLabel.text = project.name
-            deleteButton.isHidden = false
+            projectColor = project.color
+            titleLabel.text = "Edit Project"
+        } else {
+            titleLabel.text = "Add Project"
         }
-        else {
-            deleteButton.isHidden = true
+        
+        for check in checks {
+            check.isHidden = true
         }
+        
+        if let button = buttons.filter({$0.backgroundColor?.description == project?.color.description}).first,
+            let index = buttons.firstIndex(of: button) {
+            checks[index].isHidden = false
+            currentButtonIndex = index
+        }
+                
+        UIApplication.shared.sendAction(#selector(UIApplication.resignFirstResponder), to: nil, from: nil, for: nil)
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -47,34 +59,34 @@ class NewProjectViewController: UIViewController{
     }
     
     @IBAction func onClickColor(_ sender: UIButton) {
-        var colors: [UIColor] = [
-            UIColor(red: 0.72, green: 0.00, blue: 0.00, alpha: 1.00),
-            UIColor(red: 0.86, green: 0.24, blue: 0.00, alpha: 1.00),
-            UIColor(red: 0.99, green: 0.80, blue: 0.00, alpha: 1.00),
-            UIColor(red: 0.07, green: 0.45, blue: 0.87, alpha: 1.00),
-            UIColor(red: 0.83, green: 0.77, blue: 0.98, alpha: 1.00)
-        ]
-        colors = colors.shuffled()
-        projectColor = colors[0]
-        //        if let color = sender.backgroundColor {
-        //            projectColor = color
-        //        }
+        if let color = sender.backgroundColor {
+            projectColor = color
+        }
+        
+        if let index = buttons.firstIndex(of: sender) {
+            checks[index].isHidden = false
+            if let currentButtonIndex = currentButtonIndex, currentButtonIndex != index {
+                checks[currentButtonIndex].isHidden = true
+            }
+            currentButtonIndex = index
+        }
+        
     }
     
-    @IBAction func onClickDelete(_ sender: Any) {
-        
-        projectBO.delete(uuid: project!.id, completion: { result in
-            switch result {
-                
-            case .success():
-                delegate?.reloadList()
-                dismiss(animated: true)
-            case .failure(let error):
-                showOkAlert(title: "Error", message: error.localizedDescription)
-            }
-        })
-        
-    }
+//    @IBAction func onClickDelete(_ sender: Any) {
+//
+//        projectBO.delete(uuid: project!.id, completion: { result in
+//            switch result {
+//
+//            case .success():
+//                delegate?.reloadList()
+//                dismiss(animated: true)
+//            case .failure(let error):
+//                showOkAlert(title: "Error", message: error.localizedDescription)
+//            }
+//        })
+//
+//    }
     
     @IBAction func onClickSave(_ sender: Any) {
         saveProject()
@@ -85,14 +97,12 @@ class NewProjectViewController: UIViewController{
     }
     
     private func saveProject() {
-        
         guard project == nil else {
             project?.name = projectNameLabel.text ?? ""
             project?.color = projectColor
             
             projectBO.update(project: project!, completion: { result in
                 switch result {
-                    
                 case .success():
                     dismiss(animated: true)
                     delegate?.reloadList()
@@ -124,6 +134,10 @@ class NewProjectViewController: UIViewController{
         let action = UIAlertAction(title: "Ok", style: .default, handler: nil)
         alert.addAction(action)
         present(alert, animated: true)
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        view.endEditing(true)
     }
 }
 

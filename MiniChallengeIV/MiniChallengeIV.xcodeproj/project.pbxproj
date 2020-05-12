@@ -16,6 +16,8 @@
 		409D5034245B4EC5006D66AC /* TaskDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 409D5033245B4EC5006D66AC /* TaskDAO.swift */; };
 		691033A0245A15F6009D5D58 /* UIStoryboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6910339F245A15F6009D5D58 /* UIStoryboard.swift */; };
 		691033A4245A250A009D5D58 /* NewProjectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 691033A3245A250A009D5D58 /* NewProjectViewController.swift */; };
+		6927A1BF2464AC85005E0154 /* Onboarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6927A1BE2464AC85005E0154 /* Onboarding.storyboard */; };
+		696620382465F034003B3916 /* OnboardingPagerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 696620372465F034003B3916 /* OnboardingPagerViewController.swift */; };
 		696E92E5245A499800E7F3DF /* NewProject.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 696E92E4245A499800E7F3DF /* NewProject.storyboard */; };
 		69B04723245754D5002A696D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69B04722245754D5002A696D /* AppDelegate.swift */; };
 		69B04725245754D5002A696D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69B04724245754D5002A696D /* SceneDelegate.swift */; };
@@ -27,6 +29,10 @@
 		69B172902458CAB800D0F31E /* Project.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69B1728F2458CAB800D0F31E /* Project.swift */; };
 		69B172922458CAC000D0F31E /* ProjectBO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69B172912458CAC000D0F31E /* ProjectBO.swift */; };
 		69B172942458CACA00D0F31E /* ProjectDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69B172932458CACA00D0F31E /* ProjectDAO.swift */; };
+		69C6438C24609D8D00CE475F /* AppNotificationBO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69C6438B24609D8D00CE475F /* AppNotificationBO.swift */; };
+		69D4B4FA2469E65400DE4EAB /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69D4B4F92469E65400DE4EAB /* UIView.swift */; };
+		69D5310C246B316700ECF0F4 /* UIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69D5310B246B316700ECF0F4 /* UIButton.swift */; };
+		69D5310E246B469600ECF0F4 /* UITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69D5310D246B469600ECF0F4 /* UITextField.swift */; };
 		69ECFA2F2459FD5A00D4F205 /* Projects.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 69ECFA2E2459FD5A00D4F205 /* Projects.storyboard */; };
 		69F56222245B6DAE00EB2AF1 /* ProjectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69F56221245B6DAE00EB2AF1 /* ProjectViewController.swift */; };
 		69F56228245B6E1D00EB2AF1 /* ProjectCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69F56227245B6E1D00EB2AF1 /* ProjectCollectionViewCell.swift */; };
@@ -44,6 +50,7 @@
 		E29B1E132458CA7D00EA9B48 /* StatisticBO.swift in Sources */ = {isa = PBXBuildFile; fileRef = E29B1E122458CA7D00EA9B48 /* StatisticBO.swift */; };
 		E29B1E152458CA9B00EA9B48 /* StatisticDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = E29B1E142458CA9B00EA9B48 /* StatisticDAO.swift */; };
 		E2CAB78B2460A0FB00822073 /* TimeRecoverBOTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2CAB78A2460A0FB00822073 /* TimeRecoverBOTests.swift */; };
+		E2CB3F0D2469FFA4008621FB /* ReloadProjects.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2CB3F0C2469FFA4008621FB /* ReloadProjects.swift */; };
 		E2DF45582465CD1F0060FCB7 /* DataChartBO.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2DF45572465CD1F0060FCB7 /* DataChartBO.swift */; };
 		E2DF455A2465D7500060FCB7 /* DataChartBOTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2DF45592465D7500060FCB7 /* DataChartBOTests.swift */; };
 		E2DF455D2465EF7F0060FCB7 /* ProjectStatisticsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2DF455C2465EF7F0060FCB7 /* ProjectStatisticsCell.swift */; };
@@ -81,6 +88,8 @@
 		409D5033245B4EC5006D66AC /* TaskDAO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskDAO.swift; sourceTree = "<group>"; };
 		6910339F245A15F6009D5D58 /* UIStoryboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIStoryboard.swift; sourceTree = "<group>"; };
 		691033A3245A250A009D5D58 /* NewProjectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewProjectViewController.swift; sourceTree = "<group>"; };
+		6927A1BE2464AC85005E0154 /* Onboarding.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Onboarding.storyboard; sourceTree = "<group>"; };
+		696620372465F034003B3916 /* OnboardingPagerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingPagerViewController.swift; sourceTree = "<group>"; };
 		696E92E4245A499800E7F3DF /* NewProject.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = NewProject.storyboard; sourceTree = "<group>"; };
 		69B0471F245754D5002A696D /* MiniChallengeIV.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MiniChallengeIV.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		69B04722245754D5002A696D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -97,6 +106,10 @@
 		69B1728F2458CAB800D0F31E /* Project.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Project.swift; sourceTree = "<group>"; };
 		69B172912458CAC000D0F31E /* ProjectBO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectBO.swift; sourceTree = "<group>"; };
 		69B172932458CACA00D0F31E /* ProjectDAO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectDAO.swift; sourceTree = "<group>"; };
+		69C6438B24609D8D00CE475F /* AppNotificationBO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppNotificationBO.swift; sourceTree = "<group>"; };
+		69D4B4F92469E65400DE4EAB /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
+		69D5310B246B316700ECF0F4 /* UIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButton.swift; sourceTree = "<group>"; };
+		69D5310D246B469600ECF0F4 /* UITextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextField.swift; sourceTree = "<group>"; };
 		69ECFA2E2459FD5A00D4F205 /* Projects.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Projects.storyboard; sourceTree = "<group>"; };
 		69F56221245B6DAE00EB2AF1 /* ProjectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ProjectViewController.swift; path = ../ProjectViewController.swift; sourceTree = "<group>"; };
 		69F56227245B6E1D00EB2AF1 /* ProjectCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ProjectCollectionViewCell.swift; path = ../ProjectCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -120,6 +133,7 @@
 		E29B1E122458CA7D00EA9B48 /* StatisticBO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticBO.swift; sourceTree = SOURCE_ROOT; };
 		E29B1E142458CA9B00EA9B48 /* StatisticDAO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticDAO.swift; sourceTree = "<group>"; };
 		E2CAB78A2460A0FB00822073 /* TimeRecoverBOTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeRecoverBOTests.swift; sourceTree = "<group>"; };
+		E2CB3F0C2469FFA4008621FB /* ReloadProjects.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReloadProjects.swift; sourceTree = "<group>"; };
 		E2DF45572465CD1F0060FCB7 /* DataChartBO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataChartBO.swift; sourceTree = "<group>"; };
 		E2DF45592465D7500060FCB7 /* DataChartBOTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataChartBOTests.swift; sourceTree = "<group>"; };
 		E2DF455C2465EF7F0060FCB7 /* ProjectStatisticsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectStatisticsCell.swift; sourceTree = "<group>"; };
@@ -183,6 +197,7 @@
 			isa = PBXGroup;
 			children = (
 				E2E86FDC245AD3D20006712A /* TimerDataManager.swift */,
+				E2CB3F0C2469FFA4008621FB /* ReloadProjects.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -265,6 +280,7 @@
 				796C3E39245A02C2004488D1 /* Timer.storyboard */,
 				69ECFA2E2459FD5A00D4F205 /* Projects.storyboard */,
 				696E92E4245A499800E7F3DF /* NewProject.storyboard */,
+				6927A1BE2464AC85005E0154 /* Onboarding.storyboard */,
 				E24DE0142463503900E425E1 /* Statistics.storyboard */,
 			);
 			path = View;
@@ -274,6 +290,7 @@
 			isa = PBXGroup;
 			children = (
 				6910339A245A11DC009D5D58 /* Projects */,
+				69D4B4FB2469F84600DE4EAB /* Onboarding */,
 				69B04726245754D5002A696D /* ViewController.swift */,
 				796C3E37245A00DF004488D1 /* TimerViewController.swift */,
 				E24DE019246350A700E425E1 /* StatisticsViewController.swift */,
@@ -286,6 +303,9 @@
 			children = (
 				4061B393245B74220027775C /* Color.swift */,
 				6910339F245A15F6009D5D58 /* UIStoryboard.swift */,
+				69D4B4F92469E65400DE4EAB /* UIView.swift */,
+				69D5310B246B316700ECF0F4 /* UIButton.swift */,
+				69D5310D246B469600ECF0F4 /* UITextField.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -306,6 +326,7 @@
 				E29B1E122458CA7D00EA9B48 /* StatisticBO.swift */,
 				409D5031245B4E35006D66AC /* TaskBO.swift */,
 				796C3E35245A0079004488D1 /* TimeTrakcerBO.swift */,
+				69C6438B24609D8D00CE475F /* AppNotificationBO.swift */,
 				E2F4DCF22461B15600AC83AA /* TimerRecoverBO.swift */,
 				E2DF45572465CD1F0060FCB7 /* DataChartBO.swift */,
 			);
@@ -321,6 +342,14 @@
 				406EA9D52460A5FD00903350 /* CDManager.swift */,
 			);
 			path = DAO;
+			sourceTree = "<group>";
+		};
+		69D4B4FB2469F84600DE4EAB /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				696620372465F034003B3916 /* OnboardingPagerViewController.swift */,
+			);
+			path = Onboarding;
 			sourceTree = "<group>";
 		};
 		795642542461F68C000A621F /* MiniChallengeIVTests */ = {
@@ -475,6 +504,7 @@
 				696E92E5245A499800E7F3DF /* NewProject.storyboard in Resources */,
 				69B04732245754D8002A696D /* LaunchScreen.storyboard in Resources */,
 				69B0472F245754D8002A696D /* Assets.xcassets in Resources */,
+				6927A1BF2464AC85005E0154 /* Onboarding.storyboard in Resources */,
 				69B0472A245754D5002A696D /* Main.storyboard in Resources */,
 				E24DE0152463503900E425E1 /* Statistics.storyboard in Resources */,
 				796C3E3A245A02C2004488D1 /* Timer.storyboard in Resources */,
@@ -605,8 +635,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E2CB3F0D2469FFA4008621FB /* ReloadProjects.swift in Sources */,
 				69F56222245B6DAE00EB2AF1 /* ProjectViewController.swift in Sources */,
 				4061B394245B74220027775C /* Color.swift in Sources */,
+				69D5310C246B316700ECF0F4 /* UIButton.swift in Sources */,
+				69D4B4FA2469E65400DE4EAB /* UIView.swift in Sources */,
 				69B172902458CAB800D0F31E /* Project.swift in Sources */,
 				406EA9D62460A5FD00903350 /* CDManager.swift in Sources */,
 				69B172922458CAC000D0F31E /* ProjectBO.swift in Sources */,
@@ -616,7 +649,9 @@
 				E2DF45582465CD1F0060FCB7 /* DataChartBO.swift in Sources */,
 				409D5034245B4EC5006D66AC /* TaskDAO.swift in Sources */,
 				E2E86FDD245AD3D20006712A /* TimerDataManager.swift in Sources */,
+				69D5310E246B469600ECF0F4 /* UITextField.swift in Sources */,
 				69F56228245B6E1D00EB2AF1 /* ProjectCollectionViewCell.swift in Sources */,
+				696620382465F034003B3916 /* OnboardingPagerViewController.swift in Sources */,
 				409D5032245B4E35006D66AC /* TaskBO.swift in Sources */,
 				406EA9D22460A56E00903350 /* Task.swift in Sources */,
 				409CA8E324635D3200D9D1F2 /* TaskTableViewCell.swift in Sources */,
@@ -632,6 +667,7 @@
 				E29B1E152458CA9B00EA9B48 /* StatisticDAO.swift in Sources */,
 				E29B1E112458C89C00EA9B48 /* Statistic.swift in Sources */,
 				69B0472D245754D5002A696D /* MiniChallengeIV.xcdatamodeld in Sources */,
+				69C6438C24609D8D00CE475F /* AppNotificationBO.swift in Sources */,
 				E24DE01A246350A700E425E1 /* StatisticsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -809,9 +845,11 @@
 			baseConfigurationReference = 8D7C1D77B801F24C3798D742 /* Pods-MiniChallengeIV.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = MiniChallengeIV/MiniChallengeIV.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = BY575KUK4V;
+				DEVELOPMENT_TEAM = 6R4QWP27L3;
 				INFOPLIST_FILE = MiniChallengeIV/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -828,9 +866,11 @@
 			baseConfigurationReference = 0258BBEA39752887FD7E8DD4 /* Pods-MiniChallengeIV.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = MiniChallengeIV/MiniChallengeIV.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = BY575KUK4V;
+				DEVELOPMENT_TEAM = 6R4QWP27L3;
 				INFOPLIST_FILE = MiniChallengeIV/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
