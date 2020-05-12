@@ -34,6 +34,8 @@ class NewProjectViewController: UIViewController{
         } else {
             titleLabel.text = "Add Project"
         }
+        
+        projectNameLabel.text = "work"
     }
     
     @IBAction func onClickColor(_ sender: UIButton) {

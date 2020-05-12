@@ -25,6 +25,7 @@ class LostTimeFocusBO {
             
             print("EnterBackground Instant: \(String(describing: enterBackgroundInstant))")
             
+            AppNotification.shared.sendNotification(type: .comeBackToTheApp)
         } else if timer.runningState == TimeTrackerState.pause {
             /// Local Notification with rest Time as delay
         }
@@ -68,15 +69,5 @@ class LostTimeFocusBO {
             /// Update Estatistics on Database
             timer.updateStatistics()
         }
-            
-            
-            
-            
-            
-            
-            
-            
-         
-        
     }
 }
