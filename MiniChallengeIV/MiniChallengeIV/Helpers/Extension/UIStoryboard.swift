@@ -13,7 +13,7 @@ enum StoryboardID: String {
 }
 
 enum ViewControllerID: String {
-    case NewProjectID
+    case NewProjectID, NewProjectID2
 }
 
 fileprivate extension UIStoryboard {

@@ -261,10 +261,10 @@
             </objects>
             <point key="canvasLocation" x="80" y="-514"/>
         </scene>
-        <!--Step Zero View Controller-->
+        <!--View Controller-->
         <scene sceneID="gWf-N4-f7E">
             <objects>
-                <viewController storyboardIdentifier="step2" id="wCU-Wr-j5j" customClass="StepZeroViewController" customModule="MiniChallengeIV" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="step2" id="wCU-Wr-j5j" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8gx-TG-GZ9">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -395,10 +395,10 @@
             </objects>
             <point key="canvasLocation" x="860.86956521739137" y="166.74107142857142"/>
         </scene>
-        <!--Step Zero View Controller-->
+        <!--View Controller-->
         <scene sceneID="1uD-EF-py6">
             <objects>
-                <viewController storyboardIdentifier="step3" id="p0Q-OH-eAR" customClass="StepZeroViewController" customModule="MiniChallengeIV" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="step3" id="p0Q-OH-eAR" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="sn7-gN-Iz7">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -536,10 +536,10 @@
             </objects>
             <point key="canvasLocation" x="1588.4057971014495" y="166.74107142857142"/>
         </scene>
-        <!--Step Zero View Controller-->
+        <!--View Controller-->
         <scene sceneID="LB5-80-5e9">
             <objects>
-                <viewController storyboardIdentifier="step4" id="xBw-3p-Irw" customClass="StepZeroViewController" customModule="MiniChallengeIV" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="step4" id="xBw-3p-Irw" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="9tZ-M1-y7M">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -654,10 +654,10 @@
             </objects>
             <point key="canvasLocation" x="2301.449275362319" y="166.74107142857142"/>
         </scene>
-        <!--Step Zero View Controller-->
+        <!--View Controller-->
         <scene sceneID="Lpr-eb-MIt">
             <objects>
-                <viewController storyboardIdentifier="step5" id="KU9-qh-vNC" customClass="StepZeroViewController" customModule="MiniChallengeIV" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="step5" id="KU9-qh-vNC" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Wws-X5-AT0">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

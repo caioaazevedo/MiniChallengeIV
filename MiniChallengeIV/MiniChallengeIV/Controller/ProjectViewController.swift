@@ -13,10 +13,11 @@ class ProjectViewController: UIViewController {
     var selectedProjectId: Int?
     var projectBO = ProjectBO()
     var projects: [Project] = []
-        
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         reloadList()
+        
         
         // Do any additional setup after loading the view.
     }
@@ -81,14 +82,12 @@ extension ProjectViewController: ReloadProjectListDelegate {
                 print(error.localizedDescription)
             }
         })
-            
-        }
+        
     }
-    
+}
+
 extension ProjectViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        selectedProjectId = indexPath.item
-        //        goToNewProjectViewController()
         performSegue(withIdentifier: "GoToTimer", sender: self)
     }
     
@@ -102,29 +101,30 @@ extension ProjectViewController: UICollectionViewDelegate {
         })
         
         let delete = UIAction(title: "Delete", image: UIImage(systemName: "trash"), attributes: .destructive ,handler: { (delete) in
-                
+            
             
             self.projectBO.delete(uuid: proj.id) { (result) in
-                    switch result {
-                        case .success():
-                            self.deleteAlert()
-                            self.projects.remove(at: indexPath.row)
-                            collectionView.reloadData()
-                            break
-                        case .failure(let error):
-                            print(error.localizedDescription)
-                            break
-                    }
+                switch result {
+                case .success():
+                    self.deleteAlert()
+                    self.projects.remove(at: indexPath.row)
+                    collectionView.reloadData()
+                    break
+                case .failure(let error):
+                    print(error.localizedDescription)
+                    break
                 }
-            })
-
+            }
+        })
+        
         return UIContextMenuConfiguration(identifier: nil,
-          previewProvider: nil) { _ in
-          UIMenu(title: "Actions", children: [edit, delete])
+                                          previewProvider: nil) { _ in
+                                            UIMenu(title: "Actions", children: [edit, delete])
         }
     }
 }
-    
+
+
 extension ProjectViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         //        return ProjectDAO.list.count
@@ -142,7 +142,7 @@ extension ProjectViewController: UICollectionViewDataSource {
         return cell
     }
 }
-    
+
 extension ProjectViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         return UIEdgeInsets(top: 20, left: 8, bottom: 10, right: 8)
