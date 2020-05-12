@@ -21,7 +21,7 @@ class TimeTrackerBO{
     private var statisticBO = StatisticBO()
     private var projectBO = ProjectBO()
     var projectUuid = UUID()
-    var configTime = 25
+    var configTime = 2
     var hasEnded = false
     var timeInterval : TimeInterval = 1 //seconds at a time
     
@@ -66,8 +66,8 @@ class TimeTrackerBO{
      
      If another countDown has already started, a new one won't start.The initial value must be greater than 0
      
-        - Parameter minutes: the initial value in minutes which the countDown will start from.
-        - Parameter updateView: a closure called each time the timer is updated for handling view updates.
+     - Parameter minutes: the initial value in minutes which the countDown will start from.
+     - Parameter updateView: a closure called each time the timer is updated for handling view updates.
      */
     func startTimer(updateView: @escaping (String, Bool) -> Void){
         countDown = convertedTimeValue
@@ -116,8 +116,8 @@ class TimeTrackerBO{
     
     /**
      Method for converting seconds to the formatted string to be displayed on the view
-        - Parameter seconds: the current unformatted second from the count down
-        - Returns: formatted string of the current time in minutes and seconds
+     - Parameter seconds: the current unformatted second from the count down
+     - Returns: formatted string of the current time in minutes and seconds
      */
     func secondsToString(with seconds: Int) -> String{
         if seconds < 0 {return ""} //TODO: send error
@@ -128,8 +128,8 @@ class TimeTrackerBO{
     
     /**
      Method for converting strings to seconds
-        - Parameter text: the text from the label in the view
-        - Returns: the amount of seconds for the count down
+     - Parameter text: the text from the label in the view
+     - Returns: the amount of seconds for the count down
      */
     func stringToSeconds(from text: String) -> Int{
         if text.contains("-") { return 0}
@@ -179,8 +179,8 @@ class TimeTrackerBO{
     
     /**
      Method for updating project according to statistics
-        - Parameter statistic: Statistic created with values from time tracker to be added to the total project time
-        - Returns: Boolean value according to the sucess in updating the current project
+     - Parameter statistic: Statistic created with values from time tracker to be added to the total project time
+     - Returns: Boolean value according to the sucess in updating the current project
      */
     func updateProject(statistic: Statistic) -> Bool{
         var success = true
@@ -212,7 +212,7 @@ class TimeTrackerBO{
     //TODO: put it in an Utils
     /**
      Method for getting the current date
-        - Returns: Value containing current Year and Month
+     - Returns: Value containing current Year and Month
      */
     func getDate() -> DateComponents{
         let date = Date()

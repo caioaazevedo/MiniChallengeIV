@@ -14,6 +14,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
     var timer: TimeTrackerBO?
     
+    var ringView: AnimatedRingView?
+    
     var lostTimeFocus: TimeRecoverBO?
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
@@ -56,6 +58,17 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         }
         
         lostTime.returnFromBackground()
+        
+        
+        guard let view = self.ringView else{return}
+        guard let t = timer else{return}
+        if !view.isRunning{return}
+        
+        let startValue = view.calculateStroke(With: CGFloat(t.countDown), ToStart: true)
+        let endValue = view.calculateStroke(With: CGFloat(t.countDown), ToStart: false)
+        let startAngle = view.calculateAngle(With: CGFloat(t.countDown))
+        view.proportion = endValue
+        view.animateRing(From: endValue, FromAngle: startAngle, To: 1, Duration: CFTimeInterval(t.countDown))
     }
 
     func sceneDidEnterBackground(_ scene: UIScene) {

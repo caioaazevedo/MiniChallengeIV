@@ -30,7 +30,7 @@ class TimerViewController: UIViewController {
     @IBOutlet weak var timerLabel: UILabel!
     @IBOutlet var timeConfigButtons: [UIButton]!
     @IBOutlet weak var stateLabel: UILabel!
-    
+    //Ring View
     @IBOutlet weak var ringView: AnimatedRingView!
     
     
@@ -48,6 +48,7 @@ class TimerViewController: UIViewController {
         if let sd : SceneDelegate = (scene?.delegate as? SceneDelegate) {
             sd.timer = self.timeTracker
             sd.lostTimeFocus = self.lostTimeFocus
+            sd.ringView = self.ringView
         }
     }
     
@@ -65,10 +66,12 @@ class TimerViewController: UIViewController {
                 sender.setTitle("Start", for: .normal)
                 self.stateLabel.text = self.timeTracker.state.rawValue
                 self.setConfigurationButtons()
+                self.ringView.removeAnimation()
             }
         }
         //Animate progression ring
-        ringView.animateRing(From: 0, To: 1, Duration: CFTimeInterval(timeTracker.convertedTimeValue))
+        ringView.animateRing(From: 0, FromAngle: 0, To: 1, Duration: CFTimeInterval(timeTracker.convertedTimeValue))
+        ringView.totalTime = CGFloat(timeTracker.convertedTimeValue)
         //Enable or disable buttons
         setConfigurationButtons()
     }
@@ -81,6 +84,7 @@ class TimerViewController: UIViewController {
             //TODO: Message for when the user gives up
             self.stateLabel.text = self.timeTracker.state.rawValue
             self.timerLabel.text = String(format: "%02i:00", self.timeTracker.configTime)
+            self.ringView.removeAnimation()
         }
         setConfigurationButtons()
     }
@@ -99,7 +103,7 @@ class TimerViewController: UIViewController {
     
     ///Method for disabling the buttons that are configuring the Timer
     func setConfigurationButtons(){
-        let value = timeTracker.state == .focus ? true : false
+        let value = timeTracker.state != .pause && !timeTracker.timer.isValid ? true : false
         for button in timeConfigButtons{
             button.isEnabled = value
         }

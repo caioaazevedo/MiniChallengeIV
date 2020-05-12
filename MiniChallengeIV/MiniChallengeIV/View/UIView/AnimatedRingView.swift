@@ -19,6 +19,8 @@ class AnimatedRingView: UIView {
             setNeedsLayout()
         }
     }
+    var isRunning = false
+    var totalTime: CGFloat = 0.0
 
     private lazy var circleLayer: CAShapeLayer = {
         let circleLayer = CAShapeLayer()
@@ -29,7 +31,7 @@ class AnimatedRingView: UIView {
         return circleLayer
     }()
     
-    private lazy var ringlayer: CAShapeLayer = {
+    lazy var ringlayer: CAShapeLayer = {
         let ringlayer = CAShapeLayer()
         ringlayer.fillColor = UIColor.clear.cgColor
         ringlayer.strokeColor = UIColor.gray.cgColor
@@ -39,13 +41,12 @@ class AnimatedRingView: UIView {
         return ringlayer
     }()
     
-    private lazy var pinlayer: CAShapeLayer = {
+    lazy var pinlayer: CAShapeLayer = {
         let pinlayer = CAShapeLayer()
         pinlayer.fillColor = UIColor.gray.cgColor
         let size = CGSize(width: 20, height: 20)
         let xPos = self.frame.size.width/2 - size.width / 2
         let yPos = -size.height/5
-//        pinlayer.path = UIBezierPath(ovalIn: CGRect(x: xPos, y: yPos, width: size.width, height: size.height)).cgPath
         self.layer.addSublayer(pinlayer)
         return pinlayer
     }()
@@ -54,7 +55,7 @@ class AnimatedRingView: UIView {
         super.layoutSubviews()
         self.backgroundColor = .white
         let radius = (min(frame.size.width, frame.size.height) - ringStrokeWidth - 2)/2
-        let pinRadius = 12
+        let pinRadius = 10
         let size = self.frame.size
         let pos = CGPoint(x: size.width/2, y: size.height/2)
         let circlePath = UIBezierPath(arcCenter: pos, radius: radius, startAngle: startAngle, endAngle: startAngle + 2 * π, clockwise: true)
@@ -66,23 +67,47 @@ class AnimatedRingView: UIView {
         
     }
 
-    func animateRing(From startProportion: CGFloat, To endProportion: CGFloat, Duration duration: CFTimeInterval = animationDuration) {
+    func animateRing(From startProportion: CGFloat,FromAngle startPinPos: CGFloat, To endProportion: CGFloat, Duration duration: CFTimeInterval = animationDuration) {
+        self.isRunning = true
         let animation = CABasicAnimation(keyPath: "strokeEnd")
         animation.duration = duration
         animation.fromValue = startProportion
         animation.toValue = endProportion
         animation.timingFunction = CAMediaTimingFunction(name: .linear)
-        ringlayer.strokeEnd = endProportion
-        ringlayer.strokeStart = startProportion
+        ringlayer.strokeEnd = 1
+        ringlayer.strokeStart = 0
         ringlayer.add(animation, forKey: "animateRing")
         
         let pinAnimation = CABasicAnimation(keyPath: "transform.rotation")
-        pinAnimation.fromValue = 0
+        pinAnimation.fromValue = startPinPos
         pinAnimation.toValue = 2 * CGFloat.pi
         pinAnimation.timingFunction = CAMediaTimingFunction(name: .linear)
         pinAnimation.duration = duration
         pinAnimation.isAdditive = true
         pinlayer.add(pinAnimation, forKey: nil)
     }
+    
+    func removeAnimation(AndProportion value: Bool = true){
+        pinlayer.removeAllAnimations()
+        ringlayer.removeAllAnimations()
+        if value{
+            ringlayer.strokeEnd = proportion
+        }
+        isRunning = false
+    }
 
+    func calculateStroke(With value: CGFloat, ToStart start: Bool) -> CGFloat{
+        if !start{
+            let newValue = 1.0 - (value / totalTime)
+            return newValue
+        }else{
+            let newValue = (value / totalTime)
+            return newValue
+        }
+    }
+    
+    func calculateAngle(With value: CGFloat) -> CGFloat{
+        let newValue = (2 * CGFloat.pi) - ((value * (2 * CGFloat.pi)) / totalTime)
+        return newValue
+}
 }
