@@ -29,4 +29,14 @@ extension UIView {
             self.backgroundColor = newValue
         }
     }
+    
+    @IBInspectable
+    var round: CGFloat {
+        get {
+            self.layer.cornerRadius
+        }
+        set {
+            self.layer.cornerRadius = newValue
+        }
+    }
 }
