@@ -43,19 +43,12 @@ class ProjectViewController: UIViewController {
             newProjectVC.modalPresentationStyle = .overCurrentContext
             newProjectVC.delegate = self
             
+            if let selectedProjectId = selectedProjectId {
+                newProjectVC.project = projects[selectedProjectId]
+                self.selectedProjectId = nil
+            }
+            
             self.present(newProjectVC, animated: true)
-        }
-    }
-    
-    /// Go to UpdateProjectViewController
-    private func goToUpdateProjectViewController(project: Project) {
-        if let updateProjectVC = UIStoryboard.loadView(from: .UpdateProject, identifier: .UpdateProjectID) as? UpdateProjectViewController {
-            updateProjectVC.modalTransitionStyle = .crossDissolve
-            updateProjectVC.modalPresentationStyle = .overCurrentContext
-            
-            updateProjectVC.project = project
-            
-            self.present(updateProjectVC, animated: true)
         }
     }
     
@@ -106,7 +99,8 @@ extension ProjectViewController: UICollectionViewDelegate {
         let proj = self.projects[indexPath.row]
         
         let edit = UIAction(title: "Edit", image: UIImage(systemName: "square.and.pencil"), handler: { (edit) in
-            self.goToUpdateProjectViewController(project: proj)
+            self.selectedProjectId = indexPath.item
+            self.goToNewProjectViewController()
         })
         
         let delete = UIAction(title: "Delete", image: UIImage(systemName: "trash"), attributes: .destructive ,handler: { (delete) in

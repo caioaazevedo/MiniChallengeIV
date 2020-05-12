@@ -10,12 +10,10 @@ import UIKit
 
 enum StoryboardID: String {
     case NewProject
-    case UpdateProject
 }
 
 enum ViewControllerID: String {
     case NewProjectID
-    case UpdateProjectID
 }
 
 fileprivate extension UIStoryboard {

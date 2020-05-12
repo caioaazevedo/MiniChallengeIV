@@ -44,8 +44,6 @@
 		E29B1E132458CA7D00EA9B48 /* StatisticBO.swift in Sources */ = {isa = PBXBuildFile; fileRef = E29B1E122458CA7D00EA9B48 /* StatisticBO.swift */; };
 		E29B1E152458CA9B00EA9B48 /* StatisticDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = E29B1E142458CA9B00EA9B48 /* StatisticDAO.swift */; };
 		E2CAB78B2460A0FB00822073 /* TimeRecoverBOTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2CAB78A2460A0FB00822073 /* TimeRecoverBOTests.swift */; };
-		E2CB3F092469EC8E008621FB /* UpdateProjectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2CB3F082469EC8E008621FB /* UpdateProjectViewController.swift */; };
-		E2CB3F0B2469ECCC008621FB /* UpdateProject.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E2CB3F0A2469ECCC008621FB /* UpdateProject.storyboard */; };
 		E2CB3F0D2469FFA4008621FB /* ReloadProjects.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2CB3F0C2469FFA4008621FB /* ReloadProjects.swift */; };
 		E2DF45582465CD1F0060FCB7 /* DataChartBO.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2DF45572465CD1F0060FCB7 /* DataChartBO.swift */; };
 		E2DF455A2465D7500060FCB7 /* DataChartBOTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2DF45592465D7500060FCB7 /* DataChartBOTests.swift */; };
@@ -123,8 +121,6 @@
 		E29B1E122458CA7D00EA9B48 /* StatisticBO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticBO.swift; sourceTree = SOURCE_ROOT; };
 		E29B1E142458CA9B00EA9B48 /* StatisticDAO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticDAO.swift; sourceTree = "<group>"; };
 		E2CAB78A2460A0FB00822073 /* TimeRecoverBOTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeRecoverBOTests.swift; sourceTree = "<group>"; };
-		E2CB3F082469EC8E008621FB /* UpdateProjectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateProjectViewController.swift; sourceTree = "<group>"; };
-		E2CB3F0A2469ECCC008621FB /* UpdateProject.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = UpdateProject.storyboard; sourceTree = "<group>"; };
 		E2CB3F0C2469FFA4008621FB /* ReloadProjects.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReloadProjects.swift; sourceTree = "<group>"; };
 		E2DF45572465CD1F0060FCB7 /* DataChartBO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataChartBO.swift; sourceTree = "<group>"; };
 		E2DF45592465D7500060FCB7 /* DataChartBOTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataChartBOTests.swift; sourceTree = "<group>"; };
@@ -201,7 +197,6 @@
 				69F56221245B6DAE00EB2AF1 /* ProjectViewController.swift */,
 				69F56227245B6E1D00EB2AF1 /* ProjectCollectionViewCell.swift */,
 				691033A3245A250A009D5D58 /* NewProjectViewController.swift */,
-				E2CB3F082469EC8E008621FB /* UpdateProjectViewController.swift */,
 			);
 			path = Projects;
 			sourceTree = "<group>";
@@ -275,7 +270,6 @@
 				69ECFA2E2459FD5A00D4F205 /* Projects.storyboard */,
 				696E92E4245A499800E7F3DF /* NewProject.storyboard */,
 				E24DE0142463503900E425E1 /* Statistics.storyboard */,
-				E2CB3F0A2469ECCC008621FB /* UpdateProject.storyboard */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -481,7 +475,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				69ECFA2F2459FD5A00D4F205 /* Projects.storyboard in Resources */,
-				E2CB3F0B2469ECCC008621FB /* UpdateProject.storyboard in Resources */,
 				696E92E5245A499800E7F3DF /* NewProject.storyboard in Resources */,
 				69B04732245754D8002A696D /* LaunchScreen.storyboard in Resources */,
 				69B0472F245754D8002A696D /* Assets.xcassets in Resources */,
@@ -622,7 +615,6 @@
 				69B172902458CAB800D0F31E /* Project.swift in Sources */,
 				406EA9D62460A5FD00903350 /* CDManager.swift in Sources */,
 				69B172922458CAC000D0F31E /* ProjectBO.swift in Sources */,
-				E2CB3F092469EC8E008621FB /* UpdateProjectViewController.swift in Sources */,
 				691033A0245A15F6009D5D58 /* UIStoryboard.swift in Sources */,
 				E2F4DCF32461B15600AC83AA /* TimerRecoverBO.swift in Sources */,
 				69B04727245754D5002A696D /* ViewController.swift in Sources */,
