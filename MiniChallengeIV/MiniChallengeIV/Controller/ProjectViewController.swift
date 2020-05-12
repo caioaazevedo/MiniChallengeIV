@@ -10,6 +10,12 @@ import UIKit
 
 class ProjectViewController: UIViewController {
     @IBOutlet weak var collectionView: UICollectionView!
+    
+    @IBOutlet weak var focusedTimeLabel: UILabel!
+    @IBOutlet weak var distractionTimeLabel: UILabel!
+    @IBOutlet weak var breakTimeLabel: UILabel!
+    
+    
     var selectedProjectId: Int?
     var projectBO = ProjectBO()
     var projects: [Project] = []
