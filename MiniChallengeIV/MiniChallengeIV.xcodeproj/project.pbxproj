@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		402779552461F3190076BE24 /* HandleErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 402779542461F3190076BE24 /* HandleErrors.swift */; };
-		4027D68024589D2D0046DE58 /* DatabaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4027D67F24589D2D0046DE58 /* DatabaseService.swift */; };
 		4061B394245B74220027775C /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4061B393245B74220027775C /* Color.swift */; };
 		406EA9D22460A56E00903350 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 406EA9D12460A56E00903350 /* Task.swift */; };
 		406EA9D62460A5FD00903350 /* CDManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 406EA9D52460A5FD00903350 /* CDManager.swift */; };
@@ -74,7 +73,6 @@
 		0258BBEA39752887FD7E8DD4 /* Pods-MiniChallengeIV.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MiniChallengeIV.release.xcconfig"; path = "Target Support Files/Pods-MiniChallengeIV/Pods-MiniChallengeIV.release.xcconfig"; sourceTree = "<group>"; };
 		1499B5CF32B9AC252BE6600A /* Pods_MiniChallengeIV.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MiniChallengeIV.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		402779542461F3190076BE24 /* HandleErrors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HandleErrors.swift; sourceTree = "<group>"; };
-		4027D67F24589D2D0046DE58 /* DatabaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseService.swift; sourceTree = "<group>"; };
 		4061B393245B74220027775C /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Color.swift; path = MiniChallengeIV/Model/DAO/Color.swift; sourceTree = SOURCE_ROOT; };
 		406EA9D12460A56E00903350 /* Task.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
 		406EA9D52460A5FD00903350 /* CDManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CDManager.swift; sourceTree = "<group>"; };
@@ -181,18 +179,9 @@
 			path = Helpers;
 			sourceTree = "<group>";
 		};
-		40277956246358150076BE24 /* Tasks */ = {
-			isa = PBXGroup;
-			children = (
-				409CA8E224635D3200D9D1F2 /* TaskTableViewCell.swift */,
-			);
-			path = Tasks;
-			sourceTree = "<group>";
-		};
 		4027D6822458C7840046DE58 /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
-				4027D67F24589D2D0046DE58 /* DatabaseService.swift */,
 				E2E86FDC245AD3D20006712A /* TimerDataManager.swift */,
 			);
 			path = Protocols;
@@ -284,7 +273,6 @@
 		69B04757245754FE002A696D /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				40277956246358150076BE24 /* Tasks */,
 				6910339A245A11DC009D5D58 /* Projects */,
 				69B04726245754D5002A696D /* ViewController.swift */,
 				796C3E37245A00DF004488D1 /* TimerViewController.swift */,
@@ -358,6 +346,7 @@
 		E2DF455B2465EF3E0060FCB7 /* TableViewCell */ = {
 			isa = PBXGroup;
 			children = (
+				409CA8E224635D3200D9D1F2 /* TaskTableViewCell.swift */,
 				E2DF455C2465EF7F0060FCB7 /* ProjectStatisticsCell.swift */,
 			);
 			path = TableViewCell;
@@ -617,7 +606,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				69F56222245B6DAE00EB2AF1 /* ProjectViewController.swift in Sources */,
-				4027D68024589D2D0046DE58 /* DatabaseService.swift in Sources */,
 				4061B394245B74220027775C /* Color.swift in Sources */,
 				69B172902458CAB800D0F31E /* Project.swift in Sources */,
 				406EA9D62460A5FD00903350 /* CDManager.swift in Sources */,

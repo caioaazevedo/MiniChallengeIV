@@ -21,7 +21,7 @@ class NewProjectViewController: UIViewController{
     
     var project: Project?
     var projectName = String()
-    var projectColor = UIColor()
+    var projectColor = UIColor(red: 0.77, green: 0.87, blue: 0.96, alpha: 1.00)
     
     weak var delegate: NewProjectViewControllerDelegate?
     
