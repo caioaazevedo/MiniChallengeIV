@@ -42,14 +42,14 @@ class AppNotificationBO {
         }
     }
     
-    func sendNotification(type: NotificationType) {
+    func sendNotification(type: NotificationType, delay: TimeInterval = 2) {
         switch type {
         case .didLoseFocus:
             sendNotification(title: "Perdeu o foco", subtitle: "", body: "Concentre-se para manter a produtividade")
         case .didFinishFocus:
-            sendNotification(title: "Tempo de foco terminado", subtitle: "", body: "Já pode iniciar sua pausa")
+            sendNotification(title: "Tempo de foco terminado", subtitle: "", body: "Já pode iniciar sua pausa", delay: delay)
         case .didFinishBreak:
-            sendNotification(title: "Pausa terminada", subtitle: "", body: "Hora de voltar ao trabalho")
+            sendNotification(title: "Pausa terminada", subtitle: "", body: "Hora de voltar ao trabalho", delay: delay)
         case .comeBackToTheApp:
             sendNotification(title: "É hora de voltar a focar", subtitle: "", body: "Já faz tempo que não te vejo. Vamos voltar a focar em suas tarefas com o 'AppFoco'")
         }
