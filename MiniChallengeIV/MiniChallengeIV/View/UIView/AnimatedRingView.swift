@@ -26,7 +26,7 @@ class AnimatedRingView: UIView {
     ///Circle path layer
     lazy var circleLayer: CAShapeLayer = {
         let circleLayer = CAShapeLayer()
-        circleLayer.strokeColor = UIColor.gray.cgColor
+        circleLayer.strokeColor = UIColor.init(89, 126, 124, 1).cgColor
         circleLayer.fillColor = UIColor.clear.cgColor
         circleLayer.lineWidth = self.circleStrokeWidth
         self.layer.addSublayer(circleLayer)
@@ -36,7 +36,7 @@ class AnimatedRingView: UIView {
     lazy var ringlayer: CAShapeLayer = {
         let ringlayer = CAShapeLayer()
         ringlayer.fillColor = UIColor.clear.cgColor
-        ringlayer.strokeColor = UIColor.gray.cgColor
+        ringlayer.strokeColor = UIColor.init(89, 126, 124, 1).cgColor
         ringlayer.lineCap = CAShapeLayerLineCap.round
         ringlayer.lineWidth = self.ringStrokeWidth
         self.layer.addSublayer(ringlayer)
@@ -45,12 +45,17 @@ class AnimatedRingView: UIView {
     ///Pin layer that follows ring
     lazy var pinlayer: CAShapeLayer = {
         let pinlayer = CAShapeLayer()
-        pinlayer.fillColor = UIColor.gray.cgColor
-        let size = CGSize(width: 20, height: 20)
-        let xPos = self.frame.size.width/2 - size.width / 2
-        let yPos = -size.height/5
+        pinlayer.fillColor = UIColor.init(89, 126, 124, 1).cgColor
         self.layer.addSublayer(pinlayer)
         return pinlayer
+    }()
+    ///Circle background
+    lazy var circleBackgroundLayer: CAShapeLayer = {
+        let circleBackground = CAShapeLayer()
+        circleBackground.fillColor = UIColor.init(229, 230, 220, 1).cgColor
+        self.layer.addSublayer(circleBackground)
+        circleBackground.zPosition =  -100
+        return circleBackground
     }()
     //MARK: - Methods
     /**
@@ -58,19 +63,22 @@ class AnimatedRingView: UIView {
      */
     override func layoutSubviews() {
         super.layoutSubviews()
-        self.backgroundColor = .white
+        self.backgroundColor = UIColor.init(244, 244, 240, 1)
         let radius = (min(frame.size.width, frame.size.height) - ringStrokeWidth - 2)/2
         let pinRadius = 10
+        let circlebackgroundRadius = 81
         let size = self.frame.size
         let pos = CGPoint(x: size.width/2, y: size.height/2)
         let circlePath = UIBezierPath(arcCenter: pos, radius: radius, startAngle: startAngle, endAngle: startAngle + 2 * π, clockwise: true)
         let pinPath = CGPath(ellipseIn: CGRect(x: -pinRadius, y: Int(-radius) - pinRadius, width: 2 * pinRadius, height: 2 * pinRadius), transform: nil)
+        let circleBackgroundPath = CGPath(ellipseIn: CGRect(x: -CGFloat(circlebackgroundRadius), y: -CGFloat(circlebackgroundRadius), width: CGFloat(2 * circlebackgroundRadius), height: CGFloat(2 * circlebackgroundRadius)), transform: nil)
         circleLayer.path = circlePath.cgPath
         ringlayer.path = circlePath.cgPath
         ringlayer.strokeEnd = proportion
         pinlayer.position = pos
         pinlayer.path = pinPath
-        
+        circleBackgroundLayer.position = pos
+        circleBackgroundLayer.path = circleBackgroundPath
     }
     /**
      Method that starts the progress animation
