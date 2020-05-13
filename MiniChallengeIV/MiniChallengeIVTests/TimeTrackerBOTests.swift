@@ -15,17 +15,19 @@ class TimeTrackerBOTests: XCTestCase {
     let sut = TimeTrackerBO()
     
     func testStringToSecond_WhenValidTextProvided_ConvertToSeconds(){
-        XCTAssertEqual(sut.stringToSeconds(from: "15:00"), 900)
-        XCTAssertEqual(sut.stringToSeconds(from: "-5:00"), 0)
+        XCTAssertEqual(sut.stringToSeconds(from: "00:15:00"), 900)
+        XCTAssertEqual(sut.stringToSeconds(from: "01:00:00"), 3600)
+        XCTAssertEqual(sut.stringToSeconds(from: "00:-5:00"), 0)
+        XCTAssertEqual(sut.stringToSeconds(from: "15:00"), 0)
         XCTAssertEqual(sut.stringToSeconds(from: "err"), 0)
         XCTAssertEqual(sut.stringToSeconds(from: "1050"), 0)
         XCTAssertEqual(sut.stringToSeconds(from: "err:00"), 0)
         XCTAssertEqual(sut.stringToSeconds(from: ":"), 0)
-
     }
 
     func testSecondsToString_WhenValidValueProvided_ConvertToText(){
-        XCTAssertEqual(sut.secondsToString(with: 60), "01:00")
+        XCTAssertEqual(sut.secondsToString(with: 60), "00:01:00")
+        XCTAssertEqual(sut.secondsToString(with: 3600), "01:00:00")
         XCTAssertEqual(sut.secondsToString(with: -5), "")
     }
 

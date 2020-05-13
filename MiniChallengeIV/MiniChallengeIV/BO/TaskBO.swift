@@ -18,14 +18,14 @@ class TaskBO {
     /// Create a task of type Task with DAO
     /// - Parameter description: Description of task
     /// - Returns: Boolean if the task was saved
-    func create(description: String, completion: (Result<Void, ValidationError>) -> Void){
+    func create(description: String, completion: (Result<TaskCD, ValidationError>) -> Void){
         let task = Task(id: UUID(), description: description, state: false)
         
         taskDAO.createTask(task: task, completion: { result in
             switch result {
                 
-            case .success():
-                completion(.success(()))
+            case .success(let taskCD):
+                completion(.success(taskCD))
             case .failure(let error):
                 completion(.failure(error))
             }

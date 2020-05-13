@@ -18,7 +18,7 @@ class TaskDAO {
     /// Create a task on CoreData
     /// - Parameter task: A object of type Task
     /// - Returns: Boolean if the project was saved
-    func createTask(task: Task, completion: (Result<Void, ValidationError>) -> Void){
+    func createTask(task: Task, completion: (Result<TaskCD, ValidationError>) -> Void){
         
         let taskCD = TaskCD(context: self.context)
         taskCD.descriptionTask = task.description
@@ -27,7 +27,7 @@ class TaskDAO {
         
         do {
             try context.save()
-            completion(.success(()))
+            completion(.success(taskCD))
         }catch {
             completion(.failure(.errorToCreate("Task")))
         }
