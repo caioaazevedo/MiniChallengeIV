@@ -23,7 +23,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aAe-4c-qCx">
-                                <rect key="frame" x="32" y="236" width="21" height="22"/>
+                                <rect key="frame" x="38" y="297" width="29" height="14"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button" image="chevron.down" catalog="system"/>
                                 <connections>
@@ -31,7 +31,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IT7-us-O4n">
-                                <rect key="frame" x="360" y="236" width="28" height="22"/>
+                                <rect key="frame" x="344" y="297" width="29" height="14"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button" image="chevron.up" catalog="system"/>
                                 <connections>
@@ -103,10 +103,11 @@
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" red="0.95675712820000003" green="0.95714896920000003" blue="0.94117498399999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <viewLayoutGuide key="safeArea" id="Mmk-am-1eE"/>
                     </view>
                     <connections>
+                        <outlet property="ringView" destination="1gg-BR-FOI" id="WAQ-2o-AhL"/>
                         <outlet property="btnStart" destination="qwD-mu-OFD" id="Y8h-xb-mWY"/>
                         <outlet property="projectColor" destination="WkT-cs-WNM" id="dju-E5-Ilt"/>
                         <outlet property="stateLabel" destination="9EU-pq-g7r" id="f2O-oA-FwZ"/>

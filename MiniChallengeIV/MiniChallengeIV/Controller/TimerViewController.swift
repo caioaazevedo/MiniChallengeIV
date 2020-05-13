@@ -30,7 +30,7 @@ class TimerViewController: UIViewController {
     ///the validation for the maximum value
     var maximumDecrement: Int{
         //TODO: switch 60 for a generic number
-        return timeTracker.configTime + 5  > 60 ? 60 : timeTracker.configTime + 5
+        return timeTracker.configTime + 5  > 120 ? 120 : timeTracker.configTime + 5
     }
     
     //Buttons, Labels
@@ -39,8 +39,9 @@ class TimerViewController: UIViewController {
     @IBOutlet weak var timerLabel: UILabel!
     @IBOutlet var timeConfigButtons: [UIButton]!
     @IBOutlet weak var stateLabel: UILabel!
+    //Ring View
+    @IBOutlet weak var ringView: AnimatedRingView!
     @IBOutlet weak var projectColor: UIView!
-    
     
     
     override func viewDidLoad() {
@@ -52,8 +53,8 @@ class TimerViewController: UIViewController {
         self.tableView.separatorColor = .clear
         
         // Do any additional setup after loading the view.
-        timerLabel.text = String(format: "%02i:00", timeTracker.configTime)
-        
+        timerLabel.text = timeTracker.secondsToString(with: timeTracker.convertedTimeValue)
+
         timeTracker.state = .focus
         
         self.lostTimeFocus = TimeRecoverBO(timer: timeTracker)
@@ -63,6 +64,7 @@ class TimerViewController: UIViewController {
         if let sd : SceneDelegate = (scene?.delegate as? SceneDelegate) {
             sd.timer = self.timeTracker
             sd.lostTimeFocus = self.lostTimeFocus
+            sd.ringView = self.ringView
         }
         
         self.stateLabel.text = project?.name
@@ -97,15 +99,20 @@ class TimerViewController: UIViewController {
             return
         }
         sender.setTitle("Stop", for: .normal)
-        
+        //Start timer
         timeTracker.startTimer {time, hasEnded in
             self.timerLabel.text = time
             if hasEnded{ // Focus timer ended
                 sender.setTitle("Start", for: .normal)
                 self.stateLabel.text = self.timeTracker.state.rawValue
                 self.setConfigurationButtons()
+                self.ringView.removeAnimation()
             }
         }
+        //Animate progression ring
+        ringView.animateRing(From: 0, FromAngle: 0, To: 1, Duration: CFTimeInterval(timeTracker.convertedTimeValue))
+        ringView.totalTime = CGFloat(timeTracker.convertedTimeValue)
+        //Enable or disable buttons
         setConfigurationButtons()
     }
     
@@ -116,7 +123,8 @@ class TimerViewController: UIViewController {
         timeTracker.stopTimer(){
             //TODO: Message for when the user gives up
             self.stateLabel.text = self.timeTracker.state.rawValue
-            self.timerLabel.text = String(format: "%02i:00", self.timeTracker.configTime)
+            self.timerLabel.text = self.timeTracker.secondsToString(with: self.timeTracker.convertedTimeValue)
+            self.ringView.removeAnimation()
         }
         setConfigurationButtons()
     }
@@ -125,17 +133,17 @@ class TimerViewController: UIViewController {
     ///Increment timer for the count down
     @IBAction func incrementTimer(_ sender: Any) {
         timeTracker.configTime = maximumDecrement
-        timerLabel.text = String(format: "%02i:00", timeTracker.configTime)
+        timerLabel.text = timeTracker.secondsToString(with: timeTracker.convertedTimeValue)
     }
     ///Decrement timer for the count down
     @IBAction func decrementTimer(_ sender: Any) {
         timeTracker.configTime = minimumDecrement
-        timerLabel.text = String(format: "%02i:00", timeTracker.configTime)
+        timerLabel.text = timeTracker.secondsToString(with: timeTracker.convertedTimeValue)
     }
     
     ///Method for disabling the buttons that are configuring the Timer
     func setConfigurationButtons(){
-        let value = timeTracker.state == .focus ? true : false
+        let value = timeTracker.state != .pause && !timeTracker.timer.isValid ? true : false
         for button in timeConfigButtons{
             button.isEnabled = value
         }
