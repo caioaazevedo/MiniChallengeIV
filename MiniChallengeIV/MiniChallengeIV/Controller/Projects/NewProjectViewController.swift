@@ -135,10 +135,6 @@ class NewProjectViewController: UIViewController{
         alert.addAction(action)
         present(alert, animated: true)
     }
-    
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        view.endEditing(true)
-    }
 }
 
 extension NewProjectViewController: UITextFieldDelegate{

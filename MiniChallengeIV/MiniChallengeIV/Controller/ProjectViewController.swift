@@ -94,6 +94,7 @@ extension ProjectViewController: ReloadProjectListDelegate {
 
 extension ProjectViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        self.selectedProjectId = indexPath.row
         performSegue(withIdentifier: "GoToTimer", sender: self)
     }
 
