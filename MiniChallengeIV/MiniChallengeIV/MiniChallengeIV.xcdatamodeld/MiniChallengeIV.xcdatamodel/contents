@@ -11,8 +11,10 @@
         <attribute name="focusTime" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
         <attribute name="lostFocusTime" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="month" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="qtdLostFocus" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="restTime" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="year" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
     </entity>
     <entity name="TaskCD" representedClassName="TaskCD" syncable="YES" codeGenerationType="class">
         <attribute name="descriptionTask" optional="YES" attributeType="String"/>
@@ -22,7 +24,7 @@
     </entity>
     <elements>
         <element name="ProjectCD" positionX="-63" positionY="-18" width="128" height="118"/>
-        <element name="StatisticCD" positionX="-54" positionY="27" width="128" height="118"/>
+        <element name="StatisticCD" positionX="-54" positionY="27" width="128" height="148"/>
         <element name="TaskCD" positionX="-54" positionY="-9" width="128" height="103"/>
     </elements>
 </model>

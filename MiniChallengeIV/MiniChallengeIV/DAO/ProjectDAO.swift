@@ -104,12 +104,32 @@ class ProjectDAO {
     }
     
     func addTask(taskCD: TaskCD, projectCD: ProjectCD, completion: (Result<Void, ValidationError>) -> Void){
-        projectCD.tasks = NSSet.init(array: [taskCD])
+
+        projectCD.addToTasks(taskCD)
         do {
             try context.save()
             completion(.success(()))
         }catch{
             completion(.failure(.errorToAdd("Task")))
+        }
+    }
+    
+    func fetch(id: UUID, completion: (Result<Project, ValidationError>) -> Void ){
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "ProjectCD")
+        fetchRequest.predicate = NSPredicate(format: "id == %@", id.uuidString)
+        
+        do {
+            let objects = try self.context.fetch(fetchRequest)
+            
+            guard let object = objects as? [NSManagedObject], objects.count > 0 else{
+                return completion(.failure(.errorToFetch("Project")))
+            }
+            
+            let project = convert(project: object[0])
+            
+            completion(.success(project))
+        }catch{
+            completion(.failure(.errorToFetch("Project")))
         }
     }
     

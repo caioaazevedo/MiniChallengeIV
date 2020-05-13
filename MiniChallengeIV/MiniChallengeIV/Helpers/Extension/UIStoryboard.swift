@@ -13,7 +13,7 @@ enum StoryboardID: String {
 }
 
 enum ViewControllerID: String {
-    case NewProjectID
+    case NewProjectID, NewProjectID2
 }
 
 fileprivate extension UIStoryboard {
@@ -28,3 +28,17 @@ extension UIStoryboard {
         return load(from: from, identifier: identifier.rawValue)
     }
 }
+
+
+//extension UIViewController {
+//    func hideKeyboardWhenTappedAround() {
+//        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIViewController.dismissKeyboard))
+//        tap.cancelsTouchesInView = false
+//        view.addGestureRecognizer(tap)
+//    }
+//
+//    @objc func dismissKeyboard() {
+//        print("tap")
+//        view.endEditing(true)
+//    }
+//}

@@ -72,14 +72,15 @@ class TimeRecoverBO {
             /// Update lost focus time from timer with the value calculate when returns from background and the configured Time isnt over
             timer.lostFocusTime += (lostFocusTime)
             timer.countDown -= lostFocusTime
+            timer.qtdLostFocus += 1
             
             return false
         } else {
             /// Update Timer - Lost Focus Time
             timer.lostFocusTime = timer.configTime * 60 - timer.focusTime
-            /// Update Estatistics on Database
-            timer.updateStatistics()
-            
+            timer.countDown = 0
+            timer.qtdLostFocus += 1
+
             /// Change Timer Cicle
             return true
         }
@@ -97,8 +98,6 @@ class TimeRecoverBO {
             return false
         } else {
             timer.restTime = timer.configTime * 60
-            /// Update Estatistics on Database
-            timer.updateStatistics()
             
             /// Change Timer Cicle
             return true
@@ -106,8 +105,6 @@ class TimeRecoverBO {
     }
 
     func changeCicleTimer() {
-        ///Reset Timer
-        timer.state = timer.changeCicle
         
         /// Restar timer
         timer.countDown = 0

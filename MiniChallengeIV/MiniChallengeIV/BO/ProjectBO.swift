@@ -86,13 +86,39 @@ class ProjectBO {
         })
     }
     
-    func addTask(taskCD: TaskCD, projectCD: ProjectCD, completion: (Result<Void, ValidationError>) -> Void){
-        projectDAO.addTask(taskCD: taskCD, projectCD: projectCD, completion: { result in
-            
+    func addTask(description: String, projectCD: ProjectCD, completion: (Result<Void, ValidationError>) -> Void){
+        
+        let taskBO = TaskBO()
+        taskBO.create(description: description, completion: { resultTask in
+            switch resultTask {
+                
+            case .success(let taskCD):
+                projectDAO.addTask(taskCD: taskCD, projectCD: projectCD, completion: { result in
+                    completion(result)
+                })
+            case .failure(let error):
+                completion(.failure(error))
+            }
+        })
+        
+//        projectDAO.addTask(taskCD: taskCD, projectCD: projectCD, completion: { result in
+//            
+//            switch result {
+//                
+//            case .success():
+//                completion(.success(()))
+//            case .failure(let error):
+//                completion(.failure(error))
+//            }
+//        })
+    }
+    
+    func fetch(id: UUID, completion: (Result<Project, ValidationError>) -> Void){
+        projectDAO.fetch(id: id, completion: { result in
             switch result {
                 
-            case .success():
-                completion(.success(()))
+            case .success(let project):
+                completion(.success(project))
             case .failure(let error):
                 completion(.failure(error))
             }
