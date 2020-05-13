@@ -66,8 +66,8 @@ class TimeTrackerBO{
      
      If another countDown has already started, a new one won't start.The initial value must be greater than 0
      
-        - Parameter minutes: the initial value in minutes which the countDown will start from.
-        - Parameter updateView: a closure called each time the timer is updated for handling view updates.
+     - Parameter minutes: the initial value in minutes which the countDown will start from.
+     - Parameter updateView: a closure called each time the timer is updated for handling view updates.
      */
     func startTimer(updateView: @escaping (String, Bool) -> Void){
         countDown = convertedTimeValue
@@ -116,27 +116,31 @@ class TimeTrackerBO{
     
     /**
      Method for converting seconds to the formatted string to be displayed on the view
-        - Parameter seconds: the current unformatted second from the count down
-        - Returns: formatted string of the current time in minutes and seconds
+     - Parameter seconds: the current unformatted second from the count down
+     - Returns: formatted string of the current time in minutes and seconds
      */
     func secondsToString(with seconds: Int) -> String{
         if seconds < 0 {return ""} //TODO: send error
-        let min = (seconds / 60) % 60
+        var min = (seconds / 60)
+        let hour = (min / 60) % 60
+        min %= 60
         let sec = seconds % 60
-        return String(format:"%02i:%02i", min, sec)
+        return String(format:"%02i:%02i:%02i",hour, min, sec)
     }
     
     /**
      Method for converting strings to seconds
-        - Parameter text: the text from the label in the view
-        - Returns: the amount of seconds for the count down
+     - Parameter text: the text from the label in the view
+     - Returns: the amount of seconds for the count down
      */
     func stringToSeconds(from text: String) -> Int{
         if text.contains("-") { return 0}
         if !text.contains(":") { return 0}
         let numbers = text.split(separator: ":")
-        guard let firstNumbers = numbers.first else {return 0}
-        guard let min = Int(firstNumbers) else {return 0}
+        if numbers.count != 3 { return 0}
+        guard let hour = Int(numbers[0]) else {return 0}
+        guard var min = Int(numbers[1]) else {return 0}
+        min += hour * 60
         let sec = min * 60
         return sec
     }
@@ -179,8 +183,8 @@ class TimeTrackerBO{
     
     /**
      Method for updating project according to statistics
-        - Parameter statistic: Statistic created with values from time tracker to be added to the total project time
-        - Returns: Boolean value according to the sucess in updating the current project
+     - Parameter statistic: Statistic created with values from time tracker to be added to the total project time
+     - Returns: Boolean value according to the sucess in updating the current project
      */
     func updateProject(statistic: Statistic) -> Bool{
         var success = true
@@ -212,7 +216,7 @@ class TimeTrackerBO{
     //TODO: put it in an Utils
     /**
      Method for getting the current date
-        - Returns: Value containing current Year and Month
+     - Returns: Value containing current Year and Month
      */
     func getDate() -> DateComponents{
         let date = Date()
