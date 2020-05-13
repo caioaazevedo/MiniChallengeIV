@@ -45,6 +45,7 @@ class AnimatedRingViewTests: XCTestCase {
     }
     
     func testCalculateStartingPoint_WhenValuesProvided_ReturnNewPosition(){
+        sut.totalTime = 1
         XCTAssertEqual(sut.calculateStartingPoint(With: 0.5, And: 1), 0.5)
         XCTAssertEqual(sut.calculateStartingPoint(With: -0.5, And: 1), 1)
     }

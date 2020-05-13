@@ -61,4 +61,22 @@ class StatisticBO {
             }
         })
     }
+    
+    /// Description: Function to call the retrieve Statistics Dao Function searching by month and year
+    /// - Parameters:
+    ///   - month: search month
+    ///   - year: search yaer
+    ///   - completion: return the Statistic or a validation Error
+    func retrieveStatisticPerMonth(month: Int32, year: Int32, completion: (Result<Statistic?, ValidationError>) -> Void) {
+        
+        /// Call retrieve function per month of statisticDAO to communicate with database
+        statisticDAO.retrieveStatisticPerMonth(month: month, year: year, completion: {result in
+            switch result {
+            case .success(let statistic):
+                completion(.success(statistic))
+            case .failure(let error):
+                completion(.failure(error))
+            }
+        })
+    }
 }
