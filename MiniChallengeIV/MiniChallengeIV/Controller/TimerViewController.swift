@@ -40,8 +40,8 @@ class TimerViewController: UIViewController {
     @IBOutlet var timeConfigButtons: [UIButton]!
     @IBOutlet weak var stateLabel: UILabel!
     //Ring View
-    @IBOutlet weak var ringView: AnimatedRingView!
     @IBOutlet weak var projectColor: UIView!
+    @IBOutlet weak var ringView: AnimatedRingView!
     
     
     override func viewDidLoad() {
@@ -49,7 +49,8 @@ class TimerViewController: UIViewController {
         
         loadProject()
         
-        self.btnStart.layer.cornerRadius = 25.0
+        self.btnStart.layer.cornerRadius = 20.0
+        self.btnStart.backgroundColor = UIColor(red: 0.35, green: 0.49, blue: 0.49, alpha: 1.00)
         self.tableView.separatorColor = .clear
         
         // Do any additional setup after loading the view.
