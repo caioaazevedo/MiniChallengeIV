@@ -40,14 +40,16 @@ class TimeRecoverBO {
             let changeCicle =  updateTimerAtributesWhenFocus(lostFocusTime: timeInBackground)
             
             if changeCicle {
-                changeCicleTimer()
+                /// Reset timer
+                timer.countDown = 0
             }
            
         } else if timer.state == .pause{
             let changeCicle = updateTimerAtributesWhenPause(restInBackgrund: timeInBackground)
             
             if changeCicle {
-                changeCicleTimer()
+                // Reset timer
+                timer.countDown = 0
             }
         }
     }
@@ -102,11 +104,5 @@ class TimeRecoverBO {
             /// Change Timer Cicle
             return true
         }
-    }
-
-    func changeCicleTimer() {
-        
-        /// Restar timer
-        timer.countDown = 0
     }
 }

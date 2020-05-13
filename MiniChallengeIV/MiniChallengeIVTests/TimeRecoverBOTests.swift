@@ -206,24 +206,4 @@ class TimeRecoverBOTests: XCTestCase {
         XCTAssertTrue(timer.restTime == timer.configTime * 60)
         XCTAssertTrue(returnValue)
     }
-    
-    func testChangeCicleTimer_changeStatusToFocus(){
-        timer.state = .pause
-        
-        sut.changeCicleTimer()
-        
-        XCTAssertTrue(timer.state == .focus)
-        XCTAssertTrue(timer.countDown == 0)
-    }
-    
-    func testChangeCicleTimer_changeStatusToPause(){
-        timer.state = .focus
-        print("=-=-=-=>>> \(timer.state)")
-        
-        sut.changeCicleTimer()
-        print("=-=-=-=>>> \(timer.state)")
-        
-        XCTAssertTrue(timer.state == .pause)
-        XCTAssertTrue(timer.countDown == 0)
-    }
 }
