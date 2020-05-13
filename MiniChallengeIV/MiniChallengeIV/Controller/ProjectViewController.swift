@@ -99,15 +99,37 @@ class ProjectViewController: UIViewController {
                 //pass projects id to timer
                 timerViewController.timeTracker.projectUuid = projects[index].id
                 timerViewController.id = projects[index].id
+                
+                selectedProjectId = nil
             }
         }
     }
     
-    func deleteAlert(){
-        let alert = UIAlertController(title: "Delete", message: "Project has deleted!", preferredStyle: .alert)
+    /// Description: Function to ensure that the user really wants to delete a project
+    /// - Parameters:
+    ///   - proj: The project thst the user wants to delete
+    ///   - indexPath: The array reference index from projects
+    func deleteProject(proj: Project, index: Int){
+        let alert = UIAlertController(title: "Delete Project", message: "Are you sure you want to delete this project?", preferredStyle: .alert)
         
-        let alertAction = UIAlertAction(title: "Ok", style: .default, handler: nil)
-        alert.addAction(alertAction)
+        let alertActionOK = UIAlertAction(title: "Ok", style: .default){ (action) in
+            self.projectBO.delete(uuid: proj.id) { (result) in
+                switch result {
+                case .success():
+                    self.projects.remove(at: index)
+                    self.collectionView.reloadData()
+                    break
+                case .failure(let error):
+                    print(error.localizedDescription)
+                    break
+                }
+            }
+        }
+        
+        let alertActionCancel = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        
+        alert.addAction(alertActionCancel)
+        alert.addAction(alertActionOK)
         
         self.present(alert, animated: true)
     }
@@ -146,19 +168,7 @@ extension ProjectViewController: UICollectionViewDelegate {
         
         let delete = UIAction(title: "Delete", image: UIImage(systemName: "trash"), attributes: .destructive ,handler: { (delete) in
             
-            
-            self.projectBO.delete(uuid: proj.id) { (result) in
-                switch result {
-                case .success():
-                    self.deleteAlert()
-                    self.projects.remove(at: indexPath.row)
-                    collectionView.reloadData()
-                    break
-                case .failure(let error):
-                    print(error.localizedDescription)
-                    break
-                }
-            }
+            self.deleteProject(proj: proj, index: indexPath.row)
         })
         
         return UIContextMenuConfiguration(identifier: nil,
