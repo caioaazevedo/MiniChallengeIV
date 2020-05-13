@@ -15,7 +15,7 @@ class AnimatedRingView: UIView {
     private let π = CGFloat.pi
     let startAngle = 1.5 * CGFloat.pi
     let circleStrokeWidth = CGFloat(2)
-    let ringStrokeWidth = CGFloat(8)
+    let ringStrokeWidth = CGFloat(5)
     var proportion = CGFloat(0) {
         didSet {
             setNeedsLayout()
@@ -65,8 +65,8 @@ class AnimatedRingView: UIView {
         super.layoutSubviews()
         self.backgroundColor = UIColor.init(244, 244, 240, 1)
         let radius = (min(frame.size.width, frame.size.height) - ringStrokeWidth - 2)/2
-        let pinRadius = 10
-        let circlebackgroundRadius = 81
+        let pinRadius = 7
+        let circlebackgroundRadius = 80.55
         let size = self.frame.size
         let pos = CGPoint(x: size.width/2, y: size.height/2)
         let circlePath = UIBezierPath(arcCenter: pos, radius: radius, startAngle: startAngle, endAngle: startAngle + 2 * π, clockwise: true)

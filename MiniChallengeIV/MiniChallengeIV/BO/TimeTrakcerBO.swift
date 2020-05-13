@@ -21,7 +21,7 @@ class TimeTrackerBO{
     private var statisticBO = StatisticBO()
     private var projectBO = ProjectBO()
     var projectUuid = UUID()
-    var configTime = 2
+    var configTime = 25
     var hasEnded = false
     var timeInterval : TimeInterval = 1 //seconds at a time
     
@@ -121,9 +121,11 @@ class TimeTrackerBO{
      */
     func secondsToString(with seconds: Int) -> String{
         if seconds < 0 {return ""} //TODO: send error
-        let min = (seconds / 60) % 60
+        var min = (seconds / 60)
+        let hour = (min / 60) % 60
+        min %= 60
         let sec = seconds % 60
-        return String(format:"%02i:%02i", min, sec)
+        return String(format:"%02i:%02i:%02i",hour, min, sec)
     }
     
     /**
@@ -135,8 +137,10 @@ class TimeTrackerBO{
         if text.contains("-") { return 0}
         if !text.contains(":") { return 0}
         let numbers = text.split(separator: ":")
-        guard let firstNumbers = numbers.first else {return 0}
-        guard let min = Int(firstNumbers) else {return 0}
+        if numbers.count != 3 { return 0}
+        guard let hour = Int(numbers[0]) else {return 0}
+        guard var min = Int(numbers[1]) else {return 0}
+        min += hour * 60
         let sec = min * 60
         return sec
     }
