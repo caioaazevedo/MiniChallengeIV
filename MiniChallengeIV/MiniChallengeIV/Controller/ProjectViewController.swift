@@ -29,6 +29,11 @@ class ProjectViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        UIApplication.shared.sendAction(#selector(UIApplication.resignFirstResponder), to: nil, from: nil, for: nil)
+        view.endEditing(true)
+    }
+    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         collectionView.reloadData()
@@ -93,6 +98,7 @@ class ProjectViewController: UIViewController {
                 guard let index = selectedProjectId else {return}
                 //pass projects id to timer
                 timerViewController.timeTracker.projectUuid = projects[index].id
+                timerViewController.id = projects[index].id
             }
         }
     }
@@ -124,8 +130,10 @@ extension ProjectViewController: ReloadProjectListDelegate {
 
 extension ProjectViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        self.selectedProjectId = indexPath.row
         performSegue(withIdentifier: "GoToTimer", sender: self)
     }
+
     
     /// Menu configuration
     func collectionView(_ collectionView: UICollectionView, contextMenuConfigurationForItemAt indexPath: IndexPath, point: CGPoint) -> UIContextMenuConfiguration? {

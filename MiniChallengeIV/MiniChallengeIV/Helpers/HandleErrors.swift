@@ -12,9 +12,10 @@ enum ValidationError: Error {
     case errorToAdd(String)
     case errorToCreate(String)
     case errorToRetrieve(String)
-    
     case errorToUpdate(String)
     case errorToDelete(String)
+    case errorToFetch(String)
+    
     case tooShort(String)
 }
 
@@ -40,6 +41,10 @@ extension ValidationError: LocalizedError {
             
         case .errorToDelete(let object):
             let format = NSLocalizedString("Error to delete %@", comment: "")
+            return String(format: format, object)
+            
+        case .errorToFetch(let object):
+            let format = NSLocalizedString("Error to fetch %@", comment: "")
             return String(format: format, object)
             
         case .tooShort(let object):
