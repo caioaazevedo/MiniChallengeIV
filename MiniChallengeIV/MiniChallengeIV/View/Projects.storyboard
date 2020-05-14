@@ -75,17 +75,26 @@
                                 <rect key="frame" x="39" y="114" width="152.33333333333334" height="44"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Progress" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Ag-fL-XNx">
-                                        <rect key="frame" x="0.0" y="0.0" width="131" height="44"/>
+                                        <rect key="frame" x="0.0" y="7" width="93.666666666666671" height="30"/>
                                         <fontDescription key="fontDescription" name="Didot" family="Didot" pointSize="24"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="adjustedValue">
+                                                <real key="value" value="24"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
                                     </label>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chevron.right" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="DVd-fJ-jSe">
-                                        <rect key="frame" x="131" y="13.666666666666671" width="21.333333333333343" height="16.666666666666664"/>
+                                        <rect key="frame" x="101" y="13.666666666666671" width="12.333333333333329" height="16.666666666666664"/>
                                         <color key="tintColor" red="0.34901960784313724" green="0.49411764705882355" blue="0.48627450980392156" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uaA-AE-c65">
-                                        <rect key="frame" x="-0.33333333333334281" y="2.6666666666666714" width="153" height="38.666666666666664"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="152.33333333333334" height="44"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal">
+                                            <color key="titleColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
                                         <connections>
                                             <action selector="showStatistics:" destination="9qX-a1-AkN" eventType="touchUpInside" id="jVF-on-WDL"/>
                                         </connections>
@@ -93,19 +102,14 @@
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstItem="uaA-AE-c65" firstAttribute="centerX" secondItem="AdX-IG-PNb" secondAttribute="centerX" id="49Z-eY-nIS"/>
-                                    <constraint firstItem="uaA-AE-c65" firstAttribute="height" secondItem="AdX-IG-PNb" secondAttribute="height" multiplier="0.877551" id="F2u-72-kUp"/>
-                                    <constraint firstItem="DVd-fJ-jSe" firstAttribute="centerY" secondItem="AdX-IG-PNb" secondAttribute="centerY" id="HXv-Ij-RnJ"/>
-                                    <constraint firstItem="DVd-fJ-jSe" firstAttribute="leading" secondItem="4Ag-fL-XNx" secondAttribute="trailing" id="Hy3-Xc-Tpd"/>
-                                    <constraint firstAttribute="trailing" secondItem="DVd-fJ-jSe" secondAttribute="trailing" id="L6K-B0-gZo"/>
-                                    <constraint firstItem="uaA-AE-c65" firstAttribute="width" secondItem="AdX-IG-PNb" secondAttribute="width" multiplier="1.00344" id="Xbd-WI-j26"/>
-                                    <constraint firstItem="4Ag-fL-XNx" firstAttribute="centerY" secondItem="AdX-IG-PNb" secondAttribute="centerY" id="YUL-Iw-t8r"/>
-                                    <constraint firstItem="4Ag-fL-XNx" firstAttribute="leading" secondItem="AdX-IG-PNb" secondAttribute="leading" id="bOB-So-QiG"/>
-                                    <constraint firstItem="uaA-AE-c65" firstAttribute="centerY" secondItem="AdX-IG-PNb" secondAttribute="centerY" id="g7p-dY-Qm3"/>
-                                    <constraint firstItem="4Ag-fL-XNx" firstAttribute="width" secondItem="AdX-IG-PNb" secondAttribute="width" multiplier="0.859107" id="jsA-OJ-7ae"/>
-                                    <constraint firstItem="4Ag-fL-XNx" firstAttribute="top" secondItem="AdX-IG-PNb" secondAttribute="top" id="nkf-sf-5Af"/>
-                                    <constraint firstAttribute="bottom" secondItem="4Ag-fL-XNx" secondAttribute="bottom" id="t7E-zH-iqo"/>
-                                    <constraint firstItem="4Ag-fL-XNx" firstAttribute="height" secondItem="AdX-IG-PNb" secondAttribute="height" id="zan-62-4Zr"/>
+                                    <constraint firstItem="DVd-fJ-jSe" firstAttribute="leading" secondItem="4Ag-fL-XNx" secondAttribute="trailing" constant="7.3333333333333286" id="3Uk-GJ-PXt"/>
+                                    <constraint firstItem="uaA-AE-c65" firstAttribute="width" secondItem="AdX-IG-PNb" secondAttribute="width" id="3sY-53-EOr"/>
+                                    <constraint firstItem="uaA-AE-c65" firstAttribute="height" secondItem="AdX-IG-PNb" secondAttribute="height" id="8aj-iC-Kk9"/>
+                                    <constraint firstItem="DVd-fJ-jSe" firstAttribute="centerY" secondItem="4Ag-fL-XNx" secondAttribute="centerY" id="AlJ-pl-9jx"/>
+                                    <constraint firstItem="4Ag-fL-XNx" firstAttribute="centerY" secondItem="AdX-IG-PNb" secondAttribute="centerY" id="Jid-TU-896"/>
+                                    <constraint firstItem="uaA-AE-c65" firstAttribute="centerX" secondItem="AdX-IG-PNb" secondAttribute="centerX" id="Pyp-kX-YZa"/>
+                                    <constraint firstItem="4Ag-fL-XNx" firstAttribute="leading" secondItem="AdX-IG-PNb" secondAttribute="leading" id="dj8-ML-zhx"/>
+                                    <constraint firstItem="uaA-AE-c65" firstAttribute="centerY" secondItem="AdX-IG-PNb" secondAttribute="centerY" id="pOL-CB-jlw"/>
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your Projects" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l5y-SN-NU7">
@@ -113,6 +117,11 @@
                                 <fontDescription key="fontDescription" name="Didot" family="Didot" pointSize="24"/>
                                 <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="adjustedValue">
+                                        <real key="value" value="24"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pdz-0e-3le">
                                 <rect key="frame" x="39" y="166" width="297" height="104"/>
@@ -215,6 +224,11 @@
                                 <fontDescription key="fontDescription" name="Didot" family="Didot" pointSize="30"/>
                                 <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="adjustedValue">
+                                        <real key="value" value="30"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jEq-ma-4eo">
                                 <rect key="frame" x="39" y="724.66666666666663" width="297" height="43.333333333333371"/>
@@ -274,7 +288,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8Ia-8H-4We" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="110" y="-66"/>
+            <point key="canvasLocation" x="109.59999999999999" y="-66.502463054187189"/>
         </scene>
         <!--Statistics-->
         <scene sceneID="OH2-bX-L8T">

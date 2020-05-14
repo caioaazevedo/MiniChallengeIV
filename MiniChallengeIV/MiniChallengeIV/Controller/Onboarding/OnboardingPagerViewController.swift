@@ -15,7 +15,7 @@ import UIKit
 class OnboardingPagerViewController: UIViewController {
     
     var vc = [UIViewController]()
-    let viewControllersID = [ "step1","step2","step3","step4","step5","step6" ]
+    let viewControllersID = [ "onboarding1","onboarding2","onboarding3","onboarding4","onboarding5","onboarding6" ]
     
     var initialContentOffset = CGPoint()  // scrollView initial offset
     var scrollView: UIScrollView!
@@ -54,7 +54,7 @@ class OnboardingPagerViewController: UIViewController {
         view.addSubview(pgControl)
 
         pgControl.translatesAutoresizingMaskIntoConstraints = false
-        pgControl.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor).isActive = true
+        pgControl.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: 10).isActive = true
         pgControl.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor).isActive = true
     }
     
