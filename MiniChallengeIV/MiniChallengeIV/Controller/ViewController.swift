@@ -18,7 +18,7 @@ class ViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
 //        performSegue(withIdentifier: "segue", sender: nil)
-        performSegue(withIdentifier: "projects", sender: nil)
+        performSegue(withIdentifier: "onboarding", sender: nil)
     }
     
     ///Method for creating statistics for the first time in a device
