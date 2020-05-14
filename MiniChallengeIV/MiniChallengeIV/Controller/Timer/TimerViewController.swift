@@ -99,13 +99,12 @@ class TimerViewController: UIViewController {
             stopTimer(sender)
             return
         }
-        sender.setTitle("Stop", for: .normal)
+        sender.setTitle("Give Up", for: .normal)
         //Start timer
         timeTracker.startTimer {time, hasEnded in
             self.timerLabel.text = time
             if hasEnded{ // Focus timer ended
                 sender.setTitle("Start", for: .normal)
-                self.stateLabel.text = self.timeTracker.state.rawValue
                 self.setConfigurationButtons()
                 self.ringView.removeAnimation()
                 let popUpState = self.timeTracker.state == .focus ? PopUpMessages.focus : .pause

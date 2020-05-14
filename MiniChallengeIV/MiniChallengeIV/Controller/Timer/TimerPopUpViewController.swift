@@ -12,61 +12,59 @@ enum PopUpMessages{
     case focus
     case pause
     case givenUp
-    
-    func getTitle() -> String{
-        switch self {
-        case .focus:
-            return "Yay!"
-        case .pause:
-            return ""
-        case .givenUp:
-            return "Ooops!"
-        }
-    }
-    
-    func getText() -> String{
-        switch self {
-        case .focus:
-            return "Congratulations!\nYou did it!"
-        case .pause:
-            return ""
-        case .givenUp:
-            return "All of the progress was lost!\nLet's try total focus again?"
-        }
-    }
-    
-    func getImage() -> UIImage?{
-        switch self {
-        case .focus:
-            return UIImage(named: "trophy")
-        case .pause:
-            return UIImage(named: "trophy")
-        case .givenUp:
-            return UIImage(named: "giveUp")
-        }
-    }
 }
 
 class TimerPopUpViewController: UIViewController {
 
     //Atributes
     var popUpState = PopUpMessages.focus
+    //Dictionary
+    var titleDict = [PopUpMessages:String]()
+    var textDict = [PopUpMessages:String]()
+    var imageDict = [PopUpMessages:UIImage?]()
+    var buttonDict = [PopUpMessages:String]()
     //ImageView
     @IBOutlet weak var popUpImage: UIImageView!
     //Labels
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var textLabel: UILabel!
     
+    @IBOutlet weak var button: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        setupDictionary()
         setupPopUp()
     }
     
+    func setupDictionary(){
+        //focus
+        titleDict[.focus] = "Yay!"
+        textDict[.focus] = "Congratulations!\nYou did it!"
+        imageDict[.focus] = UIImage(named: "trophy")
+        buttonDict[.focus] = "Break"
+        //pause
+        titleDict[.pause] = ""
+        textDict[.pause] = ""
+        imageDict[.pause] = UIImage(named: "trophy")
+        buttonDict[.pause] = "Focus"
+        //give up
+        titleDict[.givenUp] = "Ooops!"
+        textDict[.givenUp] = "All of the progress was lost!\nLet's try total focus again?"
+        imageDict[.givenUp] = UIImage(named: "giveUp")
+        buttonDict[.givenUp] = "Retry"
+    }
+    
     func setupPopUp(){
-        popUpImage.image = popUpState.getImage()
-        titleLabel.text = popUpState.getTitle()
-        textLabel.text = popUpState.getText()
+        guard let title = titleDict[popUpState] else {return}
+        guard let text = textDict[popUpState] else {return}
+        guard let image = imageDict[popUpState] else {return}
+        guard let buttonText = buttonDict[popUpState] else {return}
+        popUpImage.image = image
+        titleLabel.text = title
+        textLabel.text = text
+        button.setTitle(buttonText, for: .normal)
     }
     
     @IBAction func goToNextStep(_ sender: Any) {

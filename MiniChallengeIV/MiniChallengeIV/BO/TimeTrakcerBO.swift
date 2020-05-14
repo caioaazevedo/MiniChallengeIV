@@ -76,7 +76,7 @@ class TimeTrackerBO{
         
         //Runs timer and updates each second
         timer = Timer.scheduledTimer(withTimeInterval: timeInterval, repeats: true, block: { (_) in
-            self.countDown -= 1 //Decreases time
+            self.countDown -= 60 //Decreases time
             var convertedTimeText = self.secondsToString(with: self.countDown)
             self.updateTrackedValues()
             
