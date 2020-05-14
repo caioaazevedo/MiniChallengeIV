@@ -27,11 +27,11 @@ enum PopUpMessages{
     func getText() -> String{
         switch self {
         case .focus:
-            return "Congratulations!/nYou did it!"
+            return "Congratulations!\nYou did it!"
         case .pause:
             return ""
         case .givenUp:
-            return "All of the progress was lost!/nLet's try total focus again?"
+            return "All of the progress was lost!\nLet's try total focus again?"
         }
     }
     
@@ -76,6 +76,7 @@ class TimerPopUpViewController: UIViewController {
         }else{
             pvc.timeTracker.state = pvc.timeTracker.changeCicle
         }
+        dismiss(animated: true)
     }
 
     @IBAction func Cancel(_ sender: Any) {

@@ -108,6 +108,8 @@ class TimerViewController: UIViewController {
                 self.stateLabel.text = self.timeTracker.state.rawValue
                 self.setConfigurationButtons()
                 self.ringView.removeAnimation()
+                let popUpState = self.timeTracker.state == .focus ? PopUpMessages.focus : .pause
+                self.presentPopUp(state: popUpState)
             }
         }
         //Animate progression ring
@@ -132,8 +134,19 @@ class TimerViewController: UIViewController {
             self.ringView.removeAnimation()
         }
         setConfigurationButtons()
+        presentPopUp(state: .givenUp)
+        UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
     }
     
+    ///Show Pop Up
+    func presentPopUp(state: PopUpMessages){
+        if let tpvc = UIStoryboard.loadView(from: .TimerPopUp, identifier: .TimerPopUpID) as? TimerPopUpViewController {
+            tpvc.modalTransitionStyle = .crossDissolve
+            tpvc.modalPresentationStyle = .overCurrentContext
+            tpvc.popUpState = state
+            self.present(tpvc, animated: true)
+        }
+    }
     
     ///Increment timer for the count down
     @IBAction func incrementTimer(_ sender: Any) {

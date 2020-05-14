@@ -10,7 +10,7 @@
         <!--Timer Pop Up View Controller-->
         <scene sceneID="hJq-a1-3YQ">
             <objects>
-                <viewController storyboardIdentifier="timerPopUp" id="eXf-Ep-ogj" customClass="TimerPopUpViewController" customModule="MiniChallengeIV" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="TimerPopUpID" id="eXf-Ep-ogj" customClass="TimerPopUpViewController" customModule="MiniChallengeIV" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="uVH-J7-UzY">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
