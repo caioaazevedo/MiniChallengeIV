@@ -39,6 +39,8 @@
 		795642562461F68C000A621F /* MiniChallengeIVTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 795642552461F68C000A621F /* MiniChallengeIVTests.swift */; };
 		7956425E2461F718000A621F /* TimeTrackerBOTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7956425D2461F718000A621F /* TimeTrackerBOTests.swift */; };
 		795642622462146F000A621F /* TimeRecoverBOTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 795642612462146F000A621F /* TimeRecoverBOTests.swift */; };
+		79604CCD246DBE1000EAEE2E /* TimerPopUp.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 79604CCC246DBE1000EAEE2E /* TimerPopUp.storyboard */; };
+		79604CD3246DC74F00EAEE2E /* TimerPopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79604CD2246DC74F00EAEE2E /* TimerPopUpViewController.swift */; };
 		796706852469E1CA00C35A43 /* AnimatedRingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 796706842469E1CA00C35A43 /* AnimatedRingView.swift */; };
 		796C3E36245A0079004488D1 /* TimeTrakcerBO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 796C3E35245A0079004488D1 /* TimeTrakcerBO.swift */; };
 		796C3E38245A00DF004488D1 /* TimerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 796C3E37245A00DF004488D1 /* TimerViewController.swift */; };
@@ -121,6 +123,8 @@
 		795642572461F68C000A621F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7956425D2461F718000A621F /* TimeTrackerBOTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeTrackerBOTests.swift; sourceTree = "<group>"; };
 		795642612462146F000A621F /* TimeRecoverBOTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeRecoverBOTests.swift; sourceTree = "<group>"; };
+		79604CCC246DBE1000EAEE2E /* TimerPopUp.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TimerPopUp.storyboard; sourceTree = "<group>"; };
+		79604CD2246DC74F00EAEE2E /* TimerPopUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerPopUpViewController.swift; sourceTree = "<group>"; };
 		796706842469E1CA00C35A43 /* AnimatedRingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimatedRingView.swift; sourceTree = "<group>"; };
 		796C3E35245A0079004488D1 /* TimeTrakcerBO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeTrakcerBO.swift; sourceTree = "<group>"; };
 		796C3E37245A00DF004488D1 /* TimerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerViewController.swift; sourceTree = "<group>"; };
@@ -287,6 +291,7 @@
 				696E92E4245A499800E7F3DF /* NewProject.storyboard */,
 				6927A1BE2464AC85005E0154 /* Onboarding.storyboard */,
 				E24DE0142463503900E425E1 /* Statistics.storyboard */,
+				79604CCC246DBE1000EAEE2E /* TimerPopUp.storyboard */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -294,10 +299,10 @@
 		69B04757245754FE002A696D /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				79604CCF246DBE8400EAEE2E /* Timer */,
 				6910339A245A11DC009D5D58 /* Projects */,
 				69D4B4FB2469F84600DE4EAB /* Onboarding */,
 				69B04726245754D5002A696D /* ViewController.swift */,
-				796C3E37245A00DF004488D1 /* TimerViewController.swift */,
 				E24DE019246350A700E425E1 /* StatisticsViewController.swift */,
 			);
 			path = Controller;
@@ -376,6 +381,15 @@
 				E2CAB78A2460A0FB00822073 /* TimeRecoverBOTests.swift */,
 			);
 			name = "Recovered References";
+			sourceTree = "<group>";
+		};
+		79604CCF246DBE8400EAEE2E /* Timer */ = {
+			isa = PBXGroup;
+			children = (
+				796C3E37245A00DF004488D1 /* TimerViewController.swift */,
+				79604CD2246DC74F00EAEE2E /* TimerPopUpViewController.swift */,
+			);
+			path = Timer;
 			sourceTree = "<group>";
 		};
 		796706832469E18E00C35A43 /* UIView */ = {
@@ -518,6 +532,7 @@
 				696E92E5245A499800E7F3DF /* NewProject.storyboard in Resources */,
 				69B04732245754D8002A696D /* LaunchScreen.storyboard in Resources */,
 				69B0472F245754D8002A696D /* Assets.xcassets in Resources */,
+				79604CCD246DBE1000EAEE2E /* TimerPopUp.storyboard in Resources */,
 				6927A1BF2464AC85005E0154 /* Onboarding.storyboard in Resources */,
 				69B0472A245754D5002A696D /* Main.storyboard in Resources */,
 				E24DE0152463503900E425E1 /* Statistics.storyboard in Resources */,
@@ -670,6 +685,7 @@
 				409D5032245B4E35006D66AC /* TaskBO.swift in Sources */,
 				406EA9D22460A56E00903350 /* Task.swift in Sources */,
 				409CA8E324635D3200D9D1F2 /* TaskTableViewCell.swift in Sources */,
+				79604CD3246DC74F00EAEE2E /* TimerPopUpViewController.swift in Sources */,
 				E29B1E132458CA7D00EA9B48 /* StatisticBO.swift in Sources */,
 				691033A4245A250A009D5D58 /* NewProjectViewController.swift in Sources */,
 				69B04723245754D5002A696D /* AppDelegate.swift in Sources */,

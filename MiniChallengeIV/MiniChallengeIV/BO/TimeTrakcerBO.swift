@@ -83,7 +83,6 @@ class TimeTrackerBO{
             if self.hasEnded{ //It changes state, cancels timer and updates view with default value
                 self.timer.invalidate()
                 self.updateStatistics()
-                self.state = self.changeCicle
                 let defaultTimeText = self.secondsToString(with: self.convertedTimeValue)
                 convertedTimeText = defaultTimeText
             }
