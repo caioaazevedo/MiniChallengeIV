@@ -15,7 +15,7 @@ class NewProjectViewController: UIViewController{
     @IBOutlet var buttons: [UIButton]!
     @IBOutlet var checks: [UIImageView]!
     
-    var currentButtonIndex: Int?
+    var currentButtonIndex = 0
     
     let projectBO = ProjectBO()
     
@@ -32,24 +32,31 @@ class NewProjectViewController: UIViewController{
         
         projectNameLabel.delegate = self
         
-        if let project = project {
-            projectNameLabel.text = project.name
-            projectColor = project.color
-            titleLabel.text = "Edit Project"
-        } else {
-            titleLabel.text = "Add Project"
-        }
-        
+        // uncheck all colors
         for check in checks {
             check.isHidden = true
         }
         
-        if let button = buttons.filter({$0.backgroundColor?.description == project?.color.description}).first,
-            let index = buttons.firstIndex(of: button) {
-            checks[index].isHidden = false
-            currentButtonIndex = index
+        // if projects is not null
+        if let project = project {
+            projectNameLabel.text = project.name
+            projectColor = project.color
+            titleLabel.text = "Edit Project"
+            
+            // show current project color
+            if let button = buttons.filter({$0.backgroundColor?.description == project.color.description}).first,
+                let index = buttons.firstIndex(of: button) {
+                checks[index].isHidden = false
+                currentButtonIndex = index
+            }
+            
         }
-                
+        else {
+            titleLabel.text = "Add Project"
+            projectColor = buttons[0].backgroundColor!
+            checks[0].isHidden = false
+        }
+        
         UIApplication.shared.sendAction(#selector(UIApplication.resignFirstResponder), to: nil, from: nil, for: nil)
     }
     
@@ -65,7 +72,7 @@ class NewProjectViewController: UIViewController{
         
         if let index = buttons.firstIndex(of: sender) {
             checks[index].isHidden = false
-            if let currentButtonIndex = currentButtonIndex, currentButtonIndex != index {
+            if currentButtonIndex != index {
                 checks[currentButtonIndex].isHidden = true
             }
             currentButtonIndex = index
