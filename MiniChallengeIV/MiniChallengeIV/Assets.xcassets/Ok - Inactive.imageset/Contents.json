@@ -1,15 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "plus.png",
+      "filename" : "Ok - Inactive.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
+      "filename" : "Ok - Inactive@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
+      "filename" : "Ok - Inactive@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

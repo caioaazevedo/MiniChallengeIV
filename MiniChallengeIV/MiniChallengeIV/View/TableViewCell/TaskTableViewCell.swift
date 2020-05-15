@@ -11,7 +11,6 @@ import UIKit
 
 protocol TaskBtnDelegate {
     func changeBtnState(isSelected: Bool, index: Int)
-    func addTask()
 }
 
 enum TypeBtnTask {
@@ -29,12 +28,9 @@ class TaskTableViewCell: UITableViewCell {
     
     @IBAction func checkButtonAction(_ sender: TaskBtn) {
         
-        switch sender.btnType {
-        
-        case .add:
-            delegate?.addTask()
-            
-        case .select:
+//        switch sender.btnType {
+//
+//        case .select:
             if sender.isSelected {
                 sender.isSelected = false
                 delegate?.changeBtnState(isSelected: false, index: sender.tag)
@@ -42,8 +38,8 @@ class TaskTableViewCell: UITableViewCell {
                 sender.isSelected = true
                 delegate?.changeBtnState(isSelected: true, index: sender.tag)
             }
-        default:
-            break;
-        }
+//        default:
+//            break;
+//        }
     }
 }

@@ -1,15 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "checked.png",
+      "filename" : "Triangle Copy.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
+      "filename" : "Triangle Copy@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
+      "filename" : "Triangle Copy@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }
