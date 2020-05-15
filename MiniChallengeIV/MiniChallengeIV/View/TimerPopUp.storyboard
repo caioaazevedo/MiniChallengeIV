@@ -15,20 +15,25 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hPU-dM-hmb">
-                                <rect key="frame" x="40" y="280" width="334" height="307"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hPU-dM-hmb">
+                                <rect key="frame" x="40" y="294.5" width="334" height="307"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Ooops!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XSk-f7-6BO">
-                                        <rect key="frame" x="128" y="109" width="79" height="30"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ooops!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XSk-f7-6BO">
+                                        <rect key="frame" x="29" y="109" width="276" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" identifier="height" id="cwa-OJ-qCT"/>
+                                            <constraint firstAttribute="width" constant="276" identifier="width" id="k7C-Mr-hRi"/>
+                                        </constraints>
                                         <fontDescription key="fontDescription" name="Didot" family="Didot" pointSize="24"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CZ9-zZ-Ddv">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CZ9-zZ-Ddv">
                                         <rect key="frame" x="28" y="232" width="132" height="34"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="34" identifier="height" id="QuB-fn-uhQ"/>
+                                            <constraint firstAttribute="width" constant="132" identifier="width" id="ZuZ-NG-Z6Q"/>
+                                        </constraints>
                                         <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="20"/>
                                         <state key="normal" title="Cancel">
                                             <color key="titleColor" red="0.4392187595" green="0.43921005730000001" blue="0.4392159283" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -48,9 +53,8 @@
                                             <action selector="Cancel:" destination="eXf-Ep-ogj" eventType="touchUpInside" id="UsJ-fs-WK2"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="i9P-9k-Fkz">
-                                        <rect key="frame" x="172" y="232" width="132" height="34"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="i9P-9k-Fkz">
+                                        <rect key="frame" x="172" y="231" width="132" height="35"/>
                                         <color key="backgroundColor" red="0.38129833340000002" green="0.4902151823" blue="0.48627603050000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="20"/>
                                         <state key="normal" title="Retry">
@@ -65,13 +69,19 @@
                                             <action selector="goToNextStep:" destination="eXf-Ep-ogj" eventType="touchUpInside" id="5HL-zG-32S"/>
                                         </connections>
                                     </button>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="giveUp" translatesAutoresizingMaskIntoConstraints="NO" id="ALx-ob-N0o">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="giveUp" translatesAutoresizingMaskIntoConstraints="NO" id="ALx-ob-N0o">
                                         <rect key="frame" x="70" y="-96" width="194" height="194"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="194" identifier="width" id="d1f-Vl-5NZ"/>
+                                            <constraint firstAttribute="height" constant="194" identifier="height" id="kRC-YR-BRc"/>
+                                        </constraints>
                                     </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o4a-ak-ikw">
-                                        <rect key="frame" x="14" y="146" width="307" height="61"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o4a-ak-ikw">
+                                        <rect key="frame" x="29" y="145" width="276" height="61"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="61" identifier="height" id="1LQ-jL-YZq"/>
+                                            <constraint firstAttribute="width" constant="276" identifier="width" id="tRH-7X-r21"/>
+                                        </constraints>
                                         <string key="text">All of your progress was lost!
 Let’s try total focus again?</string>
                                         <fontDescription key="fontDescription" name="GillSans-Light" family="Gill Sans" pointSize="20"/>
@@ -80,6 +90,23 @@ Let’s try total focus again?</string>
                                     </label>
                                 </subviews>
                                 <color key="backgroundColor" red="0.95675712820000003" green="0.95714896920000003" blue="0.94117498399999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstItem="XSk-f7-6BO" firstAttribute="top" secondItem="ALx-ob-N0o" secondAttribute="bottom" constant="11" identifier="height" id="10n-MQ-XXi"/>
+                                    <constraint firstAttribute="bottom" secondItem="i9P-9k-Fkz" secondAttribute="bottom" constant="41" identifier="height" id="2fG-eY-gwV"/>
+                                    <constraint firstItem="CZ9-zZ-Ddv" firstAttribute="top" secondItem="o4a-ak-ikw" secondAttribute="bottom" constant="26" identifier="height" id="7Yu-Fw-AjH"/>
+                                    <constraint firstAttribute="trailing" secondItem="i9P-9k-Fkz" secondAttribute="trailing" constant="30" id="CG9-OM-iSA"/>
+                                    <constraint firstItem="CZ9-zZ-Ddv" firstAttribute="leading" secondItem="hPU-dM-hmb" secondAttribute="leading" constant="28" id="DLD-5l-SL3"/>
+                                    <constraint firstAttribute="width" constant="334" identifier="width" id="HjX-1q-1Fx"/>
+                                    <constraint firstAttribute="height" constant="307" identifier="height" id="Mpx-xw-dz7"/>
+                                    <constraint firstItem="o4a-ak-ikw" firstAttribute="top" secondItem="XSk-f7-6BO" secondAttribute="bottom" constant="6" identifier="height" id="N9J-dw-XUO"/>
+                                    <constraint firstItem="XSk-f7-6BO" firstAttribute="centerX" secondItem="hPU-dM-hmb" secondAttribute="centerX" id="bYZ-Pa-AIS"/>
+                                    <constraint firstAttribute="bottom" secondItem="CZ9-zZ-Ddv" secondAttribute="bottom" constant="41" identifier="height" id="dTH-i6-DJe"/>
+                                    <constraint firstItem="i9P-9k-Fkz" firstAttribute="width" secondItem="CZ9-zZ-Ddv" secondAttribute="width" id="i7C-XD-xXA"/>
+                                    <constraint firstItem="i9P-9k-Fkz" firstAttribute="top" secondItem="o4a-ak-ikw" secondAttribute="bottom" constant="25" identifier="height" id="mZz-ju-IdU"/>
+                                    <constraint firstItem="o4a-ak-ikw" firstAttribute="centerX" secondItem="hPU-dM-hmb" secondAttribute="centerX" id="q5I-mt-Xu3"/>
+                                    <constraint firstItem="ALx-ob-N0o" firstAttribute="centerX" secondItem="hPU-dM-hmb" secondAttribute="centerX" id="sjg-Tg-kVn"/>
+                                    <constraint firstItem="i9P-9k-Fkz" firstAttribute="leading" secondItem="CZ9-zZ-Ddv" secondAttribute="trailing" constant="12" id="vdA-0d-PiJ"/>
+                                </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                                         <integer key="value" value="10"/>
@@ -88,10 +115,15 @@ Let’s try total focus again?</string>
                             </view>
                         </subviews>
                         <color key="backgroundColor" red="0.25098234419999998" green="0.2509769201" blue="0.25098058579999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <constraints>
+                            <constraint firstItem="hPU-dM-hmb" firstAttribute="centerY" secondItem="uVH-J7-UzY" secondAttribute="centerY" id="A1a-fQ-KGI"/>
+                            <constraint firstItem="hPU-dM-hmb" firstAttribute="centerX" secondItem="uVH-J7-UzY" secondAttribute="centerX" id="NZW-dg-bz4"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="vU0-ib-Gjc"/>
                     </view>
                     <connections>
                         <outlet property="button" destination="i9P-9k-Fkz" id="Sgt-bA-blB"/>
+                        <outlet property="cancelButton" destination="CZ9-zZ-Ddv" id="fXB-7R-34Y"/>
                         <outlet property="popUpImage" destination="ALx-ob-N0o" id="Bch-Rd-2Pd"/>
                         <outlet property="textLabel" destination="o4a-ak-ikw" id="kSR-rh-MBM"/>
                         <outlet property="titleLabel" destination="XSk-f7-6BO" id="zgL-p4-JVd"/>

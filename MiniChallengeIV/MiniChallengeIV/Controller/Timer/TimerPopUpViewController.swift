@@ -28,14 +28,32 @@ class TimerPopUpViewController: UIViewController {
     //Labels
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var textLabel: UILabel!
-    
     @IBOutlet weak var button: UIButton!
-    
+    @IBOutlet weak var cancelButton: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         setupDictionary()
         setupPopUp()
+        adaptAutoLayout()
+    }
+    
+    func adaptAutoLayout(){
+        let screenElements = self.view.subviewsRecursive()
+        let constraints = screenElements.map{$0.constraints}.joined()
+        for constraint in constraints {
+            if constraint.identifier == "height" {
+                constraint.constant = constraint.constant.scaledHeight
+            } else if constraint.identifier == "width" {
+                constraint.constant = constraint.constant.scaledWidth
+            }
+        }
+        
+        //adapt label sizes
+        textLabel.font = textLabel.font.withSize(textLabel.font.pointSize.scaledHeight)
+        titleLabel.font = titleLabel.font.withSize(titleLabel.font.pointSize.scaledHeight)
+        button.titleLabel?.font = button.titleLabel?.font.withSize((button.titleLabel?.font.pointSize.scaledHeight)!)
+        cancelButton.titleLabel?.font = cancelButton.titleLabel?.font.withSize((cancelButton.titleLabel?.font.pointSize.scaledHeight)!)
     }
     
     func setupDictionary(){
