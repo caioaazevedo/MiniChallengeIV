@@ -109,15 +109,21 @@ class ProjectViewController: UIViewController {
     /// - Parameters:
     ///   - proj: The project thst the user wants to delete
     ///   - indexPath: The array reference index from projects
-    func deleteProject(proj: Project, index: Int){
+    func deleteProject(proj: Project, indexPath: IndexPath){
         let alert = UIAlertController(title: "Delete Project", message: "Are you sure you want to delete this project?", preferredStyle: .alert)
         
         let alertActionOK = UIAlertAction(title: "Ok", style: .default){ (action) in
             self.projectBO.delete(uuid: proj.id) { (result) in
                 switch result {
                 case .success():
-                    self.projects.remove(at: index)
-                    self.collectionView.reloadData()
+                    
+                    /// Add delete animation 
+                    UIView.animate(withDuration: 1, animations: {
+                        self.collectionView.cellForItem(at: indexPath)?.alpha = 0.0
+                    }, completion: { (_) in
+                        self.projects.remove(at: indexPath.row)
+                        self.collectionView.reloadData()
+                    })
                     break
                 case .failure(let error):
                     print(error.localizedDescription)
@@ -168,7 +174,7 @@ extension ProjectViewController: UICollectionViewDelegate {
         
         let delete = UIAction(title: "Delete", image: UIImage(systemName: "trash"), attributes: .destructive ,handler: { (delete) in
             
-            self.deleteProject(proj: proj, index: indexPath.row)
+            self.deleteProject(proj: proj, indexPath: indexPath)
         })
         
         return UIContextMenuConfiguration(identifier: nil,
