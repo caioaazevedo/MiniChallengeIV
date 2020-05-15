@@ -76,8 +76,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
         // Save changes in the application's managed object context when the application transitions to the background.
         
-        AppNotificationBO.shared.sendNotification(type: .didLoseFocus)
-        
         CDManager.shared.saveContext()
 
         guard let lostTime = self.lostTimeFocus else {
@@ -86,6 +84,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         lostTime.enterbackground()
         
+        guard let t = timer else {return}
+        if t.timer.isValid{
+            AppNotificationBO.shared.sendNotification(type: .didLoseFocus)
+        }
     }
     
 }

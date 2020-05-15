@@ -74,6 +74,8 @@ class TimeTrackerBOTests: XCTestCase {
         XCTAssertEqual(sut.convertedTimeValue, 300)
         sut.state = .pause
         XCTAssertEqual(sut.convertedTimeValue, 60)
+        sut.configTime = 1
+        XCTAssertEqual(sut.convertedTimeValue, 1)
     }
 
     func testCountDown_WhenFinished_ChangeBooleanValue(){

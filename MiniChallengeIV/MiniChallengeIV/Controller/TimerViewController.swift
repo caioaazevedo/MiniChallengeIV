@@ -130,6 +130,10 @@ class TimerViewController: UIViewController {
         ringView.totalTime = CGFloat(timeTracker.convertedTimeValue)
         //Enable or disable buttons
         setConfigurationButtons()
+        //set notification
+        let notificationType = timeTracker.state == .focus ? NotificationType.didFinishFocus : .didFinishBreak
+        let delay = TimeInterval(timeTracker.convertedTimeValue)
+        AppNotificationBO.shared.sendNotification(type: notificationType, delay: delay)
     }
     
     //MARK: STOP TIMER

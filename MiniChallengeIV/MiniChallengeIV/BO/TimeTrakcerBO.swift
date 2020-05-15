@@ -21,7 +21,7 @@ class TimeTrackerBO{
     private var statisticBO = StatisticBO()
     private var projectBO = ProjectBO()
     var projectUuid = UUID()
-    var configTime = 25
+    var configTime = 1
     var hasEnded = false
     var timeInterval : TimeInterval = 1 //seconds at a time
     
@@ -43,7 +43,8 @@ class TimeTrackerBO{
     ///If the state is pause, it calculates the pause time
     var convertedTimeValue: Int{
         if state == .pause{
-            return (configTime / 5) * 60
+            let seconds = (configTime / 5) * 60
+            return seconds <= 0 ? 1 : seconds
         }
         return configTime * 60
     }

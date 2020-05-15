@@ -1,2 +1,3 @@
 ${PODS_ROOT}/Target Support Files/Pods-MiniChallengeIV-MiniChallengeIVUITests/Pods-MiniChallengeIV-MiniChallengeIVUITests-frameworks.sh
 ${BUILT_PRODUCTS_DIR}/Charts/Charts.framework
+${BUILT_PRODUCTS_DIR}/LayoutHelper/LayoutHelper.framework
