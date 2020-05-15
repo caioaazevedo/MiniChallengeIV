@@ -21,7 +21,7 @@ class TimeTrackerBO{
     private var statisticBO = StatisticBO()
     private var projectBO = ProjectBO()
     var projectUuid = UUID()
-    var configTime = 1
+    var configTime = 25
     var hasEnded = false
     var timeInterval : TimeInterval = 1 //seconds at a time
     
@@ -76,7 +76,7 @@ class TimeTrackerBO{
         
         //Runs timer and updates each second
         timer = Timer.scheduledTimer(withTimeInterval: timeInterval, repeats: true, block: { (_) in
-            self.countDown -= 60 //Decreases time
+            self.countDown -= 1 //Decreases time
             var convertedTimeText = self.secondsToString(with: self.countDown)
             self.updateTrackedValues()
             

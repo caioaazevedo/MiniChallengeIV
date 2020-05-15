@@ -38,6 +38,8 @@ class StatisticsViewController: UIViewController {
         circleChart.transparentCircleColor = UIColor.clear
         circleChart.legend.enabled = false
         circleChart.highlightPerTapEnabled = false
+        circleChart.holeColor = UIColor.clear
+        circleChart.entryLabelColor = UIColor(red: 0.20, green: 0.20, blue: 0.20, alpha: 1.00)
     }
     
     func convetTime(seconds: Int) -> String {

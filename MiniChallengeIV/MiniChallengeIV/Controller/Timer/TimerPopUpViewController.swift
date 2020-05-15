@@ -88,7 +88,8 @@ class TimerPopUpViewController: UIViewController {
     }
     //Go to next step Focus/Break
     @IBAction func goToNextStep(_ sender: Any) {
-        guard let pvc = self.presentingViewController as? TimerViewController else{return}
+        guard let navigation = self.presentingViewController as? UINavigationController else{return}
+        guard let pvc = navigation.topViewController as? TimerViewController else {return}
         if popUpState == .givenUp{
             pvc.timeTracker.state = .focus
         }else{
@@ -98,7 +99,8 @@ class TimerPopUpViewController: UIViewController {
     }
     //Cancel timer and go back to menu
     @IBAction func Cancel(_ sender: Any) {
-        guard let pvc = self.presentingViewController as? TimerViewController else{return}
+        guard let navigation = self.presentingViewController as? UINavigationController else{return}
+        guard let pvc = navigation.topViewController as? TimerViewController else {return}
         self.dismiss(animated: true) {
             pvc.dismiss(animated: true)
         }
