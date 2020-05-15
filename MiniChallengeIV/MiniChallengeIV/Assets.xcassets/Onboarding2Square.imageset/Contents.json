@@ -6,14 +6,14 @@
       "filename" : "Onboarding2Square.png"
     },
     {
-      "scale" : "2x",
+      "idiom" : "universal",
       "filename" : "Onboarding2Square@2x.png",
-      "idiom" : "universal"
+      "scale" : "2x"
     },
     {
       "scale" : "3x",
-      "idiom" : "universal",
-      "filename" : "Onboarding2Square@3x.png"
+      "filename" : "Onboarding2Square@3x.png",
+      "idiom" : "universal"
     }
   ],
   "info" : {

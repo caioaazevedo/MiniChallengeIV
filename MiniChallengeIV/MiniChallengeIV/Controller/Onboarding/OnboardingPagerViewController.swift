@@ -20,7 +20,7 @@ class OnboardingPagerViewController: UIViewController {
     lazy var vc: [UIViewController] = {
         var vc = [UIViewController]()
         
-        for i in 1..<vcIDs.count {
+        for i in 2..<vcIDs.count {
             let id = vcIDs[i]
             vc.append(UIStoryboard(name: id, bundle: nil).instantiateViewController(identifier: id))
         }
