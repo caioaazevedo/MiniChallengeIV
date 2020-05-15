@@ -140,7 +140,7 @@ class ProjectViewController: UIViewController {
                 case .success():
                     
                     /// Add delete animation 
-                    UIView.animate(withDuration: 1, animations: {
+                    UIView.animate(withDuration: 0.5, animations: {
                         self.collectionView.cellForItem(at: indexPath)?.alpha = 0.0
                     }, completion: { (_) in
                         self.projects.remove(at: indexPath.row)

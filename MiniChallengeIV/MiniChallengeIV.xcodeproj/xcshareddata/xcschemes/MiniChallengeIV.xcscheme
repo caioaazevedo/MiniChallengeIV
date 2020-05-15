@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "69B0471E245754D5002A696D"
-               BuildableName = "MiniChallengeIV.app"
+               BuildableName = "Pommo.app"
                BlueprintName = "MiniChallengeIV"
                ReferencedContainer = "container:MiniChallengeIV.xcodeproj">
             </BuildableReference>
@@ -80,7 +80,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "69B0471E245754D5002A696D"
-            BuildableName = "MiniChallengeIV.app"
+            BuildableName = "Pommo.app"
             BlueprintName = "MiniChallengeIV"
             ReferencedContainer = "container:MiniChallengeIV.xcodeproj">
          </BuildableReference>
@@ -97,7 +97,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "69B0471E245754D5002A696D"
-            BuildableName = "MiniChallengeIV.app"
+            BuildableName = "Pommo.app"
             BlueprintName = "MiniChallengeIV"
             ReferencedContainer = "container:MiniChallengeIV.xcodeproj">
          </BuildableReference>

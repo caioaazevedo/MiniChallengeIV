@@ -25,12 +25,12 @@ class TimerViewController: UIViewController {
     ///the validation for the minimum value
     var minimumDecrement: Int{
         //TODO: switch 0 for a generic number
-        return timeTracker.configTime - 5  < 15 ? 15 : timeTracker.configTime - 5
+        return timeTracker.configTime - 5  < 5 ? 5 : timeTracker.configTime - 5
     }
     ///the validation for the maximum value
     var maximumDecrement: Int{
         //TODO: switch 60 for a generic number
-        return timeTracker.configTime + 5  > 120 ? 120 : timeTracker.configTime + 5
+        return timeTracker.configTime + 5  > 480 ? 480 : timeTracker.configTime + 5
     }
     
     //Buttons, Labels
@@ -114,15 +114,16 @@ class TimerViewController: UIViewController {
             stopTimer(sender)
             return
         }
-        sender.setTitle("Stop", for: .normal)
+        sender.setTitle("Give Up", for: .normal)
         //Start timer
         timeTracker.startTimer {time, hasEnded in
             self.timerLabel.text = time
             if hasEnded{ // Focus timer ended
                 sender.setTitle("Start", for: .normal)
-                self.stateLabel.text = self.timeTracker.state.rawValue
                 self.setConfigurationButtons()
                 self.ringView.removeAnimation()
+                let popUpState = self.timeTracker.state == .focus ? PopUpMessages.focus : .pause
+                self.presentPopUp(state: popUpState)
             }
         }
         //Animate progression ring
@@ -134,8 +135,11 @@ class TimerViewController: UIViewController {
         let notificationType = timeTracker.state == .focus ? NotificationType.didFinishFocus : .didFinishBreak
         let delay = TimeInterval(timeTracker.convertedTimeValue)
         AppNotificationBO.shared.sendNotification(type: notificationType, delay: delay)
+//        guard let navigarionVc = self.presentingViewController as? UINavigationController else {return}
+//        navigarionVc.isNavigationBarHidden = true
+        self.navigationController?.navigationBar.topItem?.hidesBackButton = true
     }
-    
+        
     //MARK: STOP TIMER
     func stopTimer(_ sender: UIButton) {
         sender.setTitle("Start", for: .normal)
@@ -147,8 +151,20 @@ class TimerViewController: UIViewController {
             self.ringView.removeAnimation()
         }
         setConfigurationButtons()
+        presentPopUp(state: .givenUp)
+        UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
+        self.navigationController?.navigationBar.topItem?.hidesBackButton = false
     }
     
+    ///Show Pop Up
+    func presentPopUp(state: PopUpMessages){
+        if let tpvc = UIStoryboard.loadView(from: .TimerPopUp, identifier: .TimerPopUpID) as? TimerPopUpViewController {
+            tpvc.modalTransitionStyle = .crossDissolve
+            tpvc.modalPresentationStyle = .overCurrentContext
+            tpvc.popUpState = state
+            self.present(tpvc, animated: true)
+        }
+    }
     
     ///Increment timer for the count down
     @IBAction func incrementTimer(_ sender: Any) {

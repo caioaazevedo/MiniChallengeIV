@@ -7,7 +7,6 @@ target 'MiniChallengeIV' do
 
   # Pods for MiniChallengeIV
   pod 'Charts'
-  pod 'LayoutHelper'
 
   target 'MiniChallengeIVTests' do
     inherit! :search_paths

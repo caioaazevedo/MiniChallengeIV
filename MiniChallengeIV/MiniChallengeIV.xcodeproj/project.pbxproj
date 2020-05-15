@@ -43,11 +43,14 @@
 		795642562461F68C000A621F /* MiniChallengeIVTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 795642552461F68C000A621F /* MiniChallengeIVTests.swift */; };
 		7956425E2461F718000A621F /* TimeTrackerBOTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7956425D2461F718000A621F /* TimeTrackerBOTests.swift */; };
 		795642622462146F000A621F /* TimeRecoverBOTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 795642612462146F000A621F /* TimeRecoverBOTests.swift */; };
+		79604CCD246DBE1000EAEE2E /* TimerPopUp.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 79604CCC246DBE1000EAEE2E /* TimerPopUp.storyboard */; };
+		79604CD3246DC74F00EAEE2E /* TimerPopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79604CD2246DC74F00EAEE2E /* TimerPopUpViewController.swift */; };
 		796706852469E1CA00C35A43 /* AnimatedRingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 796706842469E1CA00C35A43 /* AnimatedRingView.swift */; };
 		796C3E36245A0079004488D1 /* TimeTrakcerBO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 796C3E35245A0079004488D1 /* TimeTrakcerBO.swift */; };
 		796C3E38245A00DF004488D1 /* TimerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 796C3E37245A00DF004488D1 /* TimerViewController.swift */; };
 		796C3E3A245A02C2004488D1 /* Timer.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 796C3E39245A02C2004488D1 /* Timer.storyboard */; };
 		79A998AC246B1F6D001130C3 /* AnimatedRingViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79A998AB246B1F6D001130C3 /* AnimatedRingViewTests.swift */; };
+		79FB1D76246EDDC600AE3192 /* CGFloat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79FB1D75246EDDC600AE3192 /* CGFloat.swift */; };
 		C0B1C6369AC453260A6A5780 /* Pods_MiniChallengeIV.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1499B5CF32B9AC252BE6600A /* Pods_MiniChallengeIV.framework */; };
 		E01D9445C8116E5070AC830F /* Pods_MiniChallengeIV_MiniChallengeIVUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DEFEA8B79FCFC6B731A419E6 /* Pods_MiniChallengeIV_MiniChallengeIVUITests.framework */; };
 		E24DE0152463503900E425E1 /* Statistics.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E24DE0142463503900E425E1 /* Statistics.storyboard */; };
@@ -101,7 +104,7 @@
 		6927A1BE2464AC85005E0154 /* Onboarding.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Onboarding.storyboard; sourceTree = "<group>"; };
 		696620372465F034003B3916 /* OnboardingPagerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingPagerViewController.swift; sourceTree = "<group>"; };
 		696E92E4245A499800E7F3DF /* NewProject.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = NewProject.storyboard; sourceTree = "<group>"; };
-		69B0471F245754D5002A696D /* MiniChallengeIV.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MiniChallengeIV.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		69B0471F245754D5002A696D /* Pommo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pommo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		69B04722245754D5002A696D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		69B04724245754D5002A696D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		69B04726245754D5002A696D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -129,11 +132,14 @@
 		795642572461F68C000A621F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7956425D2461F718000A621F /* TimeTrackerBOTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeTrackerBOTests.swift; sourceTree = "<group>"; };
 		795642612462146F000A621F /* TimeRecoverBOTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeRecoverBOTests.swift; sourceTree = "<group>"; };
+		79604CCC246DBE1000EAEE2E /* TimerPopUp.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TimerPopUp.storyboard; sourceTree = "<group>"; };
+		79604CD2246DC74F00EAEE2E /* TimerPopUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerPopUpViewController.swift; sourceTree = "<group>"; };
 		796706842469E1CA00C35A43 /* AnimatedRingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimatedRingView.swift; sourceTree = "<group>"; };
 		796C3E35245A0079004488D1 /* TimeTrakcerBO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeTrakcerBO.swift; sourceTree = "<group>"; };
 		796C3E37245A00DF004488D1 /* TimerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerViewController.swift; sourceTree = "<group>"; };
 		796C3E39245A02C2004488D1 /* Timer.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Timer.storyboard; sourceTree = "<group>"; };
 		79A998AB246B1F6D001130C3 /* AnimatedRingViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimatedRingViewTests.swift; sourceTree = "<group>"; };
+		79FB1D75246EDDC600AE3192 /* CGFloat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGFloat.swift; sourceTree = "<group>"; };
 		8D7C1D77B801F24C3798D742 /* Pods-MiniChallengeIV.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MiniChallengeIV.debug.xcconfig"; path = "Target Support Files/Pods-MiniChallengeIV/Pods-MiniChallengeIV.debug.xcconfig"; sourceTree = "<group>"; };
 		9B5FAA7EE1408CAF55BF3CA6 /* Pods_MiniChallengeIVTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MiniChallengeIVTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B6A9CEEAA1A02983428D5F76 /* Pods-MiniChallengeIV-MiniChallengeIVUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MiniChallengeIV-MiniChallengeIVUITests.debug.xcconfig"; path = "Target Support Files/Pods-MiniChallengeIV-MiniChallengeIVUITests/Pods-MiniChallengeIV-MiniChallengeIVUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -240,7 +246,7 @@
 		69B04720245754D5002A696D /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				69B0471F245754D5002A696D /* MiniChallengeIV.app */,
+				69B0471F245754D5002A696D /* Pommo.app */,
 				69B04743245754D9002A696D /* MiniChallengeIVUITests.xctest */,
 				795642532461F68C000A621F /* MiniChallengeIVTests.xctest */,
 			);
@@ -295,6 +301,7 @@
 				696E92E4245A499800E7F3DF /* NewProject.storyboard */,
 				6927A1BE2464AC85005E0154 /* Onboarding.storyboard */,
 				E24DE0142463503900E425E1 /* Statistics.storyboard */,
+				79604CCC246DBE1000EAEE2E /* TimerPopUp.storyboard */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -302,10 +309,10 @@
 		69B04757245754FE002A696D /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				79604CCF246DBE8400EAEE2E /* Timer */,
 				6910339A245A11DC009D5D58 /* Projects */,
 				69D4B4FB2469F84600DE4EAB /* Onboarding */,
 				69B04726245754D5002A696D /* ViewController.swift */,
-				796C3E37245A00DF004488D1 /* TimerViewController.swift */,
 				E24DE019246350A700E425E1 /* StatisticsViewController.swift */,
 			);
 			path = Controller;
@@ -319,6 +326,7 @@
 				69D4B4F92469E65400DE4EAB /* UIView.swift */,
 				69D5310B246B316700ECF0F4 /* UIButton.swift */,
 				69D5310D246B469600ECF0F4 /* UITextField.swift */,
+				79FB1D75246EDDC600AE3192 /* CGFloat.swift */,
 				691F2929246DCA2B001B9FED /* Device.swift */,
 				691F292B246DCADB001B9FED /* NSLayoutConstraint.swift */,
 				691F292F246DE686001B9FED /* UILabel.swift */,
@@ -390,6 +398,15 @@
 			name = "Recovered References";
 			sourceTree = "<group>";
 		};
+		79604CCF246DBE8400EAEE2E /* Timer */ = {
+			isa = PBXGroup;
+			children = (
+				796C3E37245A00DF004488D1 /* TimerViewController.swift */,
+				79604CD2246DC74F00EAEE2E /* TimerPopUpViewController.swift */,
+			);
+			path = Timer;
+			sourceTree = "<group>";
+		};
 		796706832469E18E00C35A43 /* UIView */ = {
 			isa = PBXGroup;
 			children = (
@@ -436,7 +453,7 @@
 			);
 			name = MiniChallengeIV;
 			productName = MiniChallengeIV;
-			productReference = 69B0471F245754D5002A696D /* MiniChallengeIV.app */;
+			productReference = 69B0471F245754D5002A696D /* Pommo.app */;
 			productType = "com.apple.product-type.application";
 		};
 		69B04742245754D9002A696D /* MiniChallengeIVUITests */ = {
@@ -530,6 +547,7 @@
 				696E92E5245A499800E7F3DF /* NewProject.storyboard in Resources */,
 				69B04732245754D8002A696D /* LaunchScreen.storyboard in Resources */,
 				69B0472F245754D8002A696D /* Assets.xcassets in Resources */,
+				79604CCD246DBE1000EAEE2E /* TimerPopUp.storyboard in Resources */,
 				6927A1BF2464AC85005E0154 /* Onboarding.storyboard in Resources */,
 				69B0472A245754D5002A696D /* Main.storyboard in Resources */,
 				E24DE0152463503900E425E1 /* Statistics.storyboard in Resources */,
@@ -677,6 +695,7 @@
 				691F292E246DCD13001B9FED /* Onboarding1ViewController.swift in Sources */,
 				409D5034245B4EC5006D66AC /* TaskDAO.swift in Sources */,
 				E2E86FDD245AD3D20006712A /* TimerDataManager.swift in Sources */,
+				79FB1D76246EDDC600AE3192 /* CGFloat.swift in Sources */,
 				69D5310E246B469600ECF0F4 /* UITextField.swift in Sources */,
 				69F56228245B6E1D00EB2AF1 /* ProjectCollectionViewCell.swift in Sources */,
 				696620382465F034003B3916 /* OnboardingPagerViewController.swift in Sources */,
@@ -684,6 +703,7 @@
 				691F292A246DCA2B001B9FED /* Device.swift in Sources */,
 				406EA9D22460A56E00903350 /* Task.swift in Sources */,
 				409CA8E324635D3200D9D1F2 /* TaskTableViewCell.swift in Sources */,
+				79604CD3246DC74F00EAEE2E /* TimerPopUpViewController.swift in Sources */,
 				E29B1E132458CA7D00EA9B48 /* StatisticBO.swift in Sources */,
 				691033A4245A250A009D5D58 /* NewProjectViewController.swift in Sources */,
 				69B04723245754D5002A696D /* AppDelegate.swift in Sources */,
@@ -887,7 +907,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.teixeira.murilo.MiniChallengeIV;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Pommo;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -908,7 +928,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.teixeira.murilo.MiniChallengeIV;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Pommo;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

@@ -10,7 +10,7 @@
         <!--Timer View Controller-->
         <scene sceneID="uMc-5N-B0o">
             <objects>
-                <viewController modalPresentationStyle="fullScreen" id="dzJ-Fy-LCJ" customClass="TimerViewController" customModule="MiniChallengeIV" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="dzJ-Fy-LCJ" customClass="TimerViewController" customModule="Pommo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="cJM-vG-g4v">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -19,14 +19,14 @@
                                 <rect key="frame" x="39" y="615.33333333333337" width="336" height="183"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="TaskCell" id="CCT-yE-jY0" customClass="TaskTableViewCell" customModule="MiniChallengeIV" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="TaskCell" id="CCT-yE-jY0" customClass="TaskTableViewCell" customModule="Pommo" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="336" height="43.666667938232422"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="CCT-yE-jY0" id="1r3-jI-gK8">
                                             <rect key="frame" x="0.0" y="0.0" width="336" height="43.666667938232422"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yfZ-6d-vcf" customClass="TaskBtn" customModule="MiniChallengeIV" customModuleProvider="target">
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yfZ-6d-vcf" customClass="TaskBtn" customModule="Pommo" customModuleProvider="target">
                                                     <rect key="frame" x="0.0" y="10" width="22" height="22"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="22" id="RAr-HE-GrV"/>
@@ -66,13 +66,13 @@
                                     <outlet property="delegate" destination="dzJ-Fy-LCJ" id="yKS-kf-wPr"/>
                                 </connections>
                             </tableView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fF9-rM-VLj" customClass="AnimatedRingView" customModule="MiniChallengeIV" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fF9-rM-VLj" customClass="AnimatedRingView" customModule="Pommo" customModuleProvider="target">
                                 <rect key="frame" x="103" y="211" width="208" height="187"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bri-U5-dhe">
                                         <rect key="frame" x="50.333333333333336" y="75.333333333333314" width="107.33333333333331" height="36.666666666666657"/>
                                         <fontDescription key="fontDescription" name="GillSans-Light" family="Gill Sans" pointSize="32"/>
-                                        <nil key="textColor"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
@@ -122,7 +122,7 @@
                                     <constraint firstAttribute="height" constant="46" id="l7n-1y-4JR"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="20"/>
-                                <state key="normal" title="Give up">
+                                <state key="normal" title="Start">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
@@ -146,8 +146,7 @@
                                 <color key="tintColor" red="0.3461179137" green="0.49024260040000001" blue="0.48235416409999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <state key="normal" image="Triangle Copy"/>
                                 <connections>
-                                    <action selector="decrementTimer:" destination="dzJ-Fy-LCJ" eventType="touchUpInside" id="Yt9-oj-QqZ"/>
-                                    <action selector="incrementTimer:" destination="dzJ-Fy-LCJ" eventType="touchUpInside" id="lco-v1-7MD"/>
+                                    <action selector="incrementTimer:" destination="dzJ-Fy-LCJ" eventType="touchUpInside" id="y0d-5b-zQ4"/>
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="hdL-3I-hPV">

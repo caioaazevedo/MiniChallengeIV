@@ -10,7 +10,7 @@
         <!--Statistics View Controller-->
         <scene sceneID="ufo-RP-vsR">
             <objects>
-                <viewController id="D1r-s6-znK" customClass="StatisticsViewController" customModule="MiniChallengeIV" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="D1r-s6-znK" customClass="StatisticsViewController" customModule="Pommo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="hsi-Hr-HZg">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

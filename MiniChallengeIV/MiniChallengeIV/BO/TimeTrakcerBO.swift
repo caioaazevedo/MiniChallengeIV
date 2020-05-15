@@ -21,7 +21,7 @@ class TimeTrackerBO{
     private var statisticBO = StatisticBO()
     private var projectBO = ProjectBO()
     var projectUuid = UUID()
-    var configTime = 1
+    var configTime = 25
     var hasEnded = false
     var timeInterval : TimeInterval = 1 //seconds at a time
     
@@ -83,7 +83,6 @@ class TimeTrackerBO{
             if self.hasEnded{ //It changes state, cancels timer and updates view with default value
                 self.timer.invalidate()
                 self.updateStatistics()
-                self.state = self.changeCicle
                 let defaultTimeText = self.secondsToString(with: self.convertedTimeValue)
                 convertedTimeText = defaultTimeText
             }
