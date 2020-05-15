@@ -10,19 +10,20 @@ import UIKit
 
 class OnboardingPagerViewController: UIViewController {
     
-    let vcIDs = [ "Onboarding1",
-                  "Onboarding2",
-                  "Onboarding3",
-                  "Onboarding4",
-                  "Onboarding5",
-                  "Onboarding6", ]
+    let storyboardIDs = [ "Onboarding1",
+                          "Onboarding2",
+                          "Onboarding3",
+                          "Onboarding4",
+                          "Onboarding5",
+                          "Onboarding6",
+                          "Onboarding7", ]
     
-    lazy var vc: [UIViewController] = {
+    lazy var vcs: [UIViewController] = {
         var vc = [UIViewController]()
         
-        for i in 2..<vcIDs.count {
-            let id = vcIDs[i]
-            vc.append(UIStoryboard(name: id, bundle: nil).instantiateViewController(identifier: id))
+        for i in 0..<storyboardIDs.count {
+            let id = storyboardIDs[i]
+            vc.append(UIStoryboard(name: id, bundle: nil).instantiateViewController(identifier: "vc"))
         }
         
         return vc
@@ -53,7 +54,7 @@ class OnboardingPagerViewController: UIViewController {
     func setupPageControl() {
         pgControl.pageIndicatorTintColor = .lightGray
         pgControl.currentPageIndicatorTintColor = .white
-        pgControl.numberOfPages = vc.count
+        pgControl.numberOfPages = vcs.count
         pgControl.removeFromSuperview()
         view.addSubview(pgControl)
 
@@ -66,7 +67,7 @@ class OnboardingPagerViewController: UIViewController {
         
         let cWidth = self.view.bounds.width
         let cHeight = self.view.bounds.height
-        let countVC = CGFloat(vc.count)
+        let countVC = CGFloat(vcs.count)
         
         scrollView = UIScrollView()
         scrollView.isPagingEnabled = true
@@ -81,14 +82,14 @@ class OnboardingPagerViewController: UIViewController {
         let scrollHeight: CGFloat  = cHeight
         self.scrollView!.contentSize = CGSize(width: scrollWidth, height: scrollHeight)
         
-        for i in 0..<self.vc.count {
+        for i in 0..<self.vcs.count {
             
-            vc[i].view.frame = CGRect(x: CGFloat(i) * cWidth, y: 0, width: cWidth, height: cHeight)
+            vcs[i].view.frame = CGRect(x: CGFloat(i) * cWidth, y: 0, width: cWidth, height: cHeight)
 
-            self.scrollView!.addSubview(vc[i].view)
+            self.scrollView!.addSubview(vcs[i].view)
             
-            if(i == self.vc.count - 1){
-                vc[i].didMove(toParent: self)
+            if(i == self.vcs.count - 1){
+                vcs[i].didMove(toParent: self)
             }
             
         }
@@ -107,7 +108,7 @@ extension OnboardingPagerViewController: UIScrollViewDelegate {
         let xOffset = scrollView.contentOffset.x
         let width = view.bounds.width
             
-        for i in 0..<vc.count {
+        for i in 0..<vcs.count {
             if xOffset == width * CGFloat(i) {
                 currentPage = i
                 break

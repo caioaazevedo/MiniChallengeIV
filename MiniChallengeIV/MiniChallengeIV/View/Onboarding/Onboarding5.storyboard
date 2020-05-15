@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="jbd-De-Kaf">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Nfb-XP-rOS">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
@@ -9,150 +9,116 @@
     </dependencies>
     <scenes>
         <!--View Controller-->
-        <scene sceneID="SMp-St-hRV">
+        <scene sceneID="57V-mq-xUZ">
             <objects>
-                <viewController storyboardIdentifier="Onboarding5" id="jbd-De-Kaf" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="1iJ-cF-v8Z">
+                <viewController storyboardIdentifier="vc" id="Nfb-XP-rOS" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="xoy-07-2Dt">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Onboarding5" translatesAutoresizingMaskIntoConstraints="NO" id="46G-IH-5QJ">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="05Onboarding" translatesAutoresizingMaskIntoConstraints="NO" id="wAI-ZR-cHe">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="image" keyPath="iPhone8Below" value="Onboarding5Square"/>
+                                    <userDefinedRuntimeAttribute type="image" keyPath="iPhone8Below" value="05OnboardingSquare"/>
                                 </userDefinedRuntimeAttributes>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Track your total hours of and projects." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KnV-fI-Gab">
-                                <rect key="frame" x="59" y="44" width="297" height="57"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Leaving the app, all of your progress is lost." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s7e-AL-A5l">
+                                <rect key="frame" x="50" y="187" width="314" height="46"/>
                                 <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="20"/>
                                 <color key="textColor" name="Label White"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Progess" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9t5-3s-Uax">
-                                <rect key="frame" x="41" y="130" width="84" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ooops!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bmB-tV-WGR">
+                                <rect key="frame" x="167.5" y="298" width="79" height="30"/>
                                 <fontDescription key="fontDescription" name="Didot" family="Didot" pointSize="24"/>
                                 <color key="textColor" name="Label Black"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="December" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y4C-Iu-3dR">
-                                <rect key="frame" x="159" y="181" width="72" height="20"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="GillSans-Light" family="Gill Sans" pointSize="17"/>
-                                <nil key="textColor"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cancel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JiQ-Qd-SAa">
+                                <rect key="frame" x="107" y="515.5" width="56" height="23"/>
+                                <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="20"/>
+                                <color key="textColor" red="0.43921568630000002" green="0.43921568630000002" blue="0.43921568630000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="5h30" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ljd-Z7-FWT">
-                                <rect key="frame" x="70" y="230" width="42" height="20"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="GillSans-Bold" family="Gill Sans" pointSize="17"/>
-                                <nil key="textColor"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Retry" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="paK-QP-YPo">
+                                <rect key="frame" x="258" y="515.5" width="46" height="23"/>
+                                <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="20"/>
+                                <color key="textColor" name="Label White"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="1h" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F3R-ZF-YXN">
-                                <rect key="frame" x="189" y="230" width="21" height="20"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="GillSans-Bold" family="Gill Sans" pointSize="17"/>
-                                <nil key="textColor"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add tasks to do during your project" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4ga-7N-Z1L">
+                                <rect key="frame" x="46" y="588.5" width="212" height="17.5"/>
+                                <fontDescription key="fontDescription" name="GillSans-Light" family="Gill Sans" pointSize="15"/>
+                                <color key="textColor" red="0.2313761711" green="0.2313660085" blue="0.23137289289999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="1h" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kAm-Il-yeN">
-                                <rect key="frame" x="311" y="230" width="21" height="20"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="GillSans-Bold" family="Gill Sans" pointSize="17"/>
-                                <nil key="textColor"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Create strategy" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ypt-ER-u9w">
+                                <rect key="frame" x="74" y="637" width="121" height="23"/>
+                                <fontDescription key="fontDescription" name="GillSans-Light" family="Gill Sans" pointSize="20"/>
+                                <color key="textColor" red="0.10983204100000001" green="0.1057426706" blue="0.1137266532" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Total Fucused" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TtK-Ej-Lhh">
-                                <rect key="frame" x="59" y="258" width="72" height="41"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="GillSans-Light" family="Gill Sans" pointSize="17"/>
-                                <nil key="textColor"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Send email" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eLY-ah-7fP">
+                                <rect key="frame" x="74" y="696" width="86" height="23"/>
+                                <fontDescription key="fontDescription" name="GillSans-Light" family="Gill Sans" pointSize="20"/>
+                                <color key="textColor" red="0.1647088528" green="0.16868624090000001" blue="0.16470566389999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Total Breaks" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y7J-Sk-X8I">
-                                <rect key="frame" x="294" y="258" width="62" height="41"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="GillSans-Light" family="Gill Sans" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Total Distractions" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pyR-hz-vCT">
-                                <rect key="frame" x="159" y="258" width="99" height="41"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="GillSans-Light" family="Gill Sans" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Actual Projects" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zmf-I6-ub1">
-                                <rect key="frame" x="126" y="359" width="165" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="Didot" family="Didot" pointSize="24"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="College" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wg2-H7-Kh8">
+                                <rect key="frame" x="166" y="119" width="102" height="38"/>
+                                <fontDescription key="fontDescription" name="Didot" family="Didot" pointSize="30"/>
                                 <color key="textColor" name="Label Black"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="25%" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0wC-7W-Vsf">
-                                <rect key="frame" x="82" y="415" width="29" height="20"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="GillSans-Light" family="Gill Sans" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="25%" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A0K-7S-1eN">
-                                <rect key="frame" x="283" y="414" width="29" height="20"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="GillSans-Light" family="Gill Sans" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="50%" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="APn-hh-Ld6">
-                                <rect key="frame" x="202" y="630" width="29" height="20"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="GillSans-Light" family="Gill Sans" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Project 01" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mEv-GV-vfV">
-                                <rect key="frame" x="117" y="673" width="69" height="20"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="GillSans-Light" family="Gill Sans" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Project 02" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wmi-uo-1Q6">
-                                <rect key="frame" x="117" y="701" width="69" height="20"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="GillSans-Light" family="Gill Sans" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Project 03" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eto-oH-LfQ">
-                                <rect key="frame" x="117" y="729" width="69" height="20"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="GillSans-Light" family="Gill Sans" pointSize="17"/>
-                                <nil key="textColor"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nC0-lP-HJ2">
+                                <rect key="frame" x="89.5" y="331" width="235" height="45.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="235" id="a7P-Cu-wJf"/>
+                                </constraints>
+                                <string key="text">All of your progress was lost!
+Let’s try total focus again?</string>
+                                <fontDescription key="fontDescription" name="GillSans-Light" family="Gill Sans" pointSize="20"/>
+                                <color key="textColor" name="Label Black"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="46G-IH-5QJ" firstAttribute="leading" secondItem="vFR-gy-HU1" secondAttribute="leading" id="3jc-z7-u2e"/>
-                            <constraint firstAttribute="bottom" secondItem="46G-IH-5QJ" secondAttribute="bottom" id="VJU-Vj-2qp"/>
-                            <constraint firstItem="46G-IH-5QJ" firstAttribute="trailing" secondItem="vFR-gy-HU1" secondAttribute="trailing" id="h5d-ir-oFb"/>
-                            <constraint firstItem="46G-IH-5QJ" firstAttribute="top" secondItem="1iJ-cF-v8Z" secondAttribute="top" id="nR0-fV-j4u"/>
+                            <constraint firstItem="wAI-ZR-cHe" firstAttribute="top" secondItem="xoy-07-2Dt" secondAttribute="top" id="1sf-uW-niX"/>
+                            <constraint firstItem="wg2-H7-Kh8" firstAttribute="top" secondItem="H8d-PM-udw" secondAttribute="top" constant="75" id="45E-vM-XG2"/>
+                            <constraint firstItem="paK-QP-YPo" firstAttribute="centerY" secondItem="JiQ-Qd-SAa" secondAttribute="centerY" id="4YW-LL-B8N"/>
+                            <constraint firstItem="bmB-tV-WGR" firstAttribute="top" secondItem="s7e-AL-A5l" secondAttribute="bottom" constant="65" id="4yO-N8-YxP"/>
+                            <constraint firstItem="nC0-lP-HJ2" firstAttribute="centerX" secondItem="xoy-07-2Dt" secondAttribute="centerX" id="5kZ-65-kCH"/>
+                            <constraint firstItem="JiQ-Qd-SAa" firstAttribute="top" secondItem="nC0-lP-HJ2" secondAttribute="bottom" constant="139" id="7XB-2b-Z2h"/>
+                            <constraint firstItem="wAI-ZR-cHe" firstAttribute="trailing" secondItem="H8d-PM-udw" secondAttribute="trailing" id="7pt-sB-v7O"/>
+                            <constraint firstItem="nC0-lP-HJ2" firstAttribute="top" secondItem="bmB-tV-WGR" secondAttribute="bottom" constant="3" id="9tc-4b-Di3"/>
+                            <constraint firstAttribute="bottom" secondItem="wAI-ZR-cHe" secondAttribute="bottom" id="Bn1-a7-q65"/>
+                            <constraint firstItem="4ga-7N-Z1L" firstAttribute="top" secondItem="JiQ-Qd-SAa" secondAttribute="bottom" constant="50" id="Dk6-iV-Brf"/>
+                            <constraint firstItem="wAI-ZR-cHe" firstAttribute="leading" secondItem="H8d-PM-udw" secondAttribute="leading" id="IPb-2I-r2i"/>
+                            <constraint firstItem="bmB-tV-WGR" firstAttribute="centerX" secondItem="xoy-07-2Dt" secondAttribute="centerX" id="SdB-rE-hyK"/>
+                            <constraint firstItem="eLY-ah-7fP" firstAttribute="top" secondItem="ypt-ER-u9w" secondAttribute="bottom" constant="36" id="ZSY-cf-9VY"/>
+                            <constraint firstItem="ypt-ER-u9w" firstAttribute="top" secondItem="4ga-7N-Z1L" secondAttribute="bottom" constant="31" id="acZ-8K-iQF"/>
+                            <constraint firstItem="ypt-ER-u9w" firstAttribute="leading" secondItem="H8d-PM-udw" secondAttribute="leading" constant="74" id="bLd-Nh-zsx"/>
+                            <constraint firstItem="JiQ-Qd-SAa" firstAttribute="centerX" secondItem="xoy-07-2Dt" secondAttribute="centerX" constant="-72" id="ezY-BL-yKJ"/>
+                            <constraint firstItem="wg2-H7-Kh8" firstAttribute="centerX" secondItem="xoy-07-2Dt" secondAttribute="centerX" constant="10" id="lj5-C0-zfI"/>
+                            <constraint firstItem="eLY-ah-7fP" firstAttribute="leading" secondItem="H8d-PM-udw" secondAttribute="leading" constant="74" id="o5V-t7-ydS"/>
+                            <constraint firstItem="H8d-PM-udw" firstAttribute="trailing" secondItem="s7e-AL-A5l" secondAttribute="trailing" constant="50" id="oyg-Bm-2UX"/>
+                            <constraint firstItem="4ga-7N-Z1L" firstAttribute="leading" secondItem="H8d-PM-udw" secondAttribute="leading" constant="46" id="pQD-Me-Azb"/>
+                            <constraint firstItem="paK-QP-YPo" firstAttribute="centerX" secondItem="xoy-07-2Dt" secondAttribute="centerX" constant="74" id="puY-k8-Raj"/>
+                            <constraint firstItem="s7e-AL-A5l" firstAttribute="leading" secondItem="H8d-PM-udw" secondAttribute="leading" constant="50" id="vgh-Ro-KD7"/>
+                            <constraint firstItem="s7e-AL-A5l" firstAttribute="top" secondItem="wg2-H7-Kh8" secondAttribute="bottom" constant="30" id="xJg-Cd-e9G"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="vFR-gy-HU1"/>
+                        <viewLayoutGuide key="safeArea" id="H8d-PM-udw"/>
                     </view>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Mw0-5M-GQ9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qd3-Xo-IKs" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3740.579710144928" y="-514.28571428571422"/>
+            <point key="canvasLocation" x="3008.6956521739135" y="-514.28571428571422"/>
         </scene>
     </scenes>
     <resources>
-        <image name="Onboarding5" width="414" height="896"/>
-        <image name="Onboarding5Square" width="125.5" height="223"/>
+        <image name="05Onboarding" width="414" height="896"/>
+        <image name="05OnboardingSquare" width="375" height="667"/>
         <namedColor name="Label Black">
             <color red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
