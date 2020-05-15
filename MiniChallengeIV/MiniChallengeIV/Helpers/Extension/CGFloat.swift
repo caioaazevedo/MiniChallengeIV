@@ -11,7 +11,7 @@ import UIKit
 
 
 extension CGFloat {
-
+    //change height according to device's size
     public var scaledHeight: CGFloat {
         switch UIScreen.main.bounds.size.height {
         case 480://Iphone 4
@@ -28,7 +28,7 @@ extension CGFloat {
             return self
         }
     }
-    
+    //change width according to device's size
     public var scaledWidth: CGFloat {
         switch UIScreen.main.bounds.size.width {
         case 320://Iphone 4 / SE1
@@ -44,9 +44,8 @@ extension CGFloat {
 }
 
 extension UIView {
-
+    // return all subviews from a viewcontroller
     func subviewsRecursive() -> [UIView] {
         return subviews + subviews.flatMap { $0.subviewsRecursive() }
     }
-
 }

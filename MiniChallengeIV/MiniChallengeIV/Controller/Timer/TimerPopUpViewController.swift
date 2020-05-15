@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+//Types of messages it should display
 enum PopUpMessages{
     case focus
     case pause
@@ -16,7 +16,7 @@ enum PopUpMessages{
 
 class TimerPopUpViewController: UIViewController {
 
-    //Atributes
+    //MARK: Atributes
     var popUpState = PopUpMessages.focus
     //Dictionary
     var titleDict = [PopUpMessages:String]()
@@ -30,6 +30,7 @@ class TimerPopUpViewController: UIViewController {
     @IBOutlet weak var textLabel: UILabel!
     @IBOutlet weak var button: UIButton!
     @IBOutlet weak var cancelButton: UIButton!
+    //MARK: Methods
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -37,8 +38,9 @@ class TimerPopUpViewController: UIViewController {
         setupPopUp()
         adaptAutoLayout()
     }
-    
+    //Adapt auto layout according to device
     func adaptAutoLayout(){
+        //Get all screen sizes
         let screenElements = self.view.subviewsRecursive()
         let constraints = screenElements.map{$0.constraints}.joined()
         for constraint in constraints {
@@ -49,13 +51,13 @@ class TimerPopUpViewController: UIViewController {
             }
         }
         
-        //adapt label sizes
+        //Adapt label sizes
         textLabel.font = textLabel.font.withSize(textLabel.font.pointSize.scaledHeight)
         titleLabel.font = titleLabel.font.withSize(titleLabel.font.pointSize.scaledHeight)
         button.titleLabel?.font = button.titleLabel?.font.withSize((button.titleLabel?.font.pointSize.scaledHeight)!)
         cancelButton.titleLabel?.font = cancelButton.titleLabel?.font.withSize((cancelButton.titleLabel?.font.pointSize.scaledHeight)!)
     }
-    
+    //Set up the texts for when timer ends
     func setupDictionary(){
         //focus
         titleDict[.focus] = "Yay!"
@@ -63,9 +65,9 @@ class TimerPopUpViewController: UIViewController {
         imageDict[.focus] = UIImage(named: "trophy")
         buttonDict[.focus] = "Break"
         //pause
-        titleDict[.pause] = ""
-        textDict[.pause] = ""
-        imageDict[.pause] = UIImage(named: "trophy")
+        titleDict[.pause] = "OK!"
+        textDict[.pause] = "Break is over!\nNow It's time to focus again."
+        imageDict[.pause] = UIImage(named: "break")
         buttonDict[.pause] = "Focus"
         //give up
         titleDict[.givenUp] = "Ooops!"
@@ -73,7 +75,7 @@ class TimerPopUpViewController: UIViewController {
         imageDict[.givenUp] = UIImage(named: "giveUp")
         buttonDict[.givenUp] = "Retry"
     }
-    
+    //Set all labels and buttons
     func setupPopUp(){
         guard let title = titleDict[popUpState] else {return}
         guard let text = textDict[popUpState] else {return}
@@ -84,7 +86,7 @@ class TimerPopUpViewController: UIViewController {
         textLabel.text = text
         button.setTitle(buttonText, for: .normal)
     }
-    
+    //Go to next step Focus/Break
     @IBAction func goToNextStep(_ sender: Any) {
         guard let pvc = self.presentingViewController as? TimerViewController else{return}
         if popUpState == .givenUp{
@@ -94,7 +96,7 @@ class TimerPopUpViewController: UIViewController {
         }
         dismiss(animated: true)
     }
-
+    //Cancel timer and go back to menu
     @IBAction func Cancel(_ sender: Any) {
         guard let pvc = self.presentingViewController as? TimerViewController else{return}
         self.dismiss(animated: true) {
