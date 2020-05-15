@@ -34,8 +34,8 @@ class TaskBO {
     
     /// Retrieves a list of tasks
     /// - Returns: List of tasks
-    func retrieve(completion: (Result<[Task], ValidationError>) -> Void){
-        taskDAO.retrieve(completion: { result in
+    func retrieve(id: UUID, completion: (Result<[Task], ValidationError>) -> Void){
+        taskDAO.retrieve(id: id, completion: { result in
             switch result {
                 
             case .success(let tasks):

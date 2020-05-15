@@ -82,6 +82,33 @@ class StatisticDAO {
             }
     }
     
+    /// Description: Function to retrieve the Statistics per month and year
+    /// - Parameters:
+    ///   - month: search month
+    ///   - year: search yaer
+    ///   - completion: return the Statistic or a validation Error
+    func retrieveStatisticPerMonth(month: Int32, year: Int32, completion: (Result<Statistic?, ValidationError>) -> Void){
+        /// Create predicates
+        let predicateMonth = NSPredicate(format: "month == %@", String(month))
+        let predicateYear = NSPredicate(format: "year == %@", String(year))
+        let predicateArray = NSCompoundPredicate(type: .and, subpredicates: [predicateMonth, predicateYear])
+        
+        /// Create fetchRequest with predicate
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "StatisticCD")
+        fetchRequest.predicate = predicateArray
+        do {
+            let fechedObjects = try context.fetch(fetchRequest)
+            
+            guard let statisticCD = fechedObjects as? [NSManagedObject] else {
+                return completion(.failure(.errorToRetrieve("Statistic")))
+            }
+            
+            completion(.success(convert(statistic: statisticCD[0])))
+            }catch {
+                completion(.failure(.errorToRetrieve("Statistic")))
+            }
+    }
+    
     func convert(statistic: NSManagedObject) -> Statistic{
         let id = statistic.value(forKey: "id") as! UUID
         let focusTime = statistic.value(forKey: "focusTime") as! Int

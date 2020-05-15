@@ -10,14 +10,43 @@ import UIKit
 
 class ProjectViewController: UIViewController {
     @IBOutlet weak var collectionView: UICollectionView!
+    
+    @IBOutlet weak var focusedTimeLabel: UILabel!
+    @IBOutlet weak var distractionTimeLabel: UILabel!
+    @IBOutlet weak var breakTimeLabel: UILabel!
+    
+    
     var selectedProjectId: Int?
     var projectBO = ProjectBO()
     var projects: [Project] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        getCurrentStatistics()
         reloadList()
-        
+//        projectBO.create(name: "Work", color: UIColor(red: 0.77, green: 0.87, blue: 0.96, alpha: 1.00), completion: { results in
+//            switch results {
+//
+//            case .success(let project):
+//                print(project)
+//
+//
+//                projectBO.retrieve(completion: { results in
+//                    switch results {
+//
+//                    case .success(let projects):
+//                        self.projects = projects
+//                        self.selectedProjectId = 0
+//                        performSegue(withIdentifier: "GoToTimer", sender: self)
+//
+//                    case .failure(let error):
+//                        print(error.localizedDescription)
+//                    }
+//                })
+//            case .failure(let error):
+//                print(error.localizedDescription)
+//            }
+//        })
         
         // Do any additional setup after loading the view.
     }
@@ -55,7 +84,36 @@ class ProjectViewController: UIViewController {
             self.present(newProjectVC, animated: true)
         }
     }
-//
+    
+    /// Description: Function to get Statistic Data per month and year to Show on Home screen
+    private func getCurrentStatistics(){
+        let currentDate = Date()
+        let month = Calendar.current.component(.month, from: currentDate)
+        let year = Calendar.current.component(.year, from: currentDate)
+        
+        StatisticBO().retrieveStatisticPerMonth(month: Int32(month), year: Int32(year)) { (results) in
+            switch results {
+            case .success(let statistic):
+                
+                self.focusedTimeLabel.text = convertTime(seconds: statistic?.focusTime ?? 0)
+                self.distractionTimeLabel.text = convertTime(seconds: statistic?.lostFocusTime ?? 0)
+                self.breakTimeLabel.text =  convertTime(seconds: statistic?.restTime ?? 0)
+                
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
+    }
+    
+    /// Description:  Convert Time in seconds to show on label
+    /// - Parameter seconds: time in seconds to convert
+    /// - Returns: returns the time to present. Example:  01h30
+    func convertTime(seconds: Int) -> String {
+        let min = (seconds / 60) % 60
+        let hour = seconds / 3600
+        return String(format:"%2ih%02i", hour, min)
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "GoToTimer" {
             if let timerViewController = segue.destination as? TimerViewController {
@@ -63,15 +121,43 @@ class ProjectViewController: UIViewController {
                 //pass projects id to timer
                 timerViewController.timeTracker.projectUuid = projects[index].id
                 timerViewController.id = projects[index].id
+                
+                selectedProjectId = nil
             }
         }
     }
     
-    func deleteAlert(){
-        let alert = UIAlertController(title: "Delete", message: "Project has deleted!", preferredStyle: .alert)
+    /// Description: Function to ensure that the user really wants to delete a project
+    /// - Parameters:
+    ///   - proj: The project thst the user wants to delete
+    ///   - indexPath: The array reference index from projects
+    func deleteProject(proj: Project, indexPath: IndexPath){
+        let alert = UIAlertController(title: "Delete Project", message: "Are you sure you want to delete this project?", preferredStyle: .alert)
         
-        let alertAction = UIAlertAction(title: "Ok", style: .default, handler: nil)
-        alert.addAction(alertAction)
+        let alertActionOK = UIAlertAction(title: "Ok", style: .default){ (action) in
+            self.projectBO.delete(uuid: proj.id) { (result) in
+                switch result {
+                case .success():
+                    
+                    /// Add delete animation 
+                    UIView.animate(withDuration: 1, animations: {
+                        self.collectionView.cellForItem(at: indexPath)?.alpha = 0.0
+                    }, completion: { (_) in
+                        self.projects.remove(at: indexPath.row)
+                        self.collectionView.reloadData()
+                    })
+                    break
+                case .failure(let error):
+                    print(error.localizedDescription)
+                    break
+                }
+            }
+        }
+        
+        let alertActionCancel = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        
+        alert.addAction(alertActionCancel)
+        alert.addAction(alertActionOK)
         
         self.present(alert, animated: true)
     }
@@ -110,19 +196,7 @@ extension ProjectViewController: UICollectionViewDelegate {
         
         let delete = UIAction(title: "Delete", image: UIImage(systemName: "trash"), attributes: .destructive ,handler: { (delete) in
             
-            
-            self.projectBO.delete(uuid: proj.id) { (result) in
-                switch result {
-                case .success():
-                    self.deleteAlert()
-                    self.projects.remove(at: indexPath.row)
-                    collectionView.reloadData()
-                    break
-                case .failure(let error):
-                    print(error.localizedDescription)
-                    break
-                }
-            }
+            self.deleteProject(proj: proj, indexPath: indexPath)
         })
         
         return UIContextMenuConfiguration(identifier: nil,
@@ -153,12 +227,12 @@ extension ProjectViewController: UICollectionViewDataSource {
 
 extension ProjectViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsets(top: 20, left: 8, bottom: 10, right: 8)
+        return UIEdgeInsets(top: 0, left: 2, bottom: 0, right: 2)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let collectionViewWidth = collectionView.bounds.width
-        return CGSize(width: collectionViewWidth * 0.475, height: collectionViewWidth * 0.45)
+        return CGSize(width: collectionViewWidth * 0.47, height: collectionViewWidth * 0.47)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
@@ -166,6 +240,6 @@ extension ProjectViewController: UICollectionViewDelegateFlowLayout {
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return 8
+        return 14
     }
 }

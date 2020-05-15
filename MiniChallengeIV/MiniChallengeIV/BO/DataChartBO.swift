@@ -89,9 +89,11 @@ class DataChartBO {
     func insertChartData(entries: [PieChartDataEntry]) -> PieChartData{
         let dataSet  = PieChartDataSet(entries: entries)
         dataSet.colors = self.projectColors
+        dataSet.valueLineColor = UIColor(red: 0.20, green: 0.20, blue: 0.20, alpha: 1.00)
         dataSet.label = ""
         
         let data = PieChartData(dataSet: dataSet)
+        data.setValueTextColor(UIColor(red: 0.20, green: 0.20, blue: 0.20, alpha: 1.00) as NSUIColor)
         
         return data
     }
