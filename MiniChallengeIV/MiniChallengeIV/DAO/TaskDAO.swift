@@ -35,8 +35,9 @@ class TaskDAO {
     
     /// Retrieves a list of tasks
     /// - Returns:  List of tasks
-    func retrieve(completion: (Result<[Task], ValidationError>) -> Void){
+    func retrieve(id: UUID,completion: (Result<[Task], ValidationError>) -> Void){
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "TaskCD")
+        fetchRequest.predicate = NSPredicate(format: "owner.id == %@", id.uuidString)
         var tasks: [Task] = []
         do {
             let fechedTasks = try context.fetch(fetchRequest)
@@ -92,7 +93,7 @@ class TaskDAO {
     }
     
     func convert(task: NSManagedObject) -> Task{
-        let uuid = task.value(forKey: "uuid") as! UUID
+        let uuid = task.value(forKey: "id") as! UUID
         let description = task.value(forKey: "descriptionTask") as! String
         let state = task.value(forKey: "state") as! Bool
         

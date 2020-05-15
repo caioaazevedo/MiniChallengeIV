@@ -17,7 +17,29 @@ class ProjectViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         reloadList()
-        
+//        projectBO.create(name: "Work", color: UIColor(red: 0.77, green: 0.87, blue: 0.96, alpha: 1.00), completion: { results in
+//            switch results {
+//
+//            case .success(let project):
+//                print(project)
+//
+//
+//                projectBO.retrieve(completion: { results in
+//                    switch results {
+//
+//                    case .success(let projects):
+//                        self.projects = projects
+//                        self.selectedProjectId = 0
+//                        performSegue(withIdentifier: "GoToTimer", sender: self)
+//
+//                    case .failure(let error):
+//                        print(error.localizedDescription)
+//                    }
+//                })
+//            case .failure(let error):
+//                print(error.localizedDescription)
+//            }
+//        })
         
         // Do any additional setup after loading the view.
     }
@@ -166,6 +188,7 @@ extension ProjectViewController: UICollectionViewDelegateFlowLayout {
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        
         return 8
     }
 }

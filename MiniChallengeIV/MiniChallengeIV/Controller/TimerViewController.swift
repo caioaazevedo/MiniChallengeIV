@@ -20,6 +20,7 @@ class TimerViewController: UIViewController {
     var project: Project?
     let projectBO = ProjectBO()
     let taskBO = TaskBO()
+    var tasks: [Task] = []
     //Properties
     ///the validation for the minimum value
     var minimumDecrement: Int{
@@ -47,14 +48,15 @@ class TimerViewController: UIViewController {
         super.viewDidLoad()
         
         loadProject()
+        loadTasks()
         
-        self.btnStart.layer.cornerRadius = 16.0
+        self.btnStart.layer.cornerRadius = 10.0
         self.btnStart.backgroundColor = UIColor(red: 0.35, green: 0.49, blue: 0.49, alpha: 1.00)
         self.tableView.separatorColor = .clear
         
         // Do any additional setup after loading the view.
         timerLabel.text = timeTracker.secondsToString(with: timeTracker.convertedTimeValue)
-
+        
         timeTracker.state = .focus
         
         self.lostTimeFocus = TimeRecoverBO(timer: timeTracker)
@@ -70,6 +72,7 @@ class TimerViewController: UIViewController {
         self.stateLabel.text = project?.name
         projectColor.backgroundColor = project?.color
         projectColor.layer.cornerRadius = 15.0
+
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -83,7 +86,20 @@ class TimerViewController: UIViewController {
             switch result {
             case .success(let project):
                 self.project = project
-                
+                tableView.reloadData()
+            case .failure(let error):
+                print(error)
+            }
+        })
+    }
+    
+    func loadTasks(){
+        guard let id = self.id else { return }
+        taskBO.retrieve(id: id, completion: { result in
+            
+            switch result {
+            case .success(let tasks):
+                self.tasks = tasks
                 tableView.reloadData()
             case .failure(let error):
                 print(error)
@@ -135,6 +151,7 @@ class TimerViewController: UIViewController {
         timeTracker.configTime = maximumDecrement
         timerLabel.text = timeTracker.secondsToString(with: timeTracker.convertedTimeValue)
     }
+
     ///Decrement timer for the count down
     @IBAction func decrementTimer(_ sender: Any) {
         timeTracker.configTime = minimumDecrement
@@ -154,53 +171,32 @@ class TimerViewController: UIViewController {
         
         DispatchQueue.main.async {
             let task = Task(id: UUID(), description: "")
-            guard self.project?.tasks != nil else { return }
-            self.project!.tasks!.append(task)
-            let indexPath = IndexPath(row: (self.project?.tasks!.count)!-1, section: 0)
-
+            self.tasks.append(task)
+            let indexPath = IndexPath(row: self.tasks.count-1, section: 0)
+            
             self.tableView.beginUpdates()
             self.tableView.insertRows(at: [indexPath], with: .none)
             self.tableView.endUpdates()
             
             self.tableView.layoutIfNeeded()
-
-
+            
+            
             self.tableView.scrollToRow(at: indexPath,
                                        at: UITableView.ScrollPosition.bottom,
                                        animated: true)
             if let cell = self.tableView.cellForRow(at: indexPath) as? TaskTableViewCell {
                 cell.taskTextField.becomeFirstResponder()
             }
-
+            
         }
         
-//        guard let tasks = self.project?.tasks else { return }
-//
-//        if let myCell = tableView.cellForRow(at: IndexPath(row: tasks.count, section: 0)) as? TaskTableViewCell, let description =
-//            myCell.taskTextField.text {
-//
-//            guard let projectCD = project?.projectCD else { return }
-//            projectBO.addTask(description: description, projectCD: projectCD, completion: { result in
-//
-//                switch result{
-//
-//                case .success():
-//                    loadProject()
-//                case .failure(let error):
-//                    print(error.localizedDescription)
-//                }
-//            })
-//        }
     }
 }
 
 extension TimerViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if let tasks = self.project?.tasks, tasks.count > 0 {
-            return tasks.count
-        }
-        return 0
+        return tasks.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -211,16 +207,22 @@ extension TimerViewController: UITableViewDelegate, UITableViewDataSource {
         cell.btnCheck.tag = indexPath.row
         cell.delegate = self
         
-        if let tasks = project?.tasks, tasks.count > 0 {
-            cell.btnCheck.setImage(UIImage(named: "check"), for: .normal)
-            cell.btnCheck.isSelected = tasks[indexPath.row].state
+
+        
+        cell.btnCheck.setImage(UIImage(named: "Oval Copy 2"), for: .normal)
+        cell.btnCheck.isSelected = tasks[indexPath.row].state
+        if !tasks[indexPath.row].state {
             cell.taskTextField.text = tasks[indexPath.row].description
-            cell.btnCheck.btnType = .select
+        }else {
+            let attributeString: NSMutableAttributedString =  NSMutableAttributedString(string: tasks[indexPath.row].description)
+            attributeString.addAttribute(NSAttributedString.Key.strikethroughStyle, value: 2, range: NSMakeRange(0, attributeString.length))
+            cell.taskTextField.attributedText = attributeString
+            cell.taskTextField.textColor = UIColor(red: 0.44, green: 0.44, blue: 0.44, alpha: 1.00)
         }
+        
         return cell
     }
-    
-    
+
 }
 
 // Tex field
@@ -228,7 +230,6 @@ extension TimerViewController: UITableViewDelegate, UITableViewDataSource {
 extension TimerViewController: UITextFieldDelegate {
     
     func textFieldDidEndEditing(_ textField: UITextField) {
-        guard let tasks = project?.tasks else { return }
         if textField.tag == tasks.count-1{
             if let projectCD = project?.projectCD, let description = textField.text {
                 projectBO.addTask(description: description, projectCD: projectCD, completion: { result in
@@ -236,13 +237,12 @@ extension TimerViewController: UITextFieldDelegate {
                     switch result {
                         
                     case .success():
-                        loadProject()
+                        loadTasks()
                     case .failure(let error):
                         print(error)
                     }
                 })
             }
-            
             
         }else {
             var actuallyTask = tasks[textField.tag]
@@ -252,7 +252,7 @@ extension TimerViewController: UITextFieldDelegate {
                 switch result {
                     
                 case .success():
-                    loadProject()
+                    loadTasks()
                 case .failure(let error):
                     print(error.localizedDescription)
                 }
@@ -264,38 +264,19 @@ extension TimerViewController: UITextFieldDelegate {
 
 extension TimerViewController: TaskBtnDelegate {
     func changeBtnState(isSelected: Bool, index: Int) {
-        guard let tasks = project?.tasks else { return }
-        var task = tasks[index]
+        var task = self.tasks[index]
         task.state = isSelected
         
         taskBO.update(task: task, completion: { result in
             switch result {
                 
             case .success():
-                loadProject()
+                loadTasks()
             case .failure(let error):
                 print(error.localizedDescription)
             }
         })
     }
-
+    
 }
 
-//
-//guard let tasks = self.project?.tasks else { return }
-//
-//if let myCell = tableView.cellForRow(at: IndexPath(row: tasks.count, section: 0)) as? TaskTableViewCell, let description =
-//    myCell.taskTextField.text {
-//
-//    guard let projectCD = project?.projectCD else { return }
-//    projectBO.addTask(description: description, projectCD: projectCD, completion: { result in
-//
-//        switch result{
-//
-//        case .success():
-//            loadProject()
-//        case .failure(let error):
-//            print(error.localizedDescription)
-//        }
-//    })
-//}
