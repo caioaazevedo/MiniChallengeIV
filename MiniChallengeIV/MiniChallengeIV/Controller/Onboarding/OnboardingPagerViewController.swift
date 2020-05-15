@@ -8,18 +8,28 @@
 
 import UIKit
 
-//protocol OnboardingPagerViewControllerDelegate {
-//    func innerScrollViewShouldScroll() -> Bool
-//}
-
 class OnboardingPagerViewController: UIViewController {
     
-    var vc = [UIViewController]()
-    let viewControllersID = [ "onboarding1","onboarding2","onboarding3","onboarding4","onboarding5","onboarding6" ]
+    let vcIDs = [ "Onboarding1",
+                  "Onboarding2",
+                  "Onboarding3",
+                  "Onboarding4",
+                  "Onboarding5",
+                  "Onboarding6", ]
     
-    var initialContentOffset = CGPoint()  // scrollView initial offset
+    lazy var vc: [UIViewController] = {
+        var vc = [UIViewController]()
+        
+        for i in 0..<vcIDs.count {
+            let id = vcIDs[i]
+            vc.append(UIStoryboard(name: id, bundle: nil).instantiateViewController(identifier: id))
+        }
+        
+        return vc
+    }()
+    
+    var initialContentOffset = CGPoint()
     var scrollView: UIScrollView!
-//    var delegate: OnboardingPagerViewControllerDelegate?
     
     var pgControl = UIPageControl()
     var currentPage = 0 {
@@ -34,12 +44,6 @@ class OnboardingPagerViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
-        for vcID in viewControllersID {
-            let vc = storyboard!.instantiateViewController(withIdentifier: vcID)
-            self.vc.append(vc)
-        }
         
         setupHorizontalScrollView()
         
@@ -80,7 +84,7 @@ class OnboardingPagerViewController: UIViewController {
         for i in 0..<self.vc.count {
             
             vc[i].view.frame = CGRect(x: CGFloat(i) * cWidth, y: 0, width: cWidth, height: cHeight)
-//            self.addChild(vc[i])
+
             self.scrollView!.addSubview(vc[i].view)
             
             if(i == self.vc.count - 1){
@@ -109,20 +113,5 @@ extension OnboardingPagerViewController: UIScrollViewDelegate {
                 break
             }
         }
-        
-//        if delegate != nil && !delegate!.innerScrollViewShouldScroll() {
-//            // This is probably crazy movement: diagonal scrolling
-//            var newOffset = CGPoint()
-//
-//            if (abs(scrollView.contentOffset.x) > abs(scrollView.contentOffset.y)) {
-//                newOffset = CGPoint(x: self.initialContentOffset.x, y: self.initialContentOffset.y)
-//            } else {
-//                newOffset = CGPoint(x: self.initialContentOffset.x, y: self.initialContentOffset.y)
-//            }
-//
-//            // Setting the new offset to the scrollView makes it behave like a proper
-//            // directional lock, that allows you to scroll in only one direction at any given time
-//            self.scrollView!.setContentOffset(newOffset,animated:  false)
-//        }
     }
 }

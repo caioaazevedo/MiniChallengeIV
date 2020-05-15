@@ -11,25 +11,14 @@ import UIKit
 class Onboarding1ViewController: UIViewController {
 
     @IBOutlet weak var backgroundImage: UIImageView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        if Device.deviceSize.rawValue <= 667 {
+        if Device.deviceSize.rawValue <= 3 {
             backgroundImage.image = #imageLiteral(resourceName: "Onboarding1Square")
         }
-        print(Device.deviceSize)
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
