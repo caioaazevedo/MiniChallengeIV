@@ -899,17 +899,17 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = MiniChallengeIV/MiniChallengeIV.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = BY575KUK4V;
+				DEVELOPMENT_TEAM = KFC8C5H4A6;
 				INFOPLIST_FILE = MiniChallengeIV/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.teixeira.murilo.MiniChallengeIV;
+				PRODUCT_BUNDLE_IDENTIFIER = com.DeveloperAcademy.Pommo;
 				PRODUCT_NAME = Pommo;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -920,17 +920,17 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = MiniChallengeIV/MiniChallengeIV.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = BY575KUK4V;
+				DEVELOPMENT_TEAM = KFC8C5H4A6;
 				INFOPLIST_FILE = MiniChallengeIV/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.teixeira.murilo.MiniChallengeIV;
+				PRODUCT_BUNDLE_IDENTIFIER = com.DeveloperAcademy.Pommo;
 				PRODUCT_NAME = Pommo;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

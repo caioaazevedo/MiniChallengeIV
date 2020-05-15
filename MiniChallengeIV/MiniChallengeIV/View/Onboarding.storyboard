@@ -249,7 +249,7 @@
         <!--Onboarding Pager View Controller-->
         <scene sceneID="pST-iE-CaG">
             <objects>
-                <viewController modalTransitionStyle="crossDissolve" modalPresentationStyle="fullScreen" id="xYA-Aj-t8W" customClass="OnboardingPagerViewController" customModule="MiniChallengeIV" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalTransitionStyle="crossDissolve" modalPresentationStyle="fullScreen" id="xYA-Aj-t8W" customClass="OnboardingPagerViewController" customModule="Pommo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="riz-rv-AGx">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -265,7 +265,7 @@
         <!--Onboarding1 View Controller-->
         <scene sceneID="Y4b-7f-b8h">
             <objects>
-                <viewController storyboardIdentifier="onboarding1" id="FEO-Ww-fbT" customClass="Onboarding1ViewController" customModule="MiniChallengeIV" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="onboarding1" id="FEO-Ww-fbT" customClass="Onboarding1ViewController" customModule="Pommo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Sjg-w3-Wym">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
