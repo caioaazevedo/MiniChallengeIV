@@ -27,6 +27,7 @@
 		695EBAD3246F1AE6003A2ECC /* Onboarding4.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 695EBAD2246F1AE6003A2ECC /* Onboarding4.storyboard */; };
 		695EBAD5246F1AEF003A2ECC /* Onboarding5.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 695EBAD4246F1AEF003A2ECC /* Onboarding5.storyboard */; };
 		695EBAD7246F1AF8003A2ECC /* Onboarding6.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 695EBAD6246F1AF8003A2ECC /* Onboarding6.storyboard */; };
+		695EBAD9246F2679003A2ECC /* UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 695EBAD8246F2679003A2ECC /* UIImageView.swift */; };
 		696620382465F034003B3916 /* OnboardingPagerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 696620372465F034003B3916 /* OnboardingPagerViewController.swift */; };
 		696E92E5245A499800E7F3DF /* NewProject.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 696E92E4245A499800E7F3DF /* NewProject.storyboard */; };
 		69B04723245754D5002A696D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69B04722245754D5002A696D /* AppDelegate.swift */; };
@@ -109,6 +110,7 @@
 		695EBAD2246F1AE6003A2ECC /* Onboarding4.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Onboarding4.storyboard; sourceTree = "<group>"; };
 		695EBAD4246F1AEF003A2ECC /* Onboarding5.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Onboarding5.storyboard; sourceTree = "<group>"; };
 		695EBAD6246F1AF8003A2ECC /* Onboarding6.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Onboarding6.storyboard; sourceTree = "<group>"; };
+		695EBAD8246F2679003A2ECC /* UIImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageView.swift; sourceTree = "<group>"; };
 		696620372465F034003B3916 /* OnboardingPagerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingPagerViewController.swift; sourceTree = "<group>"; };
 		696E92E4245A499800E7F3DF /* NewProject.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = NewProject.storyboard; sourceTree = "<group>"; };
 		69B0471F245754D5002A696D /* MiniChallengeIV.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MiniChallengeIV.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -344,6 +346,7 @@
 				691F2929246DCA2B001B9FED /* Device.swift */,
 				691F292B246DCADB001B9FED /* NSLayoutConstraint.swift */,
 				691F292F246DE686001B9FED /* UILabel.swift */,
+				695EBAD8246F2679003A2ECC /* UIImageView.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -695,6 +698,7 @@
 				691F292E246DCD13001B9FED /* Onboarding1ViewController.swift in Sources */,
 				409D5034245B4EC5006D66AC /* TaskDAO.swift in Sources */,
 				E2E86FDD245AD3D20006712A /* TimerDataManager.swift in Sources */,
+				695EBAD9246F2679003A2ECC /* UIImageView.swift in Sources */,
 				69D5310E246B469600ECF0F4 /* UITextField.swift in Sources */,
 				69F56228245B6E1D00EB2AF1 /* ProjectCollectionViewCell.swift in Sources */,
 				696620382465F034003B3916 /* OnboardingPagerViewController.swift in Sources */,

@@ -11,7 +11,6 @@
         <!--View Controller-->
         <scene sceneID="SMp-St-hRV">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Mw0-5M-GQ9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <viewController storyboardIdentifier="Onboarding5" id="jbd-De-Kaf" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="1iJ-cF-v8Z">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
@@ -19,6 +18,9 @@
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Onboarding5" translatesAutoresizingMaskIntoConstraints="NO" id="46G-IH-5QJ">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="image" keyPath="iPhone8Below" value="Onboarding5Square"/>
+                                </userDefinedRuntimeAttributes>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Track your total hours of and projects." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KnV-fI-Gab">
                                 <rect key="frame" x="59" y="44" width="297" height="57"/>
@@ -143,12 +145,14 @@
                         <viewLayoutGuide key="safeArea" id="vFR-gy-HU1"/>
                     </view>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Mw0-5M-GQ9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3740.579710144928" y="-514.28571428571422"/>
         </scene>
     </scenes>
     <resources>
         <image name="Onboarding5" width="414" height="896"/>
+        <image name="Onboarding5Square" width="125.5" height="223"/>
         <namedColor name="Label Black">
             <color red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

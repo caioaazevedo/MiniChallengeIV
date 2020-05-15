@@ -16,9 +16,9 @@ class Onboarding1ViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        if Device.deviceSize.rawValue <= 3 {
-            backgroundImage.image = #imageLiteral(resourceName: "Onboarding1Square")
-        }
+//        if Device.deviceSize.rawValue <= 3 {
+//            backgroundImage.image = #imageLiteral(resourceName: "Onboarding1Square")
+//        }
     }
     
 }
