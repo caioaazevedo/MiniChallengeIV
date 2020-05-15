@@ -146,6 +146,9 @@
                                     <userDefinedRuntimeAttribute type="number" keyPath="iPhone8Plus">
                                         <real key="value" value="80"/>
                                     </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="iPhone11Pro">
+                                        <real key="value" value="35"/>
+                                    </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </constraint>
                             <constraint firstItem="3Lu-Pv-vjv" firstAttribute="top" secondItem="quR-Vw-BzI" secondAttribute="top" id="NAE-9o-Ur0"/>
@@ -212,12 +215,18 @@
                                     <userDefinedRuntimeAttribute type="number" keyPath="iPhone8Plus">
                                         <real key="value" value="175"/>
                                     </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="iPhone11Pro">
+                                        <real key="value" value="140"/>
+                                    </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </constraint>
                             <constraint firstItem="0Ch-e0-zy4" firstAttribute="bottom" secondItem="8wd-HX-FJR" secondAttribute="bottom" constant="41" id="nFT-ha-r8H">
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="iPhone8Plus">
                                         <real key="value" value="50"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="iPhone11Pro">
+                                        <real key="value" value="35"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </constraint>
@@ -250,6 +259,9 @@
                                     <userDefinedRuntimeAttribute type="number" keyPath="iPhone8Plus">
                                         <real key="value" value="80"/>
                                     </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="iPhone11Pro">
+                                        <real key="value" value="35"/>
+                                    </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </constraint>
                             <constraint firstItem="nV4-RV-Nlw" firstAttribute="top" secondItem="ILE-pr-zVm" secondAttribute="bottom" constant="35" id="tuW-pT-8zZ">
@@ -273,6 +285,9 @@
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="number" keyPath="iPhone8Plus">
                                         <real key="value" value="175"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="iPhone11Pro">
+                                        <real key="value" value="140"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </constraint>
