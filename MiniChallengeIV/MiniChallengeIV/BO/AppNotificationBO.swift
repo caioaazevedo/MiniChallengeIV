@@ -99,14 +99,13 @@ class AppNotificationBO {
     var bgTask = UIBackgroundTaskIdentifier.invalid
     
     func registerBgTask() {
+        print("Background registered")
         bgTask = UIApplication.shared.beginBackgroundTask {
-            let isDisplayStatusLocked = UserDefaults.standard
-            if let lock = isDisplayStatusLocked.value(forKey: "isDisplayStatusLocked") as? Bool {
-                if(lock) {
-                    print("Lock button pressed.")
-                }
-                else{
-                    print("Home button pressed.")
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                let brightness = UIScreen.main.brightness
+                if brightness > 0 {
+                    self.sendNotification(type: .didLoseFocus)
+                    // parar timer
                 }
             }
             
