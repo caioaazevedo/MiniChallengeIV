@@ -23,90 +23,164 @@
                                 </userDefinedRuntimeAttributes>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Leaving the app, all of your progress is lost." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s7e-AL-A5l">
-                                <rect key="frame" x="50" y="187" width="314" height="46"/>
+                                <rect key="frame" x="54.5" y="633.5" width="305" height="46"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="305" id="WGY-GV-p52">
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="iPhoneSE">
+                                                <real key="value" value="250"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </constraint>
+                                    <constraint firstAttribute="height" constant="46" id="f7a-de-7D1"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="20"/>
                                 <color key="textColor" name="Label White"/>
                                 <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ooops!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bmB-tV-WGR">
-                                <rect key="frame" x="167.5" y="298" width="79" height="30"/>
-                                <fontDescription key="fontDescription" name="Didot" family="Didot" pointSize="24"/>
-                                <color key="textColor" name="Label Black"/>
-                                <nil key="highlightedColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="adjustedValue">
+                                        <real key="value" value="20"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cancel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JiQ-Qd-SAa">
-                                <rect key="frame" x="107" y="515.5" width="56" height="23"/>
+                                <rect key="frame" x="109" y="515.5" width="56" height="23"/>
                                 <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="20"/>
                                 <color key="textColor" red="0.43921568630000002" green="0.43921568630000002" blue="0.43921568630000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="adjustedValue">
+                                        <real key="value" value="20"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Retry" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="paK-QP-YPo">
-                                <rect key="frame" x="258" y="515.5" width="46" height="23"/>
+                                <rect key="frame" x="254" y="515.5" width="46" height="23"/>
                                 <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="20"/>
                                 <color key="textColor" name="Label White"/>
                                 <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add tasks to do during your project" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4ga-7N-Z1L">
-                                <rect key="frame" x="46" y="588.5" width="212" height="17.5"/>
-                                <fontDescription key="fontDescription" name="GillSans-Light" family="Gill Sans" pointSize="15"/>
-                                <color key="textColor" red="0.2313761711" green="0.2313660085" blue="0.23137289289999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Create strategy" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ypt-ER-u9w">
-                                <rect key="frame" x="74" y="637" width="121" height="23"/>
-                                <fontDescription key="fontDescription" name="GillSans-Light" family="Gill Sans" pointSize="20"/>
-                                <color key="textColor" red="0.10983204100000001" green="0.1057426706" blue="0.1137266532" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Send email" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eLY-ah-7fP">
-                                <rect key="frame" x="74" y="696" width="86" height="23"/>
-                                <fontDescription key="fontDescription" name="GillSans-Light" family="Gill Sans" pointSize="20"/>
-                                <color key="textColor" red="0.1647088528" green="0.16868624090000001" blue="0.16470566389999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="College" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wg2-H7-Kh8">
-                                <rect key="frame" x="166" y="119" width="102" height="38"/>
-                                <fontDescription key="fontDescription" name="Didot" family="Didot" pointSize="30"/>
-                                <color key="textColor" name="Label Black"/>
-                                <nil key="highlightedColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="adjustedValue">
+                                        <real key="value" value="20"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nC0-lP-HJ2">
-                                <rect key="frame" x="89.5" y="331" width="235" height="45.5"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="235" id="a7P-Cu-wJf"/>
-                                </constraints>
+                                <rect key="frame" x="93.5" y="425" width="227.5" height="45.5"/>
                                 <string key="text">All of your progress was lost!
 Let’s try total focus again?</string>
                                 <fontDescription key="fontDescription" name="GillSans-Light" family="Gill Sans" pointSize="20"/>
                                 <color key="textColor" name="Label Black"/>
                                 <nil key="highlightedColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="adjustedValue">
+                                        <real key="value" value="20"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ooops!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bmB-tV-WGR">
+                                <rect key="frame" x="167.5" y="388" width="79" height="30"/>
+                                <fontDescription key="fontDescription" name="Didot" family="Didot" pointSize="24"/>
+                                <color key="textColor" name="Label Black"/>
+                                <nil key="highlightedColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="adjustedValue">
+                                        <real key="value" value="24"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                             </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="wAI-ZR-cHe" firstAttribute="top" secondItem="xoy-07-2Dt" secondAttribute="top" id="1sf-uW-niX"/>
-                            <constraint firstItem="wg2-H7-Kh8" firstAttribute="top" secondItem="H8d-PM-udw" secondAttribute="top" constant="75" id="45E-vM-XG2"/>
-                            <constraint firstItem="paK-QP-YPo" firstAttribute="centerY" secondItem="JiQ-Qd-SAa" secondAttribute="centerY" id="4YW-LL-B8N"/>
-                            <constraint firstItem="bmB-tV-WGR" firstAttribute="top" secondItem="s7e-AL-A5l" secondAttribute="bottom" constant="65" id="4yO-N8-YxP"/>
-                            <constraint firstItem="nC0-lP-HJ2" firstAttribute="centerX" secondItem="xoy-07-2Dt" secondAttribute="centerX" id="5kZ-65-kCH"/>
-                            <constraint firstItem="JiQ-Qd-SAa" firstAttribute="top" secondItem="nC0-lP-HJ2" secondAttribute="bottom" constant="139" id="7XB-2b-Z2h"/>
-                            <constraint firstItem="wAI-ZR-cHe" firstAttribute="trailing" secondItem="H8d-PM-udw" secondAttribute="trailing" id="7pt-sB-v7O"/>
-                            <constraint firstItem="nC0-lP-HJ2" firstAttribute="top" secondItem="bmB-tV-WGR" secondAttribute="bottom" constant="3" id="9tc-4b-Di3"/>
-                            <constraint firstAttribute="bottom" secondItem="wAI-ZR-cHe" secondAttribute="bottom" id="Bn1-a7-q65"/>
-                            <constraint firstItem="4ga-7N-Z1L" firstAttribute="top" secondItem="JiQ-Qd-SAa" secondAttribute="bottom" constant="50" id="Dk6-iV-Brf"/>
-                            <constraint firstItem="wAI-ZR-cHe" firstAttribute="leading" secondItem="H8d-PM-udw" secondAttribute="leading" id="IPb-2I-r2i"/>
-                            <constraint firstItem="bmB-tV-WGR" firstAttribute="centerX" secondItem="xoy-07-2Dt" secondAttribute="centerX" id="SdB-rE-hyK"/>
-                            <constraint firstItem="eLY-ah-7fP" firstAttribute="top" secondItem="ypt-ER-u9w" secondAttribute="bottom" constant="36" id="ZSY-cf-9VY"/>
-                            <constraint firstItem="ypt-ER-u9w" firstAttribute="top" secondItem="4ga-7N-Z1L" secondAttribute="bottom" constant="31" id="acZ-8K-iQF"/>
-                            <constraint firstItem="ypt-ER-u9w" firstAttribute="leading" secondItem="H8d-PM-udw" secondAttribute="leading" constant="74" id="bLd-Nh-zsx"/>
-                            <constraint firstItem="JiQ-Qd-SAa" firstAttribute="centerX" secondItem="xoy-07-2Dt" secondAttribute="centerX" constant="-72" id="ezY-BL-yKJ"/>
-                            <constraint firstItem="wg2-H7-Kh8" firstAttribute="centerX" secondItem="xoy-07-2Dt" secondAttribute="centerX" constant="10" id="lj5-C0-zfI"/>
-                            <constraint firstItem="eLY-ah-7fP" firstAttribute="leading" secondItem="H8d-PM-udw" secondAttribute="leading" constant="74" id="o5V-t7-ydS"/>
-                            <constraint firstItem="H8d-PM-udw" firstAttribute="trailing" secondItem="s7e-AL-A5l" secondAttribute="trailing" constant="50" id="oyg-Bm-2UX"/>
-                            <constraint firstItem="4ga-7N-Z1L" firstAttribute="leading" secondItem="H8d-PM-udw" secondAttribute="leading" constant="46" id="pQD-Me-Azb"/>
-                            <constraint firstItem="paK-QP-YPo" firstAttribute="centerX" secondItem="xoy-07-2Dt" secondAttribute="centerX" constant="74" id="puY-k8-Raj"/>
-                            <constraint firstItem="s7e-AL-A5l" firstAttribute="leading" secondItem="H8d-PM-udw" secondAttribute="leading" constant="50" id="vgh-Ro-KD7"/>
-                            <constraint firstItem="s7e-AL-A5l" firstAttribute="top" secondItem="wg2-H7-Kh8" secondAttribute="bottom" constant="30" id="xJg-Cd-e9G"/>
+                            <constraint firstItem="s7e-AL-A5l" firstAttribute="top" secondItem="JiQ-Qd-SAa" secondAttribute="bottom" constant="95" id="3Bd-qt-N2g">
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="iPhone8">
+                                        <real key="value" value="70"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="iPhone8Plus">
+                                        <real key="value" value="78"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="iPhone11Pro">
+                                        <real key="value" value="84"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="iPhoneSE">
+                                        <real key="value" value="55"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </constraint>
+                            <constraint firstItem="wAI-ZR-cHe" firstAttribute="top" secondItem="xoy-07-2Dt" secondAttribute="top" id="3x8-WW-wks"/>
+                            <constraint firstItem="s7e-AL-A5l" firstAttribute="centerX" secondItem="xoy-07-2Dt" secondAttribute="centerX" id="9kn-bK-ss8"/>
+                            <constraint firstItem="paK-QP-YPo" firstAttribute="centerY" secondItem="JiQ-Qd-SAa" secondAttribute="centerY" id="CA5-eb-zia"/>
+                            <constraint firstItem="JiQ-Qd-SAa" firstAttribute="top" secondItem="nC0-lP-HJ2" secondAttribute="bottom" constant="45" id="FKL-qR-CZJ">
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="iPhone8">
+                                        <real key="value" value="25"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="iPhone8Plus">
+                                        <real key="value" value="33"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="iPhone11Max">
+                                        <real key="value" value="46"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="iPhoneSE">
+                                        <real key="value" value="18"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </constraint>
+                            <constraint firstItem="wAI-ZR-cHe" firstAttribute="leading" secondItem="H8d-PM-udw" secondAttribute="leading" id="QFV-YH-Hx5"/>
+                            <constraint firstItem="nC0-lP-HJ2" firstAttribute="top" secondItem="bmB-tV-WGR" secondAttribute="bottom" constant="7" id="S9d-ia-Xgj"/>
+                            <constraint firstItem="JiQ-Qd-SAa" firstAttribute="centerX" secondItem="xoy-07-2Dt" secondAttribute="centerX" constant="-70" id="U7L-8J-Piz">
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="iPhone8">
+                                        <real key="value" value="-58"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="iPhone8Plus">
+                                        <real key="value" value="-64"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="iPhone11Pro">
+                                        <real key="value" value="-65"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="iPhone11Max">
+                                        <real key="value" value="-72"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="iPhoneSE">
+                                        <real key="value" value="-50"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </constraint>
+                            <constraint firstItem="bmB-tV-WGR" firstAttribute="centerX" secondItem="xoy-07-2Dt" secondAttribute="centerX" id="a7f-p9-CQl"/>
+                            <constraint firstAttribute="bottom" secondItem="wAI-ZR-cHe" secondAttribute="bottom" id="crQ-Zp-Kv3"/>
+                            <constraint firstItem="paK-QP-YPo" firstAttribute="centerX" secondItem="xoy-07-2Dt" secondAttribute="centerX" constant="70" id="dKT-LG-PBm">
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="iPhone8">
+                                        <real key="value" value="58"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="iPhone8Plus">
+                                        <real key="value" value="64"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="iPhone11Pro">
+                                        <real key="value" value="65"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="iPhone11Max">
+                                        <real key="value" value="72"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="iPhoneSE">
+                                        <real key="value" value="50"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </constraint>
+                            <constraint firstItem="nC0-lP-HJ2" firstAttribute="centerX" secondItem="xoy-07-2Dt" secondAttribute="centerX" id="iFj-dy-B6I"/>
+                            <constraint firstItem="bmB-tV-WGR" firstAttribute="centerY" secondItem="xoy-07-2Dt" secondAttribute="centerY" constant="-45" id="pIx-wr-e4X">
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="iPhone8">
+                                        <real key="value" value="-55"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="iPhone8Plus">
+                                        <real key="value" value="-65"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </constraint>
+                            <constraint firstItem="wAI-ZR-cHe" firstAttribute="trailing" secondItem="H8d-PM-udw" secondAttribute="trailing" id="y6d-tv-E8a"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="H8d-PM-udw"/>
                     </view>
