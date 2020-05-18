@@ -98,14 +98,16 @@ class AppNotificationBO {
     //MARK:- Background task
     var bgTask = UIBackgroundTaskIdentifier.invalid
     
-    func registerBgTask() {
-        print("Background registered")
+    func registerBgTask(timeRecover: TimeRecoverBO) {
         bgTask = UIApplication.shared.beginBackgroundTask {
             DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
                 let brightness = UIScreen.main.brightness
                 if brightness > 0 {
                     self.sendNotification(type: .didLoseFocus)
                     // parar timer
+                    timeRecover.backgroundStatus = .homeScreen
+                } else {
+                    timeRecover.backgroundStatus = .lockScreen
                 }
             }
             

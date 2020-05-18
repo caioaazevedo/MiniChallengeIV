@@ -15,7 +15,7 @@ class TimerViewController: UIViewController {
     
     
     let timeTracker = TimeTrackerBO()
-    var lostTimeFocus: TimeRecoverBO?
+    var timeRecover: TimeRecoverBO?
     var id: UUID?
     var project: Project?
     let projectBO = ProjectBO()
@@ -59,13 +59,13 @@ class TimerViewController: UIViewController {
         
         timeTracker.state = .focus
         
-        self.lostTimeFocus = TimeRecoverBO(timer: timeTracker)
+        self.timeRecover = TimeRecoverBO(timer: timeTracker)
         
         /// Get Scene Deleegate
         let scene = UIApplication.shared.connectedScenes.first
         if let sd : SceneDelegate = (scene?.delegate as? SceneDelegate) {
             sd.timer = self.timeTracker
-            sd.lostTimeFocus = self.lostTimeFocus
+            sd.timeRecover = self.timeRecover
             sd.ringView = self.ringView
         }
         

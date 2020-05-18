@@ -899,9 +899,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = MiniChallengeIV/MiniChallengeIV.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 6R4QWP27L3;
+				CURRENT_PROJECT_VERSION = 3;
+				DEVELOPMENT_TEAM = KFC8C5H4A6;
 				INFOPLIST_FILE = MiniChallengeIV/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -920,9 +921,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = MiniChallengeIV/MiniChallengeIV.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 6R4QWP27L3;
+				CURRENT_PROJECT_VERSION = 3;
+				DEVELOPMENT_TEAM = KFC8C5H4A6;
 				INFOPLIST_FILE = MiniChallengeIV/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

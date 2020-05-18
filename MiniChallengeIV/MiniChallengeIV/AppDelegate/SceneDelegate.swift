@@ -16,7 +16,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
     var ringView: AnimatedRingView?
     
-    var lostTimeFocus: TimeRecoverBO?
+    var timeRecover: TimeRecoverBO?
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
@@ -52,11 +52,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         AppNotificationBO.shared.resetBagde()
 
-        guard let lostTime = self.lostTimeFocus else {
+        guard let timeRecover = self.timeRecover else {
             return
         }
         
-        lostTime.returnFromBackground()
+        timeRecover.returnFromBackground()
         
         
         guard let view = self.ringView else{return}
@@ -76,18 +76,19 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Save changes in the application's managed object context when the application transitions to the background.
         
         CDManager.shared.saveContext()
-        AppNotificationBO.shared.registerBgTask()
 
-        guard let lostTime = self.lostTimeFocus else {
+        guard let timeRecover = self.timeRecover else {
             return
         }
         
-        lostTime.enterbackground()
+        AppNotificationBO.shared.registerBgTask(timeRecover: timeRecover)
         
-        guard let t = timer else {return}
-        if t.timer.isValid{
-            AppNotificationBO.shared.sendNotification(type: .didLoseFocus)
-        }
+        timeRecover.enterbackground()
+        
+//        guard let t = timer else {return}
+//        if t.timer.isValid{
+//            AppNotificationBO.shared.sendNotification(type: .didLoseFocus)
+//        }
     }
     
 }
