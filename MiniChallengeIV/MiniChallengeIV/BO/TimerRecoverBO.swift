@@ -8,9 +8,16 @@
 
 import Foundation
 
+enum BackgroundStatus {
+    case lockScreen
+    case homeScreen
+}
+
 class TimeRecoverBO {
     var enterBackgroundInstant: Date?
     var returnFromBackgroundInstant: Date!
+    
+    var backgroundStatus: BackgroundStatus?
 
     var timer: TimeTrackerBO
 
@@ -72,18 +79,25 @@ class TimeRecoverBO {
         /// If the user has been out more than the time he configured, change cicle of Timer
         if currentTime < timer.configTime * 60 {
             /// Update lost focus time from timer with the value calculate when returns from background and the configured Time isnt over
-            timer.lostFocusTime += (lostFocusTime)
+            if self.backgroundStatus == BackgroundStatus.homeScreen {
+                timer.lostFocusTime += (lostFocusTime)
+                timer.qtdLostFocus += 1
+            } else {
+                timer.focusTime += lostFocusTime
+            }
+            
             timer.countDown -= lostFocusTime
-            timer.qtdLostFocus += 1
             
             return false
         } else {
-            /// Update Timer - Lost Focus Time
-            timer.lostFocusTime = timer.configTime * 60 - timer.focusTime
+            if self.backgroundStatus == BackgroundStatus.homeScreen {
+                /// Update Timer - Lost Focus Time
+                timer.lostFocusTime = timer.configTime * 60 - timer.focusTime
+                timer.qtdLostFocus += 1
+            } else {
+                timer.focusTime = timer.configTime * 60 - timer.lostFocusTime
+            }
             timer.countDown = 0
-            timer.qtdLostFocus += 1
-
-            /// Change Timer Cicle
             return true
         }
     }
@@ -101,7 +115,6 @@ class TimeRecoverBO {
         } else {
             timer.restTime = timer.configTime * 60
             
-            /// Change Timer Cicle
             return true
         }
     }
