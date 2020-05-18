@@ -51,7 +51,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Use this method to undo the changes made on entering the background.
         
         AppNotificationBO.shared.resetBagde()
-        AppNotificationBO.shared.restoreLockScreenSetting()
 
         guard let lostTime = self.lostTimeFocus else {
             return
@@ -77,6 +76,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Save changes in the application's managed object context when the application transitions to the background.
         
         CDManager.shared.saveContext()
+        AppNotificationBO.shared.registerBgTask()
 
         guard let lostTime = self.lostTimeFocus else {
             return
