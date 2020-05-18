@@ -95,37 +95,6 @@ class AppNotificationBO {
         }
     }
     
-    //MARK:- LockScreenObserver
-    let displayStatusChanged: CFNotificationCallback = { center, observer, name, object, info in
-        let str = name!.rawValue as CFString
-        if (str == "com.apple.springboard.lockcomplete" as CFString) {
-            let isDisplayStatusLocked = UserDefaults.standard
-            isDisplayStatusLocked.set(true, forKey: "isDisplayStatusLocked")
-            isDisplayStatusLocked.synchronize()
-            
-            UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
-        }
-    }
-    
-    func registerLockScreenObserver() {
-        let isDisplayStatusLocked = UserDefaults.standard
-        isDisplayStatusLocked.set(false, forKey: "isDisplayStatusLocked")
-        isDisplayStatusLocked.synchronize()
-
-        // Darwin Notification
-        let cfstr = "com.apple.springboard.lockcomplete" as CFString
-        let notificationCenter = CFNotificationCenterGetDarwinNotifyCenter()
-        let function = displayStatusChanged
-        CFNotificationCenterAddObserver(notificationCenter, nil, function, cfstr, nil, .deliverImmediately)
-    }
-    
-    func restoreLockScreenSetting() {
-        let isDisplayStatusLocked = UserDefaults.standard
-        isDisplayStatusLocked.set(false, forKey: "isDisplayStatusLocked")
-        isDisplayStatusLocked.synchronize()
-    }
-    
-    
     //MARK:- Background task
     var bgTask = UIBackgroundTaskIdentifier.invalid
     
@@ -133,7 +102,7 @@ class AppNotificationBO {
         bgTask = UIApplication.shared.beginBackgroundTask {
             let isDisplayStatusLocked = UserDefaults.standard
             if let lock = isDisplayStatusLocked.value(forKey: "isDisplayStatusLocked") as? Bool {
-                if(lock){
+                if(lock) {
                     print("Lock button pressed.")
                 }
                 else{
