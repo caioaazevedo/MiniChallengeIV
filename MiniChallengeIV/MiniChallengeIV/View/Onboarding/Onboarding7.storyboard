@@ -3,6 +3,7 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -21,13 +22,34 @@
                                     <userDefinedRuntimeAttribute type="image" keyPath="iPhone8Below" value="07OnboardingSquare"/>
                                 </userDefinedRuntimeAttributes>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6ng-jG-iod">
+                                <rect key="frame" x="113" y="354" width="188" height="188"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="188" id="PpW-tV-Wx2"/>
+                                    <constraint firstAttribute="height" constant="188" id="xF9-GE-opk"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Didot" family="Didot" pointSize="30"/>
+                                <state key="normal" title="Start">
+                                    <color key="titleColor" name="Label Black"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="round">
+                                        <real key="value" value="94"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <segue destination="g2I-B9-Wc0" kind="show" id="Wxk-hO-QEE"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="z1Y-Po-sE2" firstAttribute="top" secondItem="04T-B1-cxp" secondAttribute="top" id="1mg-0N-EJI"/>
                             <constraint firstItem="z1Y-Po-sE2" firstAttribute="leading" secondItem="qua-NH-43d" secondAttribute="leading" id="DXE-6S-EYG"/>
                             <constraint firstAttribute="bottom" secondItem="z1Y-Po-sE2" secondAttribute="bottom" id="HqI-Yr-o3E"/>
+                            <constraint firstItem="6ng-jG-iod" firstAttribute="centerY" secondItem="04T-B1-cxp" secondAttribute="centerY" id="LuC-eB-r0v"/>
                             <constraint firstItem="z1Y-Po-sE2" firstAttribute="trailing" secondItem="qua-NH-43d" secondAttribute="trailing" id="O5M-G6-9wG"/>
+                            <constraint firstItem="6ng-jG-iod" firstAttribute="centerX" secondItem="04T-B1-cxp" secondAttribute="centerX" id="dmx-6R-U1B"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="qua-NH-43d"/>
                     </view>
@@ -36,9 +58,22 @@
             </objects>
             <point key="canvasLocation" x="-117.39130434782609" y="-50.223214285714285"/>
         </scene>
+        <!--Projects-->
+        <scene sceneID="mL6-IV-idU">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Projects" id="g2I-B9-Wc0" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="xY0-Nc-xFc"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fbi-rn-v3Q" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="455" y="-52"/>
+        </scene>
     </scenes>
     <resources>
         <image name="07Onboarding" width="414" height="896"/>
         <image name="07OnboardingSquare" width="375" height="667"/>
+        <namedColor name="Label Black">
+            <color red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
     </resources>
 </document>
