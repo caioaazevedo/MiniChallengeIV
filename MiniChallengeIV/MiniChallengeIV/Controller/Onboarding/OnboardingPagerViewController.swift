@@ -74,6 +74,7 @@ class OnboardingPagerViewController: UIViewController {
         scrollView.showsHorizontalScrollIndicator = false
         scrollView.bounces = false
         scrollView.delegate = self
+        scrollView.backgroundColor = .clear
         
         self.scrollView!.frame = CGRect(x: self.view.bounds.origin.x, y: self.view.bounds.origin.y, width: cWidth, height: cHeight)
         self.view.addSubview(scrollView)
