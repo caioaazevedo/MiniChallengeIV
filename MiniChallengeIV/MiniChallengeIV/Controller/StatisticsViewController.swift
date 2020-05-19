@@ -68,7 +68,7 @@ class StatisticsViewController: UIViewController {
         print("Time -->> \(seconds)")
         let min = (seconds / 60) % 60
         let hour = seconds / 3600
-        return String(format:"%02ih%02i", hour, min)
+        return String(format:"%2ih%02i", hour, min)
     }
     
     func getStatistics(){

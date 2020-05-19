@@ -14,6 +14,7 @@ class ProjectViewController: UIViewController {
     @IBOutlet weak var focusedTimeLabel: UILabel!
     @IBOutlet weak var distractionTimeLabel: UILabel!
     @IBOutlet weak var breakTimeLabel: UILabel!
+    @IBOutlet weak var backgroundImage: UIImageView!
     
     let collectionLayout = CollectionViewFlowLayout()
     
@@ -172,6 +173,8 @@ extension ProjectViewController: ReloadProjectListDelegate {
             switch result {
             case .success(let projects):
                 self.projects = projects
+                
+                print(projects)
                 collectionView.reloadData()
             case .failure(let error):
                 print(error.localizedDescription)
@@ -212,6 +215,19 @@ extension ProjectViewController: UICollectionViewDelegate {
 
 extension ProjectViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        /// When projects is empty show background Image
+        if projects.count == 0 {
+            UIView.animate(withDuration: 0.5) {
+                self.backgroundImage.isHidden = false
+                self.collectionView.isHidden = true
+            }
+        } else {
+            UIView.animate(withDuration: 0.5) {
+                self.backgroundImage.isHidden = true
+                self.collectionView.isHidden = false
+            }
+        }
+        
         //        return ProjectDAO.list.count
         return projects.count
     }
