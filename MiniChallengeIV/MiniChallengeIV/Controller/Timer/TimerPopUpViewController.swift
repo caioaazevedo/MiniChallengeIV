@@ -76,13 +76,10 @@ class TimerPopUpViewController: UIViewController {
             pvc.timeTracker.state = .focus
         }else{
             pvc.timeTracker.state = pvc.timeTracker.changeCicle
-            if pvc.timeTracker.state == .pause{
-                pvc.startTimer(pvc.btnStart)
-            }
         }
         let time = pvc.timeTracker.secondsToString(with: pvc.timeTracker.convertedTimeValue)
         pvc.timerLabel.text = time
-        
+        pvc.startTimer(pvc.btnStart)
         dismiss(animated: true)
     }
     //Cancel timer and go back to menu
