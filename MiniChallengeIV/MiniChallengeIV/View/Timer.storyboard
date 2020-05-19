@@ -3,6 +3,7 @@
     <device id="retina6_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -41,7 +42,7 @@
                                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="kkkkkkkk" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="soB-4z-xjI">
                                                     <rect key="frame" x="30" y="10.333333333333334" width="276" height="23.333333333333329"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <color key="textColor" name="Label Black"/>
                                                     <fontDescription key="fontDescription" name="GillSans-Light" family="Gill Sans" pointSize="19"/>
                                                     <textInputTraits key="textInputTraits"/>
                                                 </textField>
@@ -77,7 +78,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <color key="backgroundColor" name="Background"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="208" id="E6y-9C-lAw">
                                         <userDefinedRuntimeAttributes>
@@ -100,7 +101,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tasks" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="03M-M0-dgR">
                                 <rect key="frame" x="40" y="521.33333333333337" width="73" height="37.333333333333371"/>
                                 <fontDescription key="fontDescription" name="Didot" family="Didot" pointSize="30"/>
-                                <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="textColor" name="Label Black"/>
                                 <nil key="highlightedColor"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="string" keyPath="localisedKey" value="Tasks"/>
@@ -109,7 +110,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add tasks to do during your project" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nU9-HW-LZe">
                                 <rect key="frame" x="39.999999999999986" y="557.66666666666663" width="211.66666666666663" height="17.333333333333371"/>
                                 <fontDescription key="fontDescription" name="GillSans-Light" family="Gill Sans" pointSize="15"/>
-                                <nil key="textColor"/>
+                                <color key="textColor" name="Label Black"/>
                                 <nil key="highlightedColor"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="string" keyPath="localisedKey" value="Add tasks text"/>
@@ -136,7 +137,7 @@
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="frY-D9-fMR">
                                 <rect key="frame" x="40" y="425" width="334" height="46"/>
-                                <color key="backgroundColor" red="0.35003751519999998" green="0.49416404959999999" blue="0.4862757325" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="backgroundColor" name="Contrast"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="46" id="l7n-1y-4JR">
                                         <userDefinedRuntimeAttributes>
@@ -161,7 +162,7 @@
                                 <rect key="frame" x="34.333333333333336" y="271.33333333333331" width="31.000000000000007" height="22"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                <color key="tintColor" red="0.3461179137" green="0.49024260040000001" blue="0.48235416409999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="tintColor" name="Contrast"/>
                                 <state key="normal" image="Triangle"/>
                                 <connections>
                                     <action selector="decrementTimer:" destination="dzJ-Fy-LCJ" eventType="touchUpInside" id="c1T-FE-ee2"/>
@@ -171,7 +172,7 @@
                                 <rect key="frame" x="336.33333333333331" y="271.33333333333331" width="31" height="22"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                <color key="tintColor" red="0.3461179137" green="0.49024260040000001" blue="0.48235416409999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="tintColor" name="Contrast"/>
                                 <state key="normal" image="Triangle Copy"/>
                                 <connections>
                                     <action selector="incrementTimer:" destination="dzJ-Fy-LCJ" eventType="touchUpInside" id="y0d-5b-zQ4"/>
@@ -187,7 +188,7 @@
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="kkkkkkkkkkkkkKKKKkk" lineBreakMode="tailTruncation" baselineAdjustment="none" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LoV-Hf-8UY">
                                         <rect key="frame" x="40" y="0.0" width="330.66666666666669" height="30.333333333333332"/>
                                         <fontDescription key="fontDescription" name="Didot" family="Didot" pointSize="30"/>
-                                        <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="textColor" name="Label Black"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
@@ -201,11 +202,11 @@
                                 <rect key="frame" x="73" y="822.33333333333337" width="119" height="22"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="19"/>
-                                <color key="textColor" red="0.34267747399999998" green="0.54264974590000004" blue="0.5309523344" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="textColor" name="Contrast"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" red="0.95675712820000003" green="0.95714896920000003" blue="0.94117498399999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="backgroundColor" name="Background"/>
                         <constraints>
                             <constraint firstItem="j4m-JR-Ug1" firstAttribute="width" secondItem="cJM-vG-g4v" secondAttribute="width" multiplier="0.073" id="0hM-O9-FPt"/>
                             <constraint firstItem="UPg-pg-Sc3" firstAttribute="centerX" secondItem="cJM-vG-g4v" secondAttribute="centerX" multiplier="0.64" id="2KE-3J-8QD"/>
@@ -286,5 +287,14 @@
         <image name="Oval Copy 2" width="24" height="24"/>
         <image name="Triangle" width="31" height="17"/>
         <image name="Triangle Copy" width="31" height="17"/>
+        <namedColor name="Background">
+            <color red="0.95686274509803926" green="0.95686274509803926" blue="0.94117647058823528" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Contrast">
+            <color red="0.34901960784313724" green="0.49411764705882355" blue="0.48627450980392156" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Label Black">
+            <color red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
     </resources>
 </document>
