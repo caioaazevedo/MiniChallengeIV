@@ -122,9 +122,6 @@ Let’s try total focus again?</string>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="vU0-ib-Gjc"/>
                     </view>
-                    <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="boolean" keyPath="adapt" value="YES"/>
-                    </userDefinedRuntimeAttributes>
                     <connections>
                         <outlet property="button" destination="i9P-9k-Fkz" id="Sgt-bA-blB"/>
                         <outlet property="cancelButton" destination="CZ9-zZ-Ddv" id="fXB-7R-34Y"/>
