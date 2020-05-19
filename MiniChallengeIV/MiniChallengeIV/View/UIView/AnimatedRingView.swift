@@ -66,7 +66,7 @@ class AnimatedRingView: UIView {
         self.backgroundColor = UIColor.init(244, 244, 240, 1)
         let radius = (min(frame.size.width, frame.size.height) - ringStrokeWidth - 2)/2
         let pinRadius = 7
-        let circlebackgroundRadius = 80.55
+        let circlebackgroundRadius = (80.55*radius)/90
         let size = self.frame.size
         let pos = CGPoint(x: size.width/2, y: size.height/2)
         let circlePath = UIBezierPath(arcCenter: pos, radius: radius, startAngle: startAngle, endAngle: startAngle + 2 * π, clockwise: true)

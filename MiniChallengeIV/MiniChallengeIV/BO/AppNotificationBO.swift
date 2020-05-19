@@ -8,6 +8,7 @@
 
 import NotificationCenter
 import UserNotifications
+import Foundation
 
 enum NotificationType {
     case didFinishFocus, didFinishBreak, didLoseFocus, comeBackToTheApp
@@ -43,15 +44,26 @@ class AppNotificationBO {
     }
     
     func sendNotification(type: NotificationType, delay: TimeInterval = 2) {
+        var localizedTitle: String?
+        var localizedBody: String?
         switch type {
         case .didLoseFocus:
-            sendNotification(title: "Perdeu o foco", subtitle: "", body: "Concentre-se para manter a produtividade")
+            localizedTitle = NSLocalizedString("Lost Focus Notification", comment: "")
+            localizedBody = NSLocalizedString("Lost Focus Body", comment: "")
         case .didFinishFocus:
-            sendNotification(title: "Tempo de foco terminado", subtitle: "", body: "Já pode iniciar sua pausa", delay: delay)
+            localizedTitle = NSLocalizedString("End Focus Notification", comment: "")
+            localizedBody = NSLocalizedString("End Focus Body", comment: "")
         case .didFinishBreak:
-            sendNotification(title: "Pausa terminada", subtitle: "", body: "Hora de voltar ao trabalho", delay: delay)
+            localizedTitle = NSLocalizedString("Break Notification", comment: "")
+            localizedBody = NSLocalizedString("Break Body", comment: "")
         case .comeBackToTheApp:
-            sendNotification(title: "É hora de voltar a focar", subtitle: "", body: "Já faz tempo que não te vejo. Vamos voltar a focar em suas tarefas com o 'AppFoco'")
+            localizedTitle = NSLocalizedString("Long Time Notification", comment: "")
+            localizedBody = NSLocalizedString("Long Time Body", comment: "")
+            
+        }
+        if let title = localizedBody,
+            let body = localizedTitle{
+            sendNotification(title: title, subtitle: "", body: body, delay: delay)
         }
     }
     
@@ -59,7 +71,7 @@ class AppNotificationBO {
         
         checkAuthorization() { allow in
             guard allow else { return }
-           
+            
             let notificationContent = UNMutableNotificationContent()
             notificationContent.title = title
             notificationContent.subtitle = subtitle

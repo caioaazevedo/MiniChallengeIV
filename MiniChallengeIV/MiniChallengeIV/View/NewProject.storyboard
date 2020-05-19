@@ -11,7 +11,7 @@
         <!--New Project View Controller-->
         <scene sceneID="bD6-Rc-Os7">
             <objects>
-                <viewController storyboardIdentifier="NewProjectID" id="3x7-Yo-ZoK" customClass="NewProjectViewController" customModule="MiniChallengeIV" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="NewProjectID" id="3x7-Yo-ZoK" customClass="NewProjectViewController" customModule="Pommo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="zyK-gJ-Lbz">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -24,6 +24,9 @@
                                         <fontDescription key="fontDescription" name="Didot" family="Didot" pointSize="20"/>
                                         <color key="textColor" name="Label"/>
                                         <nil key="highlightedColor"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="localisedKey" value="Add project"/>
+                                        </userDefinedRuntimeAttributes>
                                     </label>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Work" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MjK-57-UMU">
                                         <rect key="frame" x="30" y="56" width="274" height="34"/>
@@ -48,6 +51,7 @@
                                             <userDefinedRuntimeAttribute type="number" keyPath="rightPadding">
                                                 <real key="value" value="8"/>
                                             </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="localizedKey" value="Work"/>
                                         </userDefinedRuntimeAttributes>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eEl-fs-ZQ6">
@@ -224,6 +228,7 @@
                                             <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
                                                 <color key="value" red="0.34901960780000002" green="0.4941176471" blue="0.48627450979999998" alpha="1" colorSpace="calibratedRGB"/>
                                             </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="localizedKey" value="Cancel"/>
                                         </userDefinedRuntimeAttributes>
                                         <connections>
                                             <action selector="cancelButtonAction:" destination="3x7-Yo-ZoK" eventType="touchUpInside" id="K7V-D5-A27"/>
@@ -245,6 +250,7 @@
                                             <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
                                                 <color key="value" red="0.34901960784313724" green="0.49411764705882355" blue="0.48627450980392156" alpha="1" colorSpace="calibratedRGB"/>
                                             </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="localizedKey" value="Save"/>
                                         </userDefinedRuntimeAttributes>
                                         <connections>
                                             <action selector="onClickSave:" destination="3x7-Yo-ZoK" eventType="touchUpInside" id="dbW-3f-NY3"/>
