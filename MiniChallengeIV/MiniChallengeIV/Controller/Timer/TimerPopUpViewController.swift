@@ -36,44 +36,26 @@ class TimerPopUpViewController: UIViewController {
         // Do any additional setup after loading the view.
         setupDictionary()
         setupPopUp()
-        adaptAutoLayout()
+        self.adaptAutoLayout()
     }
-    //Adapt auto layout according to device
-    func adaptAutoLayout(){
-        //Get all screen sizes
-        let screenElements = self.view.subviewsRecursive()
-        let constraints = screenElements.map{$0.constraints}.joined()
-        for constraint in constraints {
-            if constraint.identifier == "height" {
-                constraint.constant = constraint.constant.scaledHeight
-            } else if constraint.identifier == "width" {
-                constraint.constant = constraint.constant.scaledWidth
-            }
-        }
-        
-        //Adapt label sizes
-        textLabel.font = textLabel.font.withSize(textLabel.font.pointSize.scaledHeight)
-        titleLabel.font = titleLabel.font.withSize(titleLabel.font.pointSize.scaledHeight)
-        button.titleLabel?.font = button.titleLabel?.font.withSize((button.titleLabel?.font.pointSize.scaledHeight)!)
-        cancelButton.titleLabel?.font = cancelButton.titleLabel?.font.withSize((cancelButton.titleLabel?.font.pointSize.scaledHeight)!)
-    }
+    
     //Set up the texts for when timer ends
     func setupDictionary(){
         //focus
-        titleDict[.focus] = "Yay!"
-        textDict[.focus] = "Congratulations!\nYou did it!"
+        titleDict[.focus] = NSLocalizedString("Focus title", comment: "")
+        textDict[.focus] = NSLocalizedString("Focus text", comment: "")
         imageDict[.focus] = UIImage(named: "trophy")
-        buttonDict[.focus] = "Break"
+        buttonDict[.focus] = NSLocalizedString("Break", comment: "")
         //pause
-        titleDict[.pause] = "OK!"
-        textDict[.pause] = "Break is over!\nNow It's time to focus again."
+        titleDict[.pause] = NSLocalizedString("Break title", comment: "")
+        textDict[.pause] = NSLocalizedString("Break text", comment: "")
         imageDict[.pause] = UIImage(named: "break")
-        buttonDict[.pause] = "Focus"
+        buttonDict[.pause] = NSLocalizedString("Focus", comment: "")
         //give up
-        titleDict[.givenUp] = "Ooops!"
-        textDict[.givenUp] = "All of the progress was lost!\nLet's try total focus again?"
+        titleDict[.givenUp] = NSLocalizedString("Give Up title", comment: "")
+        textDict[.givenUp] = NSLocalizedString("Give Up text", comment: "")
         imageDict[.givenUp] = UIImage(named: "giveUp")
-        buttonDict[.givenUp] = "Retry"
+        buttonDict[.givenUp] = NSLocalizedString("Retry", comment: "")
     }
     //Set all labels and buttons
     func setupPopUp(){
@@ -94,7 +76,13 @@ class TimerPopUpViewController: UIViewController {
             pvc.timeTracker.state = .focus
         }else{
             pvc.timeTracker.state = pvc.timeTracker.changeCicle
+            if pvc.timeTracker.state == .pause{
+                pvc.startTimer(pvc.btnStart)
+            }
         }
+        let time = pvc.timeTracker.secondsToString(with: pvc.timeTracker.convertedTimeValue)
+        pvc.timerLabel.text = time
+        
         dismiss(animated: true)
     }
     //Cancel timer and go back to menu

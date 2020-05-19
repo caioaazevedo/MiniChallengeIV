@@ -63,4 +63,16 @@ extension UITextField {
             self.rightViewMode = .always
         }
     }
+    
+    @IBInspectable
+    var localizedKey: String? {
+        get {
+            ""
+        }
+        set {
+            guard let key = placeholder else {return}
+            let localizedString = NSLocalizedString(key, comment: "")
+            placeholder = localizedString
+        }
+    }
 }

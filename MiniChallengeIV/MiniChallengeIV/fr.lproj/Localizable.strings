@@ -1,0 +1,73 @@
+/*
+  Localizable.strings
+  MiniChallengeIV
+
+  Created by Fábio Maciel de Sousa on 17/05/20.
+  Copyright © 2020 Murilo Teixeira. All rights reserved.
+*/
+//POMMO QUOTES
+
+//MARK: Project
+"Progress" = "Progrès";
+"Your Projects" = "Votre Projets";
+"Total" = "Totale";
+"Focus" = "Focus";
+"Distraction" = "Distraction";
+"Break" = "Pause";
+"Add project" = "Ajouter un projet";
+"Edit project" = "Éditer le projet";
+
+//MARK: Statistics
+"January" = "Janvier";
+"February" = "Février";
+"March" = "Mars";
+"April" = "Avril";
+"May" = "Mai";
+"June" = "Juin";
+"July" = "Juillet";
+"August" = "Août";
+"September" = "Septembre";
+"October" = "Octobre";
+"November" = "Novembre";
+"December" = "Décembre";
+
+"Current projects" = "Projets actuels";
+
+//MARK: New project
+"Work" = "Boulot";
+"Cancel" = "Annuler";
+"Save" = "Sauvegarder";
+"Edit" = "Éditer";
+"Delete" = "Supprimer";
+
+
+//MARK: Timer
+"Start" = "Commencer";
+"Retry" = "Réessayez";
+"Give Up" = "Abandonner";
+"Tasks" = "Tâches";
+"Add tasks text" = "Ajouter des tâches à faire pendant le projet";
+
+//MARK: Pop up
+"Focus title" = "Youpi!";
+"Focus text" = "Félicitations!\nTu l'as bien fait!";
+"Break title" = "OK!";
+"Break text" = "La pause est fini! Il est temps de se concentrer à nouveau. C'est parti!";
+"Give Up title" = "Oups!";
+"Give Up text" = "Tous les progrès ont été perdus!\nEssayons de nous concentrer à nouveau?";
+
+//MARK: Notifications
+"Lost Focus Notification" = "Tu as perdu le focus";
+"Lost Focus Body" = "Concentré toi pour rester productif";
+"End Focus Notification" = "Le temp de focus est fini";
+"End Focus Body" = "Tu peux maintenant faire une pause";
+"Break Notification" = "La pause est fini";
+"Break Body" = "Il est temps de se remettre au travail";
+"Long Time Notification" = "Il est temps de revenir a se concentrer";
+"Long Time Body" = "Cela fait longtemps. Concentrons-nous à nouveau sur vos tâches avec Pommo";
+"Yes" = "Oui";
+"Delete Project" = "Supprimer le projet";
+"Delete Message" = "Veux-tu vraiment supprimer ce projet?";
+"Actions" = "Actions";
+
+//MARK: Onboarding

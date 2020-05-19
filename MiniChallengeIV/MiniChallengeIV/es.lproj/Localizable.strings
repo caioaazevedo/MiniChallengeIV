@@ -1,0 +1,73 @@
+/*
+  Localizable.strings
+  MiniChallengeIV
+
+  Created by Fábio Maciel de Sousa on 17/05/20.
+  Copyright © 2020 Murilo Teixeira. All rights reserved.
+*/
+//POMMO QUOTES
+
+
+//MARK: Project
+"Progress" = "Progreso";
+"Your Projects" = "Sus proyectos";
+"Total" = "Total";
+"Focus" = "Foco";
+"Distraction" = "Distracción";
+"Break" = "Pausa";
+"Add project" = "Agregar proyecto";
+"Edit project" = "Editar proyecto";
+
+//MARK: Statistics
+"January" = "Enero";
+"February" = "Febrero";
+"March" = "Marzo";
+"April" = "Abril";
+"May" = "Mayo";
+"June" = "Junio";
+"July" = "Julio";
+"August" = "Agosto";
+"September" = "Septiembre";
+"October" = "Octubre";
+"November" = "Noviembre";
+"December" = "Diciembre";
+
+"Current projects" = "Proyectos actuales";
+
+//MARK: New project
+"Work" = "Trabajo";
+"Cancel" = "Cancelar";
+"Save" = "Ahorrar";
+"Edit" = "Editar";
+"Delete" = "Eliminar";
+
+//MARK: Timer
+"Start" = "Empezar";
+"Retry" = "Reiniciar";
+"Give Up" = "Rendirse";
+"Tasks" = "Tareas";
+"Add tasks text" = "Agregar tareas para hacer durante el proyecto";
+
+//MARK: Pop up
+"Focus title" = "¡Yupi!";
+"Focus text" = "¡Felicidades!\n¡Usted consiguió!";
+"Break title" = "¡OK!";
+"Break text" = "¡El descanso ha terminado!\nAhora es tiempo de concentrarse nuevamente.";
+"Give Up title" = "¡Ups!";
+"Give Up text" = "¡Todo tu progreso se ha perdido!\n¿Intentemos quedarnos de nuevo?";
+
+//MARK: Notifications
+"Lost Focus Notification" = "Perdió el enfoque";
+"Lost Focus Body" = "Enfoque para mantenerse productivo";
+"End Focus Notification" = "Tiempo de enfoque terminado";
+"End Focus Body" = "Ahora puedes comenzar tu descanso";
+"Break Notification" = "Pausa terminada";
+"Break Body" = "Es hora de volver al trabajo.";
+"Long Time Notification" = "Es hora de reenfocar";
+"Long Time Body" = "No te he visto en mucho tiempo. Volvamos a centrarnos en sus tareas con Pommo";
+"Yes" = "Si";
+"Delete Project" = "Eliminar proyecto";
+"Delete Message" = "¿Estás seguro de que deseas eliminar este proyecto?";
+"Actions" = "Comportamiento";
+
+//MARK: Onboarding

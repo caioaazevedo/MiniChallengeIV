@@ -81,14 +81,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             return
         }
         
-        AppNotificationBO.shared.registerBgTask(timeRecover: timeRecover)
-        
-        timeRecover.enterbackground()
-        
-//        guard let t = timer else {return}
-//        if t.timer.isValid{
-//            AppNotificationBO.shared.sendNotification(type: .didLoseFocus)
-//        }
+        guard let t = timer else {return}
+        if t.timer.isValid{
+            AppNotificationBO.shared.sendNotification(type: .didLoseFocus)
+            AppNotificationBO.shared.registerBgTask(timeRecover: timeRecover)
+            timeRecover.enterbackground()
+        }
     }
     
 }

@@ -29,4 +29,16 @@ extension UIButton {
             self.layer.borderColor = newValue?.cgColor
         }
     }
+    
+    @IBInspectable
+    var localizedKey: String? {
+        get {
+            ""
+        }
+        set {
+            guard let key = newValue else {return}
+            let localizedString = NSLocalizedString(key, comment: "")
+            setTitle(localizedString, for: .normal)
+        }
+    }
 }
