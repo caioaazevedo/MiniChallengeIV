@@ -14,7 +14,16 @@ extension UILabel {
     var adjustedValue: CGFloat {
         get { 0 }
         set {
-            self.font = UIFont(name: self.font.familyName, size: newValue.adjusted)
+            self.font = UIFont(name: self.font.fontName, size: newValue.adjusted)
+        }
+    }
+    
+    @IBInspectable
+    var localisedKey: String? {
+        get { "" }
+        set {
+            guard let key = newValue else { return }
+            text = NSLocalizedString(key, comment: "")
         }
     }
 }

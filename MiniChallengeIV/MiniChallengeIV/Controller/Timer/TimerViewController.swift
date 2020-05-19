@@ -8,6 +8,8 @@
 
 import UIKit
 import GameplayKit
+import AudioUnit
+
 ///Place holder ViewController
 class TimerViewController: UIViewController {
     
@@ -21,7 +23,7 @@ class TimerViewController: UIViewController {
     lazy var taskState = GKStateMachine(states: self.states)
     
     let timeTracker = TimeTrackerBO()
-    var lostTimeFocus: TimeRecoverBO?
+    var timeRecover: TimeRecoverBO?
     var id: UUID?
     var project: Project?
     let projectBO = ProjectBO()
@@ -31,12 +33,20 @@ class TimerViewController: UIViewController {
     ///the validation for the minimum value
     var minimumDecrement: Int{
         //TODO: switch 0 for a generic number
-        return timeTracker.configTime - 5  < 5 ? 5 : timeTracker.configTime - 5
+        if timeTracker.configTime - 5  < 5{
+            shakeView(timerLabel)
+            return 5
+        }
+        return timeTracker.configTime - 5
     }
     ///the validation for the maximum value
     var maximumDecrement: Int{
         //TODO: switch 60 for a generic number
-        return timeTracker.configTime + 5  > 480 ? 480 : timeTracker.configTime + 5
+        if timeTracker.configTime + 5  > 480{
+            shakeView(timerLabel)
+            return 480
+        }
+        return timeTracker.configTime + 5
     }
     
     //Buttons, Labels
@@ -70,13 +80,13 @@ class TimerViewController: UIViewController {
         
         timeTracker.state = .focus
         
-        self.lostTimeFocus = TimeRecoverBO(timer: timeTracker)
+        self.timeRecover = TimeRecoverBO(timer: timeTracker)
         
         /// Get Scene Deleegate
         let scene = UIApplication.shared.connectedScenes.first
         if let sd : SceneDelegate = (scene?.delegate as? SceneDelegate) {
             sd.timer = self.timeTracker
-            sd.lostTimeFocus = self.lostTimeFocus
+            sd.timeRecover = self.timeRecover
             sd.ringView = self.ringView
         }
         
@@ -133,17 +143,22 @@ class TimerViewController: UIViewController {
             stopTimer(sender)
             return
         }
-        sender.setTitle("Give Up", for: .normal)
+        var text = NSLocalizedString("Give Up", comment: "")
+        sender.setTitle(text, for: .normal)
+        //Disable screen block
+        UIApplication.shared.isIdleTimerDisabled = true
         //Start timer
         timeTracker.startTimer {time, hasEnded in
-            self.timerLabel.text = time
             if hasEnded{ // Focus timer ended
-                sender.setTitle("Start", for: .normal)
+                text = NSLocalizedString("Start", comment: "")
+                sender.setTitle(text, for: .normal)
                 self.setConfigurationButtons()
                 self.ringView.removeAnimation()
                 let popUpState = self.timeTracker.state == .focus ? PopUpMessages.focus : .pause
                 self.presentPopUp(state: popUpState)
+                AudioServicesPlayAlertSound(SystemSoundID(kSystemSoundID_Vibrate))
             }
+            self.timerLabel.text = time
         }
         //Animate progression ring
         ringView.animateRing(From: 0, FromAngle: 0, To: 1, Duration: CFTimeInterval(timeTracker.convertedTimeValue))
@@ -154,14 +169,13 @@ class TimerViewController: UIViewController {
         let notificationType = timeTracker.state == .focus ? NotificationType.didFinishFocus : .didFinishBreak
         let delay = TimeInterval(timeTracker.convertedTimeValue)
         AppNotificationBO.shared.sendNotification(type: notificationType, delay: delay)
-        //        guard let navigarionVc = self.presentingViewController as? UINavigationController else {return}
-        //        navigarionVc.isNavigationBarHidden = true
         self.navigationController?.navigationBar.topItem?.hidesBackButton = true
     }
     
     //MARK: STOP TIMER
     func stopTimer(_ sender: UIButton) {
-        sender.setTitle("Start", for: .normal)
+        let text = NSLocalizedString("Start", comment: "")
+        sender.setTitle(text, for: .normal)
         
         timeTracker.stopTimer(){
             //TODO: Message for when the user gives up
@@ -173,6 +187,8 @@ class TimerViewController: UIViewController {
         presentPopUp(state: .givenUp)
         UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
         self.navigationController?.navigationBar.topItem?.hidesBackButton = false
+        //Disable screen block
+        UIApplication.shared.isIdleTimerDisabled = false
     }
     
     ///Show Pop Up
@@ -183,6 +199,19 @@ class TimerViewController: UIViewController {
             tpvc.popUpState = state
             self.present(tpvc, animated: true)
         }
+    }
+    
+    ///Shake view animation
+    func shakeView(_ viewToShake: UIView){
+        let animation = CABasicAnimation(keyPath: "position")
+        animation.duration = 0.07
+        animation.repeatCount = 4
+        animation.autoreverses = true
+        animation.fromValue = NSValue(cgPoint: CGPoint(x: viewToShake.center.x - 10, y: viewToShake.center.y))
+        animation.toValue = NSValue(cgPoint: CGPoint(x: viewToShake.center.x + 10, y: viewToShake.center.y))
+
+        viewToShake.layer.add(animation, forKey: "position")
+        AudioServicesPlayAlertSound(SystemSoundID(kSystemSoundID_Vibrate))
     }
     
     ///Increment timer for the count down

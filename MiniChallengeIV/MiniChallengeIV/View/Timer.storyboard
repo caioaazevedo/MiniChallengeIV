@@ -102,12 +102,18 @@
                                 <fontDescription key="fontDescription" name="Didot" family="Didot" pointSize="30"/>
                                 <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="localisedKey" value="Tasks"/>
+                                </userDefinedRuntimeAttributes>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add tasks to do during your project" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nU9-HW-LZe">
                                 <rect key="frame" x="39.999999999999986" y="557.66666666666663" width="211.66666666666663" height="17.333333333333371"/>
                                 <fontDescription key="fontDescription" name="GillSans-Light" family="Gill Sans" pointSize="15"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="localisedKey" value="Add tasks text"/>
+                                </userDefinedRuntimeAttributes>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5Og-hc-SfW">
                                 <rect key="frame" x="0.0" y="505.66666666666669" width="414" height="1"/>
@@ -144,6 +150,9 @@
                                 <state key="normal" title="Start">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="localizedKey" value="Start"/>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="startTimer:" destination="dzJ-Fy-LCJ" eventType="touchUpInside" id="1zI-is-a3A"/>
                                 </connections>
@@ -263,6 +272,7 @@
                         <outlet property="tableView" destination="Gph-o6-hHJ" id="MGp-N6-UOE"/>
                         <outlet property="timerLabel" destination="Bri-U5-dhe" id="Dl6-OT-rh4"/>
                         <outletCollection property="timeConfigButtons" destination="kyN-F8-bjy" collectionClass="NSMutableArray" id="5Xy-og-rcJ"/>
+                        <outletCollection property="timeConfigButtons" destination="byY-MO-Ghe" collectionClass="NSMutableArray" id="nOz-oH-SvZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PTh-vd-bkP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

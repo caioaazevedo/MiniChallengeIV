@@ -15,6 +15,7 @@ class ProjectViewController: UIViewController {
     @IBOutlet weak var distractionTimeLabel: UILabel!
     @IBOutlet weak var breakTimeLabel: UILabel!
     
+    let collectionLayout = CollectionViewFlowLayout()
     
     var selectedProjectId: Int?
     var projectBO = ProjectBO()
@@ -24,6 +25,8 @@ class ProjectViewController: UIViewController {
         super.viewDidLoad()
         getCurrentStatistics()
         reloadList()
+        
+        collectionView.collectionViewLayout = collectionLayout
 //        projectBO.create(name: "Work", color: UIColor(red: 0.77, green: 0.87, blue: 0.96, alpha: 1.00), completion: { results in
 //            switch results {
 //
@@ -132,9 +135,12 @@ class ProjectViewController: UIViewController {
     ///   - proj: The project thst the user wants to delete
     ///   - indexPath: The array reference index from projects
     func deleteProject(proj: Project, indexPath: IndexPath){
-        let alert = UIAlertController(title: "Delete Project", message: "Are you sure you want to delete this project?", preferredStyle: .alert)
+        let titleLocalized = NSLocalizedString("Delete Project", comment: "")
+        let messageLocalized = NSLocalizedString("Delete Message", comment: "")
+        let alert = UIAlertController(title: titleLocalized, message: messageLocalized, preferredStyle: .alert)
         
-        let alertActionOK = UIAlertAction(title: "Ok", style: .default){ (action) in
+        let yesLocalized = NSLocalizedString("Yes", comment: "")
+        let alertActionOK = UIAlertAction(title: yesLocalized, style: .default){ (action) in
             self.projectBO.delete(uuid: proj.id) { (result) in
                 switch result {
                 case .success():
@@ -154,7 +160,8 @@ class ProjectViewController: UIViewController {
             }
         }
         
-        let alertActionCancel = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        let cancelLocalized = NSLocalizedString("Cancel", comment: "")
+        let alertActionCancel = UIAlertAction(title: cancelLocalized, style: .cancel, handler: nil)
         
         alert.addAction(alertActionCancel)
         alert.addAction(alertActionOK)
@@ -189,19 +196,21 @@ extension ProjectViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, contextMenuConfigurationForItemAt indexPath: IndexPath, point: CGPoint) -> UIContextMenuConfiguration? {
         let proj = self.projects[indexPath.row]
         
-        let edit = UIAction(title: "Edit", image: UIImage(systemName: "square.and.pencil"), handler: { (edit) in
+        let editLocalized = NSLocalizedString("Edit", comment: "")
+        let edit = UIAction(title: editLocalized, image: UIImage(systemName: "square.and.pencil"), handler: { (edit) in
             self.selectedProjectId = indexPath.item
             self.goToNewProjectViewController()
         })
         
-        let delete = UIAction(title: "Delete", image: UIImage(systemName: "trash"), attributes: .destructive ,handler: { (delete) in
+        let deleteLocalized = NSLocalizedString("Delete", comment: "")
+        let delete = UIAction(title: deleteLocalized, image: UIImage(systemName: "trash"), attributes: .destructive ,handler: { (delete) in
             
             self.deleteProject(proj: proj, indexPath: indexPath)
         })
-        
+        let actionsLocalized = NSLocalizedString("Actions", comment: "")
         return UIContextMenuConfiguration(identifier: nil,
                                           previewProvider: nil) { _ in
-                                            UIMenu(title: "Actions", children: [edit, delete])
+                                            UIMenu(title: actionsLocalized, children: [edit, delete])
         }
     }
 }

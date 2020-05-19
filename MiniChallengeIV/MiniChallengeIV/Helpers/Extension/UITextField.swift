@@ -64,6 +64,18 @@ extension UITextField {
         }
     }
     
+    @IBInspectable
+    var localizedKey: String? {
+        get {
+            ""
+        }
+        set {
+            guard let key = placeholder else {return}
+            let localizedString = NSLocalizedString(key, comment: "")
+            placeholder = localizedString
+        }
+    }
+    
     func clearStrikeThrough(){
         if let text = self.text {
            let attributeString: NSMutableAttributedString =  NSMutableAttributedString(string: text)

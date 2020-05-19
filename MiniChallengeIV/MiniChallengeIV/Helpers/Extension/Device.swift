@@ -10,6 +10,7 @@ import UIKit
 
 enum Model: String {
     case
+    simulator          = "simulator/sandbox",
     iPhone4            = "iPhone 4",
     iPhone4S           = "iPhone 4S",
     iPhone5            = "iPhone 5",
@@ -28,6 +29,10 @@ enum Model: String {
     iPhoneXS           = "iPhone XS",
     iPhoneXSMax        = "iPhone XS Max",
     iPhoneXR           = "iPhone XR",
+    iPhone11           = "iPhone 11",
+    iPhone11Pro        = "iPhone 11 Pro",
+    iPhone11ProMax     = "iPhone 11 Pro Max",
+    iPhoneSE2          = "iPhone SE 2",
     unrecognized       = "?unrecognized?"
 }
 
@@ -70,6 +75,8 @@ struct Device {
             switch UIDevice().type {
             case .iPhoneXSMax:
                 return .i6_5Inch
+            case .iPhone11ProMax:
+                return .i6_5Inch
             default:
                 return .i6_1Inch
             }
@@ -91,6 +98,8 @@ extension UIDevice {
             }
         }
         let modelMap : [ String : Model ] = [
+            "i386"      : .simulator,
+            "x86_64"    : .simulator,
             //iPhone
             "iPhone3,1" : .iPhone4,
             "iPhone3,2" : .iPhone4,
@@ -121,9 +130,20 @@ extension UIDevice {
             "iPhone11,4" : .iPhoneXSMax,
             "iPhone11,6" : .iPhoneXSMax,
             "iPhone11,8" : .iPhoneXR,
+            "iPhone12,1" : .iPhone11,
+            "iPhone12,3" : .iPhone11Pro,
+            "iPhone12,5" : .iPhone11ProMax,
+            "iPhone12,8" : .iPhoneSE2,
         ]
         
         if let model = modelMap[String.init(validatingUTF8: modelCode!)!] {
+            if model == .simulator {
+                if let simModelCode = ProcessInfo().environment["SIMULATOR_MODEL_IDENTIFIER"] {
+                    if let simModel = modelMap[String.init(validatingUTF8: simModelCode)!] {
+                        return simModel
+                    }
+                }
+            }
             return model
         }
         return Model.unrecognized
