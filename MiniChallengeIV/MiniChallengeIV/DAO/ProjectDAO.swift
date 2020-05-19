@@ -153,8 +153,10 @@ class ProjectDAO {
         let uuid = task.value(forKey: "id") as! UUID
         let description = task.value(forKey: "descriptionTask") as! String
         let state = task.value(forKey: "state") as! Bool
+        let date = task.value(forKey: "createdAt") as! Date
+
         
-        let task = Task(id: uuid, description: description, state: state, taskCD: task as? TaskCD)
+        let task = Task(id: uuid, description: description, state: state, taskCD: task as? TaskCD, createdAt: date)
         return task
     }
     

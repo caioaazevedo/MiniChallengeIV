@@ -8,18 +8,29 @@
 
 import UIKit
 
-//protocol OnboardingPagerViewControllerDelegate {
-//    func innerScrollViewShouldScroll() -> Bool
-//}
-
 class OnboardingPagerViewController: UIViewController {
     
-    var vc = [UIViewController]()
-    let viewControllersID = [ "onboarding1","onboarding2","onboarding3","onboarding4","onboarding5","onboarding6" ]
+    let storyboardIDs = [ "Onboarding1",
+                          "Onboarding2",
+                          "Onboarding3",
+                          "Onboarding4",
+                          "Onboarding5",
+                          "Onboarding6",
+                          "Onboarding7", ]
     
-    var initialContentOffset = CGPoint()  // scrollView initial offset
+    lazy var vcs: [UIViewController] = {
+        var vc = [UIViewController]()
+        
+        for i in 0..<storyboardIDs.count {
+            let id = storyboardIDs[i]
+            vc.append(UIStoryboard(name: id, bundle: nil).instantiateViewController(identifier: "vc"))
+        }
+        
+        return vc
+    }()
+    
+    var initialContentOffset = CGPoint()
     var scrollView: UIScrollView!
-//    var delegate: OnboardingPagerViewControllerDelegate?
     
     var pgControl = UIPageControl()
     var currentPage = 0 {
@@ -35,12 +46,6 @@ class OnboardingPagerViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
-        for vcID in viewControllersID {
-            let vc = storyboard!.instantiateViewController(withIdentifier: vcID)
-            self.vc.append(vc)
-        }
-        
         setupHorizontalScrollView()
         
         setupPageControl()
@@ -49,7 +54,7 @@ class OnboardingPagerViewController: UIViewController {
     func setupPageControl() {
         pgControl.pageIndicatorTintColor = .lightGray
         pgControl.currentPageIndicatorTintColor = .white
-        pgControl.numberOfPages = vc.count
+        pgControl.numberOfPages = vcs.count
         pgControl.removeFromSuperview()
         view.addSubview(pgControl)
 
@@ -62,7 +67,7 @@ class OnboardingPagerViewController: UIViewController {
         
         let cWidth = self.view.bounds.width
         let cHeight = self.view.bounds.height
-        let countVC = CGFloat(vc.count)
+        let countVC = CGFloat(vcs.count)
         
         scrollView = UIScrollView()
         scrollView.isPagingEnabled = true
@@ -77,14 +82,14 @@ class OnboardingPagerViewController: UIViewController {
         let scrollHeight: CGFloat  = cHeight
         self.scrollView!.contentSize = CGSize(width: scrollWidth, height: scrollHeight)
         
-        for i in 0..<self.vc.count {
+        for i in 0..<self.vcs.count {
             
-            vc[i].view.frame = CGRect(x: CGFloat(i) * cWidth, y: 0, width: cWidth, height: cHeight)
-//            self.addChild(vc[i])
-            self.scrollView!.addSubview(vc[i].view)
+            vcs[i].view.frame = CGRect(x: CGFloat(i) * cWidth, y: 0, width: cWidth, height: cHeight)
+
+            self.scrollView!.addSubview(vcs[i].view)
             
-            if(i == self.vc.count - 1){
-                vc[i].didMove(toParent: self)
+            if(i == self.vcs.count - 1){
+                vcs[i].didMove(toParent: self)
             }
             
         }
@@ -103,26 +108,11 @@ extension OnboardingPagerViewController: UIScrollViewDelegate {
         let xOffset = scrollView.contentOffset.x
         let width = view.bounds.width
             
-        for i in 0..<vc.count {
+        for i in 0..<vcs.count {
             if xOffset == width * CGFloat(i) {
                 currentPage = i
                 break
             }
         }
-        
-//        if delegate != nil && !delegate!.innerScrollViewShouldScroll() {
-//            // This is probably crazy movement: diagonal scrolling
-//            var newOffset = CGPoint()
-//
-//            if (abs(scrollView.contentOffset.x) > abs(scrollView.contentOffset.y)) {
-//                newOffset = CGPoint(x: self.initialContentOffset.x, y: self.initialContentOffset.y)
-//            } else {
-//                newOffset = CGPoint(x: self.initialContentOffset.x, y: self.initialContentOffset.y)
-//            }
-//
-//            // Setting the new offset to the scrollView makes it behave like a proper
-//            // directional lock, that allows you to scroll in only one direction at any given time
-//            self.scrollView!.setContentOffset(newOffset,animated:  false)
-//        }
     }
 }
