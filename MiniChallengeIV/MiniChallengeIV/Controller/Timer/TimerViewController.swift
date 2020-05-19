@@ -67,8 +67,10 @@ class TimerViewController: UIViewController {
         
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
         self.navigationController?.navigationBar.shadowImage = UIImage()
-        self.navigationController?.navigationBar.tintColor = UIColor(red: 0.35, green: 0.49, blue: 0.49, alpha: 1.00)
-                
+//        self.navigationController?.navigationBar.tintColor = UIColor(red: 0.35, green: 0.49, blue: 0.49, alpha: 1.00)
+        
+        self.navigationItem.rightBarButtonItem = nil
+        
         self.btnStart.layer.cornerRadius = 10.0
         self.btnStart.backgroundColor = UIColor(red: 0.35, green: 0.49, blue: 0.49, alpha: 1.00)
         self.tableView.separatorColor = .clear

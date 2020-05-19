@@ -15,6 +15,7 @@ class ProjectViewController: UIViewController {
     @IBOutlet weak var distractionTimeLabel: UILabel!
     @IBOutlet weak var breakTimeLabel: UILabel!
     @IBOutlet weak var backgroundImage: UIImageView!
+    @IBOutlet weak var navigationBar: UINavigationItem!
     
     let collectionLayout = CollectionViewFlowLayout()
     
@@ -30,6 +31,10 @@ class ProjectViewController: UIViewController {
         reloadList()
         
         collectionView.collectionViewLayout = collectionLayout
+        
+        self.navigationController?.navigationBar.shadowImage = UIImage()
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        
 //        projectBO.create(name: "Work", color: UIColor(red: 0.77, green: 0.87, blue: 0.96, alpha: 1.00), completion: { results in
 //            switch results {
 //
