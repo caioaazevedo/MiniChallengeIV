@@ -61,15 +61,15 @@ extension NSLayoutConstraint {
         }
     }
     
-    @IBInspectable
-    var iPhone11: CGFloat {
-        get { self.constant }
-        set {
-            if Device.deviceSize == .i6_1Inch {
-                self.constant = newValue
-            }
-        }
-    }
+//    @IBInspectable
+//    var iPhone11: CGFloat {
+//        get { self.constant }
+//        set {
+//            if Device.deviceSize == .i6_1Inch {
+//                self.constant = newValue
+//            }
+//        }
+//    }
     
     @IBInspectable
     var iPhone11Max: CGFloat {

@@ -18,9 +18,16 @@
 		691033A4245A250A009D5D58 /* NewProjectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 691033A3245A250A009D5D58 /* NewProjectViewController.swift */; };
 		691F292A246DCA2B001B9FED /* Device.swift in Sources */ = {isa = PBXBuildFile; fileRef = 691F2929246DCA2B001B9FED /* Device.swift */; };
 		691F292C246DCADB001B9FED /* NSLayoutConstraint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 691F292B246DCADB001B9FED /* NSLayoutConstraint.swift */; };
-		691F292E246DCD13001B9FED /* Onboarding1ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 691F292D246DCD13001B9FED /* Onboarding1ViewController.swift */; };
 		691F2930246DE686001B9FED /* UILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 691F292F246DE686001B9FED /* UILabel.swift */; };
 		6927A1BF2464AC85005E0154 /* Onboarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6927A1BE2464AC85005E0154 /* Onboarding.storyboard */; };
+		695EBACD246F199F003A2ECC /* Onboarding3.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 695EBACC246F199F003A2ECC /* Onboarding3.storyboard */; };
+		695EBACF246F1A94003A2ECC /* Onboarding1.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 695EBACE246F1A94003A2ECC /* Onboarding1.storyboard */; };
+		695EBAD1246F1ADA003A2ECC /* Onboarding4.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 695EBAD0246F1ADA003A2ECC /* Onboarding4.storyboard */; };
+		695EBAD3246F1AE6003A2ECC /* Onboarding5.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 695EBAD2246F1AE6003A2ECC /* Onboarding5.storyboard */; };
+		695EBAD5246F1AEF003A2ECC /* Onboarding6.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 695EBAD4246F1AEF003A2ECC /* Onboarding6.storyboard */; };
+		695EBAD7246F1AF8003A2ECC /* Onboarding2.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 695EBAD6246F1AF8003A2ECC /* Onboarding2.storyboard */; };
+		695EBAD9246F2679003A2ECC /* UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 695EBAD8246F2679003A2ECC /* UIImageView.swift */; };
+		695EBADB246F41C7003A2ECC /* Onboarding7.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 695EBADA246F41C7003A2ECC /* Onboarding7.storyboard */; };
 		696620382465F034003B3916 /* OnboardingPagerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 696620372465F034003B3916 /* OnboardingPagerViewController.swift */; };
 		696E92E5245A499800E7F3DF /* NewProject.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 696E92E4245A499800E7F3DF /* NewProject.storyboard */; };
 		69B04723245754D5002A696D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69B04722245754D5002A696D /* AppDelegate.swift */; };
@@ -103,9 +110,16 @@
 		691033A3245A250A009D5D58 /* NewProjectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewProjectViewController.swift; sourceTree = "<group>"; };
 		691F2929246DCA2B001B9FED /* Device.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Device.swift; sourceTree = "<group>"; };
 		691F292B246DCADB001B9FED /* NSLayoutConstraint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSLayoutConstraint.swift; sourceTree = "<group>"; };
-		691F292D246DCD13001B9FED /* Onboarding1ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Onboarding1ViewController.swift; sourceTree = "<group>"; };
 		691F292F246DE686001B9FED /* UILabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UILabel.swift; sourceTree = "<group>"; };
 		6927A1BE2464AC85005E0154 /* Onboarding.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Onboarding.storyboard; sourceTree = "<group>"; };
+		695EBACC246F199F003A2ECC /* Onboarding3.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Onboarding3.storyboard; sourceTree = "<group>"; };
+		695EBACE246F1A94003A2ECC /* Onboarding1.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Onboarding1.storyboard; sourceTree = "<group>"; };
+		695EBAD0246F1ADA003A2ECC /* Onboarding4.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Onboarding4.storyboard; sourceTree = "<group>"; };
+		695EBAD2246F1AE6003A2ECC /* Onboarding5.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Onboarding5.storyboard; sourceTree = "<group>"; };
+		695EBAD4246F1AEF003A2ECC /* Onboarding6.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Onboarding6.storyboard; sourceTree = "<group>"; };
+		695EBAD6246F1AF8003A2ECC /* Onboarding2.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Onboarding2.storyboard; sourceTree = "<group>"; };
+		695EBAD8246F2679003A2ECC /* UIImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageView.swift; sourceTree = "<group>"; };
+		695EBADA246F41C7003A2ECC /* Onboarding7.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Onboarding7.storyboard; sourceTree = "<group>"; };
 		696620372465F034003B3916 /* OnboardingPagerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingPagerViewController.swift; sourceTree = "<group>"; };
 		696E92E4245A499800E7F3DF /* NewProject.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = NewProject.storyboard; sourceTree = "<group>"; };
 		69B0471F245754D5002A696D /* Pommo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pommo.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -245,6 +259,21 @@
 			path = Projects;
 			sourceTree = "<group>";
 		};
+		695EBACB246F1985003A2ECC /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				6927A1BE2464AC85005E0154 /* Onboarding.storyboard */,
+				695EBACE246F1A94003A2ECC /* Onboarding1.storyboard */,
+				695EBAD6246F1AF8003A2ECC /* Onboarding2.storyboard */,
+				695EBACC246F199F003A2ECC /* Onboarding3.storyboard */,
+				695EBAD0246F1ADA003A2ECC /* Onboarding4.storyboard */,
+				695EBAD2246F1AE6003A2ECC /* Onboarding5.storyboard */,
+				695EBAD4246F1AEF003A2ECC /* Onboarding6.storyboard */,
+				695EBADA246F41C7003A2ECC /* Onboarding7.storyboard */,
+			);
+			path = Onboarding;
+			sourceTree = "<group>";
+		};
 		69B04716245754D5002A696D = {
 			isa = PBXGroup;
 			children = (
@@ -316,7 +345,7 @@
 				796C3E39245A02C2004488D1 /* Timer.storyboard */,
 				69ECFA2E2459FD5A00D4F205 /* Projects.storyboard */,
 				696E92E4245A499800E7F3DF /* NewProject.storyboard */,
-				6927A1BE2464AC85005E0154 /* Onboarding.storyboard */,
+				695EBACB246F1985003A2ECC /* Onboarding */,
 				E24DE0142463503900E425E1 /* Statistics.storyboard */,
 				79604CCC246DBE1000EAEE2E /* TimerPopUp.storyboard */,
 			);
@@ -347,6 +376,7 @@
 				691F2929246DCA2B001B9FED /* Device.swift */,
 				691F292B246DCADB001B9FED /* NSLayoutConstraint.swift */,
 				691F292F246DE686001B9FED /* UILabel.swift */,
+				695EBAD8246F2679003A2ECC /* UIImageView.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -389,7 +419,6 @@
 			isa = PBXGroup;
 			children = (
 				696620372465F034003B3916 /* OnboardingPagerViewController.swift */,
-				691F292D246DCD13001B9FED /* Onboarding1ViewController.swift */,
 			);
 			path = Onboarding;
 			sourceTree = "<group>";
@@ -572,7 +601,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				69ECFA2F2459FD5A00D4F205 /* Projects.storyboard in Resources */,
+				695EBAD5246F1AEF003A2ECC /* Onboarding6.storyboard in Resources */,
+				695EBACF246F1A94003A2ECC /* Onboarding1.storyboard in Resources */,
+				695EBAD1246F1ADA003A2ECC /* Onboarding4.storyboard in Resources */,
 				696E92E5245A499800E7F3DF /* NewProject.storyboard in Resources */,
+				695EBAD3246F1AE6003A2ECC /* Onboarding5.storyboard in Resources */,
+				695EBADB246F41C7003A2ECC /* Onboarding7.storyboard in Resources */,
+				695EBAD7246F1AF8003A2ECC /* Onboarding2.storyboard in Resources */,
 				69B04732245754D8002A696D /* LaunchScreen.storyboard in Resources */,
 				69B0472F245754D8002A696D /* Assets.xcassets in Resources */,
 				79604CCD246DBE1000EAEE2E /* TimerPopUp.storyboard in Resources */,
@@ -581,6 +616,7 @@
 				69B0472A245754D5002A696D /* Main.storyboard in Resources */,
 				E24DE0152463503900E425E1 /* Statistics.storyboard in Resources */,
 				796C3E3A245A02C2004488D1 /* Timer.storyboard in Resources */,
+				695EBACD246F199F003A2ECC /* Onboarding3.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -724,10 +760,10 @@
 				E2F4DCF32461B15600AC83AA /* TimerRecoverBO.swift in Sources */,
 				69B04727245754D5002A696D /* ViewController.swift in Sources */,
 				E2DF45582465CD1F0060FCB7 /* DataChartBO.swift in Sources */,
-				691F292E246DCD13001B9FED /* Onboarding1ViewController.swift in Sources */,
 				409D5034245B4EC5006D66AC /* TaskDAO.swift in Sources */,
 				E2E86FDD245AD3D20006712A /* TimerDataManager.swift in Sources */,
 				79FB1D76246EDDC600AE3192 /* CGFloat.swift in Sources */,
+				695EBAD9246F2679003A2ECC /* UIImageView.swift in Sources */,
 				69D5310E246B469600ECF0F4 /* UITextField.swift in Sources */,
 				69F56228245B6E1D00EB2AF1 /* ProjectCollectionViewCell.swift in Sources */,
 				696620382465F034003B3916 /* OnboardingPagerViewController.swift in Sources */,
