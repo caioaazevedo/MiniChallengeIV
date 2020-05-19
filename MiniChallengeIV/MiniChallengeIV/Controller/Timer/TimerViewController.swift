@@ -7,12 +7,18 @@
 //
 
 import UIKit
-
+import GameplayKit
 ///Place holder ViewController
 class TimerViewController: UIViewController {
     
     //Atributes
     
+    lazy var states = [
+        NormalState(),
+        SaveState(),
+        UpdateState()
+    ]
+    lazy var taskState = GKStateMachine(states: self.states)
     
     let timeTracker = TimeTrackerBO()
     var lostTimeFocus: TimeRecoverBO?
@@ -43,12 +49,17 @@ class TimerViewController: UIViewController {
     @IBOutlet weak var projectColor: UIView!
     @IBOutlet weak var ringView: AnimatedRingView!
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         loadProject()
         loadTasks()
+        
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        self.navigationController?.navigationBar.shadowImage = UIImage()
+        self.navigationController?.navigationBar.tintColor = UIColor(red: 0.35, green: 0.49, blue: 0.49, alpha: 1.00)
+        
+        self.navigationItem.rightBarButtonItem = nil
         
         self.btnStart.layer.cornerRadius = 10.0
         self.btnStart.backgroundColor = UIColor(red: 0.35, green: 0.49, blue: 0.49, alpha: 1.00)
@@ -72,7 +83,10 @@ class TimerViewController: UIViewController {
         self.stateLabel.text = project?.name
         projectColor.backgroundColor = project?.color
         projectColor.layer.cornerRadius = 15.0
-
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+        
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -99,7 +113,12 @@ class TimerViewController: UIViewController {
             
             switch result {
             case .success(let tasks):
-                self.tasks = tasks
+//                print("first ----- \n primeiro: \(tasks[0].state) \n segundo: \(tasks[1].state)")
+                self.tasks = tasks.sorted(by: { task, task2 in
+                    !task.state && task2.state
+                })
+//                print("first ----- \n primeiro: \(self.tasks[0].state) \n segundo: \(self.tasks[1].state)")
+
                 tableView.reloadData()
             case .failure(let error):
                 print(error)
@@ -135,11 +154,11 @@ class TimerViewController: UIViewController {
         let notificationType = timeTracker.state == .focus ? NotificationType.didFinishFocus : .didFinishBreak
         let delay = TimeInterval(timeTracker.convertedTimeValue)
         AppNotificationBO.shared.sendNotification(type: notificationType, delay: delay)
-//        guard let navigarionVc = self.presentingViewController as? UINavigationController else {return}
-//        navigarionVc.isNavigationBarHidden = true
+        //        guard let navigarionVc = self.presentingViewController as? UINavigationController else {return}
+        //        navigarionVc.isNavigationBarHidden = true
         self.navigationController?.navigationBar.topItem?.hidesBackButton = true
     }
-        
+    
     //MARK: STOP TIMER
     func stopTimer(_ sender: UIButton) {
         sender.setTitle("Start", for: .normal)
@@ -171,7 +190,7 @@ class TimerViewController: UIViewController {
         timeTracker.configTime = maximumDecrement
         timerLabel.text = timeTracker.secondsToString(with: timeTracker.convertedTimeValue)
     }
-
+    
     ///Decrement timer for the count down
     @IBAction func decrementTimer(_ sender: Any) {
         timeTracker.configTime = minimumDecrement
@@ -187,10 +206,12 @@ class TimerViewController: UIViewController {
     }
     
     
+    
+    
     @IBAction func addTask(_ sender: Any) {
-        
+        taskState.enter(SaveState.self)
         DispatchQueue.main.async {
-            let task = Task(id: UUID(), description: "")
+            let task = Task(id: UUID(), description: "", createdAt: Date())
             self.tasks.append(task)
             let indexPath = IndexPath(row: self.tasks.count-1, section: 0)
             
@@ -206,10 +227,25 @@ class TimerViewController: UIViewController {
                                        animated: true)
             if let cell = self.tableView.cellForRow(at: indexPath) as? TaskTableViewCell {
                 cell.taskTextField.becomeFirstResponder()
+                cell.taskTextField.text = ""
             }
             
         }
         
+    }
+    
+    @objc func keyboardWillShow(notification: NSNotification) {
+        if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
+            if self.view.frame.origin.y == 0 {
+                self.view.frame.origin.y -= keyboardSize.height
+            }
+        }
+    }
+    
+    @objc func keyboardWillHide(notification: NSNotification) {
+        if self.view.frame.origin.y != 0 {
+            self.view.frame.origin.y = 0
+        }
     }
 }
 
@@ -227,56 +263,68 @@ extension TimerViewController: UITableViewDelegate, UITableViewDataSource {
         cell.btnCheck.tag = indexPath.row
         cell.delegate = self
         
-
-        
         cell.btnCheck.setImage(UIImage(named: "Oval Copy 2"), for: .normal)
+        
         cell.btnCheck.isSelected = tasks[indexPath.row].state
-        if !tasks[indexPath.row].state {
-            cell.taskTextField.text = tasks[indexPath.row].description
-        }else {
-            let attributeString: NSMutableAttributedString =  NSMutableAttributedString(string: tasks[indexPath.row].description)
-            attributeString.addAttribute(NSAttributedString.Key.strikethroughStyle, value: 2, range: NSMakeRange(0, attributeString.length))
-            cell.taskTextField.attributedText = attributeString
+        cell.taskTextField.text = tasks[indexPath.row].description
+        
+        if tasks[indexPath.row].state {
+            cell.taskTextField.addStrikeThrough()
             cell.taskTextField.textColor = UIColor(red: 0.44, green: 0.44, blue: 0.44, alpha: 1.00)
+        }else {
+            cell.taskTextField.textColor = .black
         }
         
         return cell
     }
-
+    
 }
 
 // Tex field
-
 extension TimerViewController: UITextFieldDelegate {
     
-    func textFieldDidEndEditing(_ textField: UITextField) {
-        if textField.tag == tasks.count-1{
-            if let projectCD = project?.projectCD, let description = textField.text {
-                projectBO.addTask(description: description, projectCD: projectCD, completion: { result in
-                    
-                    switch result {
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        if let currentState = self.taskState.currentState, currentState is NormalState {
+            self.taskState.enter(UpdateState.self)
+        }
+    }
+    
+    public func textFieldDidEndEditing(_ textField: UITextField) {
+        if let description = textField.text, description.count > 0 {
+            switch self.taskState.currentState {
+            case is SaveState:
+                if let projectCD = project?.projectCD{
+                    projectBO.addTask(description: description, projectCD: projectCD, completion: { result in
                         
+                        switch result {
+                            
+                        case .success():
+                            loadTasks()
+                            taskState.enter(NormalState.self)
+                        case .failure(let error):
+                            print(error)
+                            taskState.enter(NormalState.self)
+                        }
+                    })
+                }
+            case is UpdateState:
+                var actuallyTask = tasks[textField.tag]
+                actuallyTask.description = description
+
+                taskBO.update(task: actuallyTask, completion: {result in
+                    switch result {
+
                     case .success():
                         loadTasks()
+                        taskState.enter(NormalState.self)
                     case .failure(let error):
-                        print(error)
+                        print(error.localizedDescription)
+                        taskState.enter(NormalState.self)
                     }
                 })
+            default:
+                break;
             }
-            
-        }else {
-            var actuallyTask = tasks[textField.tag]
-            actuallyTask.description = textField.text!
-            
-            taskBO.update(task: actuallyTask, completion: {result in
-                switch result {
-                    
-                case .success():
-                    loadTasks()
-                case .failure(let error):
-                    print(error.localizedDescription)
-                }
-            })
         }
     }
 }
@@ -299,4 +347,3 @@ extension TimerViewController: TaskBtnDelegate {
     }
     
 }
-

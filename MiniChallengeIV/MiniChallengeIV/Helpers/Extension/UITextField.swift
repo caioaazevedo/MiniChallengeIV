@@ -63,4 +63,23 @@ extension UITextField {
             self.rightViewMode = .always
         }
     }
+    
+    func clearStrikeThrough(){
+        if let text = self.text {
+           let attributeString: NSMutableAttributedString =  NSMutableAttributedString(string: text)
+            
+            attributeString.setAttributes([:], range: NSMakeRange(0, attributeString.length))
+            
+            self.attributedText = attributeString
+        }
+    }
+    
+    func addStrikeThrough(){
+        
+        if let text = self.text {
+            let attributeString: NSMutableAttributedString =  NSMutableAttributedString(string: text)
+            attributeString.addAttribute(NSAttributedString.Key.strikethroughStyle, value: 2, range: NSMakeRange(0, attributeString.length))
+            self.attributedText = attributeString
+        }
+    }
 }

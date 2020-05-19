@@ -24,6 +24,7 @@ class TaskDAO {
         taskCD.descriptionTask = task.description
         taskCD.id = task.id
         taskCD.state = false
+        taskCD.createdAt = Date()
         
         do {
             try context.save()
@@ -38,6 +39,8 @@ class TaskDAO {
     func retrieve(id: UUID,completion: (Result<[Task], ValidationError>) -> Void){
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "TaskCD")
         fetchRequest.predicate = NSPredicate(format: "owner.id == %@", id.uuidString)
+        fetchRequest.sortDescriptors = [NSSortDescriptor(key: "createdAt", ascending: true)]
+        
         var tasks: [Task] = []
         do {
             let fechedTasks = try context.fetch(fetchRequest)
@@ -48,6 +51,8 @@ class TaskDAO {
             for task in tasksCD {
                 tasks.append(convert(task: task))
             }
+            
+
             completion(.success(tasks))
         }catch{
             completion(.failure(.errorToRetrieve("Task")))
@@ -96,8 +101,10 @@ class TaskDAO {
         let uuid = task.value(forKey: "id") as! UUID
         let description = task.value(forKey: "descriptionTask") as! String
         let state = task.value(forKey: "state") as! Bool
+        let date = task.value(forKey: "createdAt") as! Date
+
         
-        let task = Task(id: uuid, description: description, state: state, taskCD: task as? TaskCD)
+        let task = Task(id: uuid, description: description, state: state, taskCD: task as? TaskCD, createdAt: date)
         return task
     }
 
