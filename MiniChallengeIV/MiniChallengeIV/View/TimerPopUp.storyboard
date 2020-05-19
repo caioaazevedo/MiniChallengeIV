@@ -48,6 +48,7 @@
                                             <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                                                 <integer key="value" value="10"/>
                                             </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="localizedKey" value="Cancel"/>
                                         </userDefinedRuntimeAttributes>
                                         <connections>
                                             <action selector="Cancel:" destination="eXf-Ep-ogj" eventType="touchUpInside" id="UsJ-fs-WK2"/>
@@ -77,10 +78,10 @@
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o4a-ak-ikw">
-                                        <rect key="frame" x="29" y="145" width="276" height="61"/>
+                                        <rect key="frame" x="0.0" y="145" width="334" height="61"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="61" identifier="height" id="1LQ-jL-YZq"/>
-                                            <constraint firstAttribute="width" constant="276" identifier="width" id="tRH-7X-r21"/>
+                                            <constraint firstAttribute="width" constant="334" identifier="width" id="4ca-Kk-VWV"/>
+                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="61" identifier="height" id="RCk-dF-1G7"/>
                                         </constraints>
                                         <string key="text">All of your progress was lost!
 Let’s try total focus again?</string>
@@ -93,17 +94,17 @@ Let’s try total focus again?</string>
                                 <constraints>
                                     <constraint firstItem="XSk-f7-6BO" firstAttribute="top" secondItem="ALx-ob-N0o" secondAttribute="bottom" constant="11" identifier="height" id="10n-MQ-XXi"/>
                                     <constraint firstAttribute="bottom" secondItem="i9P-9k-Fkz" secondAttribute="bottom" constant="41" identifier="height" id="2fG-eY-gwV"/>
-                                    <constraint firstItem="CZ9-zZ-Ddv" firstAttribute="top" secondItem="o4a-ak-ikw" secondAttribute="bottom" constant="26" identifier="height" id="7Yu-Fw-AjH"/>
                                     <constraint firstAttribute="trailing" secondItem="i9P-9k-Fkz" secondAttribute="trailing" constant="30" id="CG9-OM-iSA"/>
                                     <constraint firstItem="CZ9-zZ-Ddv" firstAttribute="leading" secondItem="hPU-dM-hmb" secondAttribute="leading" constant="28" id="DLD-5l-SL3"/>
                                     <constraint firstAttribute="width" constant="334" identifier="width" id="HjX-1q-1Fx"/>
                                     <constraint firstAttribute="height" constant="307" identifier="height" id="Mpx-xw-dz7"/>
-                                    <constraint firstItem="o4a-ak-ikw" firstAttribute="top" secondItem="XSk-f7-6BO" secondAttribute="bottom" constant="6" identifier="height" id="N9J-dw-XUO"/>
+                                    <constraint firstItem="o4a-ak-ikw" firstAttribute="leading" secondItem="hPU-dM-hmb" secondAttribute="leading" id="UCE-p3-pKI"/>
+                                    <constraint firstAttribute="trailing" secondItem="o4a-ak-ikw" secondAttribute="trailing" id="Ztc-QZ-abd"/>
                                     <constraint firstItem="XSk-f7-6BO" firstAttribute="centerX" secondItem="hPU-dM-hmb" secondAttribute="centerX" id="bYZ-Pa-AIS"/>
                                     <constraint firstAttribute="bottom" secondItem="CZ9-zZ-Ddv" secondAttribute="bottom" constant="41" identifier="height" id="dTH-i6-DJe"/>
                                     <constraint firstItem="i9P-9k-Fkz" firstAttribute="width" secondItem="CZ9-zZ-Ddv" secondAttribute="width" id="i7C-XD-xXA"/>
-                                    <constraint firstItem="i9P-9k-Fkz" firstAttribute="top" secondItem="o4a-ak-ikw" secondAttribute="bottom" constant="25" identifier="height" id="mZz-ju-IdU"/>
-                                    <constraint firstItem="o4a-ak-ikw" firstAttribute="centerX" secondItem="hPU-dM-hmb" secondAttribute="centerX" id="q5I-mt-Xu3"/>
+                                    <constraint firstItem="o4a-ak-ikw" firstAttribute="top" secondItem="XSk-f7-6BO" secondAttribute="bottom" constant="6" identifier="height" id="iZy-ce-gud"/>
+                                    <constraint firstItem="i9P-9k-Fkz" firstAttribute="top" secondItem="o4a-ak-ikw" secondAttribute="bottom" constant="25" id="mdc-zJ-wlc"/>
                                     <constraint firstItem="ALx-ob-N0o" firstAttribute="centerX" secondItem="hPU-dM-hmb" secondAttribute="centerX" id="sjg-Tg-kVn"/>
                                     <constraint firstItem="i9P-9k-Fkz" firstAttribute="leading" secondItem="CZ9-zZ-Ddv" secondAttribute="trailing" constant="12" id="vdA-0d-PiJ"/>
                                 </constraints>
@@ -121,6 +122,9 @@ Let’s try total focus again?</string>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="vU0-ib-Gjc"/>
                     </view>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="adapt" value="YES"/>
+                    </userDefinedRuntimeAttributes>
                     <connections>
                         <outlet property="button" destination="i9P-9k-Fkz" id="Sgt-bA-blB"/>
                         <outlet property="cancelButton" destination="CZ9-zZ-Ddv" id="fXB-7R-34Y"/>

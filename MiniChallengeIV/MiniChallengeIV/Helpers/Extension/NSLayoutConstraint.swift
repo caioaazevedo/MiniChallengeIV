@@ -82,3 +82,42 @@ extension NSLayoutConstraint {
     }
     
 }
+
+@IBDesignable
+extension UIViewController{
+    @IBInspectable
+    var adapt: Bool {
+        get { return false }
+        set {
+            if newValue{
+                adaptAutoLayout()
+            }
+        }
+    }
+    
+    //Adapt auto layout according to device
+    func adaptAutoLayout(){
+        //Get all screen sizes
+        let screenElements = self.view.subviewsRecursive()
+        let constraints = screenElements.map{$0.constraints}.joined()
+        for constraint in constraints {
+            if constraint.identifier == "height" {
+                constraint.constant = constraint.constant.scaledHeight
+            } else if constraint.identifier == "width" {
+                constraint.constant = constraint.constant.scaledWidth
+            }
+        }
+        
+        //Labels
+        guard let labels = screenElements.filter({$0.isKind(of: UILabel.self)}) as? [UILabel] else {return}
+        guard let buttons = screenElements.filter({$0.isKind(of: UIButton.self)}) as? [UIButton] else {return}
+        
+        for label in labels{
+            label.font = label.font.withSize(label.font.pointSize.scaledHeight)
+        }
+        
+        for button in buttons{
+            button.titleLabel?.font = button.titleLabel?.font.withSize((button.titleLabel?.font.pointSize.scaledHeight)!)
+        }
+    }
+}

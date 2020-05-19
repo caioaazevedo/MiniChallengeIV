@@ -110,7 +110,6 @@ class TimeTrackerBO{
     func stopTimer(updateView: @escaping () -> Void){
         timer.invalidate()
         updateView()
-        updateStatistics()
         state = .focus
     }
     

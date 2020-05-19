@@ -41,7 +41,7 @@ class NewProjectViewController: UIViewController{
         if let project = project {
             projectNameLabel.text = project.name
             projectColor = project.color
-            titleLabel.text = "Edit Project"
+            titleLabel.text = NSLocalizedString("Edit project", comment: "")
             
             // show current project color
             if let button = buttons.filter({$0.backgroundColor?.description == project.color.description}).first,
@@ -52,7 +52,7 @@ class NewProjectViewController: UIViewController{
             
         }
         else {
-            titleLabel.text = "Add Project"
+            titleLabel.text = NSLocalizedString("Add project", comment: "")
             projectColor = buttons[0].backgroundColor!
             checks[0].isHidden = false
         }
