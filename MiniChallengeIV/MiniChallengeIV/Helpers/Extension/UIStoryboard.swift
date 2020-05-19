@@ -9,12 +9,11 @@
 import UIKit
 
 enum StoryboardID: String {
-    case NewProject
-    case TimerPopUp
+    case NewProject, TimerPopUp, Onboarding
 }
 
 enum ViewControllerID: String {
-    case NewProjectID, NewProjectID2, TimerPopUpID
+    case NewProjectID, NewProjectID2, TimerPopUpID, VC
 }
 
 fileprivate extension UIStoryboard {

@@ -23,6 +23,7 @@ class ProjectViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         createStatistics()
         getCurrentStatistics()
         reloadList()
@@ -63,6 +64,9 @@ class ProjectViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         collectionView.reloadData()
+        
+        
+        goToOnboardingViewController()
     }
     
     @IBAction func addProjectButtonAction(_ sender: Any) {
@@ -71,6 +75,19 @@ class ProjectViewController: UIViewController {
     
     @IBAction func showStatistics(_ sender: Any) {
         performSegue(withIdentifier: "statistics", sender: nil)
+    }
+    
+    /// Go to Onboarding
+    private func goToOnboardingViewController() {
+        
+        guard !UserDefaults.standard.bool(forKey: "onboardingWasDisplayed") else { return }
+
+        if let onboardingVC = UIStoryboard.loadView(from: .Onboarding, identifier: .VC) as? OnboardingPagerViewController {
+            onboardingVC.modalTransitionStyle = .crossDissolve
+            onboardingVC.modalPresentationStyle = .overCurrentContext
+            
+            self.present(onboardingVC, animated: true)
+        }
     }
     
     /// Go to NewProjectViewController
