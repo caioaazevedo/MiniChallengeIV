@@ -14,6 +14,8 @@ struct Task {
     var description: String
     var state: Bool = false
     var taskCD: TaskCD? = nil
+    var createdAt: Date
+
 //    var project: ProjectBean
     
 //    init(uuid: UUID, description: String, state: Bool) {

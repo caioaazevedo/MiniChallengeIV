@@ -19,7 +19,7 @@ class TaskBO {
     /// - Parameter description: Description of task
     /// - Returns: Boolean if the task was saved
     func create(description: String, completion: (Result<TaskCD, ValidationError>) -> Void){
-        let task = Task(id: UUID(), description: description, state: false)
+        let task = Task(id: UUID(), description: description, state: false, createdAt: Date())
         
         taskDAO.createTask(task: task, completion: { result in
             switch result {

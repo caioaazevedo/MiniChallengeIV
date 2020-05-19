@@ -16,6 +16,31 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="CollectionViewBackground" translatesAutoresizingMaskIntoConstraints="NO" id="EB3-wP-Mm0">
+                                <rect key="frame" x="65.666666666666671" y="383" width="243.66666666666663" height="257.66666666666674"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="There s nothing here!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2FA-l5-xDH">
+                                <rect key="frame" x="99.666666666666686" y="650.33333333333337" width="176" height="23"/>
+                                <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="20"/>
+                                <color key="textColor" red="0.43921568630000002" green="0.43921568630000002" blue="0.43921568630000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="adjustedValue">
+                                        <real key="value" value="20"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add projects wich you want to focus" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4tN-qb-E2j" userLabel="Add projects wich you want to focus">
+                                <rect key="frame" x="64" y="677.33333333333337" width="247" height="19.333333333333371"/>
+                                <fontDescription key="fontDescription" name="GillSans-Light" family="Gill Sans" pointSize="17"/>
+                                <color key="textColor" red="0.43921568630000002" green="0.43921568630000002" blue="0.43921568630000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="adjustedValue">
+                                        <real key="value" value="17"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </label>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="BgH-RO-QqS">
                                 <rect key="frame" x="39" y="373.33333333333326" width="297" height="330.66666666666674"/>
                                 <color key="backgroundColor" red="0.95686274509803915" green="0.95686274509803915" blue="0.94117647058823528" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -270,7 +295,10 @@
                         </subviews>
                         <color key="backgroundColor" red="0.95686274509803915" green="0.95686274509803915" blue="0.94117647058823528" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
+                            <constraint firstItem="EB3-wP-Mm0" firstAttribute="width" secondItem="BgH-RO-QqS" secondAttribute="width" multiplier="0.820988" id="0uo-1w-cia"/>
                             <constraint firstItem="l5y-SN-NU7" firstAttribute="trailing" secondItem="cKE-XV-AKa" secondAttribute="trailing" id="2xr-gW-UHL"/>
+                            <constraint firstItem="4tN-qb-E2j" firstAttribute="centerX" secondItem="BgH-RO-QqS" secondAttribute="centerX" id="3bd-q5-p0V"/>
+                            <constraint firstItem="4tN-qb-E2j" firstAttribute="top" secondItem="2FA-l5-xDH" secondAttribute="bottom" constant="4" id="3gI-lJ-CmC"/>
                             <constraint firstItem="pdz-0e-3le" firstAttribute="leading" secondItem="cKE-XV-AKa" secondAttribute="leading" id="3xP-pn-Pl3"/>
                             <constraint firstItem="cKE-XV-AKa" firstAttribute="height" secondItem="qgF-Ed-Ttw" secondAttribute="height" multiplier="0.045977" id="5xk-AX-8xp"/>
                             <constraint firstItem="pdz-0e-3le" firstAttribute="top" secondItem="AdX-IG-PNb" secondAttribute="bottom" constant="8" id="Bi3-Sn-mo5"/>
@@ -279,13 +307,16 @@
                             <constraint firstItem="l5y-SN-NU7" firstAttribute="leading" secondItem="cKE-XV-AKa" secondAttribute="leading" id="EQC-gx-pif"/>
                             <constraint firstItem="l5y-SN-NU7" firstAttribute="height" secondItem="qgF-Ed-Ttw" secondAttribute="height" multiplier="0.0334821" id="FDJ-c9-xW4"/>
                             <constraint firstItem="AdX-IG-PNb" firstAttribute="leading" secondItem="cKE-XV-AKa" secondAttribute="leading" id="G48-SF-PJd"/>
+                            <constraint firstItem="EB3-wP-Mm0" firstAttribute="height" secondItem="BgH-RO-QqS" secondAttribute="height" multiplier="0.780242" id="GRk-t2-1Z0"/>
                             <constraint firstItem="jEq-ma-4eo" firstAttribute="centerX" secondItem="9Jw-ny-MVG" secondAttribute="centerX" id="IDC-GB-74d"/>
                             <constraint firstItem="cKE-XV-AKa" firstAttribute="width" secondItem="qgF-Ed-Ttw" secondAttribute="width" multiplier="0.792" id="KDr-ZL-L4Y"/>
                             <constraint firstItem="BgH-RO-QqS" firstAttribute="trailing" secondItem="cKE-XV-AKa" secondAttribute="trailing" id="KYx-Pj-NIr"/>
                             <constraint firstItem="l5y-SN-NU7" firstAttribute="top" secondItem="pdz-0e-3le" secondAttribute="bottom" constant="18.333333333333371" id="Krn-Lm-f5J"/>
+                            <constraint firstItem="4tN-qb-E2j" firstAttribute="bottom" secondItem="BgH-RO-QqS" secondAttribute="bottom" multiplier="0.99" id="Ncj-kN-F2u"/>
                             <constraint firstItem="AdX-IG-PNb" firstAttribute="top" secondItem="cKE-XV-AKa" secondAttribute="bottom" constant="20.5" id="OMC-oZ-RYk"/>
                             <constraint firstItem="cKE-XV-AKa" firstAttribute="centerX" secondItem="9Jw-ny-MVG" secondAttribute="centerX" id="PIi-hg-fLw"/>
                             <constraint firstItem="9Jw-ny-MVG" firstAttribute="trailing" secondItem="jEq-ma-4eo" secondAttribute="trailing" constant="39" id="Qhf-jZ-h2c"/>
+                            <constraint firstItem="EB3-wP-Mm0" firstAttribute="centerY" secondItem="BgH-RO-QqS" secondAttribute="centerY" multiplier="0.95" id="SlT-dg-J7j"/>
                             <constraint firstItem="jEq-ma-4eo" firstAttribute="top" secondItem="BgH-RO-QqS" secondAttribute="bottom" constant="20.666666666666629" id="Trm-dY-qk5"/>
                             <constraint firstItem="pdz-0e-3le" firstAttribute="trailing" secondItem="cKE-XV-AKa" secondAttribute="trailing" id="cp5-2f-Aqn"/>
                             <constraint firstItem="AdX-IG-PNb" firstAttribute="height" secondItem="qgF-Ed-Ttw" secondAttribute="height" multiplier="0.0543393" id="fXh-d6-OSa"/>
@@ -293,13 +324,16 @@
                             <constraint firstItem="pdz-0e-3le" firstAttribute="height" secondItem="qgF-Ed-Ttw" secondAttribute="height" multiplier="0.128079" id="gD1-jd-CZ4"/>
                             <constraint firstItem="jEq-ma-4eo" firstAttribute="height" secondItem="qgF-Ed-Ttw" secondAttribute="height" multiplier="0.0535714" id="hWl-m6-ZP2"/>
                             <constraint firstItem="cKE-XV-AKa" firstAttribute="top" secondItem="9Jw-ny-MVG" secondAttribute="top" constant="12" id="qQX-zF-Mja"/>
+                            <constraint firstItem="EB3-wP-Mm0" firstAttribute="centerX" secondItem="9Jw-ny-MVG" secondAttribute="centerX" id="sol-tv-yii"/>
                             <constraint firstItem="AdX-IG-PNb" firstAttribute="width" secondItem="qgF-Ed-Ttw" secondAttribute="width" multiplier="0.40625" id="xa4-bI-OgS"/>
+                            <constraint firstItem="2FA-l5-xDH" firstAttribute="centerX" secondItem="BgH-RO-QqS" secondAttribute="centerX" id="yd4-2S-KGd"/>
                             <constraint firstItem="BgH-RO-QqS" firstAttribute="top" secondItem="l5y-SN-NU7" secondAttribute="bottom" constant="14" id="zZj-N2-OCS"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="9Jw-ny-MVG"/>
                     </view>
                     <navigationItem key="navigationItem" id="pSE-dD-YHg"/>
                     <connections>
+                        <outlet property="backgroundImage" destination="EB3-wP-Mm0" id="B5z-u7-Na7"/>
                         <outlet property="breakTimeLabel" destination="IjC-li-dOE" id="Ika-D1-whc"/>
                         <outlet property="collectionView" destination="BgH-RO-QqS" id="vzu-Vm-1sg"/>
                         <outlet property="distractionTimeLabel" destination="rw1-7a-Zd4" id="al0-FJ-qpm"/>
@@ -348,10 +382,11 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hrv-VN-yTR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1009" y="-67"/>
+            <point key="canvasLocation" x="-692" y="-67"/>
         </scene>
     </scenes>
     <resources>
+        <image name="CollectionViewBackground" width="286" height="278"/>
         <image name="arrowtriangle.right.fill" catalog="system" width="128" height="113"/>
         <image name="chevron.right" catalog="system" width="96" height="128"/>
     </resources>
