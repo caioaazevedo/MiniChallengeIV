@@ -63,7 +63,7 @@ class AnimatedRingView: UIView {
      */
     override func layoutSubviews() {
         super.layoutSubviews()
-        self.backgroundColor = UIColor.init(244, 244, 240, 1)
+//        self.backgroundColor = UIColor.init(244, 244, 240, 1)
         let radius = (min(frame.size.width, frame.size.height) - ringStrokeWidth - 2)/2
         let pinRadius = 7
         let circlebackgroundRadius = (80.55*radius)/90

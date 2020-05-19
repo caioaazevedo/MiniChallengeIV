@@ -22,7 +22,7 @@
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add project" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sSa-d8-2qq">
                                         <rect key="frame" x="30" y="16" width="107.5" height="25"/>
                                         <fontDescription key="fontDescription" name="Didot" family="Didot" pointSize="20"/>
-                                        <color key="textColor" name="Label"/>
+                                        <color key="textColor" name="Label Black"/>
                                         <nil key="highlightedColor"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="string" keyPath="localisedKey" value="Add project"/>
@@ -33,6 +33,7 @@
                                         <constraints>
                                             <constraint firstAttribute="height" constant="34" id="8ep-yT-fXm"/>
                                         </constraints>
+                                        <color key="textColor" name="Label Black"/>
                                         <fontDescription key="fontDescription" name="GillSans-Light" family="Gill Sans" pointSize="18"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="words" returnKeyType="done"/>
                                         <userDefinedRuntimeAttributes>
@@ -216,7 +217,7 @@
                                             <constraint firstAttribute="height" constant="34" id="UUd-Zi-DOj"/>
                                         </constraints>
                                         <state key="normal" title="Cancel">
-                                            <color key="titleColor" red="0.4392156862745098" green="0.4392156862745098" blue="0.4392156862745098" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleColor" name="Label Gray"/>
                                         </state>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="round">
@@ -226,7 +227,7 @@
                                                 <real key="value" value="1"/>
                                             </userDefinedRuntimeAttribute>
                                             <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                                <color key="value" red="0.34901960780000002" green="0.4941176471" blue="0.48627450979999998" alpha="1" colorSpace="calibratedRGB"/>
+                                                <color key="value" name="Contrast"/>
                                             </userDefinedRuntimeAttribute>
                                             <userDefinedRuntimeAttribute type="string" keyPath="localizedKey" value="Cancel"/>
                                         </userDefinedRuntimeAttributes>
@@ -236,7 +237,7 @@
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q4K-SZ-zKw">
                                         <rect key="frame" x="173" y="231" width="131" height="34"/>
-                                        <color key="backgroundColor" red="0.34901960784313724" green="0.49411764705882355" blue="0.47843137254901957" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" name="Contrast"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="34" id="LO8-aa-hm5"/>
                                         </constraints>
@@ -248,7 +249,7 @@
                                                 <real key="value" value="10"/>
                                             </userDefinedRuntimeAttribute>
                                             <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                                <color key="value" red="0.34901960784313724" green="0.49411764705882355" blue="0.48627450980392156" alpha="1" colorSpace="calibratedRGB"/>
+                                                <color key="value" name="Contrast"/>
                                             </userDefinedRuntimeAttribute>
                                             <userDefinedRuntimeAttribute type="string" keyPath="localizedKey" value="Save"/>
                                         </userDefinedRuntimeAttributes>
@@ -444,8 +445,14 @@
     </scenes>
     <resources>
         <image name="checkmark" catalog="system" width="128" height="114"/>
-        <namedColor name="Label">
+        <namedColor name="Contrast">
+            <color red="0.34901960784313724" green="0.49411764705882355" blue="0.48627450980392156" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Label Black">
             <color red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Label Gray">
+            <color red="0.4392156862745098" green="0.4392156862745098" blue="0.4392156862745098" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>
