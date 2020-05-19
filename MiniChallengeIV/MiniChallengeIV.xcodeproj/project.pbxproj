@@ -42,6 +42,7 @@
 		69D4B4FA2469E65400DE4EAB /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69D4B4F92469E65400DE4EAB /* UIView.swift */; };
 		69D5310C246B316700ECF0F4 /* UIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69D5310B246B316700ECF0F4 /* UIButton.swift */; };
 		69D5310E246B469600ECF0F4 /* UITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69D5310D246B469600ECF0F4 /* UITextField.swift */; };
+		69E2217224747FBF00B94E60 /* Onboarding7ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69E2217124747FBF00B94E60 /* Onboarding7ViewController.swift */; };
 		69ECFA2F2459FD5A00D4F205 /* Projects.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 69ECFA2E2459FD5A00D4F205 /* Projects.storyboard */; };
 		69F56222245B6DAE00EB2AF1 /* ProjectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69F56221245B6DAE00EB2AF1 /* ProjectViewController.swift */; };
 		69F56228245B6E1D00EB2AF1 /* ProjectCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69F56227245B6E1D00EB2AF1 /* ProjectCollectionViewCell.swift */; };
@@ -137,6 +138,7 @@
 		69D4B4F92469E65400DE4EAB /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 		69D5310B246B316700ECF0F4 /* UIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButton.swift; sourceTree = "<group>"; };
 		69D5310D246B469600ECF0F4 /* UITextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextField.swift; sourceTree = "<group>"; };
+		69E2217124747FBF00B94E60 /* Onboarding7ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Onboarding7ViewController.swift; sourceTree = "<group>"; };
 		69ECFA2E2459FD5A00D4F205 /* Projects.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Projects.storyboard; sourceTree = "<group>"; };
 		69F56221245B6DAE00EB2AF1 /* ProjectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ProjectViewController.swift; path = ../ProjectViewController.swift; sourceTree = "<group>"; };
 		69F56227245B6E1D00EB2AF1 /* ProjectCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ProjectCollectionViewCell.swift; path = ../ProjectCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -349,7 +351,7 @@
 			children = (
 				79604CCF246DBE8400EAEE2E /* Timer */,
 				6910339A245A11DC009D5D58 /* Projects */,
-				69D4B4FB2469F84600DE4EAB /* Onboarding */,
+				69E2217324747FCD00B94E60 /* Onboarding */,
 				E24DE019246350A700E425E1 /* StatisticsViewController.swift */,
 			);
 			path = Controller;
@@ -406,10 +408,11 @@
 			path = DAO;
 			sourceTree = "<group>";
 		};
-		69D4B4FB2469F84600DE4EAB /* Onboarding */ = {
+		69E2217324747FCD00B94E60 /* Onboarding */ = {
 			isa = PBXGroup;
 			children = (
 				696620372465F034003B3916 /* OnboardingPagerViewController.swift */,
+				69E2217124747FBF00B94E60 /* Onboarding7ViewController.swift */,
 			);
 			path = Onboarding;
 			sourceTree = "<group>";
@@ -763,6 +766,7 @@
 				79604CD3246DC74F00EAEE2E /* TimerPopUpViewController.swift in Sources */,
 				E29B1E132458CA7D00EA9B48 /* StatisticBO.swift in Sources */,
 				691033A4245A250A009D5D58 /* NewProjectViewController.swift in Sources */,
+				69E2217224747FBF00B94E60 /* Onboarding7ViewController.swift in Sources */,
 				69B04723245754D5002A696D /* AppDelegate.swift in Sources */,
 				796C3E36245A0079004488D1 /* TimeTrackerBO.swift in Sources */,
 				691F2930246DE686001B9FED /* UILabel.swift in Sources */,
