@@ -23,6 +23,7 @@ class ProjectViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        createStatistics()
         getCurrentStatistics()
         reloadList()
         
@@ -115,6 +116,44 @@ class ProjectViewController: UIViewController {
         let min = (seconds / 60) % 60
         let hour = seconds / 3600
         return String(format:"%2ih%02i", hour, min)
+    }
+    
+    func createStatistics(){
+        //get date
+        let date = Date()
+        let formatter = DateFormatter()
+        formatter.dateFormat = "MM.yyyy"
+        let key = formatter.string(from: date)
+        
+        var startedNewMonth: Bool {
+            get {
+                return UserDefaults.standard.bool(forKey: key)
+            }
+            set {
+                UserDefaults.standard.set(newValue, forKey: key)
+            }
+        }
+        //Check if the date regard a new month
+        if startedNewMonth {return}
+        
+        //Convert it to int
+        let calendar = Calendar.current
+        let components = calendar.dateComponents([.year, .month], from: date)
+
+        guard let year = components.year,
+            let month = components.month else {return}
+        //implement it in statistics
+        let statisticsBO = StatisticBO()
+        statisticsBO.createStatistic(id: UUID(), focusTime: 0, lostFocusTime: 0, restTime: 0, qtdLostFocus: 0, year: year, month: month) { (result) in
+            switch result {
+                
+            case .success(_): break
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
+        //set the month to checked
+        startedNewMonth = true
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
