@@ -15,6 +15,7 @@ class ProjectViewController: UIViewController {
     @IBOutlet weak var distractionTimeLabel: UILabel!
     @IBOutlet weak var breakTimeLabel: UILabel!
     
+    let collectionLayout = CollectionViewFlowLayout()
     
     var selectedProjectId: Int?
     var projectBO = ProjectBO()
@@ -24,6 +25,8 @@ class ProjectViewController: UIViewController {
         super.viewDidLoad()
         getCurrentStatistics()
         reloadList()
+        
+        collectionView.collectionViewLayout = collectionLayout
 //        projectBO.create(name: "Work", color: UIColor(red: 0.77, green: 0.87, blue: 0.96, alpha: 1.00), completion: { results in
 //            switch results {
 //
