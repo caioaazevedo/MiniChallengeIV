@@ -21,7 +21,7 @@ class OnboardingPagerViewController: UIViewController {
     lazy var vcs: [UIViewController] = {
         var vc = [UIViewController]()
         
-        for i in 0..<storyboardIDs.count {
+        for i in 5..<storyboardIDs.count {
             let id = storyboardIDs[i]
             vc.append(UIStoryboard(name: id, bundle: nil).instantiateViewController(identifier: "vc"))
         }
@@ -49,8 +49,6 @@ class OnboardingPagerViewController: UIViewController {
         setupHorizontalScrollView()
         
         setupPageControl()
-        
-        print(Device.deviceSize)
     }
     
     func setupPageControl() {
