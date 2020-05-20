@@ -38,6 +38,7 @@ class OnboardingPagerViewController: UIViewController {
             pgControl.currentPage = currentPage
         }
     }
+    var widthPage: CGFloat = 0
     
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.setNavigationBarHidden(true, animated: true)
@@ -49,6 +50,24 @@ class OnboardingPagerViewController: UIViewController {
         setupHorizontalScrollView()
         
         setupPageControl()
+        
+        setupTapGesture()
+    }
+    
+    private func setupTapGesture() {
+        let tap = UITapGestureRecognizer(target: self, action: #selector(handleTap))
+        scrollView.addGestureRecognizer(tap)
+    }
+    
+    @objc private func handleTap() {
+        let currentOffset = self.scrollView.contentOffset
+        let newOffset = CGPoint(x: currentOffset.x + self.widthPage, y: currentOffset.y)
+        
+        guard newOffset.x <= widthPage * CGFloat(vcs.count) - 1 else { return }
+        
+        UIView.animate(withDuration: 0.5, delay: 0, options: .curveEaseInOut, animations: {
+            self.scrollView.contentOffset = newOffset
+        }, completion: nil)
     }
     
     func setupPageControl() {
@@ -68,6 +87,8 @@ class OnboardingPagerViewController: UIViewController {
         let cWidth = self.view.bounds.width
         let cHeight = self.view.bounds.height
         let countVC = CGFloat(vcs.count)
+        
+        widthPage = cWidth
         
         scrollView = UIScrollView()
         scrollView.isPagingEnabled = true

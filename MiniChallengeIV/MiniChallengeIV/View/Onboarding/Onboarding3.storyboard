@@ -22,25 +22,25 @@
                                 </userDefinedRuntimeAttributes>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="College" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hf2-g1-ReW">
-                                <rect key="frame" x="171" y="119" width="102" height="38"/>
-                                <fontDescription key="fontDescription" name="Didot" family="Didot" pointSize="30"/>
+                                <rect key="frame" x="170.5" y="119" width="103.5" height="36.5"/>
+                                <fontDescription key="fontDescription" name="Georgia" family="Georgia" pointSize="32"/>
                                 <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Start" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jJv-je-lOY">
-                                <rect key="frame" x="187" y="459" width="40" height="23"/>
+                                <rect key="frame" x="187" y="457.5" width="40" height="23"/>
                                 <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="20"/>
                                 <color key="textColor" red="0.87843137250000003" green="0.90196078430000004" blue="0.86274509799999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select ideal time for you." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bCa-V0-jfe">
-                                <rect key="frame" x="106" y="563" width="202" height="23"/>
+                                <rect key="frame" x="106" y="561.5" width="202" height="23"/>
                                 <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="20"/>
                                 <color key="textColor" red="0.87843137250000003" green="0.90196078430000004" blue="0.86274509799999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add Task" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ti9-OF-vbo">
-                                <rect key="frame" x="67" y="641" width="70" height="23"/>
+                                <rect key="frame" x="67" y="639.5" width="70" height="23"/>
                                 <fontDescription key="fontDescription" name="GillSans-Light" family="Gill Sans" pointSize="20"/>
                                 <color key="textColor" red="0.1376960576" green="0.19611319899999999" blue="0.19215744730000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>

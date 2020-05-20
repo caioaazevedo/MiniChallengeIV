@@ -14,12 +14,14 @@ class DataChartBO {
     var totalTime: Int
     var projects: [Project]
     var projectColors = [NSUIColor]()
+    var isHidden: Bool
     
     init() {
         timeProjects = []
         totalTime = 0
         projectColors = []
         projects = []
+        isHidden = true
     }
     
     /// Description:  Load the projects to insert data into the chart
@@ -50,9 +52,14 @@ class DataChartBO {
     func getTimeStatistics(projects: [Project]){
         for proj in projects {
             let time = proj.time
+            
+            /// If has time value show charts
+            if time > 0 {
+                isHidden = false
+            }
+            
             self.projectColors.append(proj.color as NSUIColor)
             self.timeProjects.append(time)
-            print("DaTACHART TIME: \(time)")
             self.totalTime += time
         }
     }

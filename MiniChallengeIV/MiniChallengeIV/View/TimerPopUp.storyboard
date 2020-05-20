@@ -25,7 +25,7 @@
                                             <constraint firstAttribute="height" constant="30" identifier="height" id="cwa-OJ-qCT"/>
                                             <constraint firstAttribute="width" constant="276" identifier="width" id="k7C-Mr-hRi"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" name="Didot" family="Didot" pointSize="24"/>
+                                        <fontDescription key="fontDescription" name="Georgia" family="Georgia" pointSize="24"/>
                                         <color key="textColor" name="Label Black"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -91,7 +91,7 @@ Let’s try total focus again?</string>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
-                                <color key="backgroundColor" red="0.95675712820000003" green="0.95714896920000003" blue="0.94117498399999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="backgroundColor" name="Background"/>
                                 <constraints>
                                     <constraint firstItem="XSk-f7-6BO" firstAttribute="top" secondItem="ALx-ob-N0o" secondAttribute="bottom" constant="11" identifier="height" id="10n-MQ-XXi"/>
                                     <constraint firstAttribute="bottom" secondItem="i9P-9k-Fkz" secondAttribute="bottom" constant="41" identifier="height" id="2fG-eY-gwV"/>
@@ -138,6 +138,9 @@ Let’s try total focus again?</string>
     </scenes>
     <resources>
         <image name="giveUp" width="196" height="196"/>
+        <namedColor name="Background">
+            <color red="0.95686274509803926" green="0.95686274509803926" blue="0.94117647058823528" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <namedColor name="Contrast">
             <color red="0.34901960784313724" green="0.49411764705882355" blue="0.48627450980392156" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
