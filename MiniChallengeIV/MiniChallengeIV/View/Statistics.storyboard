@@ -226,8 +226,8 @@
                                         </prototypes>
                                     </tableView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Current Projects" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xdK-0h-aan">
-                                        <rect key="frame" x="77.5" y="9" width="180" height="30"/>
-                                        <fontDescription key="fontDescription" name="Didot" family="Didot" pointSize="24"/>
+                                        <rect key="frame" x="80.5" y="10.5" width="174.5" height="27.5"/>
+                                        <fontDescription key="fontDescription" name="Georgia" family="Georgia" pointSize="24"/>
                                         <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                         <userDefinedRuntimeAttributes>
@@ -254,8 +254,8 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Progress" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jCh-8f-KyY">
-                                <rect key="frame" x="39.5" y="152.5" width="93.5" height="30"/>
-                                <fontDescription key="fontDescription" name="Didot" family="Didot" pointSize="24"/>
+                                <rect key="frame" x="39.5" y="154.5" width="92" height="27.5"/>
+                                <fontDescription key="fontDescription" name="Georgia" family="Georgia" pointSize="24"/>
                                 <color key="textColor" name="Label Black"/>
                                 <nil key="highlightedColor"/>
                                 <userDefinedRuntimeAttributes>
@@ -266,19 +266,40 @@
                                 </userDefinedRuntimeAttributes>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chevron.down" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="xT0-Ex-U2j">
-                                <rect key="frame" x="141" y="159" width="16" height="17"/>
+                                <rect key="frame" x="139.5" y="160" width="16" height="17"/>
                                 <color key="tintColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iCV-KY-9nS" customClass="PieChartView" customModule="Charts">
                                 <rect key="frame" x="81" y="414" width="252" height="266.5"/>
                                 <color key="backgroundColor" systemColor="systemGray3Color" red="0.78039215689999997" green="0.78039215689999997" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="CollectionViewBackground" translatesAutoresizingMaskIntoConstraints="NO" id="pjs-eu-6fR">
-                                <rect key="frame" x="85.5" y="419" width="243" height="257"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ChartBackground" translatesAutoresizingMaskIntoConstraints="NO" id="pjs-eu-6fR">
+                                <rect key="frame" x="106" y="431" width="202" height="167.5"/>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No data found" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Muj-fh-VZg">
+                                <rect key="frame" x="148" y="626.5" width="118" height="23"/>
+                                <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="20"/>
+                                <color key="textColor" red="0.43921568630000002" green="0.43921568630000002" blue="0.43921568630000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="localisedKey" value="No data found"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="adjustedValue">
+                                        <real key="value" value="20"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Try run a timer to add your progress" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qu7-jF-WJe">
+                                <rect key="frame" x="84" y="654.5" width="246.5" height="19.5"/>
+                                <fontDescription key="fontDescription" name="GillSans-Light" family="Gill Sans" pointSize="17"/>
+                                <color key="textColor" red="0.43921568630000002" green="0.43921568630000002" blue="0.43921568630000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="localisedKey" value="Try run a timer to add your progress"/>
+                                </userDefinedRuntimeAttributes>
+                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pommo" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YBD-OB-EeI">
-                                <rect key="frame" x="39.5" y="94.5" width="335" height="37.5"/>
-                                <fontDescription key="fontDescription" name="Didot" family="Didot" pointSize="30"/>
+                                <rect key="frame" x="39.5" y="99.5" width="335" height="34.5"/>
+                                <fontDescription key="fontDescription" name="Georgia" family="Georgia" pointSize="30"/>
                                 <color key="textColor" name="Label Black"/>
                                 <nil key="highlightedColor"/>
                                 <userDefinedRuntimeAttributes>
@@ -294,28 +315,32 @@
                             <constraint firstItem="2Jo-Kf-sAJ" firstAttribute="centerX" secondItem="yH6-Qb-wsQ" secondAttribute="centerX" id="1V7-9g-XbO"/>
                             <constraint firstItem="YBD-OB-EeI" firstAttribute="trailing" secondItem="2Jo-Kf-sAJ" secondAttribute="trailing" id="353-I4-RcJ"/>
                             <constraint firstItem="iCV-KY-9nS" firstAttribute="centerY" secondItem="hii-13-408" secondAttribute="centerY" multiplier="0.9" id="8ym-4b-Slz"/>
-                            <constraint firstItem="pjs-eu-6fR" firstAttribute="centerY" secondItem="iCV-KY-9nS" secondAttribute="centerY" id="9ML-dq-AHK"/>
+                            <constraint firstItem="pjs-eu-6fR" firstAttribute="centerY" secondItem="iCV-KY-9nS" secondAttribute="centerY" multiplier="0.94" id="9ML-dq-AHK"/>
                             <constraint firstItem="iCV-KY-9nS" firstAttribute="height" secondItem="hii-13-408" secondAttribute="height" multiplier="0.549593" id="AIm-1n-kSV"/>
                             <constraint firstItem="xT0-Ex-U2j" firstAttribute="centerY" secondItem="jCh-8f-KyY" secondAttribute="centerY" id="Cih-OS-wL2"/>
                             <constraint firstItem="2Jo-Kf-sAJ" firstAttribute="firstBaseline" secondItem="jCh-8f-KyY" secondAttribute="baseline" constant="16.5" symbolType="layoutAnchor" id="Cij-V5-gnF"/>
                             <constraint firstItem="2Jo-Kf-sAJ" firstAttribute="centerY" secondItem="yH6-Qb-wsQ" secondAttribute="centerY" multiplier="0.6" id="EBb-wI-xS4"/>
-                            <constraint firstItem="pjs-eu-6fR" firstAttribute="width" secondItem="hsi-Hr-HZg" secondAttribute="width" multiplier="0.586957" id="EPn-RO-YpH"/>
+                            <constraint firstItem="pjs-eu-6fR" firstAttribute="width" secondItem="hsi-Hr-HZg" secondAttribute="width" multiplier="0.486957" id="EPn-RO-YpH"/>
                             <constraint firstItem="xT0-Ex-U2j" firstAttribute="height" secondItem="hsi-Hr-HZg" secondAttribute="height" multiplier="0.0295759" id="F7N-JI-vuR"/>
+                            <constraint firstItem="Muj-fh-VZg" firstAttribute="centerX" secondItem="yH6-Qb-wsQ" secondAttribute="centerX" id="GDJ-ux-uWC"/>
                             <constraint firstItem="iCV-KY-9nS" firstAttribute="width" secondItem="hii-13-408" secondAttribute="width" multiplier="0.75251" id="GgV-1p-R1T"/>
                             <constraint firstItem="YBD-OB-EeI" firstAttribute="leading" secondItem="2Jo-Kf-sAJ" secondAttribute="leading" id="HcW-Cu-uT0"/>
-                            <constraint firstItem="pjs-eu-6fR" firstAttribute="height" secondItem="hsi-Hr-HZg" secondAttribute="height" multiplier="0.28683" id="IEJ-eW-evs"/>
+                            <constraint firstItem="pjs-eu-6fR" firstAttribute="height" secondItem="hsi-Hr-HZg" secondAttribute="height" multiplier="0.18683" id="IEJ-eW-evs"/>
                             <constraint firstItem="2Jo-Kf-sAJ" firstAttribute="height" secondItem="hsi-Hr-HZg" secondAttribute="height" multiplier="0.179688" id="Nja-aQ-1cG"/>
                             <constraint firstItem="hii-13-408" firstAttribute="centerX" secondItem="yH6-Qb-wsQ" secondAttribute="centerX" id="TML-0q-TTY"/>
                             <constraint firstItem="pjs-eu-6fR" firstAttribute="centerX" secondItem="yH6-Qb-wsQ" secondAttribute="centerX" id="XYn-6g-0Lm"/>
                             <constraint firstItem="hii-13-408" firstAttribute="top" secondItem="2Jo-Kf-sAJ" secondAttribute="bottom" constant="13.5" id="cZA-hr-4Bu"/>
                             <constraint firstItem="2Jo-Kf-sAJ" firstAttribute="width" secondItem="hsi-Hr-HZg" secondAttribute="width" multiplier="0.809179" id="dee-f4-Qb7"/>
                             <constraint firstItem="jCh-8f-KyY" firstAttribute="top" secondItem="YBD-OB-EeI" secondAttribute="bottom" constant="20.5" id="dzj-P5-FjR"/>
+                            <constraint firstItem="Qu7-jF-WJe" firstAttribute="centerX" secondItem="yH6-Qb-wsQ" secondAttribute="centerX" id="gg5-MY-ihN"/>
                             <constraint firstItem="iCV-KY-9nS" firstAttribute="centerX" secondItem="hii-13-408" secondAttribute="centerX" id="hHV-le-utc"/>
                             <constraint firstItem="jCh-8f-KyY" firstAttribute="leading" secondItem="2Jo-Kf-sAJ" secondAttribute="leading" id="o2r-Of-ow0"/>
                             <constraint firstItem="hii-13-408" firstAttribute="height" secondItem="hsi-Hr-HZg" secondAttribute="height" multiplier="0.541295" id="oLz-E9-fPa"/>
+                            <constraint firstItem="Qu7-jF-WJe" firstAttribute="top" secondItem="Muj-fh-VZg" secondAttribute="bottom" constant="5" id="otB-Tc-rrx"/>
                             <constraint firstItem="xT0-Ex-U2j" firstAttribute="width" secondItem="hsi-Hr-HZg" secondAttribute="width" multiplier="0.0386473" id="qY9-KB-N1y"/>
                             <constraint firstItem="YBD-OB-EeI" firstAttribute="centerX" secondItem="yH6-Qb-wsQ" secondAttribute="centerX" id="suf-Bx-xAa"/>
                             <constraint firstItem="xT0-Ex-U2j" firstAttribute="leading" secondItem="jCh-8f-KyY" secondAttribute="trailing" constant="8" id="xhX-bL-fEI"/>
+                            <constraint firstItem="Qu7-jF-WJe" firstAttribute="bottom" secondItem="iCV-KY-9nS" secondAttribute="bottom" multiplier="0.99" id="xsF-AQ-AFu"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="yH6-Qb-wsQ"/>
                     </view>
@@ -335,7 +360,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="CollectionViewBackground" width="286" height="278"/>
+        <image name="ChartBackground" width="189" height="189"/>
         <image name="chevron.down" catalog="system" width="128" height="72"/>
         <image name="chevron.left" catalog="system" width="96" height="128"/>
         <image name="chevron.right" catalog="system" width="96" height="128"/>

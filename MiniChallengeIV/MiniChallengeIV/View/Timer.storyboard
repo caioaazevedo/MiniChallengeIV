@@ -99,8 +99,8 @@
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tasks" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="03M-M0-dgR">
-                                <rect key="frame" x="40" y="521.33333333333337" width="73" height="37.333333333333371"/>
-                                <fontDescription key="fontDescription" name="Didot" family="Didot" pointSize="30"/>
+                                <rect key="frame" x="40" y="523" width="76" height="34.333333333333371"/>
+                                <fontDescription key="fontDescription" name="Georgia" family="Georgia" pointSize="30"/>
                                 <color key="textColor" name="Label Black"/>
                                 <nil key="highlightedColor"/>
                                 <userDefinedRuntimeAttributes>
@@ -179,15 +179,15 @@
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="hdL-3I-hPV">
-                                <rect key="frame" x="21.666666666666657" y="92.333333333333329" width="370.66666666666674" height="30.333333333333329"/>
+                                <rect key="frame" x="24.666666666666657" y="92.333333333333329" width="364.66666666666674" height="30.333333333333329"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="j4m-JR-Ug1">
                                         <rect key="frame" x="0.0" y="0.0" width="30" height="30.333333333333332"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="kkkkkkkkkkkkkKKKKkk" lineBreakMode="tailTruncation" baselineAdjustment="none" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LoV-Hf-8UY">
-                                        <rect key="frame" x="40" y="0.0" width="330.66666666666669" height="30.333333333333332"/>
-                                        <fontDescription key="fontDescription" name="Didot" family="Didot" pointSize="30"/>
+                                        <rect key="frame" x="40" y="0.0" width="324.66666666666669" height="30.333333333333332"/>
+                                        <fontDescription key="fontDescription" name="Georgia" family="Georgia" pointSize="30"/>
                                         <color key="textColor" name="Label Black"/>
                                         <nil key="highlightedColor"/>
                                     </label>

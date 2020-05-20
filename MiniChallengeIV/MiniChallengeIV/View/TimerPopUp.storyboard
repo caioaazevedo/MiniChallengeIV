@@ -25,7 +25,7 @@
                                             <constraint firstAttribute="height" constant="30" identifier="height" id="cwa-OJ-qCT"/>
                                             <constraint firstAttribute="width" constant="276" identifier="width" id="k7C-Mr-hRi"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" name="Didot" family="Didot" pointSize="24"/>
+                                        <fontDescription key="fontDescription" name="Georgia" family="Georgia" pointSize="24"/>
                                         <color key="textColor" name="Label Black"/>
                                         <nil key="highlightedColor"/>
                                     </label>

@@ -60,9 +60,13 @@ class OnboardingPagerViewController: UIViewController {
     }
     
     @objc private func handleTap() {
+        let currentOffset = self.scrollView.contentOffset
+        let newOffset = CGPoint(x: currentOffset.x + self.widthPage, y: currentOffset.y)
+        
+        guard newOffset.x <= widthPage * CGFloat(vcs.count) - 1 else { return }
+        
         UIView.animate(withDuration: 0.5, delay: 0, options: .curveEaseInOut, animations: {
-            let offset = self.scrollView.contentOffset
-            self.scrollView.contentOffset = CGPoint(x: offset.x + self.widthPage, y: offset.y)
+            self.scrollView.contentOffset = newOffset
         }, completion: nil)
     }
     
