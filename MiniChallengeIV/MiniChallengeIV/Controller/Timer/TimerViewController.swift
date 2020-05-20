@@ -308,9 +308,18 @@ extension TimerViewController: UITableViewDelegate, UITableViewDataSource {
         
         if tasks[indexPath.row].state {
             cell.taskTextField.addStrikeThrough()
-            cell.taskTextField.textColor = UIColor(red: 0.44, green: 0.44, blue: 0.44, alpha: 1.00)
+            
+            if self.traitCollection.userInterfaceStyle == .dark {
+                cell.taskTextField.textColor = UIColor(red: 0.44, green: 0.44, blue: 0.44, alpha: 1.00)
+            } else {
+                cell.taskTextField.textColor = UIColor(red: 0.20, green: 0.20, blue: 0.20, alpha: 1.00)
+            }
         }else {
-            cell.taskTextField.textColor = .black
+            if self.traitCollection.userInterfaceStyle == .dark {
+                cell.taskTextField.textColor = UIColor(red: 0.96, green: 0.96, blue: 0.94, alpha: 1.00)
+            } else {
+                cell.taskTextField.textColor = UIColor(red: 0.44, green: 0.44, blue: 0.44, alpha: 1.00)
+            }
         }
         
         return cell
