@@ -55,6 +55,8 @@ class TimerViewController: UIViewController {
     @IBOutlet weak var timerLabel: UILabel!
     @IBOutlet var timeConfigButtons: [UIButton]!
     @IBOutlet weak var stateLabel: UILabel!
+    @IBOutlet weak var btnLabelTask: UIButton!
+    
     //Ring View
     @IBOutlet weak var projectColor: UIView!
     @IBOutlet weak var ringView: AnimatedRingView!
@@ -68,6 +70,7 @@ class TimerViewController: UIViewController {
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
         self.navigationController?.navigationBar.shadowImage = UIImage()
 //        self.navigationController?.navigationBar.tintColor = UIColor(red: 0.35, green: 0.49, blue: 0.49, alpha: 1.00)
+        self.btnLabelTask.contentHorizontalAlignment = UIControl.ContentHorizontalAlignment.left
         
         self.navigationItem.rightBarButtonItem = nil
         
@@ -235,9 +238,7 @@ class TimerViewController: UIViewController {
     }
     
     
-    
-    
-    @IBAction func addTask(_ sender: Any) {
+    func addTasks(){
         taskState.enter(SaveState.self)
         DispatchQueue.main.async {
             let task = Task(id: UUID(), description: "", createdAt: Date())
@@ -260,7 +261,15 @@ class TimerViewController: UIViewController {
             }
             
         }
-        
+    }
+    
+    
+    @IBAction func btnAddTask(_ sender: Any) {
+        addTasks()
+    }
+    
+    @IBAction func labelAddTask(_ sender: Any) {
+        addTasks()
     }
     
     @objc func keyboardWillShow(notification: NSNotification) {
@@ -316,6 +325,11 @@ extension TimerViewController: UITextFieldDelegate {
         if let currentState = self.taskState.currentState, currentState is NormalState {
             self.taskState.enter(UpdateState.self)
         }
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
     }
     
     public func textFieldDidEndEditing(_ textField: UITextField) {
