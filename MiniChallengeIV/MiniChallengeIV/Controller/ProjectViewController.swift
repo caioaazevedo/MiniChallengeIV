@@ -27,7 +27,6 @@ class ProjectViewController: UIViewController {
         super.viewDidLoad()
         
         createStatistics()
-        getCurrentStatistics()
         reloadList()
         
         collectionView.collectionViewLayout = collectionLayout
@@ -65,6 +64,11 @@ class ProjectViewController: UIViewController {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         UIApplication.shared.sendAction(#selector(UIApplication.resignFirstResponder), to: nil, from: nil, for: nil)
         view.endEditing(true)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        getCurrentStatistics()
     }
     
     override func viewDidAppear(_ animated: Bool) {
