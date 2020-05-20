@@ -21,7 +21,17 @@ class TimeTrackerBO{
     private var statisticBO = StatisticBO()
     private var projectBO = ProjectBO()
     var projectUuid = UUID()
-    var configTime = 25
+    var configTime: Int {
+        get{
+            if UserDefaults.standard.integer(forKey: "default") == 0{
+                return 25
+            }
+            return UserDefaults.standard.integer(forKey: "default")
+        }
+        set{
+            UserDefaults.standard.set(newValue, forKey: "default")
+        }
+    }
     var hasEnded = false
     var timeInterval : TimeInterval = 1 //seconds at a time
     

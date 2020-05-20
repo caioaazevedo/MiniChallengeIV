@@ -44,7 +44,7 @@
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <color key="textColor" name="Label Black"/>
                                                     <fontDescription key="fontDescription" name="GillSans-Light" family="Gill Sans" pointSize="19"/>
-                                                    <textInputTraits key="textInputTraits"/>
+                                                    <textInputTraits key="textInputTraits" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
                                                 </textField>
                                             </subviews>
                                             <constraints>
@@ -132,7 +132,7 @@
                                 <color key="tintColor" red="0.35003751519999998" green="0.49416404959999999" blue="0.4862757325" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <state key="normal" image="Group"/>
                                 <connections>
-                                    <action selector="addTask:" destination="dzJ-Fy-LCJ" eventType="touchUpInside" id="wjH-sN-V5w"/>
+                                    <action selector="btnAddTask:" destination="dzJ-Fy-LCJ" eventType="touchUpInside" id="KSF-BE-VBi"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="frY-D9-fMR">
@@ -172,7 +172,7 @@
                                 <rect key="frame" x="336.33333333333331" y="271.33333333333331" width="31" height="22"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                <color key="tintColor" name="Contrast"/>
+                                <color key="tintColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" image="Triangle Copy"/>
                                 <connections>
                                     <action selector="incrementTimer:" destination="dzJ-Fy-LCJ" eventType="touchUpInside" id="y0d-5b-zQ4"/>
@@ -198,30 +198,35 @@
                                     <constraint firstItem="LoV-Hf-8UY" firstAttribute="top" secondItem="hdL-3I-hPV" secondAttribute="top" id="jDH-LJ-KWH"/>
                                 </constraints>
                             </stackView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add a new task" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UPg-pg-Sc3">
-                                <rect key="frame" x="73" y="822.33333333333337" width="119" height="22"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="svu-ON-KP8">
+                                <rect key="frame" x="78" y="816.33333333333337" width="296" height="34"/>
                                 <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="19"/>
-                                <color key="textColor" name="Contrast"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                                <state key="normal" title="Add a new task                 ">
+                                    <color key="titleColor" red="0.34267747399999998" green="0.54264974590000004" blue="0.5309523344" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="localizedKey" value="Add new task"/>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="labelAddTask:" destination="dzJ-Fy-LCJ" eventType="touchUpInside" id="Wee-pv-q7e"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" name="Background"/>
                         <constraints>
                             <constraint firstItem="j4m-JR-Ug1" firstAttribute="width" secondItem="cJM-vG-g4v" secondAttribute="width" multiplier="0.073" id="0hM-O9-FPt"/>
-                            <constraint firstItem="UPg-pg-Sc3" firstAttribute="centerX" secondItem="cJM-vG-g4v" secondAttribute="centerX" multiplier="0.64" id="2KE-3J-8QD"/>
                             <constraint firstItem="Gph-o6-hHJ" firstAttribute="centerX" secondItem="iLu-xa-n52" secondAttribute="centerX" id="2nd-Hj-grD"/>
                             <constraint firstAttribute="trailing" secondItem="5Og-hc-SfW" secondAttribute="trailing" id="2wA-13-EdK"/>
+                            <constraint firstItem="svu-ON-KP8" firstAttribute="centerY" secondItem="cJM-vG-g4v" secondAttribute="centerY" multiplier="1.86" id="3a9-z6-8vl"/>
                             <constraint firstItem="pKx-mZ-koy" firstAttribute="centerX" secondItem="cJM-vG-g4v" secondAttribute="centerX" multiplier="0.24" id="41w-se-FWe"/>
                             <constraint firstItem="fF9-rM-VLj" firstAttribute="centerX" secondItem="cJM-vG-g4v" secondAttribute="centerX" id="4Sk-dW-lVx"/>
-                            <constraint firstItem="UPg-pg-Sc3" firstAttribute="leading" secondItem="pKx-mZ-koy" secondAttribute="trailing" constant="12.333333333333336" id="5qw-R8-Lne"/>
                             <constraint firstItem="hdL-3I-hPV" firstAttribute="centerY" secondItem="cJM-vG-g4v" secondAttribute="centerY" multiplier="0.24" id="76L-vl-NmY"/>
                             <constraint firstItem="kyN-F8-bjy" firstAttribute="height" secondItem="cJM-vG-g4v" secondAttribute="height" multiplier="0.0245536" id="AN7-SG-LAz"/>
                             <constraint firstItem="kyN-F8-bjy" firstAttribute="centerY" secondItem="cJM-vG-g4v" secondAttribute="centerY" multiplier="0.63" id="Bnk-6G-8xY"/>
                             <constraint firstItem="hdL-3I-hPV" firstAttribute="centerX" secondItem="cJM-vG-g4v" secondAttribute="centerX" id="Cbu-1E-kdW"/>
                             <constraint firstItem="j4m-JR-Ug1" firstAttribute="height" secondItem="cJM-vG-g4v" secondAttribute="height" multiplier="0.034" id="Fov-4b-V9e"/>
+                            <constraint firstItem="iLu-xa-n52" firstAttribute="trailing" secondItem="svu-ON-KP8" secondAttribute="trailing" constant="40" id="HBa-kW-kpl"/>
                             <constraint firstItem="frY-D9-fMR" firstAttribute="centerY" secondItem="cJM-vG-g4v" secondAttribute="centerY" id="Kbd-TR-Myk"/>
-                            <constraint firstItem="UPg-pg-Sc3" firstAttribute="centerY" secondItem="cJM-vG-g4v" secondAttribute="centerY" multiplier="1.86" id="LoV-lJ-6sm"/>
                             <constraint firstItem="pKx-mZ-koy" firstAttribute="width" secondItem="cJM-vG-g4v" secondAttribute="width" multiplier="0.0531401" id="OaF-5q-oIr"/>
                             <constraint firstItem="frY-D9-fMR" firstAttribute="centerX" secondItem="cJM-vG-g4v" secondAttribute="centerX" id="PQT-Yw-CQD"/>
                             <constraint firstItem="nU9-HW-LZe" firstAttribute="leading" secondItem="iLu-xa-n52" secondAttribute="leading" multiplier="0.1" constant="40" id="Rm4-oI-i4a"/>
@@ -233,6 +238,7 @@
                             <constraint firstItem="5Og-hc-SfW" firstAttribute="leading" secondItem="cJM-vG-g4v" secondAttribute="leading" id="dDb-AY-cnu"/>
                             <constraint firstItem="Gph-o6-hHJ" firstAttribute="height" secondItem="cJM-vG-g4v" secondAttribute="height" multiplier="0.204241" id="eMS-MK-yTa"/>
                             <constraint firstItem="kyN-F8-bjy" firstAttribute="width" secondItem="cJM-vG-g4v" secondAttribute="width" multiplier="0.0748792" id="fee-Kj-YmL"/>
+                            <constraint firstItem="svu-ON-KP8" firstAttribute="leading" secondItem="pKx-mZ-koy" secondAttribute="trailing" constant="17.333333333333336" id="gUv-Vl-bfe"/>
                             <constraint firstItem="03M-M0-dgR" firstAttribute="centerY" secondItem="iLu-xa-n52" secondAttribute="centerY" multiplier="1.19" constant="1" id="h1v-SK-8qe">
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="iPhoneSE">
@@ -266,6 +272,9 @@
                         <viewLayoutGuide key="safeArea" id="iLu-xa-n52"/>
                     </view>
                     <connections>
+                        <outlet property="btnDecrease" destination="kyN-F8-bjy" id="AzE-Nl-D4Q"/>
+                        <outlet property="btnInscrease" destination="byY-MO-Ghe" id="0YE-pb-PU0"/>
+                        <outlet property="btnLabelTask" destination="svu-ON-KP8" id="LdA-9O-FGr"/>
                         <outlet property="btnStart" destination="frY-D9-fMR" id="pCV-g3-Etr"/>
                         <outlet property="projectColor" destination="j4m-JR-Ug1" id="UF1-iQ-rH1"/>
                         <outlet property="ringView" destination="fF9-rM-VLj" id="N0S-SC-uNI"/>

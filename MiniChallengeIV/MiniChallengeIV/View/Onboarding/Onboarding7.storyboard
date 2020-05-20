@@ -35,6 +35,7 @@
                                     <userDefinedRuntimeAttribute type="number" keyPath="round">
                                         <real key="value" value="94"/>
                                     </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="localizedKey" value="Start"/>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="onClickStart:" destination="r4q-dl-nwb" eventType="touchUpInside" id="F1X-it-lvt"/>

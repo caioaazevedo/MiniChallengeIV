@@ -78,7 +78,7 @@ class TaskDAO {
     /// - Returns: Boolean if the task was deleted
     func deleteTask(uuid: UUID, completion: (Result<Void, ValidationError>) -> Void){
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "TaskCD")
-        fetchRequest.predicate = NSPredicate(format: "uuid == %@", uuid.uuidString)
+        fetchRequest.predicate = NSPredicate(format: "id == %@", uuid.uuidString)
         
         do {
             let objects = try self.context.fetch(fetchRequest)
