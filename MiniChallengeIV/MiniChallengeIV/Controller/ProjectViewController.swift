@@ -85,7 +85,6 @@ class ProjectViewController: UIViewController {
     
     /// Go to Onboarding
     private func goToOnboardingViewController() {
-        
         guard !UserDefaults.standard.bool(forKey: "onboardingWasDisplayed") else { return }
 
         if let onboardingVC = UIStoryboard.loadView(from: .Onboarding, identifier: .VC) as? OnboardingPagerViewController {
