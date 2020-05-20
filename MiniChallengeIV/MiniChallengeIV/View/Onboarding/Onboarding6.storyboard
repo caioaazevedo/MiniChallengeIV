@@ -43,8 +43,8 @@
                                 </userDefinedRuntimeAttributes>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Progess" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9t5-3s-Uax">
-                                <rect key="frame" x="40" y="126" width="84" height="30"/>
-                                <fontDescription key="fontDescription" name="Didot" family="Didot" pointSize="24"/>
+                                <rect key="frame" x="40" y="126" width="85.5" height="28.5"/>
+                                <fontDescription key="fontDescription" name="Georgia" family="Georgia" pointSize="25"/>
                                 <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                                 <userDefinedRuntimeAttributes>
@@ -54,7 +54,7 @@
                                 </userDefinedRuntimeAttributes>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="December" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y4C-Iu-3dR">
-                                <rect key="frame" x="171" y="181" width="72" height="20"/>
+                                <rect key="frame" x="171" y="179.5" width="72" height="20"/>
                                 <fontDescription key="fontDescription" name="GillSans-Light" family="Gill Sans" pointSize="17"/>
                                 <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -65,7 +65,7 @@
                                 </userDefinedRuntimeAttributes>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="5h30" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ljd-Z7-FWT">
-                                <rect key="frame" x="71" y="230" width="42" height="20"/>
+                                <rect key="frame" x="71" y="228.5" width="42" height="20"/>
                                 <fontDescription key="fontDescription" name="GillSans-Bold" family="Gill Sans" pointSize="17"/>
                                 <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -76,7 +76,7 @@
                                 </userDefinedRuntimeAttributes>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1h" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F3R-ZF-YXN">
-                                <rect key="frame" x="196.5" y="230" width="21" height="20"/>
+                                <rect key="frame" x="196.5" y="228.5" width="21" height="20"/>
                                 <fontDescription key="fontDescription" name="GillSans-Bold" family="Gill Sans" pointSize="17"/>
                                 <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -87,7 +87,7 @@
                                 </userDefinedRuntimeAttributes>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1h" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kAm-Il-yeN">
-                                <rect key="frame" x="311.5" y="230" width="21" height="20"/>
+                                <rect key="frame" x="311.5" y="228.5" width="21" height="20"/>
                                 <fontDescription key="fontDescription" name="GillSans-Bold" family="Gill Sans" pointSize="17"/>
                                 <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -98,7 +98,7 @@
                                 </userDefinedRuntimeAttributes>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total Fucused" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TtK-Ej-Lhh">
-                                <rect key="frame" x="59.5" y="258" width="65" height="39"/>
+                                <rect key="frame" x="59.5" y="256.5" width="65" height="39"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="65" id="4wg-Kc-LIa"/>
                                 </constraints>
@@ -112,7 +112,7 @@
                                 </userDefinedRuntimeAttributes>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total Breaks" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y7J-Sk-X8I">
-                                <rect key="frame" x="299.5" y="258" width="45" height="39"/>
+                                <rect key="frame" x="299.5" y="256.5" width="45" height="39"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="45" id="BX9-Je-fJz"/>
                                 </constraints>
@@ -126,7 +126,7 @@
                                 </userDefinedRuntimeAttributes>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total Distractions" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pyR-hz-vCT">
-                                <rect key="frame" x="167" y="258" width="80" height="39"/>
+                                <rect key="frame" x="167" y="256.5" width="80" height="39"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="80" id="m0l-7D-QPM"/>
                                 </constraints>
@@ -140,8 +140,8 @@
                                 </userDefinedRuntimeAttributes>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Actual Projects" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zmf-I6-ub1">
-                                <rect key="frame" x="124.5" y="359" width="165" height="30"/>
-                                <fontDescription key="fontDescription" name="Didot" family="Didot" pointSize="24"/>
+                                <rect key="frame" x="124" y="357.5" width="166.5" height="28.5"/>
+                                <fontDescription key="fontDescription" name="Georgia" family="Georgia" pointSize="25"/>
                                 <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                                 <userDefinedRuntimeAttributes>
@@ -151,7 +151,7 @@
                                 </userDefinedRuntimeAttributes>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="25%" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0wC-7W-Vsf">
-                                <rect key="frame" x="77.5" y="429" width="29" height="20"/>
+                                <rect key="frame" x="77.5" y="426" width="29" height="20"/>
                                 <fontDescription key="fontDescription" name="GillSans-Light" family="Gill Sans" pointSize="17"/>
                                 <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -162,7 +162,7 @@
                                 </userDefinedRuntimeAttributes>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="25%" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A0K-7S-1eN">
-                                <rect key="frame" x="307.5" y="429" width="29" height="20"/>
+                                <rect key="frame" x="307.5" y="426" width="29" height="20"/>
                                 <fontDescription key="fontDescription" name="GillSans-Light" family="Gill Sans" pointSize="17"/>
                                 <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -173,7 +173,7 @@
                                 </userDefinedRuntimeAttributes>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="50%" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="APn-hh-Ld6">
-                                <rect key="frame" x="192.5" y="634" width="29" height="20"/>
+                                <rect key="frame" x="192.5" y="631" width="29" height="20"/>
                                 <fontDescription key="fontDescription" name="GillSans-Light" family="Gill Sans" pointSize="17"/>
                                 <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -184,7 +184,7 @@
                                 </userDefinedRuntimeAttributes>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Project 01" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mEv-GV-vfV">
-                                <rect key="frame" x="113" y="673" width="69" height="20"/>
+                                <rect key="frame" x="113" y="670" width="69" height="20"/>
                                 <fontDescription key="fontDescription" name="GillSans-Light" family="Gill Sans" pointSize="17"/>
                                 <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -195,7 +195,7 @@
                                 </userDefinedRuntimeAttributes>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Project 02" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wmi-uo-1Q6">
-                                <rect key="frame" x="113" y="701" width="69" height="20"/>
+                                <rect key="frame" x="113" y="698" width="69" height="20"/>
                                 <fontDescription key="fontDescription" name="GillSans-Light" family="Gill Sans" pointSize="17"/>
                                 <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -206,7 +206,7 @@
                                 </userDefinedRuntimeAttributes>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Project 03" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eto-oH-LfQ">
-                                <rect key="frame" x="113" y="729" width="69" height="20"/>
+                                <rect key="frame" x="113" y="726" width="69" height="20"/>
                                 <fontDescription key="fontDescription" name="GillSans-Light" family="Gill Sans" pointSize="17"/>
                                 <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
