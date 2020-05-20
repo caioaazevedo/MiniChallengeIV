@@ -27,44 +27,23 @@ class ProjectViewController: UIViewController {
         super.viewDidLoad()
         
         createStatistics()
-        getCurrentStatistics()
         reloadList()
         
         collectionView.collectionViewLayout = collectionLayout
         
         self.navigationController?.navigationBar.shadowImage = UIImage()
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
-        
-//        projectBO.create(name: "Work", color: UIColor(red: 0.77, green: 0.87, blue: 0.96, alpha: 1.00), completion: { results in
-//            switch results {
-//
-//            case .success(let project):
-//                print(project)
-//
-//
-//                projectBO.retrieve(completion: { results in
-//                    switch results {
-//
-//                    case .success(let projects):
-//                        self.projects = projects
-//                        self.selectedProjectId = 0
-//                        performSegue(withIdentifier: "GoToTimer", sender: self)
-//
-//                    case .failure(let error):
-//                        print(error.localizedDescription)
-//                    }
-//                })
-//            case .failure(let error):
-//                print(error.localizedDescription)
-//            }
-//        })
-        
-        // Do any additional setup after loading the view.
+    
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         UIApplication.shared.sendAction(#selector(UIApplication.resignFirstResponder), to: nil, from: nil, for: nil)
         view.endEditing(true)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        getCurrentStatistics()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -238,7 +217,6 @@ extension ProjectViewController: ReloadProjectListDelegate {
             case .success(let projects):
                 self.projects = projects
                 
-                print(projects)
                 collectionView.reloadData()
             case .failure(let error):
                 print(error.localizedDescription)

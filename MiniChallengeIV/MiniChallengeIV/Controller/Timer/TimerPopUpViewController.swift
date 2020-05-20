@@ -84,6 +84,11 @@ class TimerPopUpViewController: UIViewController {
     }
     //Cancel timer and go back to menu
     @IBAction func Cancel(_ sender: Any) {
-        self.dismiss(animated: true)
+//        guard let navigation = self.presentingViewController as? UINavigationController else{return}
+//        guard let pvc = navigation.topViewController as? TimerViewController else {return}
+//        self.dismiss(animated: true) {
+//            pvc.dismiss(animated: true)
+//        }
+        dismiss(animated: true)
     }
 }

@@ -71,7 +71,6 @@ class TimeTrackerBO{
     var changeCicle: TimeTrackerState{
         return state == .focus ? .pause : .focus
     }
-    
     //MARK: Methods
     /**
      Method for starting the count down from an initial value, and also handling view updates.

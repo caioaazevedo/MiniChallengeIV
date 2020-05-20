@@ -27,7 +27,7 @@
                                     <constraint firstAttribute="width" constant="188" id="PpW-tV-Wx2"/>
                                     <constraint firstAttribute="height" constant="188" id="xF9-GE-opk"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="Didot" family="Didot" pointSize="30"/>
+                                <fontDescription key="fontDescription" name="Georgia" family="Georgia" pointSize="30"/>
                                 <state key="normal" title="Start">
                                     <color key="titleColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
