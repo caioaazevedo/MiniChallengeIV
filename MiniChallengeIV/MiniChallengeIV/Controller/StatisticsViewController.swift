@@ -18,6 +18,7 @@ class StatisticsViewController: UIViewController {
     @IBOutlet weak var totalFocusedLabel: UILabel!
     @IBOutlet weak var totalDistractionsLabel: UILabel!
     @IBOutlet weak var totalBreaksLabel: UILabel!
+    @IBOutlet weak var chartBackgroundImage: UIImageView!
     
     var dataChartBO = DataChartBO()
     var statistics: [Statistic]?
@@ -49,6 +50,9 @@ class StatisticsViewController: UIViewController {
         /// Load the pie chart with projects data
         dataChartBO.loadChartData { (chartData) in
             self.circleChart.data = chartData
+            
+            self.circleChart.isHidden = self.dataChartBO.isHidden
+            self.chartBackgroundImage.isHidden = !self.circleChart.isHidden
         }
     }
 
