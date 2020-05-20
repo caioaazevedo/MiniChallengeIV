@@ -144,21 +144,21 @@ class NewProjectViewController: UIViewController{
             return false
         }
         
-        projectName = removeSpaces(string: projectName)
+        projectName = removeSpacesFromStartAndEnd(ofThe: projectName)
         
         projectNameLabel.resignFirstResponder()
         return true
     }
     
-    private func removeSpaces(string: String) -> String {
+    private func removeSpacesFromStartAndEnd(ofThe string: String) -> String {
         var s = string
         if s.first == " " {
             s.removeFirst()
-            s = removeSpaces(string: s)
+            s = removeSpacesFromStartAndEnd(ofThe: s)
         }
         else if s.last == " " {
             s.removeLast()
-            s = removeSpaces(string: s)
+            s = removeSpacesFromStartAndEnd(ofThe: s)
         }
         return s
     }
