@@ -19,6 +19,8 @@ class StatisticsViewController: UIViewController {
     @IBOutlet weak var totalDistractionsLabel: UILabel!
     @IBOutlet weak var totalBreaksLabel: UILabel!
     @IBOutlet weak var chartBackgroundImage: UIImageView!
+    @IBOutlet weak var noDataLabel: UILabel!
+    @IBOutlet weak var tryRunLabel: UILabel!
     
     var dataChartBO = DataChartBO()
     var statistics: [Statistic]?
@@ -53,6 +55,8 @@ class StatisticsViewController: UIViewController {
             
             self.circleChart.isHidden = self.dataChartBO.isHidden
             self.chartBackgroundImage.isHidden = !self.circleChart.isHidden
+            self.noDataLabel.isHidden = !self.circleChart.isHidden
+            self.tryRunLabel.isHidden = !self.circleChart.isHidden
         }
     }
 

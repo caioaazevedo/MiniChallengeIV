@@ -87,13 +87,13 @@ class AnimatedRingView: UIView {
      - Parameter endProportion: point in percentage of where the animation will end in the circle.(0 to 1)
      - Parameter duratino: The duration in seconds for the animations. It comes with a default value.
      */
-    func animateRing(From startProportion: CGFloat,FromAngle startPinPos: CGFloat, To endProportion: CGFloat, Duration duration: CFTimeInterval = animationDuration) {
+    func animateRing(From startProportion: CGFloat,FromAngle startPinPos: CGFloat, To endProportion: CGFloat, Duration duration: CFTimeInterval = animationDuration, timing: CAMediaTimingFunctionName? = .linear) {
         self.isRunning = true
         let animation = CABasicAnimation(keyPath: "strokeEnd")
         animation.duration = duration
         animation.fromValue = startProportion
         animation.toValue = endProportion
-        animation.timingFunction = CAMediaTimingFunction(name: .linear)
+        animation.timingFunction = CAMediaTimingFunction(name: timing!)
         ringlayer.strokeEnd = 1
         ringlayer.strokeStart = 0
         ringlayer.add(animation, forKey: "animateRing")
@@ -101,7 +101,7 @@ class AnimatedRingView: UIView {
         let pinAnimation = CABasicAnimation(keyPath: "transform.rotation")
         pinAnimation.fromValue = startPinPos
         pinAnimation.toValue = 2 * CGFloat.pi
-        pinAnimation.timingFunction = CAMediaTimingFunction(name: .linear)
+        pinAnimation.timingFunction = CAMediaTimingFunction(name: timing!)
         pinAnimation.duration = duration
         pinAnimation.isAdditive = true
         pinlayer.add(pinAnimation, forKey: "animatePin")
