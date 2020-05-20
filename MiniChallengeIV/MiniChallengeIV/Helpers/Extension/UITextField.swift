@@ -79,9 +79,7 @@ extension UITextField {
     func clearStrikeThrough(){
         if let text = self.text {
            let attributeString: NSMutableAttributedString =  NSMutableAttributedString(string: text)
-            
             attributeString.setAttributes([:], range: NSMakeRange(0, attributeString.length))
-            
             self.attributedText = attributeString
         }
     }

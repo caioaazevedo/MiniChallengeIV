@@ -172,7 +172,7 @@
                                 <rect key="frame" x="336.33333333333331" y="271.33333333333331" width="31" height="22"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                <color key="tintColor" name="Contrast"/>
+                                <color key="tintColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" image="Triangle Copy"/>
                                 <connections>
                                     <action selector="incrementTimer:" destination="dzJ-Fy-LCJ" eventType="touchUpInside" id="y0d-5b-zQ4"/>
@@ -269,6 +269,8 @@
                         <viewLayoutGuide key="safeArea" id="iLu-xa-n52"/>
                     </view>
                     <connections>
+                        <outlet property="btnDecrease" destination="kyN-F8-bjy" id="AzE-Nl-D4Q"/>
+                        <outlet property="btnInscrease" destination="byY-MO-Ghe" id="0YE-pb-PU0"/>
                         <outlet property="btnLabelTask" destination="svu-ON-KP8" id="LdA-9O-FGr"/>
                         <outlet property="btnStart" destination="frY-D9-fMR" id="pCV-g3-Etr"/>
                         <outlet property="projectColor" destination="j4m-JR-Ug1" id="UF1-iQ-rH1"/>

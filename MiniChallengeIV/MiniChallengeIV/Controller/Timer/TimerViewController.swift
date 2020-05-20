@@ -56,6 +56,8 @@ class TimerViewController: UIViewController {
     @IBOutlet var timeConfigButtons: [UIButton]!
     @IBOutlet weak var stateLabel: UILabel!
     @IBOutlet weak var btnLabelTask: UIButton!
+    @IBOutlet weak var btnInscrease: UIButton!
+    @IBOutlet weak var btnDecrease: UIButton!
     
     //Ring View
     @IBOutlet weak var projectColor: UIView!
@@ -67,6 +69,8 @@ class TimerViewController: UIViewController {
         loadProject()
         loadTasks()
         
+
+        tableView.allowsSelection = false
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
         self.navigationController?.navigationBar.shadowImage = UIImage()
 //        self.navigationController?.navigationBar.tintColor = UIColor(red: 0.35, green: 0.49, blue: 0.49, alpha: 1.00)
@@ -100,6 +104,7 @@ class TimerViewController: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
         
+        self.taskState.enter(NormalState.self)
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -126,12 +131,9 @@ class TimerViewController: UIViewController {
             
             switch result {
             case .success(let tasks):
-//                print("first ----- \n primeiro: \(tasks[0].state) \n segundo: \(tasks[1].state)")
                 self.tasks = tasks.sorted(by: { task, task2 in
                     !task.state && task2.state
                 })
-//                print("first ----- \n primeiro: \(self.tasks[0].state) \n segundo: \(self.tasks[1].state)")
-
                 tableView.reloadData()
             case .failure(let error):
                 print(error)
@@ -182,7 +184,7 @@ class TimerViewController: UIViewController {
         
         timeTracker.stopTimer(){
             //TODO: Message for when the user gives up
-            self.stateLabel.text = self.timeTracker.state.rawValue
+//            self.stateLabel.text = self.timeTracker.state.rawValue
             self.timerLabel.text = self.timeTracker.secondsToString(with: self.timeTracker.convertedTimeValue)
             self.ringView.removeAnimation()
         }
@@ -308,13 +310,15 @@ extension TimerViewController: UITableViewDelegate, UITableViewDataSource {
         
         if tasks[indexPath.row].state {
             cell.taskTextField.addStrikeThrough()
-            
+
             if self.traitCollection.userInterfaceStyle == .dark {
                 cell.taskTextField.textColor = UIColor(red: 0.44, green: 0.44, blue: 0.44, alpha: 1.00)
             } else {
                 cell.taskTextField.textColor = UIColor(red: 0.20, green: 0.20, blue: 0.20, alpha: 1.00)
             }
         }else {
+
+            cell.taskTextField.clearStrikeThrough()
             if self.traitCollection.userInterfaceStyle == .dark {
                 cell.taskTextField.textColor = UIColor(red: 0.96, green: 0.96, blue: 0.94, alpha: 1.00)
             } else {
@@ -324,6 +328,28 @@ extension TimerViewController: UITableViewDelegate, UITableViewDataSource {
         
         return cell
     }
+    
+
+     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let contextItem = UIContextualAction(style: .destructive, title: "Delete") {  (contextualAction, view, boolValue) in
+            self.taskBO.delete(uuid: self.tasks[indexPath.row].id, completion: { result in
+                switch result {
+                    
+                case .success():
+                    print("sucess")
+                case .failure(let error):
+                    print(error.localizedDescription)
+                }
+            })
+            self.tasks.remove(at: indexPath.row)
+            self.tableView.deleteRows(at: [indexPath], with: .automatic)
+        }
+        contextItem.backgroundColor = UIColor(red: 0.82, green: 0.59, blue: 0.48, alpha: 1.00)
+        let swipeActions = UISwipeActionsConfiguration(actions: [contextItem])
+
+        return swipeActions
+    }
+
     
 }
 

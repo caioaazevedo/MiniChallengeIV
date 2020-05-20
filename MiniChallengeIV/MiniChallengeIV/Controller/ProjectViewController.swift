@@ -212,7 +212,6 @@ extension ProjectViewController: ReloadProjectListDelegate {
             case .success(let projects):
                 self.projects = projects
                 
-                print(projects)
                 collectionView.reloadData()
             case .failure(let error):
                 print(error.localizedDescription)

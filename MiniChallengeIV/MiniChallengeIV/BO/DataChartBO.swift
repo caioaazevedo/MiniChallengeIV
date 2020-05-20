@@ -60,7 +60,6 @@ class DataChartBO {
             
             self.projectColors.append(proj.color as NSUIColor)
             self.timeProjects.append(time)
-            print("DaTACHART TIME: \(time)")
             self.totalTime += time
         }
     }
