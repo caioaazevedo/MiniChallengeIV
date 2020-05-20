@@ -22,7 +22,7 @@
                                 </userDefinedRuntimeAttributes>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Leaving the app, all of your progress is lost." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s7e-AL-A5l">
-                                <rect key="frame" x="54.5" y="634.5" width="305" height="46"/>
+                                <rect key="frame" x="54.5" y="633.5" width="305" height="46"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="305" id="WGY-GV-p52">
                                         <userDefinedRuntimeAttributes>
@@ -40,10 +40,11 @@
                                     <userDefinedRuntimeAttribute type="number" keyPath="adjustedValue">
                                         <real key="value" value="20"/>
                                     </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="localisedKey" value="Onboard-text-5"/>
                                 </userDefinedRuntimeAttributes>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cancel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JiQ-Qd-SAa">
-                                <rect key="frame" x="106" y="516.5" width="56" height="23"/>
+                                <rect key="frame" x="109" y="515.5" width="56" height="23"/>
                                 <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="20"/>
                                 <color key="textColor" red="0.43921568630000002" green="0.43921568630000002" blue="0.43921568630000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -51,10 +52,11 @@
                                     <userDefinedRuntimeAttribute type="number" keyPath="adjustedValue">
                                         <real key="value" value="20"/>
                                     </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="localisedKey" value="Cancel"/>
                                 </userDefinedRuntimeAttributes>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Retry" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="paK-QP-YPo">
-                                <rect key="frame" x="257" y="516.5" width="46" height="23"/>
+                                <rect key="frame" x="254" y="515.5" width="46" height="23"/>
                                 <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="20"/>
                                 <color key="textColor" red="0.87843137250000003" green="0.90196078430000004" blue="0.86274509799999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -62,6 +64,7 @@
                                     <userDefinedRuntimeAttribute type="number" keyPath="adjustedValue">
                                         <real key="value" value="20"/>
                                     </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="localisedKey" value="Retry"/>
                                 </userDefinedRuntimeAttributes>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nC0-lP-HJ2">
@@ -75,17 +78,19 @@ Let’s try total focus again?</string>
                                     <userDefinedRuntimeAttribute type="number" keyPath="adjustedValue">
                                         <real key="value" value="20"/>
                                     </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="localisedKey" value="Give Up text"/>
                                 </userDefinedRuntimeAttributes>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ooops!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bmB-tV-WGR">
-                                <rect key="frame" x="166" y="388" width="82.5" height="30"/>
-                                <fontDescription key="fontDescription" name="Georgia" family="Georgia" pointSize="26"/>
+                                <rect key="frame" x="167.5" y="388" width="79" height="30"/>
+                                <fontDescription key="fontDescription" name="Didot" family="Didot" pointSize="24"/>
                                 <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="adjustedValue">
                                         <real key="value" value="24"/>
                                     </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="localisedKey" value="Give Up title"/>
                                 </userDefinedRuntimeAttributes>
                             </label>
                         </subviews>
@@ -110,7 +115,7 @@ Let’s try total focus again?</string>
                             <constraint firstItem="wAI-ZR-cHe" firstAttribute="top" secondItem="xoy-07-2Dt" secondAttribute="top" id="3x8-WW-wks"/>
                             <constraint firstItem="s7e-AL-A5l" firstAttribute="centerX" secondItem="xoy-07-2Dt" secondAttribute="centerX" id="9kn-bK-ss8"/>
                             <constraint firstItem="paK-QP-YPo" firstAttribute="centerY" secondItem="JiQ-Qd-SAa" secondAttribute="centerY" id="CA5-eb-zia"/>
-                            <constraint firstItem="JiQ-Qd-SAa" firstAttribute="top" secondItem="nC0-lP-HJ2" secondAttribute="bottom" constant="46" id="FKL-qR-CZJ">
+                            <constraint firstItem="JiQ-Qd-SAa" firstAttribute="top" secondItem="nC0-lP-HJ2" secondAttribute="bottom" constant="45" id="FKL-qR-CZJ">
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="iPhone8">
                                         <real key="value" value="25"/>
@@ -128,7 +133,7 @@ Let’s try total focus again?</string>
                             </constraint>
                             <constraint firstItem="wAI-ZR-cHe" firstAttribute="leading" secondItem="H8d-PM-udw" secondAttribute="leading" id="QFV-YH-Hx5"/>
                             <constraint firstItem="nC0-lP-HJ2" firstAttribute="top" secondItem="bmB-tV-WGR" secondAttribute="bottom" constant="7" id="S9d-ia-Xgj"/>
-                            <constraint firstItem="JiQ-Qd-SAa" firstAttribute="centerX" secondItem="xoy-07-2Dt" secondAttribute="centerX" constant="-73" id="U7L-8J-Piz">
+                            <constraint firstItem="JiQ-Qd-SAa" firstAttribute="centerX" secondItem="xoy-07-2Dt" secondAttribute="centerX" constant="-70" id="U7L-8J-Piz">
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="iPhone8">
                                         <real key="value" value="-58"/>
@@ -149,7 +154,7 @@ Let’s try total focus again?</string>
                             </constraint>
                             <constraint firstItem="bmB-tV-WGR" firstAttribute="centerX" secondItem="xoy-07-2Dt" secondAttribute="centerX" id="a7f-p9-CQl"/>
                             <constraint firstAttribute="bottom" secondItem="wAI-ZR-cHe" secondAttribute="bottom" id="crQ-Zp-Kv3"/>
-                            <constraint firstItem="paK-QP-YPo" firstAttribute="centerX" secondItem="xoy-07-2Dt" secondAttribute="centerX" constant="73" id="dKT-LG-PBm">
+                            <constraint firstItem="paK-QP-YPo" firstAttribute="centerX" secondItem="xoy-07-2Dt" secondAttribute="centerX" constant="70" id="dKT-LG-PBm">
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="iPhone8">
                                         <real key="value" value="58"/>
