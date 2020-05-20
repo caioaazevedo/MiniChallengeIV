@@ -33,6 +33,8 @@
 "December" = "Diciembre";
 
 "Current projects" = "Proyectos actuales";
+"No data found" = "Datos no encontrados";
+"Try run a timer to add your progress" = "Usa el cronómetro para agregar tu progreso";
 
 //MARK: New project
 "Work" = "Trabajo";
@@ -71,3 +73,28 @@
 "Actions" = "Comportamiento";
 
 //MARK: Onboarding
+//1
+"Onboard-text-1" = "Agregue sus proyectos en los que desea enfocarse";
+"College" = "Colegio";
+"Writting" = "Escribir";
+"UX Course" = "Curso de UX";
+//2
+"Onboard-text-2" = "Rastree proyectos.";
+//3
+"Onboard-text-3" = "Elija el tiempo ideal para concentrarse";
+//4
+"Onboard-text-4" = "Agregue algunas tareas para hacer mientras se acaba el tiempo.";
+"Create strategy" = "Crea estrategias";
+"Send email" = "Enviar correo electrónico";
+//5
+"Onboard-text-5" = "Si te rindes, todo tu progreso se perderá";
+//6
+"Onboard-text-6" = "Sigue las estadísticas de tus proyectos.";
+
+//MARK: Extra
+"Total Focus" = "Total Foco";
+"Total Distractions" = "Total Distracción";
+"Total Break" = "Total Pausa";
+"Add new task" = "Agregar nueva tarea";
+"no-projects" = "¡Aún no hay proyectos!";
+"add-projects" = "Agregue proyectos en los que desea centrarse";
