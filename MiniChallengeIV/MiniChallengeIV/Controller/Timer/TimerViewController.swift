@@ -67,7 +67,7 @@ class TimerViewController: UIViewController {
         
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
         self.navigationController?.navigationBar.shadowImage = UIImage()
-//        self.navigationController?.navigationBar.tintColor = UIColor(red: 0.35, green: 0.49, blue: 0.49, alpha: 1.00)
+        //        self.navigationController?.navigationBar.tintColor = UIColor(red: 0.35, green: 0.49, blue: 0.49, alpha: 1.00)
         
         self.navigationItem.rightBarButtonItem = nil
         
@@ -123,12 +123,12 @@ class TimerViewController: UIViewController {
             
             switch result {
             case .success(let tasks):
-//                print("first ----- \n primeiro: \(tasks[0].state) \n segundo: \(tasks[1].state)")
+                //                print("first ----- \n primeiro: \(tasks[0].state) \n segundo: \(tasks[1].state)")
                 self.tasks = tasks.sorted(by: { task, task2 in
                     !task.state && task2.state
                 })
-//                print("first ----- \n primeiro: \(self.tasks[0].state) \n segundo: \(self.tasks[1].state)")
-
+                //                print("first ----- \n primeiro: \(self.tasks[0].state) \n segundo: \(self.tasks[1].state)")
+                
                 tableView.reloadData()
             case .failure(let error):
                 print(error)
@@ -169,7 +169,12 @@ class TimerViewController: UIViewController {
         let notificationType = timeTracker.state == .focus ? NotificationType.didFinishFocus : .didFinishBreak
         let delay = TimeInterval(timeTracker.convertedTimeValue)
         AppNotificationBO.shared.sendNotification(type: notificationType, delay: delay)
-        self.navigationController?.navigationBar.topItem?.hidesBackButton = true
+        //        self.navigationController?.navigationBar.topItem?.hidesBackButton = true
+        self.navigationController?.navigationBar.isUserInteractionEnabled = false
+        self.navigationController?.navigationBar.tintColor = UIColor { (traitCollection: UITraitCollection) -> UIColor in
+            let userInterfaceStyle = traitCollection.userInterfaceStyle
+            return userInterfaceStyle == .unspecified || userInterfaceStyle == .light ? .lightGray : .darkGray
+        }
     }
     
     //MARK: STOP TIMER
@@ -186,7 +191,9 @@ class TimerViewController: UIViewController {
         setConfigurationButtons()
         presentPopUp(state: .givenUp)
         UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
-        self.navigationController?.navigationBar.topItem?.hidesBackButton = false
+        //        self.navigationController?.navigationBar.topItem?.hidesBackButton = false
+        self.navigationController?.navigationBar.isUserInteractionEnabled = true
+        self.navigationController?.navigationBar.tintColor = UIColor(named: "Contrast")
         //Disable screen block
         UIApplication.shared.isIdleTimerDisabled = false
     }
@@ -209,7 +216,7 @@ class TimerViewController: UIViewController {
         animation.autoreverses = true
         animation.fromValue = NSValue(cgPoint: CGPoint(x: viewToShake.center.x - 10, y: viewToShake.center.y))
         animation.toValue = NSValue(cgPoint: CGPoint(x: viewToShake.center.x + 10, y: viewToShake.center.y))
-
+        
         viewToShake.layer.add(animation, forKey: "position")
         AudioServicesPlayAlertSound(SystemSoundID(kSystemSoundID_Vibrate))
     }
@@ -348,10 +355,10 @@ extension TimerViewController: UITextFieldDelegate {
             case is UpdateState:
                 var actuallyTask = tasks[textField.tag]
                 actuallyTask.description = description
-
+                
                 taskBO.update(task: actuallyTask, completion: {result in
                     switch result {
-
+                        
                     case .success():
                         loadTasks()
                         taskState.enter(NormalState.self)
