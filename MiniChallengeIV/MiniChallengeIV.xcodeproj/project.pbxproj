@@ -33,6 +33,8 @@
 		695EBADB246F41C7003A2ECC /* Onboarding7.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 695EBADA246F41C7003A2ECC /* Onboarding7.storyboard */; };
 		696620382465F034003B3916 /* OnboardingPagerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 696620372465F034003B3916 /* OnboardingPagerViewController.swift */; };
 		696E92E5245A499800E7F3DF /* NewProject.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 696E92E4245A499800E7F3DF /* NewProject.storyboard */; };
+		698ED8B12475DE6000A3B617 /* LaunchScreenAnimated.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 698ED8B02475DE6000A3B617 /* LaunchScreenAnimated.storyboard */; };
+		698ED8B32475DF8A00A3B617 /* LaunchScreenAnimatedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 698ED8B22475DF8A00A3B617 /* LaunchScreenAnimatedViewController.swift */; };
 		69B04723245754D5002A696D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69B04722245754D5002A696D /* AppDelegate.swift */; };
 		69B04725245754D5002A696D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69B04724245754D5002A696D /* SceneDelegate.swift */; };
 		69B0472D245754D5002A696D /* MiniChallengeIV.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 69B0472B245754D5002A696D /* MiniChallengeIV.xcdatamodeld */; };
@@ -127,6 +129,8 @@
 		695EBADA246F41C7003A2ECC /* Onboarding7.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Onboarding7.storyboard; sourceTree = "<group>"; };
 		696620372465F034003B3916 /* OnboardingPagerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingPagerViewController.swift; sourceTree = "<group>"; };
 		696E92E4245A499800E7F3DF /* NewProject.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = NewProject.storyboard; sourceTree = "<group>"; };
+		698ED8B02475DE6000A3B617 /* LaunchScreenAnimated.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreenAnimated.storyboard; sourceTree = "<group>"; };
+		698ED8B22475DF8A00A3B617 /* LaunchScreenAnimatedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreenAnimatedViewController.swift; sourceTree = "<group>"; };
 		69B0471F245754D5002A696D /* Pommo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pommo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		69B04722245754D5002A696D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		69B04724245754D5002A696D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -353,6 +357,7 @@
 				796706832469E18E00C35A43 /* UIView */,
 				E2DF455B2465EF3E0060FCB7 /* TableViewCell */,
 				69B04730245754D8002A696D /* LaunchScreen.storyboard */,
+				698ED8B02475DE6000A3B617 /* LaunchScreenAnimated.storyboard */,
 				796C3E39245A02C2004488D1 /* Timer.storyboard */,
 				69ECFA2E2459FD5A00D4F205 /* Projects.storyboard */,
 				696E92E4245A499800E7F3DF /* NewProject.storyboard */,
@@ -370,6 +375,7 @@
 				6910339A245A11DC009D5D58 /* Projects */,
 				69E2217324747FCD00B94E60 /* Onboarding */,
 				E24DE019246350A700E425E1 /* StatisticsViewController.swift */,
+				698ED8B22475DF8A00A3B617 /* LaunchScreenAnimatedViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -617,6 +623,7 @@
 				695EBAD1246F1ADA003A2ECC /* Onboarding4.storyboard in Resources */,
 				696E92E5245A499800E7F3DF /* NewProject.storyboard in Resources */,
 				695EBAD3246F1AE6003A2ECC /* Onboarding5.storyboard in Resources */,
+				698ED8B12475DE6000A3B617 /* LaunchScreenAnimated.storyboard in Resources */,
 				695EBADB246F41C7003A2ECC /* Onboarding7.storyboard in Resources */,
 				695EBAD7246F1AF8003A2ECC /* Onboarding2.storyboard in Resources */,
 				69B04732245754D8002A696D /* LaunchScreen.storyboard in Resources */,
@@ -774,6 +781,7 @@
 				79FB1D76246EDDC600AE3192 /* CGFloat.swift in Sources */,
 				695EBAD9246F2679003A2ECC /* UIImageView.swift in Sources */,
 				69D5310E246B469600ECF0F4 /* UITextField.swift in Sources */,
+				698ED8B32475DF8A00A3B617 /* LaunchScreenAnimatedViewController.swift in Sources */,
 				69F56228245B6E1D00EB2AF1 /* ProjectCollectionViewCell.swift in Sources */,
 				696620382465F034003B3916 /* OnboardingPagerViewController.swift in Sources */,
 				409D5032245B4E35006D66AC /* TaskBO.swift in Sources */,

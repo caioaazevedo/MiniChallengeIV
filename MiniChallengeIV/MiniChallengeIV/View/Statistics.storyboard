@@ -348,10 +348,12 @@
                         <outlet property="chartBackgroundImage" destination="pjs-eu-6fR" id="yZI-0t-qjT"/>
                         <outlet property="circleChart" destination="iCV-KY-9nS" id="syT-gc-ZpI"/>
                         <outlet property="labelMonth" destination="Q4X-L6-TLm" id="Y2Q-Cc-8ak"/>
+                        <outlet property="noDataLabel" destination="Muj-fh-VZg" id="KJs-Rg-CPM"/>
                         <outlet property="tableView" destination="K4w-AW-9gr" id="UBt-es-6oF"/>
                         <outlet property="totalBreaksLabel" destination="84v-Ia-oXv" id="jb5-TP-9Wc"/>
                         <outlet property="totalDistractionsLabel" destination="S39-HI-u8T" id="iml-63-QNM"/>
                         <outlet property="totalFocusedLabel" destination="f2o-XS-j9B" id="RDw-RR-mHb"/>
+                        <outlet property="tryRunLabel" destination="Qu7-jF-WJe" id="SzS-PM-NW9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5pW-Um-0Ol" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
