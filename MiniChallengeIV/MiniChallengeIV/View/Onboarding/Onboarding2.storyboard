@@ -22,13 +22,13 @@
                                 </userDefinedRuntimeAttributes>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="College" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jj9-cv-jky">
-                                <rect key="frame" x="59" y="356" width="53" height="20"/>
+                                <rect key="frame" x="59" y="358" width="53" height="20"/>
                                 <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="17"/>
                                 <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Track your total hours of and projects." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="654-5g-X99">
-                                <rect key="frame" x="50" y="207" width="314" height="23"/>
+                                <rect key="frame" x="50" y="209" width="314" height="23"/>
                                 <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="20"/>
                                 <color key="textColor" red="0.87843137250000003" green="0.90196078430000004" blue="0.86274509799999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -39,13 +39,13 @@
                                 </userDefinedRuntimeAttributes>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Edit Project" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UaV-bF-xC4">
-                                <rect key="frame" x="59" y="523" width="95" height="23"/>
+                                <rect key="frame" x="59" y="525" width="95" height="23"/>
                                 <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="20"/>
                                 <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Delete Project" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cbo-Et-5jT">
-                                <rect key="frame" x="59" y="565" width="119" height="23"/>
+                                <rect key="frame" x="59" y="569" width="119" height="23"/>
                                 <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="20"/>
                                 <color key="textColor" red="0.75686274509999996" green="0.29803921570000003" blue="0.3294117647" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -84,7 +84,7 @@
                             <constraint firstItem="Ynd-cZ-BuB" firstAttribute="leading" secondItem="cUR-cS-9dz" secondAttribute="leading" id="1Gz-6C-qFJ"/>
                             <constraint firstAttribute="bottom" secondItem="Ynd-cZ-BuB" secondAttribute="bottom" id="1YW-5p-FBf"/>
                             <constraint firstItem="n8P-rV-l9J" firstAttribute="centerX" secondItem="Jb3-gW-mEC" secondAttribute="centerX" id="2cU-uA-cD6"/>
-                            <constraint firstItem="cbo-Et-5jT" firstAttribute="top" secondItem="UaV-bF-xC4" secondAttribute="bottom" constant="19" id="AaT-Zq-ref">
+                            <constraint firstItem="cbo-Et-5jT" firstAttribute="top" secondItem="UaV-bF-xC4" secondAttribute="bottom" constant="21" id="AaT-Zq-ref">
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="iPhone8">
                                         <real key="value" value="26"/>
@@ -229,19 +229,19 @@
                                 </userDefinedRuntimeAttributes>
                             </constraint>
                             <constraint firstItem="654-5g-X99" firstAttribute="centerX" secondItem="Ynd-cZ-BuB" secondAttribute="centerX" id="gWD-u9-bWh"/>
-                            <constraint firstItem="654-5g-X99" firstAttribute="top" secondItem="bwB-V2-gLy" secondAttribute="bottom" constant="54" id="vtI-fX-CN0">
+                            <constraint firstItem="654-5g-X99" firstAttribute="top" secondItem="bwB-V2-gLy" secondAttribute="bottom" constant="56" id="vtI-fX-CN0">
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="iPhoneSE">
-                                        <real key="value" value="56"/>
+                                        <real key="value" value="60"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="number" keyPath="iPhone8">
                                         <real key="value" value="67"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="number" keyPath="iPhone8Plus">
-                                        <real key="value" value="75"/>
+                                        <real key="value" value="80"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="number" keyPath="iPhone11Pro">
-                                        <real key="value" value="35"/>
+                                        <real key="value" value="38"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </constraint>
