@@ -34,8 +34,6 @@
 "December" = "December";
 
 "Current projects" = "Current projects";
-"No data found" = "No data found";
-"Try run a timer to add your progress" = "Try running the timer to add your progress";
 
 //MARK: New project
 "Work" = "Work";
@@ -76,14 +74,14 @@
 
 //MARK: Onboarding
 //1
-"Onboard-text-1" = "Add projects which you want to focus on";
+"Onboard-text-1" = "Add your projects which you want to focus on";
 "College" = "College";
 "Writting" = "Writting";
 "UX Course" = "UX Course";
 //2
-"Onboard-text-2" = "Track your current projects";
+"Onboard-text-2" = "Track your projects and the amout of time you spend focused on them.";
 //3
-"Onboard-text-3" = "Select the ideal focus time";
+"Onboard-text-3" = "Select the ideal amount of time for you to spend focused";
 //4
 "Onboard-text-4" = "Add some tasks to do while the timer is running";
 "Create strategy" = "Create strategy";

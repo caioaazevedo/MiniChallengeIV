@@ -29,6 +29,7 @@
                                     <userDefinedRuntimeAttribute type="number" keyPath="adjustedValue">
                                         <real key="value" value="20"/>
                                     </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="localisedKey" value="no-projects"/>
                                 </userDefinedRuntimeAttributes>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add projects wich you want to focus" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4tN-qb-E2j" userLabel="Add projects wich you want to focus">
@@ -40,6 +41,7 @@
                                     <userDefinedRuntimeAttribute type="number" keyPath="adjustedValue">
                                         <real key="value" value="17"/>
                                     </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="localisedKey" value="add-projects"/>
                                 </userDefinedRuntimeAttributes>
                             </label>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="BgH-RO-QqS">
@@ -59,11 +61,9 @@
                                             <rect key="frame" x="0.0" y="0.0" width="160" height="160"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z0s-6h-YJE">
-                                                    <rect key="frame" x="14" y="14" width="132" height="40"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="40" id="dfY-3h-VE6"/>
-                                                    </constraints>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z0s-6h-YJE">
+                                                    <rect key="frame" x="14" y="14" width="132" height="20"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="17"/>
                                                     <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -80,9 +80,6 @@
                                             <constraints>
                                                 <constraint firstAttribute="trailing" secondItem="hW2-iP-8xP" secondAttribute="trailing" constant="14" id="3Zx-qF-cpA"/>
                                                 <constraint firstAttribute="bottom" secondItem="hW2-iP-8xP" secondAttribute="bottom" constant="14" id="FZb-0L-5Xq"/>
-                                                <constraint firstItem="Z0s-6h-YJE" firstAttribute="top" secondItem="GsM-xP-agd" secondAttribute="top" constant="14" id="WqV-IP-s6Y"/>
-                                                <constraint firstItem="Z0s-6h-YJE" firstAttribute="leading" secondItem="GsM-xP-agd" secondAttribute="leading" constant="14" id="ozM-eu-6bK"/>
-                                                <constraint firstAttribute="trailing" secondItem="Z0s-6h-YJE" secondAttribute="trailing" constant="14" id="vaw-rX-q29"/>
                                             </constraints>
                                         </collectionViewCellContentView>
                                         <color key="backgroundColor" systemColor="systemGray6Color" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -106,8 +103,8 @@
                                 <rect key="frame" x="39" y="158" width="152.33333333333334" height="44"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Progress" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Ag-fL-XNx">
-                                        <rect key="frame" x="0.0" y="8.333333333333341" width="92" height="27.333333333333329"/>
-                                        <fontDescription key="fontDescription" name="Georgia" family="Georgia" pointSize="24"/>
+                                        <rect key="frame" x="0.0" y="7" width="93.666666666666671" height="30"/>
+                                        <fontDescription key="fontDescription" name="Didot" family="Didot" pointSize="24"/>
                                         <color key="textColor" name="Label Black"/>
                                         <nil key="highlightedColor"/>
                                         <userDefinedRuntimeAttributes>
@@ -117,16 +114,36 @@
                                             <userDefinedRuntimeAttribute type="string" keyPath="localisedKey" value="Progress"/>
                                         </userDefinedRuntimeAttributes>
                                     </label>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chevron.right" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="DVd-fJ-jSe">
+                                        <rect key="frame" x="101" y="13.666666666666657" width="12.333333333333329" height="16.666666666666664"/>
+                                        <color key="tintColor" name="Contrast"/>
+                                    </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uaA-AE-c65">
+                                        <rect key="frame" x="0.0" y="0.0" width="152.33333333333334" height="44"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal">
+                                            <color key="titleColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="showStatistics:" destination="9qX-a1-AkN" eventType="touchUpInside" id="jVF-on-WDL"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
+                                    <constraint firstItem="DVd-fJ-jSe" firstAttribute="leading" secondItem="4Ag-fL-XNx" secondAttribute="trailing" constant="7.3333333333333286" id="3Uk-GJ-PXt"/>
+                                    <constraint firstItem="uaA-AE-c65" firstAttribute="width" secondItem="AdX-IG-PNb" secondAttribute="width" id="3sY-53-EOr"/>
+                                    <constraint firstItem="uaA-AE-c65" firstAttribute="height" secondItem="AdX-IG-PNb" secondAttribute="height" id="8aj-iC-Kk9"/>
+                                    <constraint firstItem="DVd-fJ-jSe" firstAttribute="centerY" secondItem="4Ag-fL-XNx" secondAttribute="centerY" id="AlJ-pl-9jx"/>
                                     <constraint firstItem="4Ag-fL-XNx" firstAttribute="centerY" secondItem="AdX-IG-PNb" secondAttribute="centerY" id="Jid-TU-896"/>
+                                    <constraint firstItem="uaA-AE-c65" firstAttribute="centerX" secondItem="AdX-IG-PNb" secondAttribute="centerX" id="Pyp-kX-YZa"/>
                                     <constraint firstItem="4Ag-fL-XNx" firstAttribute="leading" secondItem="AdX-IG-PNb" secondAttribute="leading" id="dj8-ML-zhx"/>
+                                    <constraint firstItem="uaA-AE-c65" firstAttribute="centerY" secondItem="AdX-IG-PNb" secondAttribute="centerY" id="pOL-CB-jlw"/>
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your Projects" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l5y-SN-NU7">
                                 <rect key="frame" x="39" y="332.33333333333331" width="297" height="27"/>
-                                <fontDescription key="fontDescription" name="Georgia" family="Georgia" pointSize="24"/>
+                                <fontDescription key="fontDescription" name="Didot" family="Didot" pointSize="24"/>
                                 <color key="textColor" name="Label Black"/>
                                 <nil key="highlightedColor"/>
                                 <userDefinedRuntimeAttributes>
@@ -252,7 +269,7 @@
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pommo" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cKE-XV-AKa">
                                 <rect key="frame" x="39" y="100" width="297" height="37.333333333333343"/>
-                                <fontDescription key="fontDescription" name="Georgia" family="Georgia" pointSize="30"/>
+                                <fontDescription key="fontDescription" name="Didot" family="Didot" pointSize="30"/>
                                 <color key="textColor" name="Label Black"/>
                                 <nil key="highlightedColor"/>
                                 <userDefinedRuntimeAttributes>
@@ -278,16 +295,6 @@
                                     <action selector="addProjectButtonAction:" destination="9qX-a1-AkN" eventType="touchUpInside" id="d7P-pl-f1v"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uaA-AE-c65">
-                                <rect key="frame" x="311.66666666666669" y="159.66666666666666" width="22" height="22"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <state key="normal" image="Bitmap">
-                                    <color key="titleColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <action selector="showStatistics:" destination="9qX-a1-AkN" eventType="touchUpInside" id="jVF-on-WDL"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" name="Background"/>
                         <constraints>
@@ -301,17 +308,9 @@
                             <constraint firstItem="BgH-RO-QqS" firstAttribute="leading" secondItem="cKE-XV-AKa" secondAttribute="leading" id="BmH-EF-6tn"/>
                             <constraint firstItem="9Jw-ny-MVG" firstAttribute="bottom" secondItem="jEq-ma-4eo" secondAttribute="bottom" constant="10" id="D50-bk-me8"/>
                             <constraint firstItem="l5y-SN-NU7" firstAttribute="leading" secondItem="cKE-XV-AKa" secondAttribute="leading" id="EQC-gx-pif"/>
-                            <constraint firstItem="uaA-AE-c65" firstAttribute="centerY" secondItem="qgF-Ed-Ttw" secondAttribute="centerY" multiplier="0.42" id="F4J-cm-uoD">
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="iPhoneSE">
-                                        <real key="value" value="14"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </constraint>
                             <constraint firstItem="l5y-SN-NU7" firstAttribute="height" secondItem="qgF-Ed-Ttw" secondAttribute="height" multiplier="0.0334821" id="FDJ-c9-xW4"/>
                             <constraint firstItem="AdX-IG-PNb" firstAttribute="leading" secondItem="cKE-XV-AKa" secondAttribute="leading" id="G48-SF-PJd"/>
                             <constraint firstItem="EB3-wP-Mm0" firstAttribute="height" secondItem="BgH-RO-QqS" secondAttribute="height" multiplier="0.780242" id="GRk-t2-1Z0"/>
-                            <constraint firstItem="uaA-AE-c65" firstAttribute="centerX" secondItem="qgF-Ed-Ttw" secondAttribute="centerX" multiplier="1.72" id="I8W-1R-6Bq"/>
                             <constraint firstItem="jEq-ma-4eo" firstAttribute="centerX" secondItem="9Jw-ny-MVG" secondAttribute="centerX" id="IDC-GB-74d"/>
                             <constraint firstItem="cKE-XV-AKa" firstAttribute="width" secondItem="qgF-Ed-Ttw" secondAttribute="width" multiplier="0.792" id="KDr-ZL-L4Y"/>
                             <constraint firstItem="BgH-RO-QqS" firstAttribute="trailing" secondItem="cKE-XV-AKa" secondAttribute="trailing" id="KYx-Pj-NIr"/>
@@ -393,9 +392,9 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Bitmap" width="22" height="22"/>
         <image name="CollectionViewBackground" width="286" height="278"/>
         <image name="arrowtriangle.right.fill" catalog="system" width="128" height="113"/>
+        <image name="chevron.right" catalog="system" width="96" height="128"/>
         <namedColor name="Background">
             <color red="0.95686274509803926" green="0.95686274509803926" blue="0.94117647058823528" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

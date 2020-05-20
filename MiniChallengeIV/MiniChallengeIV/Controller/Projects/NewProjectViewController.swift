@@ -58,8 +58,6 @@ class NewProjectViewController: UIViewController{
         }
         
         UIApplication.shared.sendAction(#selector(UIApplication.resignFirstResponder), to: nil, from: nil, for: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -82,6 +80,21 @@ class NewProjectViewController: UIViewController{
         
     }
     
+//    @IBAction func onClickDelete(_ sender: Any) {
+//
+//        projectBO.delete(uuid: project!.id, completion: { result in
+//            switch result {
+//
+//            case .success():
+//                delegate?.reloadList()
+//                dismiss(animated: true)
+//            case .failure(let error):
+//                showOkAlert(title: "Error", message: error.localizedDescription)
+//            }
+//        })
+//
+//    }
+    
     @IBAction func onClickSave(_ sender: Any) {
         saveProject()
     }
@@ -91,24 +104,25 @@ class NewProjectViewController: UIViewController{
     }
     
     private func saveProject() {
-        
-        guard projectNameLabel.text != nil else { return }
-        
-        projectName = projectNameLabel.text!
-        
-        if project == nil {
-            createProject()
+        guard project == nil else {
+            project?.name = projectNameLabel.text ?? ""
+            project?.color = projectColor
+            
+            projectBO.update(project: project!, completion: { result in
+                switch result {
+                case .success():
+                    dismiss(animated: true)
+                    delegate?.reloadList()
+                case .failure(let error):
+                    self.showOkAlert(title: "Error", message: error.localizedDescription )
+                }
+            })
+            
+            return
         }
-        else {
-            updateProject()
-        }
         
-    }
-    
-    private func createProject() {
-        guard validateName() else { return }
         
-        projectBO.create(name: projectName, color: projectColor, completion: { result in
+        projectBO.create(name: projectNameLabel.text ?? "MurilloTiozao", color: projectColor, completion: { result in
             
             switch result {
                 
@@ -116,74 +130,17 @@ class NewProjectViewController: UIViewController{
                 dismiss(animated: true)
                 delegate?.reloadList()
             case .failure(let error):
-                self.showAlert(title: "Error", message: error.localizedDescription)
+                self.showOkAlert(title: "Error", message: error.localizedDescription)
             }
             
         })
     }
     
-    private func updateProject() {
-        guard validateName() else { return }
-        
-        project?.name = projectName
-        project?.color = projectColor
-        
-        projectBO.update(project: project!, completion: { result in
-            switch result {
-            case .success():
-                dismiss(animated: true)
-                delegate?.reloadList()
-            case .failure(let error):
-                self.showAlert(title: "Error", message: error.localizedDescription )
-            }
-        })
-        
-    }
-    
-    private func validateName() -> Bool {
-        guard projectName.count != projectName.compactMap({ $0 == " " ? $0 : nil }).count else {
-            showAlert(title: "Nome do projeto não pode ser vazio!")
-            return false
-        }
-        
-        projectName = removeSpacesFromStartAndEnd(ofThe: projectName)
-        
-        projectNameLabel.resignFirstResponder()
-        return true
-    }
-    
-    private func removeSpacesFromStartAndEnd(ofThe string: String) -> String {
-        var s = string
-        if s.first == " " {
-            s.removeFirst()
-            s = removeSpacesFromStartAndEnd(ofThe: s)
-        }
-        else if s.last == " " {
-            s.removeLast()
-            s = removeSpacesFromStartAndEnd(ofThe: s)
-        }
-        return s
-    }
-    
-    func showAlert(title: String, message: String? = nil) {
+    func showOkAlert(title: String, message: String) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         let action = UIAlertAction(title: "Ok", style: .default, handler: nil)
         alert.addAction(action)
         present(alert, animated: true)
-    }
-    
-    @objc func keyboardWillShow(notification: NSNotification) {
-        if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
-            if self.view.frame.origin.y == 0 {
-                self.view.frame.origin.y -= keyboardSize.height / 2
-            }
-        }
-    }
-    
-    @objc func keyboardWillHide(notification: NSNotification) {
-        if self.view.frame.origin.y != 0 {
-            self.view.frame.origin.y = 0
-        }
     }
 }
 
@@ -191,10 +148,5 @@ extension NewProjectViewController: UITextFieldDelegate{
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         self.view.endEditing(true)
         return false
-    }
-    
-    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        guard let text = textField.text else { return false }
-        return text.count +  (string.count - range.length) <= 22
     }
 }
