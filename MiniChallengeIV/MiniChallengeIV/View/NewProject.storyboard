@@ -338,7 +338,7 @@
                                         </constraints>
                                     </imageView>
                                 </subviews>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <color key="backgroundColor" name="Background"/>
                                 <constraints>
                                     <constraint firstItem="KdM-hl-ac2" firstAttribute="leading" secondItem="hOE-GA-rBc" secondAttribute="trailing" constant="26" id="10E-yL-tj0"/>
                                     <constraint firstItem="ncG-gy-JeI" firstAttribute="top" secondItem="MjK-57-UMU" secondAttribute="bottom" constant="21" id="1Af-OV-5C0"/>
@@ -445,6 +445,9 @@
     </scenes>
     <resources>
         <image name="checkmark" catalog="system" width="128" height="114"/>
+        <namedColor name="Background">
+            <color red="0.95686274509803926" green="0.95686274509803926" blue="0.94117647058823528" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <namedColor name="Contrast">
             <color red="0.34901960784313724" green="0.49411764705882355" blue="0.48627450980392156" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
