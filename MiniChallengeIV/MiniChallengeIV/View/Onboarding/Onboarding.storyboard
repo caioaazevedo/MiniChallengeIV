@@ -19,10 +19,21 @@
                         <viewLayoutGuide key="safeArea" id="evG-kl-FmU"/>
                     </view>
                     <navigationItem key="navigationItem" id="l7t-7V-ejQ"/>
+                    <connections>
+                        <segue destination="vcK-Kd-d8C" kind="presentation" identifier="projects" id="eHm-Cv-HLV"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="D0H-Jx-Znk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="80" y="-514"/>
+        </scene>
+        <!--Projects-->
+        <scene sceneID="quo-EL-xWj">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Projects" id="vcK-Kd-d8C" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0xN-3R-0cw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="872" y="-508"/>
         </scene>
     </scenes>
     <resources>
