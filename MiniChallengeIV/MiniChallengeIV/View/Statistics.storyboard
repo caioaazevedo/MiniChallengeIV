@@ -300,48 +300,59 @@
                                     <userDefinedRuntimeAttribute type="string" keyPath="localisedKey" value="Try run a timer to add your progress"/>
                                 </userDefinedRuntimeAttributes>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pommo" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YBD-OB-EeI">
-                                <rect key="frame" x="39.5" y="99.5" width="335" height="34.5"/>
-                                <fontDescription key="fontDescription" name="Georgia" family="Georgia" pointSize="30"/>
-                                <color key="textColor" name="Label Black"/>
-                                <nil key="highlightedColor"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="adjustedValue">
-                                        <real key="value" value="30"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="3FC-yM-6zw">
+                                <rect key="frame" x="43" y="92.5" width="328" height="41.5"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="IconApp" translatesAutoresizingMaskIntoConstraints="NO" id="snf-4X-qpQ">
+                                        <rect key="frame" x="0.0" y="0.0" width="41.5" height="41.5"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="snf-4X-qpQ" secondAttribute="height" multiplier="1:1" id="nBN-JJ-uux"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pommo" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kdk-Mk-R7T">
+                                        <rect key="frame" x="51.5" y="0.0" width="276.5" height="41.5"/>
+                                        <fontDescription key="fontDescription" name="Georgia" family="Georgia" pointSize="30"/>
+                                        <color key="textColor" name="Label Black"/>
+                                        <nil key="highlightedColor"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="adjustedValue">
+                                                <real key="value" value="30"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </label>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" name="Background"/>
                         <constraints>
                             <constraint firstItem="hii-13-408" firstAttribute="width" secondItem="hsi-Hr-HZg" secondAttribute="width" multiplier="0.809179" id="0Ex-oo-DcW"/>
                             <constraint firstItem="2Jo-Kf-sAJ" firstAttribute="centerX" secondItem="yH6-Qb-wsQ" secondAttribute="centerX" id="1V7-9g-XbO"/>
-                            <constraint firstItem="YBD-OB-EeI" firstAttribute="trailing" secondItem="2Jo-Kf-sAJ" secondAttribute="trailing" id="353-I4-RcJ"/>
                             <constraint firstItem="iCV-KY-9nS" firstAttribute="centerY" secondItem="hii-13-408" secondAttribute="centerY" multiplier="0.9" id="8ym-4b-Slz"/>
                             <constraint firstItem="pjs-eu-6fR" firstAttribute="centerY" secondItem="iCV-KY-9nS" secondAttribute="centerY" multiplier="0.94" id="9ML-dq-AHK"/>
                             <constraint firstItem="iCV-KY-9nS" firstAttribute="height" secondItem="hii-13-408" secondAttribute="height" multiplier="0.549593" id="AIm-1n-kSV"/>
                             <constraint firstItem="xT0-Ex-U2j" firstAttribute="centerY" secondItem="jCh-8f-KyY" secondAttribute="centerY" id="Cih-OS-wL2"/>
-                            <constraint firstItem="2Jo-Kf-sAJ" firstAttribute="firstBaseline" secondItem="jCh-8f-KyY" secondAttribute="baseline" constant="16.5" symbolType="layoutAnchor" id="Cij-V5-gnF"/>
+                            <constraint firstItem="2Jo-Kf-sAJ" firstAttribute="firstBaseline" secondItem="jCh-8f-KyY" secondAttribute="baseline" constant="15" symbolType="layoutAnchor" id="Cij-V5-gnF"/>
                             <constraint firstItem="2Jo-Kf-sAJ" firstAttribute="centerY" secondItem="yH6-Qb-wsQ" secondAttribute="centerY" multiplier="0.6" id="EBb-wI-xS4"/>
                             <constraint firstItem="pjs-eu-6fR" firstAttribute="width" secondItem="hsi-Hr-HZg" secondAttribute="width" multiplier="0.486957" id="EPn-RO-YpH"/>
                             <constraint firstItem="xT0-Ex-U2j" firstAttribute="height" secondItem="hsi-Hr-HZg" secondAttribute="height" multiplier="0.0295759" id="F7N-JI-vuR"/>
                             <constraint firstItem="Muj-fh-VZg" firstAttribute="centerX" secondItem="yH6-Qb-wsQ" secondAttribute="centerX" id="GDJ-ux-uWC"/>
+                            <constraint firstItem="3FC-yM-6zw" firstAttribute="height" secondItem="hsi-Hr-HZg" secondAttribute="height" multiplier="0.045977" id="GQL-Io-a4l"/>
                             <constraint firstItem="iCV-KY-9nS" firstAttribute="width" secondItem="hii-13-408" secondAttribute="width" multiplier="0.75251" id="GgV-1p-R1T"/>
-                            <constraint firstItem="YBD-OB-EeI" firstAttribute="leading" secondItem="2Jo-Kf-sAJ" secondAttribute="leading" id="HcW-Cu-uT0"/>
                             <constraint firstItem="pjs-eu-6fR" firstAttribute="height" secondItem="hsi-Hr-HZg" secondAttribute="height" multiplier="0.18683" id="IEJ-eW-evs"/>
                             <constraint firstItem="2Jo-Kf-sAJ" firstAttribute="height" secondItem="hsi-Hr-HZg" secondAttribute="height" multiplier="0.179688" id="Nja-aQ-1cG"/>
                             <constraint firstItem="hii-13-408" firstAttribute="centerX" secondItem="yH6-Qb-wsQ" secondAttribute="centerX" id="TML-0q-TTY"/>
                             <constraint firstItem="pjs-eu-6fR" firstAttribute="centerX" secondItem="yH6-Qb-wsQ" secondAttribute="centerX" id="XYn-6g-0Lm"/>
                             <constraint firstItem="hii-13-408" firstAttribute="top" secondItem="2Jo-Kf-sAJ" secondAttribute="bottom" constant="13.5" id="cZA-hr-4Bu"/>
+                            <constraint firstItem="jCh-8f-KyY" firstAttribute="top" secondItem="3FC-yM-6zw" secondAttribute="bottom" constant="20.5" id="cnt-W0-5Q0"/>
                             <constraint firstItem="2Jo-Kf-sAJ" firstAttribute="width" secondItem="hsi-Hr-HZg" secondAttribute="width" multiplier="0.809179" id="dee-f4-Qb7"/>
-                            <constraint firstItem="jCh-8f-KyY" firstAttribute="top" secondItem="YBD-OB-EeI" secondAttribute="bottom" constant="20.5" id="dzj-P5-FjR"/>
                             <constraint firstItem="Qu7-jF-WJe" firstAttribute="centerX" secondItem="yH6-Qb-wsQ" secondAttribute="centerX" id="gg5-MY-ihN"/>
                             <constraint firstItem="iCV-KY-9nS" firstAttribute="centerX" secondItem="hii-13-408" secondAttribute="centerX" id="hHV-le-utc"/>
                             <constraint firstItem="jCh-8f-KyY" firstAttribute="leading" secondItem="2Jo-Kf-sAJ" secondAttribute="leading" id="o2r-Of-ow0"/>
                             <constraint firstItem="hii-13-408" firstAttribute="height" secondItem="hsi-Hr-HZg" secondAttribute="height" multiplier="0.541295" id="oLz-E9-fPa"/>
                             <constraint firstItem="Qu7-jF-WJe" firstAttribute="top" secondItem="Muj-fh-VZg" secondAttribute="bottom" constant="5" id="otB-Tc-rrx"/>
                             <constraint firstItem="xT0-Ex-U2j" firstAttribute="width" secondItem="hsi-Hr-HZg" secondAttribute="width" multiplier="0.0386473" id="qY9-KB-N1y"/>
-                            <constraint firstItem="YBD-OB-EeI" firstAttribute="centerX" secondItem="yH6-Qb-wsQ" secondAttribute="centerX" id="suf-Bx-xAa"/>
+                            <constraint firstItem="3FC-yM-6zw" firstAttribute="width" secondItem="hsi-Hr-HZg" secondAttribute="width" multiplier="0.792" id="sRI-cH-lwj"/>
+                            <constraint firstItem="3FC-yM-6zw" firstAttribute="centerX" secondItem="yH6-Qb-wsQ" secondAttribute="centerX" id="vNp-R3-5s9"/>
                             <constraint firstItem="xT0-Ex-U2j" firstAttribute="leading" secondItem="jCh-8f-KyY" secondAttribute="trailing" constant="8" id="xhX-bL-fEI"/>
                             <constraint firstItem="Qu7-jF-WJe" firstAttribute="bottom" secondItem="iCV-KY-9nS" secondAttribute="bottom" multiplier="0.99" id="xsF-AQ-AFu"/>
                         </constraints>
@@ -366,6 +377,7 @@
     </scenes>
     <resources>
         <image name="ChartBackground" width="189" height="189"/>
+        <image name="IconApp" width="29" height="28"/>
         <image name="chevron.down" catalog="system" width="128" height="72"/>
         <image name="chevron.left" catalog="system" width="96" height="128"/>
         <image name="chevron.right" catalog="system" width="96" height="128"/>
