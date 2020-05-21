@@ -83,7 +83,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         guard let t = timer else {return}
         if t.timer.isValid{
-            AppNotificationBO.shared.sendNotification(type: .didLoseFocus)
+//            AppNotificationBO.shared.sendNotification(type: .didLoseFocus)
             AppNotificationBO.shared.registerBgTask(timeRecover: timeRecover)
             timeRecover.enterbackground()
         }

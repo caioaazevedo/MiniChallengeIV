@@ -143,6 +143,11 @@ class TimerViewController: UIViewController {
     
     
     //MARK: START TIMER
+    
+    func startTimer() {
+        startTimer(btnStart)
+    }
+    
     @IBAction func startTimer(_ sender: UIButton) {
         if timeTracker.timer.isValid { // If it's running it stops instead
             stopTimer(sender)
@@ -162,6 +167,7 @@ class TimerViewController: UIViewController {
                 let popUpState = self.timeTracker.state == .focus ? PopUpMessages.focus : .pause
                 self.presentPopUp(state: popUpState)
                 AudioServicesPlayAlertSound(SystemSoundID(kSystemSoundID_Vibrate))
+                self.enablePopViewController(true)
             }
             self.timerLabel.text = time
         }
@@ -175,12 +181,7 @@ class TimerViewController: UIViewController {
         let delay = TimeInterval(timeTracker.convertedTimeValue)
         AppNotificationBO.shared.sendNotification(type: notificationType, delay: delay)
         //        self.navigationController?.navigationBar.topItem?.hidesBackButton = true
-        navigationController?.navigationBar.isUserInteractionEnabled = false
-        navigationController?.interactivePopGestureRecognizer?.isEnabled = false
-        navigationController?.navigationBar.tintColor = UIColor { (traitCollection: UITraitCollection) -> UIColor in
-            let userInterfaceStyle = traitCollection.userInterfaceStyle
-            return userInterfaceStyle == .unspecified || userInterfaceStyle == .light ? .lightGray : .darkGray
-        }
+        enablePopViewController(false)
     }
     
     //MARK: STOP TIMER
@@ -198,11 +199,25 @@ class TimerViewController: UIViewController {
         presentPopUp(state: .givenUp)
         UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
         //        self.navigationController?.navigationBar.topItem?.hidesBackButton = false
-        navigationController?.navigationBar.isUserInteractionEnabled = true
-        navigationController?.interactivePopGestureRecognizer?.isEnabled = true
-        navigationController?.navigationBar.tintColor = UIColor(named: "Contrast")
+        enablePopViewController(true)
         //Disable screen block
         UIApplication.shared.isIdleTimerDisabled = false
+    }
+    
+    func enablePopViewController(_ enable: Bool) {
+        if enable {
+            navigationController?.navigationBar.isUserInteractionEnabled = true
+            navigationController?.interactivePopGestureRecognizer?.isEnabled = true
+            navigationController?.navigationBar.tintColor = UIColor(named: "Contrast")
+        }
+        else {
+            navigationController?.navigationBar.isUserInteractionEnabled = false
+            navigationController?.interactivePopGestureRecognizer?.isEnabled = false
+            navigationController?.navigationBar.tintColor = UIColor { (traitCollection: UITraitCollection) -> UIColor in
+                let userInterfaceStyle = traitCollection.userInterfaceStyle
+                return userInterfaceStyle == .unspecified || userInterfaceStyle == .light ? .lightGray : .darkGray
+            }
+        }
     }
     
     ///Show Pop Up
