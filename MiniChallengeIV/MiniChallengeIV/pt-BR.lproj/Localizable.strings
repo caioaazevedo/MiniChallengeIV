@@ -1,0 +1,104 @@
+/*
+  Localizable.strings
+  MiniChallengeIV
+
+  Created by Fábio Maciel de Sousa on 17/05/20.
+  Copyright © 2020 Murilo Teixeira. All rights reserved.
+*/
+//POMMO QUOTES
+
+
+//MARK: Project
+
+"Progress" = "Progresso";
+"Your Projects" = "Seus Projetos";
+"Total" = "Total";
+"Focus" = "Foco";
+"Distraction" = "Distração";
+"Break" = "Pausa";
+"Add project" = "Adicionar projeto";
+"Edit project" = "Editar projeto";
+
+//MARK: Statistics
+
+"January" = "Janeiro";
+"February" = "Fevereiro";
+"March" = "Março";
+"April" = "Abril";
+"May" = "Maio";
+"June" = "Junho";
+"July" = "Julho";
+"August" = "Agosto";
+"September" = "Setembro";
+"October" = "Outubro";
+"November" = "Novembro";
+"December" = "Dezembro";
+
+"Current projects" = "Projetos atuais";
+"No data found" = "Nenhum dado encontrado";
+"Try run a timer to add your progress" = "Use o cronômetro do app";
+
+//MARK: New project
+
+"Work" = "Trabalho";
+"Cancel" = "Cancelar";
+"Save" = "Salvar";
+"Edit" = "Editar";
+"Delete" = "Excluir";
+
+//MARK: Timer
+
+"Start" = "Começar";
+"Retry" = "Recomeçar";
+"Give Up" = "Desistir";
+"Tasks" = "Tarefas";
+"Add tasks text" = "Adicionar tarefas para fazer durante o projeto";
+
+//MARK: Pop up
+"Focus title" = "Eba!";
+"Focus text" = "Parabéns!\nVocê conseguiu!";
+"Break title" = "OK!";
+"Break text" = "A pausa acabou!\nAgora é hora de focar novamente.";
+"Give Up title" = "Ops!";
+"Give Up text" = "Todo seu progresso foi perdido!\nVamos tentar focar de novo?";
+
+//MARK: Notifications
+"Lost Focus Notification" = "Perdeu o foco";
+"Lost Focus Body" = "Concentre-se para manter a produtividade";
+"End Focus Notification" = "Tempo de foco terminado";
+"End Focus Body" = "Já pode iniciar sua pausa";
+"Break Notification" = "Pausa terminada";
+"Break Body" = "Hora de voltar ao trabalho";
+"Long Time Notification" = "É hora de voltar a focar";
+"Long Time Body" = "Já faz tempo que não te vejo. Vamos voltar a focar em suas tarefas com o Pommo";
+"Yes" = "Sim";
+"Delete Project" = "Excluir Projeto";
+"Delete Message" = "Você tem certeza que deseja excluir esse projeto?";
+"Actions" = "Ações";
+
+//MARK: Onboarding
+//1
+"Onboard-text-1" = "Adicione projetos que deseja focar";
+"College" = "Facul";
+"Writting" = "Escrever";
+"UX Course" = "Curso de UX";
+//2
+"Onboard-text-2" = "Acompanhe seus projetos.";
+//3
+"Onboard-text-3" = "Escolha o tempo ideal para focar";
+//4
+"Onboard-text-4" = "Adicione algumas tarefas para fazer enquanto o tempo estiver contando.";
+"Create strategy" = "Criar estratégias";
+"Send email" = "Mandar email";
+//5
+"Onboard-text-5" = "Se desistir, o progresso sera perdido";
+//6
+"Onboard-text-6" = "Acompanhe as estatísticas dos seus projetos.";
+
+//MARK: Extra
+"Total Focus" = "Total Foco";
+"Total Distractions" = "Total Distração";
+"Total Break" = "Total Pausa";
+"Add new task" = "Adicionar nova tarefa";
+"no-projects" = "Ainda não tem projetos!";
+"add-projects" = "Adicione projetos que deseja focar";
