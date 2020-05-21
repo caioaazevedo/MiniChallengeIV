@@ -27,7 +27,7 @@ class AppNotificationBO: NSObject {
         super.init()
         UNUserNotificationCenter.current().delegate = self
         requestAuthorazition()
-        configureCategory()
+//        configureCategory()
     }
     
     //MARK:- Attributes
