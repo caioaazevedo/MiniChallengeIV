@@ -63,7 +63,11 @@ class OnboardingPagerViewController: UIViewController {
         let currentOffset = self.scrollView.contentOffset
         let newOffset = CGPoint(x: currentOffset.x + self.widthPage, y: currentOffset.y)
         
-        guard newOffset.x <= widthPage * CGFloat(vcs.count) - 1 else { return }
+        guard newOffset.x <= widthPage * CGFloat(vcs.count) - 1 else {
+            UserDefaults.standard.set(true, forKey: "onboardingWasDisplayed")
+            performSegue(withIdentifier: "projects", sender: self)
+            return
+        }
         
         UIView.animate(withDuration: 0.5, delay: 0, options: .curveEaseInOut, animations: {
             self.scrollView.contentOffset = newOffset

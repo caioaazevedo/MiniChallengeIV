@@ -39,7 +39,6 @@
                                 </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="onClickStart:" destination="r4q-dl-nwb" eventType="touchUpInside" id="F1X-it-lvt"/>
-                                    <segue destination="g2I-B9-Wc0" kind="show" id="Wxk-hO-QEE"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -54,6 +53,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="qua-NH-43d"/>
                     </view>
+                    <connections>
+                        <segue destination="g2I-B9-Wc0" kind="presentation" identifier="projects" id="nBa-NC-J5b"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="i5a-Bo-ryz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
