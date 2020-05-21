@@ -11,7 +11,7 @@
         <!--Timer View Controller-->
         <scene sceneID="uMc-5N-B0o">
             <objects>
-                <viewController modalPresentationStyle="fullScreen" id="dzJ-Fy-LCJ" customClass="TimerViewController" customModule="Pommo" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="vc" modalPresentationStyle="fullScreen" id="dzJ-Fy-LCJ" customClass="TimerViewController" customModule="Pommo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="cJM-vG-g4v">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

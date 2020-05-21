@@ -10,15 +10,25 @@ import NotificationCenter
 import UserNotifications
 import Foundation
 
-enum NotificationType {
+enum NotificationType: String {
     case didFinishFocus, didFinishBreak, didLoseFocus, comeBackToTheApp
 }
 
-class AppNotificationBO {
+enum ActionNotification: String {
+    case beginBreak, beginFocus
+}
+
+class AppNotificationBO: NSObject {
+    
     //MARK:- Singleton setup
     static let shared = AppNotificationBO()
     
-    private init() {}
+    private override init() {
+        super.init()
+        UNUserNotificationCenter.current().delegate = self
+        requestAuthorazition()
+        configureCategory()
+    }
     
     //MARK:- Attributes
     private var badgeNumber: Int {
@@ -32,16 +42,7 @@ class AppNotificationBO {
     
     let notificationCenter = UNUserNotificationCenter.current()
     
-    //MARK:- Methods
-    func requestAuthorazition() {
-        let options: UNAuthorizationOptions = [.alert, .sound, .badge]
-        
-        notificationCenter.requestAuthorization(options: options) { (didAllow, error) in
-            if !didAllow {
-                print("User has declined notifications")
-            }
-        }
-    }
+    var bgTask = UIBackgroundTaskIdentifier.invalid
     
     func sendNotification(type: NotificationType, delay: TimeInterval = 2) {
         var localizedTitle: String?
@@ -63,36 +64,27 @@ class AppNotificationBO {
         }
         if let title = localizedBody,
             let body = localizedTitle{
-            sendNotification(title: title, subtitle: "", body: body, delay: delay)
-        }
-    }
-    
-    private func sendNotification(title: String, subtitle: String, body: String, delay: TimeInterval? = 2, repeats: Bool? = false) {
-        
-        checkAuthorization() { allow in
-            guard allow else { return }
-            
-            let notificationContent = UNMutableNotificationContent()
-            notificationContent.title = title
-            notificationContent.subtitle = subtitle
-            notificationContent.body = body
-            notificationContent.sound = UNNotificationSound.default
-
-            DispatchQueue.main.async {
-                notificationContent.badge = NSNumber(value: self.badgeNumber + 1)
-            }
-            
-            //            let t = UNCalendarNotificationTrigger(dateMatching: DateComponents, repeats: false) // Agendar notificação para a próxima hora == dateMatching
-            let trigger = UNTimeIntervalNotificationTrigger(timeInterval: delay!, repeats: repeats!)
-            let request = UNNotificationRequest(identifier: UUID().uuidString, content: notificationContent, trigger: trigger)
-            
-            self.notificationCenter.add(request)
+            sendNotification(title: title, subtitle: "", body: body, category: type, delay: delay)
         }
     }
     
     func resetBagde() {
         DispatchQueue.main.async {
             self.badgeNumber = 0
+        }
+    }
+    
+}
+
+extension AppNotificationBO {
+
+    private func requestAuthorazition() {
+        let options: UNAuthorizationOptions = [.alert, .sound, .badge]
+        
+        notificationCenter.requestAuthorization(options: options) { (didAllow, error) in
+            if !didAllow {
+                print("User has declined notifications")
+            }
         }
     }
     
@@ -107,20 +99,81 @@ class AppNotificationBO {
         }
     }
     
+    private func sendNotification(title: String, subtitle: String, body: String, category: NotificationType? = .none, delay: TimeInterval? = 0, repeats: Bool? = false) {
+        
+        checkAuthorization() { allow in
+            guard allow else { return }
+            
+            let notificationContent = UNMutableNotificationContent()
+            notificationContent.title = title
+            notificationContent.subtitle = subtitle
+            notificationContent.body = body
+            notificationContent.sound = UNNotificationSound.default
+            print(notificationContent.categoryIdentifier)
+            notificationContent.categoryIdentifier = category!.rawValue
+
+            DispatchQueue.main.async {
+                notificationContent.badge = NSNumber(value: self.badgeNumber + 1)
+            }
+            
+            //            let t = UNCalendarNotificationTrigger(dateMatching: DateComponents, repeats: false) // Agendar notificação para a próxima hora == dateMatching
+            let trigger = UNTimeIntervalNotificationTrigger(timeInterval: delay!, repeats: repeats!)
+            let request = UNNotificationRequest(identifier: UUID().uuidString, content: notificationContent, trigger: trigger)
+            
+            self.notificationCenter.add(request)
+        }
+    }
+
+    private func configureCategory() {
+        // Define Actions
+        let beginFocus = UNNotificationAction(identifier: ActionNotification.beginFocus.rawValue, title: "Iniciar foco", options: [])
+        let beginBreak = UNNotificationAction(identifier: ActionNotification.beginBreak.rawValue, title: "Iniciar pausa", options: [])
+
+        // Define Category
+        let focusCategory = UNNotificationCategory(identifier: NotificationType.didFinishBreak.rawValue, actions: [beginFocus], intentIdentifiers: [], options: [])
+        let breakCategory = UNNotificationCategory(identifier: NotificationType.didFinishFocus.rawValue, actions: [beginBreak], intentIdentifiers: [], options: [])
+
+        // Register Category
+        UNUserNotificationCenter.current().setNotificationCategories([focusCategory, breakCategory])
+    }
+
+}
+
+extension AppNotificationBO: UNUserNotificationCenterDelegate {
+    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        completionHandler([.alert, .badge, .badge])
+    }
+
+    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
+        
+        let storyboard = UIStoryboard(name: "Timer", bundle: nil)
+        guard let vc = storyboard.instantiateViewController(withIdentifier: "vc") as? TimerViewController else { return }
+        
+        switch response.actionIdentifier {
+        case ActionNotification.beginBreak.rawValue:
+//            vc.startTimer()
+            print("Break tapped")
+        case ActionNotification.beginFocus.rawValue:
+            print("Focus tapped")
+        default:
+            print("Other Action")
+        }
+
+        completionHandler()
+    }
+}
+
+extension AppNotificationBO {
     //MARK:- Background task
-    var bgTask = UIBackgroundTaskIdentifier.invalid
     
     func registerBgTask(timeRecover: TimeRecoverBO) {
         bgTask = UIApplication.shared.beginBackgroundTask {
-            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-                let brightness = UIScreen.main.brightness
-                if brightness > 0 {
-                    self.sendNotification(type: .didLoseFocus)
-                    // parar timer
-                    timeRecover.backgroundStatus = .homeScreen
-                } else {
-                    timeRecover.backgroundStatus = .lockScreen
-                }
+            let brightness = UIScreen.main.brightness
+            if brightness > 0 {
+                self.sendNotification(type: .didLoseFocus)
+                timeRecover.backgroundStatus = .homeScreen
+            } else {
+                timeRecover.backgroundStatus = .lockScreen
             }
             
             self.removeBgTask()
@@ -128,8 +181,8 @@ class AppNotificationBO {
     }
     
     func removeBgTask() {
-        UIApplication.shared.endBackgroundTask(bgTask)
-        bgTask = .invalid
+        UIApplication.shared.endBackgroundTask(self.bgTask)
+        self.bgTask = .invalid
     }
     
 }
