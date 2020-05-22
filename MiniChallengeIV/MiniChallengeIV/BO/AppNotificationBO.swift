@@ -146,9 +146,6 @@ extension AppNotificationBO: UNUserNotificationCenterDelegate {
 
     func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
         
-        let storyboard = UIStoryboard(name: "Timer", bundle: nil)
-        guard let vc = storyboard.instantiateViewController(withIdentifier: "vc") as? TimerViewController else { return }
-        
         switch response.actionIdentifier {
         case ActionNotification.beginBreak.rawValue:
 //            vc.startTimer()
