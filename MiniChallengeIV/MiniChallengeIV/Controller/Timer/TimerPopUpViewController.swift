@@ -37,6 +37,15 @@ class TimerPopUpViewController: UIViewController {
         setupDictionary()
         setupPopUp()
         self.adaptAutoLayout()
+        
+        updateNavigationController()
+    }
+    
+    private func updateNavigationController() {
+        let storyboard = UIStoryboard(name: "Timer", bundle: nil)
+        guard let vc = storyboard.instantiateViewController(withIdentifier: "vc") as? TimerViewController else { return }
+        
+        vc.enablePopViewController(true)
     }
     
     //Set up the texts for when timer ends

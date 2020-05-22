@@ -105,6 +105,18 @@ class TimerViewController: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
         
         self.taskState.enter(NormalState.self)
+        
+        btnStart.addTarget(self, action: #selector(hapticFeedbackMedium), for: .touchUpInside)
+        btnInscrease.addTarget(self, action: #selector(hapticFeedbackSelection), for: .touchUpInside)
+        btnDecrease.addTarget(self, action: #selector(hapticFeedbackSelection), for: .touchUpInside)
+    }
+    
+    @objc private func hapticFeedbackSelection() {
+        UISelectionFeedbackGenerator().selectionChanged()
+    }
+    
+    @objc private func hapticFeedbackMedium() {
+        UIImpactFeedbackGenerator(style: .medium).impactOccurred()
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -166,7 +178,8 @@ class TimerViewController: UIViewController {
                 self.ringView.removeAnimation()
                 let popUpState = self.timeTracker.state == .focus ? PopUpMessages.focus : .pause
                 self.presentPopUp(state: popUpState)
-                AudioServicesPlayAlertSound(SystemSoundID(kSystemSoundID_Vibrate))
+                UIApplication.shared.isIdleTimerDisabled = false
+//                AudioServicesPlayAlertSound(SystemSoundID(kSystemSoundID_Vibrate))
                 self.enablePopViewController(true)
             }
             self.timerLabel.text = time
@@ -226,12 +239,22 @@ class TimerViewController: UIViewController {
             tpvc.modalTransitionStyle = .crossDissolve
             tpvc.modalPresentationStyle = .overCurrentContext
             tpvc.popUpState = state
+            hapticFeedback(state)
             self.present(tpvc, animated: true)
         }
     }
     
+    private func hapticFeedback(_ state: PopUpMessages) {
+        if state == .focus || state == .pause {
+            UINotificationFeedbackGenerator().notificationOccurred(.success)
+        }
+        else if state == .givenUp {
+            UINotificationFeedbackGenerator().notificationOccurred(.error)
+        }
+    }
+    
     ///Shake view animation
-    func shakeView(_ viewToShake: UIView){
+    func shakeView(_ viewToShake: UIView) {
         let animation = CABasicAnimation(keyPath: "position")
         animation.duration = 0.07
         animation.repeatCount = 4
@@ -240,7 +263,8 @@ class TimerViewController: UIViewController {
         animation.toValue = NSValue(cgPoint: CGPoint(x: viewToShake.center.x + 10, y: viewToShake.center.y))
         
         viewToShake.layer.add(animation, forKey: "position")
-        AudioServicesPlayAlertSound(SystemSoundID(kSystemSoundID_Vibrate))
+//        AudioServicesPlayAlertSound(SystemSoundID(kSystemSoundID_Vibrate))
+        UINotificationFeedbackGenerator().notificationOccurred(.error)
     }
     
     ///Increment timer for the count down
