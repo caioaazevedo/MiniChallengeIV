@@ -12,6 +12,11 @@ class CDManager {
     
     // MARK:- Singleton
     static var shared = CDManager()
+    var viewContext: NSManagedObjectContext {
+        let viewContext = persistentContainer.viewContext
+        viewContext.automaticallyMergesChangesFromParent = true
+        return viewContext
+    }
     
     private init() { }
     
