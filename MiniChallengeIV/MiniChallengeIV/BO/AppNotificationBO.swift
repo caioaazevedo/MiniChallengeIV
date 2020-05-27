@@ -167,7 +167,9 @@ extension AppNotificationBO {
         bgTask = UIApplication.shared.beginBackgroundTask {
             let brightness = UIScreen.main.brightness
             if brightness > 0 {
-                self.sendNotification(type: .didLoseFocus)
+                if timeRecover.timer.state == .focus {
+                    self.sendNotification(type: .didLoseFocus)
+                }
                 timeRecover.backgroundStatus = .homeScreen
             } else {
                 timeRecover.backgroundStatus = .lockScreen
