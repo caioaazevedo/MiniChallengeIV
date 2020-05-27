@@ -14,6 +14,7 @@
 		409CA8E324635D3200D9D1F2 /* TaskTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 409CA8E224635D3200D9D1F2 /* TaskTableViewCell.swift */; };
 		409D5032245B4E35006D66AC /* TaskBO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 409D5031245B4E35006D66AC /* TaskBO.swift */; };
 		409D5034245B4EC5006D66AC /* TaskDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 409D5033245B4EC5006D66AC /* TaskDAO.swift */; };
+		40C1F2852478228000C28D92 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 40C1F2842478228000C28D92 /* CloudKit.framework */; };
 		40D0EDB324745EED00D8E1A1 /* NormalState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40D0EDB224745EED00D8E1A1 /* NormalState.swift */; };
 		40D0EDB524745F2D00D8E1A1 /* SaveState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40D0EDB424745F2D00D8E1A1 /* SaveState.swift */; };
 		40D0EDB724745F6E00D8E1A1 /* UpdateState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40D0EDB624745F6E00D8E1A1 /* UpdateState.swift */; };
@@ -110,6 +111,7 @@
 		409CA8E224635D3200D9D1F2 /* TaskTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskTableViewCell.swift; sourceTree = "<group>"; };
 		409D5031245B4E35006D66AC /* TaskBO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskBO.swift; sourceTree = "<group>"; };
 		409D5033245B4EC5006D66AC /* TaskDAO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskDAO.swift; sourceTree = "<group>"; };
+		40C1F2842478228000C28D92 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		40D0EDB224745EED00D8E1A1 /* NormalState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NormalState.swift; sourceTree = "<group>"; };
 		40D0EDB424745F2D00D8E1A1 /* SaveState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveState.swift; sourceTree = "<group>"; };
 		40D0EDB624745F6E00D8E1A1 /* UpdateState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateState.swift; sourceTree = "<group>"; };
@@ -200,6 +202,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C0B1C6369AC453260A6A5780 /* Pods_MiniChallengeIV.framework in Frameworks */,
+				40C1F2852478228000C28D92 /* CloudKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -498,6 +501,7 @@
 		ED7B9BA554F1A2A4BE525E1C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				40C1F2842478228000C28D92 /* CloudKit.framework */,
 				1499B5CF32B9AC252BE6600A /* Pods_MiniChallengeIV.framework */,
 				DEFEA8B79FCFC6B731A419E6 /* Pods_MiniChallengeIV_MiniChallengeIVUITests.framework */,
 				9B5FAA7EE1408CAF55BF3CA6 /* Pods_MiniChallengeIVTests.framework */,
@@ -996,14 +1000,15 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = MiniChallengeIV/MiniChallengeIV.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 6;
-				DEVELOPMENT_TEAM = 6R4QWP27L3;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = KFC8C5H4A6;
 				INFOPLIST_FILE = MiniChallengeIV/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.0.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.DeveloperAcademy.Pommo;
 				PRODUCT_NAME = Pommo;
 				SWIFT_VERSION = 5.0;
@@ -1018,14 +1023,15 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = MiniChallengeIV/MiniChallengeIV.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 6;
-				DEVELOPMENT_TEAM = 6R4QWP27L3;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = KFC8C5H4A6;
 				INFOPLIST_FILE = MiniChallengeIV/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.0.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.DeveloperAcademy.Pommo;
 				PRODUCT_NAME = Pommo;
 				SWIFT_VERSION = 5.0;
