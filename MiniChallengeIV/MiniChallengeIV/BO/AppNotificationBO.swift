@@ -26,7 +26,6 @@ class AppNotificationBO: NSObject {
     private override init() {
         super.init()
         UNUserNotificationCenter.current().delegate = self
-        requestAuthorazition()
 //        configureCategory()
     }
     
@@ -78,7 +77,7 @@ class AppNotificationBO: NSObject {
 
 extension AppNotificationBO {
 
-    private func requestAuthorazition() {
+    func requestAuthorazition() {
         let options: UNAuthorizationOptions = [.alert, .sound, .badge]
         
         notificationCenter.requestAuthorization(options: options) { (didAllow, error) in

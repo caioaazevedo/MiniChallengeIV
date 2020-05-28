@@ -40,10 +40,6 @@ class OnboardingPagerViewController: UIViewController {
     }
     var widthPage: CGFloat = 0
     
-    override func viewWillAppear(_ animated: Bool) {
-        self.navigationController?.setNavigationBarHidden(true, animated: true)
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -52,6 +48,15 @@ class OnboardingPagerViewController: UIViewController {
         setupPageControl()
         
         setupTapGesture()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.setNavigationBarHidden(true, animated: true)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        AppNotificationBO.shared.requestAuthorazition()
     }
     
     private func setupTapGesture() {
