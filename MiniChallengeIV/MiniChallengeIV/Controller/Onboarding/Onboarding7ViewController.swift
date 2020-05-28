@@ -20,7 +20,7 @@ class Onboarding7ViewController: UIViewController {
     @IBAction func onClickStart(_ sender: Any) {
         UserDefaults.standard.set(true, forKey: "onboardingWasDisplayed")
         performSegue(withIdentifier: "projects", sender: self)
-        
+        AppNotificationBO.shared.requestAuthorazition()
     }
     
 }

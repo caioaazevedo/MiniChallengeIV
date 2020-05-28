@@ -12,10 +12,15 @@ class LaunchScreenAnimatedViewController: UIViewController {
 
     @IBOutlet weak var ringView: AnimatedRingView!
     
+    private var canNext = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        ProjectBO().retrieve { _ in
+            goToProjectViewController()
+        }
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -27,8 +32,30 @@ class LaunchScreenAnimatedViewController: UIViewController {
         delay(1) {
             self.ringView.animateRing(From: 0, FromAngle: 0, To: 1, Duration: 1.25, timing: .easeInEaseOut)
             self.delay(2) {
-                self.performSegue(withIdentifier: "projects", sender: self)
+                self.canNext = true
+                self.goToProjectViewController()
             }
+        }
+    }
+    
+    private func goToProjectViewController() {
+        guard canNext else { return }
+        
+        guard UserDefaults.standard.bool(forKey: "onboardingWasDisplayed") else {
+            goToOnboardingViewController()
+            return
+        }
+        
+        performSegue(withIdentifier: "projects", sender: self)
+    }
+    
+    private func goToOnboardingViewController() {
+        
+        if let onboardingVC = UIStoryboard.loadView(from: .Onboarding, identifier: .VC) as? OnboardingPagerViewController {
+            onboardingVC.modalTransitionStyle = .crossDissolve
+            onboardingVC.modalPresentationStyle = .overCurrentContext
+            
+            self.present(onboardingVC, animated: true)
         }
     }
     

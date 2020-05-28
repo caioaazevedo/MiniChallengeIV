@@ -54,11 +54,6 @@ class OnboardingPagerViewController: UIViewController {
         self.navigationController?.setNavigationBarHidden(true, animated: true)
     }
     
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        AppNotificationBO.shared.requestAuthorazition()
-    }
-    
     private func setupTapGesture() {
         let tap = UITapGestureRecognizer(target: self, action: #selector(handleTap))
         scrollView.addGestureRecognizer(tap)
@@ -69,8 +64,9 @@ class OnboardingPagerViewController: UIViewController {
         let newOffset = CGPoint(x: currentOffset.x + self.widthPage, y: currentOffset.y)
         
         guard newOffset.x <= widthPage * CGFloat(vcs.count) - 1 else {
-            UserDefaults.standard.set(true, forKey: "onboardingWasDisplayed")
-            performSegue(withIdentifier: "projects", sender: self)
+            if let lastOnboarding = vcs.last as? Onboarding7ViewController {
+                lastOnboarding.onClickStart(self)
+            }
             return
         }
         
