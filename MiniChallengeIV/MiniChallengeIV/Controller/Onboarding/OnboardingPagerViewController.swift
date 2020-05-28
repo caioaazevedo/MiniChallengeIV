@@ -40,10 +40,6 @@ class OnboardingPagerViewController: UIViewController {
     }
     var widthPage: CGFloat = 0
     
-    override func viewWillAppear(_ animated: Bool) {
-        self.navigationController?.setNavigationBarHidden(true, animated: true)
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -52,6 +48,10 @@ class OnboardingPagerViewController: UIViewController {
         setupPageControl()
         
         setupTapGesture()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.setNavigationBarHidden(true, animated: true)
     }
     
     private func setupTapGesture() {
@@ -64,8 +64,9 @@ class OnboardingPagerViewController: UIViewController {
         let newOffset = CGPoint(x: currentOffset.x + self.widthPage, y: currentOffset.y)
         
         guard newOffset.x <= widthPage * CGFloat(vcs.count) - 1 else {
-            UserDefaults.standard.set(true, forKey: "onboardingWasDisplayed")
-            performSegue(withIdentifier: "projects", sender: self)
+            if let lastOnboarding = vcs.last as? Onboarding7ViewController {
+                lastOnboarding.onClickStart(self)
+            }
             return
         }
         

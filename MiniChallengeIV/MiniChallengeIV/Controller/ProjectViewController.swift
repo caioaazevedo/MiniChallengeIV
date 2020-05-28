@@ -27,13 +27,11 @@ class ProjectViewController: UIViewController {
         super.viewDidLoad()
         
         createStatistics()
-        reloadList()
         
         collectionView.collectionViewLayout = collectionLayout
         
         self.navigationController?.navigationBar.shadowImage = UIImage()
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
-    
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -44,14 +42,8 @@ class ProjectViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         getCurrentStatistics()
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        collectionView.reloadData()
         
-        
-        goToOnboardingViewController()
+        reloadList()
     }
     
     @IBAction func addProjectButtonAction(_ sender: Any) {
@@ -60,18 +52,6 @@ class ProjectViewController: UIViewController {
     
     @IBAction func showStatistics(_ sender: Any) {
         performSegue(withIdentifier: "statistics", sender: nil)
-    }
-    
-    /// Go to Onboarding
-    private func goToOnboardingViewController() {
-        guard !UserDefaults.standard.bool(forKey: "onboardingWasDisplayed") else { return }
-
-        if let onboardingVC = UIStoryboard.loadView(from: .Onboarding, identifier: .VC) as? OnboardingPagerViewController {
-            onboardingVC.modalTransitionStyle = .crossDissolve
-            onboardingVC.modalPresentationStyle = .overCurrentContext
-            
-            self.present(onboardingVC, animated: true)
-        }
     }
     
     /// Go to NewProjectViewController
@@ -140,7 +120,7 @@ class ProjectViewController: UIViewController {
         //Convert it to int
         let calendar = Calendar.current
         let components = calendar.dateComponents([.year, .month], from: date)
-
+        
         guard let year = components.year,
             let month = components.month else {return}
         //implement it in statistics
@@ -211,7 +191,7 @@ class ProjectViewController: UIViewController {
 }
 
 extension ProjectViewController: ReloadProjectListDelegate {
-    func reloadList(){
+    func reloadList() {
         projectBO.retrieve(completion: { result in
             switch result {
             case .success(let projects):
@@ -222,7 +202,6 @@ extension ProjectViewController: ReloadProjectListDelegate {
                 print(error.localizedDescription)
             }
         })
-        
     }
 }
 
@@ -231,7 +210,7 @@ extension ProjectViewController: UICollectionViewDelegate {
         self.selectedProjectId = indexPath.row
         performSegue(withIdentifier: "GoToTimer", sender: self)
     }
-
+    
     
     /// Menu configuration
     func collectionView(_ collectionView: UICollectionView, contextMenuConfigurationForItemAt indexPath: IndexPath, point: CGPoint) -> UIContextMenuConfiguration? {
