@@ -43,6 +43,10 @@ class ProjectViewController: UIViewController {
         super.viewWillAppear(true)
         getCurrentStatistics()
         
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         reloadList()
     }
     
@@ -192,16 +196,15 @@ class ProjectViewController: UIViewController {
 
 extension ProjectViewController: ReloadProjectListDelegate {
     func reloadList() {
-        projectBO.retrieve(completion: { result in
+        projectBO.retrieve() { result in
             switch result {
             case .success(let projects):
                 self.projects = projects
-                
-                collectionView.reloadData()
             case .failure(let error):
-                print(error.localizedDescription)
+                NSLog("ProjectViewController - Error fetching data: %@", error.localizedDescription)
             }
-        })
+            collectionView.reloadData()
+        }
     }
 }
 

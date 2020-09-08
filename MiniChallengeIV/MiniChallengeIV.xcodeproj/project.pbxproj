@@ -1008,7 +1008,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.3;
+				MARKETING_VERSION = 1.0.4;
 				PRODUCT_BUNDLE_IDENTIFIER = com.DeveloperAcademy.Pommo;
 				PRODUCT_NAME = Pommo;
 				SWIFT_VERSION = 5.0;
@@ -1031,7 +1031,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.3;
+				MARKETING_VERSION = 1.0.4;
 				PRODUCT_BUNDLE_IDENTIFIER = com.DeveloperAcademy.Pommo;
 				PRODUCT_NAME = Pommo;
 				SWIFT_VERSION = 5.0;
